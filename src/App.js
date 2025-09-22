@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import CoursesPage from './pages/CoursesPage';
+import StudentServicesPage from './pages/StudentServicesPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+
+function Layout() {
+  const { pathname } = useLocation();
+  const showTicker = pathname === '/';
+
+  return (
+    <div className="app-root bg-body-tertiary" id="top">
+      <Header showTicker={showTicker} />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="courses" element={<CoursesPage />} />
+          <Route path="student-services" element={<StudentServicesPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="contact" element={<ContactPage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
