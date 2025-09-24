@@ -1,4 +1,9 @@
-const aboutSections = [
+type AboutSection = {
+  title: string;
+  body: string;
+};
+
+const aboutSections: AboutSection[] = [
   {
     title: 'Who We Are',
     body:
@@ -17,16 +22,16 @@ const aboutSections = [
   {
     title: 'Proven Success Stories',
     body:
-      'The results speak for themselves—hundreds of students have applied through MHS Global Associates and achieved success in securing admissions to prestigious universities worldwide. Each success story adds to our growing legacy of transforming dreams into reality, building trust and confidence among students and families alike.',
+      'The results speak for themselvesâ€”hundreds of students have applied through MHS Global Associates and achieved success in securing admissions to prestigious universities worldwide. Each success story adds to our growing legacy of transforming dreams into reality, building trust and confidence among students and families alike.',
   },
   {
     title: 'Our Commitment',
     body:
-      'As we continue to grow, our commitment remains strong—to guide, support, and inspire the next generation of global achievers. With professionalism, integrity, and passion for education, MHS Global Associates stands as a reliable partner in shaping brighter futures and turning aspirations into accomplishments.',
+      'As we continue to grow, our commitment remains strongâ€”to guide, support, and inspire the next generation of global achievers. With professionalism, integrity, and passion for education, MHS Global Associates stands as a reliable partner in shaping brighter futures and turning aspirations into accomplishments.',
   },
 ];
 
-const serviceLinks = [
+const serviceLinks: string[] = [
   'Accommodation',
   'Finance',
   'Services',
@@ -35,14 +40,14 @@ const serviceLinks = [
   'UK Institutions',
 ];
 
-const courseLinks = [
+const courseLinks: string[] = [
   'Foundation',
   'Undergraduate',
   'Postgraduate',
   'Short Courses',
 ];
 
-function AboutPage() {
+const AboutPage = (): JSX.Element => {
   return (
     <>
       <section className="about-hero position-relative text-white">
@@ -88,7 +93,7 @@ function AboutPage() {
                     </div>
                     <div className="col-12">
                       <label className="form-label">Message</label>
-                      <textarea className="form-control" rows="4" placeholder="Tell us how we can help you" required></textarea>
+                      <textarea className="form-control" rows={4} placeholder="Tell us how we can help you" required></textarea>
                     </div>
                     <div className="col-12">
                       <button type="submit" className="btn btn-primary btn-lg w-100">
@@ -135,6 +140,6 @@ function AboutPage() {
       </section>
     </>
   );
-}
+};
 
 export default AboutPage;

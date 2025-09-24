@@ -8,7 +8,7 @@ import StudentServicesPage from './pages/StudentServicesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 
-function Layout() {
+const Layout = (): JSX.Element => {
   const { pathname } = useLocation();
   const showTicker = pathname === '/';
 
@@ -21,9 +21,9 @@ function Layout() {
       <Footer />
     </div>
   );
-}
+};
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <Router>
       <Routes>
@@ -37,6 +37,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

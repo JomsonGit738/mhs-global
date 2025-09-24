@@ -1,4 +1,10 @@
-const foundationHighlights = [
+type FoundationHighlight = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+const foundationHighlights: FoundationHighlight[] = [
   {
     icon: 'bi-mortarboard',
     title: 'Expert Faculty',
@@ -21,7 +27,14 @@ const foundationHighlights = [
   },
 ];
 
-const foundationPrograms = [
+type FoundationProgram = {
+  title: string;
+  duration: string;
+  description: string;
+  href: string;
+};
+
+const foundationPrograms: FoundationProgram[] = [
   {
     title: 'Business Foundation',
     duration: '1 Year',
@@ -60,7 +73,7 @@ const foundationPrograms = [
   },
 ];
 
-function CoursesPage() {
+const CoursesPage = (): JSX.Element => {
   return (
     <section className="foundation-section py-5 py-lg-6 bg-white" id="courses">
       <div className="container">
@@ -130,6 +143,6 @@ function CoursesPage() {
       </div>
     </section>
   );
-}
+};
 
 export default CoursesPage;

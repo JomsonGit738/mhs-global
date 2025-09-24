@@ -1,4 +1,11 @@
-const promoHighlights = [
+type PromoHighlight = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+};
+
+const promoHighlights: PromoHighlight[] = [
   {
     id: 'uk-intake',
     eyebrow: 'Study in the UK at top universities',
@@ -7,7 +14,7 @@ const promoHighlights = [
   },
 ];
 
-const networkPins = [
+const networkPins: string[] = [
   'United Kingdom',
   'United States',
   'Canada',
@@ -18,7 +25,7 @@ const networkPins = [
   'Malaysia',
 ];
 
-const partnerLogos = [
+const partnerLogos: string[] = [
   'University of Birmingham',
   'University of Aberdeen',
   'Bangor University',
@@ -26,7 +33,13 @@ const partnerLogos = [
   'Aberystwyth University',
 ];
 
-const courses = [
+type Course = {
+  title: string;
+  summary: string;
+  image: string;
+};
+
+const courses: Course[] = [
   {
     title: 'Foundation Courses',
     summary: "Bridge programs designed to prepare you for undergraduate studies with confident English and academic skills.",
@@ -65,7 +78,14 @@ const courses = [
   },
 ];
 
-const contactChannels = [
+type ContactChannel = {
+  icon: string;
+  label: string;
+  value: string;
+  href?: string;
+};
+
+const contactChannels: ContactChannel[] = [
   {
     icon: 'bi-telephone',
     label: 'Phone',
@@ -90,7 +110,13 @@ const contactChannels = [
   },
 ];
 
-const testimonials = [
+type Testimonial = {
+  name: string;
+  program: string;
+  quote: string;
+};
+
+const testimonials: Testimonial[] = [
   {
     name: 'John Eseny',
     program: 'MSc Data Science - University of Birmingham',
@@ -111,7 +137,7 @@ const testimonials = [
   },
 ];
 
-function HomePage() {
+const HomePage = (): JSX.Element => {
   return (
     <>
         <section className="hero-section py-5 py-lg-6">
@@ -311,7 +337,7 @@ function HomePage() {
                     </div>
                     <div className="col-12">
                       <label className="form-label">Message</label>
-                      <textarea className="form-control" rows="4" placeholder="Tell us about your academic goals"></textarea>
+                      <textarea className="form-control" rows={4} placeholder="Tell us about your academic goals"></textarea>
                     </div>
                     <div className="col-12">
                       <button type="submit" className="btn btn-primary btn-lg">
@@ -369,6 +395,6 @@ function HomePage() {
       
     </>
   );
-}
+};
 
 export default HomePage;

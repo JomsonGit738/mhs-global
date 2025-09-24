@@ -29,9 +29,13 @@ const footerColumns = [
       { label: 'Short Courses', href: '/courses' },
     ],
   },
-];
+] as const;
 
-function Footer() {
+const socialPlatforms = ['facebook', 'instagram', 'linkedin', 'youtube', 'tiktok'] as const;
+
+const Footer = (): JSX.Element => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer-section pt-5 pb-4 text-white">
       <div className="container pb-4 border-bottom border-white border-opacity-25">
@@ -50,7 +54,7 @@ function Footer() {
               We deliver flexible strategies for students seeking global study destinations with personalised advice and comprehensive support.
             </p>
             <div className="d-flex gap-3">
-              {['facebook', 'instagram', 'linkedin', 'youtube', 'tiktok'].map((platform) => (
+              {socialPlatforms.map((platform) => (
                 <a key={platform} href="#social" className="social-link" aria-label={platform}>
                   <i className={`bi bi-${platform}`}></i>
                 </a>
@@ -75,7 +79,7 @@ function Footer() {
       </div>
       <div className="container pt-3">
         <div className="d-flex flex-column flex-lg-row justify-content-between gap-2 text-white-50 small">
-          <span>&copy; {new Date().getFullYear()} MHS Global Associates. All rights reserved.</span>
+          <span>&copy; {currentYear} MHS Global Associates. All rights reserved.</span>
           <div className="d-flex gap-3">
             <a href="/#privacy" className="text-white-50 text-decoration-none">
               Privacy Policy
@@ -88,6 +92,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

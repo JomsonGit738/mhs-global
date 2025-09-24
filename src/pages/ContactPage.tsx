@@ -1,4 +1,10 @@
-const contactInfo = [
+type ContactInfo = {
+  icon: string;
+  label: string;
+  lines: string[];
+};
+
+const contactInfo: ContactInfo[] = [
   {
     icon: 'bi-telephone',
     label: 'Phone',
@@ -21,7 +27,7 @@ const contactInfo = [
   },
 ];
 
-const contactOptions = [
+const contactOptions: string[] = [
   'Foundation Programs',
   'Undergraduate Degrees',
   'Postgraduate Degrees',
@@ -30,7 +36,7 @@ const contactOptions = [
   'Scholarship Support',
 ];
 
-function ContactPage() {
+const ContactPage = (): JSX.Element => {
   return (
     <>
       <section className="contact-hero position-relative text-white">
@@ -95,7 +101,7 @@ function ContactPage() {
                 <div className="card-body p-4 p-lg-5">
                   <h2 className="h4 fw-bold text-dark mb-3">Send us a message</h2>
                   <p className="text-secondary mb-4">
-                    Share your study plans with us and we’ll respond shortly with tailored advice and next steps.
+                    Share your study plans with us and weâ€™ll respond shortly with tailored advice and next steps.
                   </p>
                   <form className="row g-3">
                     <div className="col-md-6">
@@ -129,7 +135,7 @@ function ContactPage() {
                     </div>
                     <div className="col-12">
                       <label className="form-label">Message</label>
-                      <textarea className="form-control" rows="4" placeholder="Tell us about your academic goals"></textarea>
+                      <textarea className="form-control" rows={4} placeholder="Tell us about your academic goals"></textarea>
                     </div>
                     <div className="col-12">
                       <button type="submit" className="btn btn-primary btn-lg">
@@ -145,6 +151,6 @@ function ContactPage() {
       </section>
     </>
   );
-}
+};
 
 export default ContactPage;

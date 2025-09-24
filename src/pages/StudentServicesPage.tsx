@@ -1,10 +1,17 @@
-const serviceTags = [
+const serviceTags: string[] = [
   'Student Assistance',
   'Scholarships',
   'Book your free consultation',
 ];
 
-const serviceCards = [
+type ServiceCard = {
+  title: string;
+  description: string;
+  icon: string;
+  points: string[];
+};
+
+const serviceCards: ServiceCard[] = [
   {
     title: 'Student Assistance & Scholarships',
     description:
@@ -43,14 +50,19 @@ const serviceCards = [
   },
 ];
 
-const serviceCategories = [
+type ServiceCategory = {
+  name: string;
+  count: number;
+};
+
+const serviceCategories: ServiceCategory[] = [
   { name: 'Foundation', count: 15 },
   { name: 'Undergraduate', count: 48 },
   { name: 'Postgraduate', count: 32 },
   { name: 'Short Courses', count: 28 },
 ];
 
-const complimentaryServices = [
+const complimentaryServices: string[] = [
   'Assessment of documents & qualifications mapping for prospective study',
   'Course & university selection guidance',
   'Scholarship opportunities and eligibility assessment',
@@ -64,7 +76,7 @@ const complimentaryServices = [
   'Career consultation and planning',
 ];
 
-function StudentServicesPage() {
+const StudentServicesPage = (): JSX.Element => {
   return (
     <>
       <section className="services-hero position-relative text-white">
@@ -200,6 +212,6 @@ function StudentServicesPage() {
       </section>
     </>
   );
-}
+};
 
 export default StudentServicesPage;

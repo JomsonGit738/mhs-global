@@ -2,7 +2,7 @@
   min-height: 100vh;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 99.2rem) {
   .py-lg-6 {
     padding-top: 4.5rem !important;
     padding-bottom: 4.5rem !important;
@@ -14,8 +14,8 @@
 }
 
 .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
   background: linear-gradient(135deg, rgba(31, 111, 242, 0.1), rgba(31, 111, 242, 0.25));
   font-size: 0.8rem;
 }
@@ -43,7 +43,7 @@
 .ticker {
   overflow: hidden;
   background: #f0f4ff;
-  border-top: 1px solid rgba(31, 111, 242, 0.08);
+  border-top: 0.1rem solid rgba(31, 111, 242, 0.08);
 }
 
 .ticker-track {
@@ -90,7 +90,7 @@
   bottom: -1.5rem;
   left: 2rem;
   background: #ffffff;
-  border-radius: 999px;
+  border-radius: 99.9rem;
   padding: 0.75rem 1.5rem;
   font-weight: 500;
   display: inline-flex;
@@ -98,7 +98,7 @@
   gap: 0.5rem;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 99.198rem) {
   .hero-badge {
     position: static;
     margin-top: 1.5rem;
@@ -125,7 +125,7 @@
 
 .partner-pill {
   padding: 0.5rem 1.5rem;
-  border-radius: 999px;
+  border-radius: 99.9rem;
   background: rgba(31, 111, 242, 0.08);
 }
 
@@ -134,7 +134,7 @@
 }
 
 .courses-section .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-0.6rem);
   box-shadow: 0 1.5rem 3rem rgba(15, 60, 130, 0.12);
 }
 
@@ -145,8 +145,8 @@
 }
 
 .icon-pill {
-  width: 42px;
-  height: 42px;
+  width: 4.2rem;
+  height: 4.2rem;
   border-radius: 50%;
   background: rgba(31, 111, 242, 0.12);
   display: inline-flex;
@@ -164,7 +164,7 @@
 }
 
 .testimonial-card {
-  max-width: 720px;
+  max-width: 72rem;
 }
 
 .testimonial-card .card-body {
@@ -174,8 +174,8 @@
 }
 
 .carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background-color: rgba(31, 111, 242, 0.3);
 }
@@ -189,10 +189,10 @@
 }
 
 .footer-section .social-link {
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 0.1rem solid rgba(255, 255, 255, 0.35);
   color: #fff;
   display: inline-flex;
   align-items: center;
@@ -233,7 +233,7 @@
   border-radius: 1.5rem;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 57.598rem) {
   .ticker-track {
     animation-duration: 35s;
     gap: 1.5rem;
@@ -245,8 +245,8 @@
   }
 
   .footer-section .social-link {
-    width: 36px;
-    height: 36px;
+    width: 3.6rem;
+    height: 3.6rem;
   }
 }
 
@@ -276,30 +276,30 @@
 }
 
 .foundation-programs .text-secondary {
-  max-width: 540px;
+  max-width: 54rem;
 }
 
 .foundation-program-card {
-  border: 1px solid rgba(31, 111, 242, 0.08);
+  border: 0.1rem solid rgba(31, 111, 242, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .foundation-program-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-0.6rem);
   box-shadow: 0 1.5rem 3rem rgba(15, 60, 130, 0.12);
 }
 
 .foundation-program-card .badge {
   font-size: 0.75rem;
   padding: 0.35rem 0.75rem;
-  border-radius: 999px;
+  border-radius: 99.9rem;
 }
 
 .foundation-program-card .btn {
   font-weight: 600;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 99.198rem) {
   .foundation-hero-media {
     margin-bottom: 1.5rem;
   }
@@ -335,24 +335,24 @@
 }
 
 .service-tag {
-  border-radius: 999px;
+  border-radius: 99.9rem;
   padding: 0.45rem 1.1rem;
   font-weight: 600;
 }
 
 .service-card {
-  border: 1px solid rgba(31, 111, 242, 0.1);
+  border: 0.1rem solid rgba(31, 111, 242, 0.1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-0.6rem);
   box-shadow: 0 1.5rem 3rem rgba(15, 60, 130, 0.12);
 }
 
 .service-card-icon {
-  width: 56px;
-  height: 56px;
+  width: 5.6rem;
+  height: 5.6rem;
   border-radius: 50%;
   background: rgba(31, 111, 242, 0.12);
   display: inline-flex;
@@ -381,7 +381,7 @@
 }
 
 .service-category-card .badge {
-  min-width: 42px;
+  min-width: 4.2rem;
   text-align: center;
 }
 
@@ -394,7 +394,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 99.198rem) {
   .services-hero {
     text-align: center;
   }
@@ -404,10 +404,10 @@
   }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 57.598rem) {
   .service-card-icon {
-    width: 48px;
-    height: 48px;
+    width: 4.8rem;
+    height: 4.8rem;
     font-size: 1.1rem;
   }
 }
@@ -428,7 +428,7 @@
 }
 
 .about-content .about-section + .about-section {
-  border-top: 1px solid rgba(31, 111, 242, 0.15);
+  border-top: 0.1rem solid rgba(31, 111, 242, 0.15);
   padding-top: 1.25rem;
 }
 
@@ -451,7 +451,7 @@
   background: linear-gradient(180deg, #f9fbff 0%, #ffffff 80%);
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 99.198rem) {
   .about-hero {
     text-align: center;
   }
@@ -493,19 +493,20 @@
   width: 100%;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 99.198rem) {
   .contact-hero {
     text-align: center;
   }
 
   .contact-map {
-    max-width: 440px;
+    max-width: 44rem;
     margin: 0 auto;
   }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 57.598rem) {
   .contact-map {
     max-width: 100%;
   }
 }
+
