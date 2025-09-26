@@ -1,3 +1,5 @@
+import HeroSlider from '../components/HeroSlider';
+
 type PromoHighlight = {
   id: string;
   eyebrow: string;
@@ -140,42 +142,7 @@ const testimonials: Testimonial[] = [
 const HomePage = (): JSX.Element => {
   return (
     <>
-        <section className="hero-section py-5 py-lg-6">
-          <div className="container">
-            <div className="row align-items-center g-5">
-              <div className="col-lg-6">
-                <div className="badge bg-primary-subtle text-primary-emphasis mb-3">Your gateway to global education</div>
-                <h1 className="display-4 fw-bold text-dark mb-4">
-                  MHS Global Associates is a modern organization
-                </h1>
-                <p className="lead text-secondary mb-4">
-                  MHS Global Associates is your trusted partner in navigating international education, offering pathways to world-class learning and career success.
-                </p>
-                <div className="d-flex flex-wrap gap-3">
-                  <a className="btn btn-primary btn-lg" href="/#contact">
-                    Apply Now
-                  </a>
-                  <a className="btn btn-outline-primary btn-lg" href="/#about">
-                    Talk to an Expert
-                  </a>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="hero-visual position-relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1100&q=80"
-                    alt="Graduates celebrating"
-                    className="img-fluid rounded-4 shadow-lg"
-                  />
-                  <div className="hero-badge shadow-sm">
-                    <i className="bi bi-mortarboard-fill text-primary me-2"></i>
-                    2,500+ students placed in top universities
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      <HeroSlider />
 
         {promoHighlights.map((promo) => (
           <section key={promo.id} className="promo-section text-white" id="services">
