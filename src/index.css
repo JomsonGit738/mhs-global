@@ -1,7 +1,7 @@
 @import "./styles/typography.css";
 
 :root {
-  --font-family-base: 'Poppins', sans-serif;
+  --font-family-base: "Poppins", sans-serif;
 }
 
 html {
@@ -23,6 +23,7 @@ body {
 *::before,
 *::after {
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 code {

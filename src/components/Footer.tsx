@@ -1,73 +1,81 @@
+import logo from "../assets/images/mhs-logo-brand.png";
 const footerColumns = [
   {
-    title: 'Quick Links',
+    title: "Quick Links",
     items: [
-      { label: 'About Us', href: '/#about' },
-      { label: 'Our Services', href: '/student-services' },
-      { label: 'Courses', href: '/courses' },
-      { label: 'Events & Webinars', href: '/#events' },
-      { label: 'Careers', href: '/#careers' },
+      { label: "About Us", href: "/#about" },
+      { label: "Our Services", href: "/student-services" },
+      { label: "Universities", href: "/#universities" },
+      { label: "Courses", href: "/courses" },
+      { label: "Student Support", href: "/#support" },
+      { label: "Success Stories", href: "/#testimonials" },
+      { label: "Blog", href: "/#blog" },
+      { label: "Contact Us", href: "/#contact" },
+      { label: "Career Opportunities", href: "/#careers" },
     ],
   },
   {
-    title: 'Study Destinations',
+    title: "Study Destinations",
     items: [
-      { label: 'Study in UK', href: '/#destinations' },
-      { label: 'Study in USA', href: '/#destinations' },
-      { label: 'Study in Canada', href: '/#destinations' },
-      { label: 'Study in Australia', href: '/#destinations' },
-      { label: 'Study in Europe', href: '/#destinations' },
+      { label: "Study in UK", href: "/#destinations" },
+      { label: "Study in USA", href: "/#destinations" },
+      { label: "Study in Canada", href: "/#destinations" },
+      { label: "Study in Australia", href: "/#destinations" },
+      { label: "Study in Germany", href: "/#destinations" },
+      { label: "Study in France", href: "/#destinations" },
+      { label: "Study in Ireland", href: "/#destinations" },
+      { label: "Study in Spain", href: "/#destinations" },
+      { label: "Study in UAE", href: "/#destinations" },
+      { label: "Study in Malta", href: "/#destinations" },
     ],
   },
   {
-    title: 'Programs',
+    title: "Programs",
     items: [
-      { label: 'Foundation Programs', href: '/courses' },
-      { label: 'Undergraduate Programs', href: '/courses' },
-      { label: 'Postgraduate Programs', href: '/courses' },
-      { label: 'PhD & Research', href: '/courses' },
-      { label: 'Short Courses', href: '/courses' },
+      { label: "Foundation Programs", href: "/courses" },
+      { label: "Undergraduate Programs", href: "/courses" },
+      { label: "Postgraduate Programs", href: "/courses" },
+      { label: "Short Programs", href: "/courses" },
     ],
   },
 ] as const;
 
-const socialPlatforms = ['facebook', 'instagram', 'linkedin', 'youtube', 'tiktok'] as const;
+const socialPlatforms = [
+  { icon: "instagram", label: "Instagram" },
+  { icon: "facebook", label: "Facebook" },
+  { icon: "linkedin", label: "LinkedIn" },
+  { icon: "youtube", label: "YouTube" },
+  { icon: "twitter", label: "Twitter" },
+  { icon: "tiktok", label: "TikTok" },
+] as const;
 
 const Footer = (): JSX.Element => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="footer-section pt-5 pb-4 text-white">
-      <div className="container pb-4 border-bottom border-white border-opacity-25">
-        <div className="row g-4">
-          <div className="col-lg-4">
+      <div className="container">
+        <div className="row g-4 pb-4">
+          <div className="col-lg-3">
             <div className="d-flex align-items-center mb-3">
-              <div className="brand-mark brand-mark-inverse d-inline-flex align-items-center justify-content-center rounded-circle me-2">
-                <span className="fw-bold">MHS</span>
-              </div>
-              <div>
-                <h3 className="h5 mb-0">MHS Global Associates</h3>
-                <small className="text-white-50">Your trusted partner in international education.</small>
-              </div>
+              <img width={70} src={logo} alt="navbar_brand_footer" />
             </div>
-            <p className="text-white-50 mb-3">
-              We deliver flexible strategies for students seeking global study destinations with personalised advice and comprehensive support.
+            <p className="text-white mb-0 pe-lg-4">
+              We have been helping students achieve their international study
+              dreams for over 15 years with personalised guidance and
+              comprehensive support.
             </p>
-            <div className="d-flex gap-3">
-              {socialPlatforms.map((platform) => (
-                <a key={platform} href="#social" className="social-link" aria-label={platform}>
-                  <i className={`bi bi-${platform}`}></i>
-                </a>
-              ))}
-            </div>
           </div>
           {footerColumns.map((column) => (
-            <div className="col-6 col-lg-2" key={column.title}>
+            <div className="col-6 col-md-4 col-lg-3" key={column.title}>
               <h4 className="h6 text-white mb-3">{column.title}</h4>
-              <ul className="list-unstyled d-flex flex-column gap-2">
+              <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
                 {column.items.map((item) => (
                   <li key={item.label}>
-                    <a href={item.href} className="text-white-50 text-decoration-none">
+                    <a
+                      href={item.href}
+                      className="text-white text-decoration-none"
+                    >
                       {item.label}
                     </a>
                   </li>
@@ -76,18 +84,24 @@ const Footer = (): JSX.Element => {
             </div>
           ))}
         </div>
+
+        <div className="footer-socials d-flex flex-wrap justify-content-center gap-3 py-4">
+          {socialPlatforms.map((platform) => (
+            <a
+              key={platform.icon}
+              href="/#social"
+              className="social-link"
+              aria-label={platform.label}
+            >
+              <i className={`bi bi-${platform.icon}`}></i>
+            </a>
+          ))}
+        </div>
       </div>
-      <div className="container pt-3">
-        <div className="d-flex flex-column flex-lg-row justify-content-between gap-2 text-white-50 small">
-          <span>&copy; {currentYear} MHS Global Associates. All rights reserved.</span>
-          <div className="d-flex gap-3">
-            <a href="/#privacy" className="text-white-50 text-decoration-none">
-              Privacy Policy
-            </a>
-            <a href="/#terms" className="text-white-50 text-decoration-none">
-              Terms of Use
-            </a>
-          </div>
+
+      <div className="container pt-3 border-top border-white border-opacity-10">
+        <div className="text-center text-white small">
+          &copy; {currentYear} MHS Global Associates. All rights reserved.
         </div>
       </div>
     </footer>

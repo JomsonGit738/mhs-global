@@ -200,10 +200,11 @@
 
 .promo-section {
   position: relative;
-  background-image: url("https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=1400&q=80");
+  background-image: url("./assets/images/promo-bg.png");
   background-size: cover;
   background-position: center;
-  padding: 3rem 0;
+  padding: 2rem 0;
+  min-height: 16rem;
 }
 
 .promo-section .overlay {
@@ -223,6 +224,7 @@
 }
 
 .courses-section .card {
+  border-radius: 1.5rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -231,10 +233,25 @@
   box-shadow: 0 1.5rem 3rem rgba(15, 60, 130, 0.12);
 }
 
+.course-card .card-body {
+  padding: 1.75rem 1.75rem 1.5rem;
+}
+
+.course-card .card-footer {
+  padding: 0 1.75rem 1.75rem;
+}
+
+.course-thumb {
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
 .course-thumb img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  display: block;
+  border-radius: inherit;
 }
 
 .icon-pill {
@@ -278,24 +295,27 @@
 }
 
 .footer-section {
-  background: linear-gradient(140deg, #1f3b73 0%, #2646a1 55%, #1b60e0 100%);
+  background: linear-gradient(180deg, #2f66ff 0%, #2254f3 100%);
+  color: #fff;
 }
 
 .footer-section .social-link {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
-  border: 0.1rem solid rgba(255, 255, 255, 0.35);
+  border: 0.1rem solid rgba(255, 255, 255, 0.45);
   color: #fff;
+  background: rgba(255, 255, 255, 0.08);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .footer-section .social-link:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   color: #fff;
+  transform: translateY(-0.2rem);
 }
 
 .btn-primary {
@@ -338,8 +358,8 @@
   }
 
   .footer-section .social-link {
-    width: 3.6rem;
-    height: 3.6rem;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }
 
@@ -599,6 +619,55 @@
   width: 100%;
 }
 
+.contact-section .contact-info-card,
+.contact-section .contact-form-card {
+  border-radius: 1.5rem;
+  padding: clamp(2.25rem, 4.5vw, 3.25rem);
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+.contact-section h2 {
+  font-size: clamp(2.1rem, 3vw, 2.6rem);
+}
+
+.contact-section h3 {
+  font-size: clamp(1.65rem, 2.4vw, 2rem);
+}
+
+.contact-section .card p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.contact-section .form-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.contact-section .form-control,
+.contact-section .form-select {
+  padding: 0.95rem 1.1rem;
+  font-size: 1.05rem;
+  border-radius: 0.85rem;
+}
+
+.contact-section .form-control::placeholder {
+  color: rgba(15, 32, 67, 0.55);
+}
+
+.contact-section .btn {
+  padding: 1rem 2.75rem;
+  font-size: 1.1rem;
+  border-radius: 0.9rem;
+}
+
+
 @media (max-width: 99.198rem) {
   .contact-hero {
     text-align: center;
@@ -701,32 +770,67 @@
   flex-shrink: 0;
 }
 
-.network-marker .marker-outer {
+.network-marker {
+  cursor: pointer;
+}
+
+.network-marker-pin-group {
+  pointer-events: auto;
+}
+
+.network-marker-pin {
   fill: url(#markerGradient);
-  stroke: rgba(16, 36, 74, 0.12);
-  stroke-width: 2px;
+  stroke: rgba(16, 36, 74, 0.2);
+  stroke-width: 1.1px;
+  filter: drop-shadow(0 0.28rem 0.65rem rgba(13, 41, 95, 0.2));
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.network-marker .marker-inner {
-  fill: #ffffff;
-  stroke: #1f6ff2;
-  stroke-width: 2px;
-}
-
-.network-marker-flag {
-  font-size: 0.85rem;
+.network-marker-tooltip {
+  opacity: 0;
+  transition: opacity 0.2s ease;
   pointer-events: none;
 }
 
-.network-marker-label {
-  font-size: 0.55rem;
+.network-marker-tooltip-body {
+  transform: translateY(6px);
+  transition: transform 0.2s ease;
+}
+
+.network-marker-tooltip-bg {
+  fill: rgba(16, 45, 98, 0.94);
+  stroke: rgba(8, 22, 50, 0.25);
+  stroke-width: 1px;
+  filter: drop-shadow(0 0.25rem 0.75rem rgba(9, 29, 64, 0.22));
+}
+
+.network-marker-tooltip-label {
+  fill: #ffffff;
+  font-size: 0.6rem;
   font-weight: 700;
-  fill: #13285b;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  stroke: rgba(255, 255, 255, 0.85);
-  stroke-width: 6px;
-  paint-order: stroke fill;
+  pointer-events: none;
+}
+
+.network-marker:hover .network-marker-pin,
+.network-marker:focus-visible .network-marker-pin {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0.5rem 1rem rgba(13, 41, 95, 0.28));
+}
+
+.network-marker:hover .network-marker-tooltip,
+.network-marker:focus-visible .network-marker-tooltip {
+  opacity: 1;
+}
+
+.network-marker:hover .network-marker-tooltip-body,
+.network-marker:focus-visible .network-marker-tooltip-body {
+  transform: translateY(0);
+}
+
+.network-marker:focus-visible {
+  outline: none;
 }
 
 @media (max-width: 991.98px) {
@@ -743,7 +847,7 @@
 }
 
 @media (max-width: 575.98px) {
-  .network-marker-label {
+  .network-marker-tooltip {
     display: none;
   }
 
@@ -803,4 +907,101 @@
 
 .partner-logo-img:hover {
   filter: none;
+}
+
+.promo-section .container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: inherit;
+}
+
+.promo-section .small {
+  font-size: 0.95rem;
+}
+
+.promo-section h2 {
+  font-size: clamp(2.3rem, 3vw, 3.2rem);
+}
+
+.promo-section .lead {
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+}
+
+.promo-section .btn {
+  padding: 0.9rem 2.5rem;
+  font-size: 1.05rem;
+}
+
+@media (min-width: 992px) {
+  .promo-section {
+    padding: 3.5rem 0;
+    min-height: 24rem;
+  }
+
+  .promo-section .btn {
+    padding: 1rem 2.75rem;
+    font-size: 1.1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-section .social-link i {
+  font-size: 1.25rem;
+}
+
+.footer-section h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.footer-section .list-unstyled a {
+  transition: color 0.2s ease;
+}
+
+.footer-section .list-unstyled a:hover {
+  color: #fff;
+}
+
+.footer-section .brand-mark-inverse {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 575.98px) {
+  .contact-section .contact-info-card,
+  .contact-section .contact-form-card {
+    padding: 1.75rem !important;
+  }
+
+  .contact-section .form-control,
+  .contact-section .form-select {
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+  }
 }

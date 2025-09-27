@@ -1,6 +1,14 @@
 import HeroSlider from '../components/HeroSlider';
 import GlobalNetworkSection from '../components/GlobalNetworkSection';
 import PartnerUniversitiesSlider from '../components/PartnerUniversitiesSlider';
+import ContactForm from '../components/ContactForm';
+
+import foundationImg from '../assets/images/courses/1.png';
+import undergraduateImg from '../assets/images/courses/2.png';
+import preMastersImg from '../assets/images/courses/3.png';
+import mastersResearchImg from '../assets/images/courses/4.png';
+import phdImg from '../assets/images/courses/5.png';
+import executiveImg from '../assets/images/courses/6.png';
 
 type PromoHighlight = {
   id: string;
@@ -28,38 +36,32 @@ const courses: Course[] = [
   {
     title: 'Foundation Courses',
     summary: "Bridge programs designed to prepare you for undergraduate studies with confident English and academic skills.",
-    image:
-      'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80',
+    image: foundationImg,
   },
   {
     title: 'Undergraduate Degrees',
     summary: "Bachelor's degree programs across diverse fields with a global reputation and career-ready outcomes.",
-    image:
-      'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=80',
+    image: undergraduateImg,
   },
   {
     title: 'Pre-Masters',
     summary: "Pre-Master's programs designed for career advancement with research-informed faculty guidance.",
-    image:
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+    image: preMastersImg,
   },
   {
     title: 'Masters in Research',
     summary: "Research-focused Master's pathways emphasising independent projects and mentorship.",
-    image:
-      'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=900&q=80',
+    image: mastersResearchImg,
   },
   {
     title: 'PhD Degrees',
     summary: "Doctoral programs designed for career advancement with cross-disciplinary research exposure.",
-    image:
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+    image: phdImg,
   },
   {
     title: 'Executive Education',
     summary: "Short, intensive experiences tailored for working professionals accelerating leadership ambitions.",
-    image:
-      'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=900&q=80',
+    image: executiveImg,
   },
 ];
 
@@ -159,7 +161,7 @@ const HomePage = (): JSX.Element => {
                 Choose from curated options designed to match your academic background, professional goals, and preferred study destinations.
               </p>
             </div>
-            <div className="row g-4">
+            <div className="row g-4 align-items-stretch">
               {courses.map((course) => (
                 <div className="col-md-6 col-xl-4" key={course.title}>
                   <div className="card h-100 border-0 shadow-sm course-card">
@@ -184,9 +186,9 @@ const HomePage = (): JSX.Element => {
 
         <section className="contact-section py-5 py-lg-6" id="contact">
           <div className="container">
-            <div className="row g-4">
-              <div className="col-lg-5">
-                <div className="card border-0 shadow-sm h-100 p-4 p-lg-5">
+            <div className="row g-4 align-items-stretch">
+              <div className="col-12 col-lg-6 d-flex">
+                <div className="card border-0 shadow-sm contact-info-card h-100 w-100 p-4 p-lg-5">
                   <h2 className="fw-bold text-dark mb-4">MHS Global Associates</h2>
                   <p className="text-secondary mb-4">
                     Connect with our advisors for personalised guidance on course selection, application strategy, scholarships, and visa preparation.
@@ -210,50 +212,8 @@ const HomePage = (): JSX.Element => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-7">
-                <div className="card border-0 shadow-sm p-4 p-lg-5 h-100">
-                  <h3 className="fw-semibold text-dark mb-4">Send us a message</h3>
-                  <form className="row g-3">
-                    <div className="col-md-6">
-                      <label className="form-label">Full Name *</label>
-                      <input type="text" className="form-control" placeholder="Your name" required />
-                    </div>
-                    <div className="col-md-6">
-                      <label className="form-label">Email Address *</label>
-                      <input type="email" className="form-control" placeholder="name@email.com" required />
-                    </div>
-                    <div className="col-md-6">
-                      <label className="form-label">Phone Number *</label>
-                      <input type="tel" className="form-control" placeholder="Include country code" required />
-                    </div>
-                    <div className="col-md-6">
-                      <label className="form-label">Country *</label>
-                      <input type="text" className="form-control" placeholder="Where do you reside?" required />
-                    </div>
-                    <div className="col-12">
-                      <label className="form-label">Study Interest *</label>
-                      <select className="form-select" defaultValue="choose">
-                        <option value="choose" disabled>
-                          Select program type
-                        </option>
-                        {courses.map((course) => (
-                          <option key={course.title} value={course.title}>
-                            {course.title}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="col-12">
-                      <label className="form-label">Message</label>
-                      <textarea className="form-control" rows={4} placeholder="Tell us about your academic goals"></textarea>
-                    </div>
-                    <div className="col-12">
-                      <button type="submit" className="btn btn-primary btn-lg">
-                        Send Message
-                      </button>
-                    </div>
-                  </form>
-                </div>
+              <div className="col-12 col-lg-6 d-flex">
+                <ContactForm courses={courses} />
               </div>
             </div>
           </div>

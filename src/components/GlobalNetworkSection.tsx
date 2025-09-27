@@ -12,7 +12,6 @@ type NetworkLocation = {
   name: string;
   flag: string;
   coordinates: [number, number];
-  labelOffset?: { x: number; y: number };
 };
 
 const networkLocations: NetworkLocation[] = [
@@ -20,49 +19,41 @@ const networkLocations: NetworkLocation[] = [
     name: "Canada",
     flag: "\u{1F1E8}\u{1F1E6}",
     coordinates: [-95, 58],
-    labelOffset: { x: 16, y: -18 },
   },
   {
     name: "United States",
     flag: "\u{1F1FA}\u{1F1F8}",
     coordinates: [-100, 38],
-    labelOffset: { x: 18, y: 26 },
   },
   {
     name: "United Kingdom",
     flag: "\u{1F1EC}\u{1F1E7}",
     coordinates: [-1.5, 52],
-    labelOffset: { x: 38, y: -18 },
   },
   {
     name: "Spain",
     flag: "\u{1F1EA}\u{1F1F8}",
     coordinates: [-3.7, 40.4],
-    labelOffset: { x: 32, y: 12 },
   },
   {
     name: "United Arab Emirates",
     flag: "\u{1F1E6}\u{1F1EA}",
     coordinates: [54.4, 24.3],
-    labelOffset: { x: 28, y: 12 },
   },
   {
     name: "Singapore",
     flag: "\u{1F1F8}\u{1F1EC}",
     coordinates: [103.8, 1.35],
-    labelOffset: { x: 32, y: -12 },
   },
   {
     name: "Malaysia",
     flag: "\u{1F1F2}\u{1F1FE}",
     coordinates: [102.0, 4.2],
-    labelOffset: { x: -10, y: 30 },
   },
   {
     name: "Australia",
     flag: "\u{1F1E6}\u{1F1FA}",
     coordinates: [134.5, -25.3],
-    labelOffset: { x: 0, y: 34 },
   },
 ];
 
@@ -73,6 +64,14 @@ const overlayHighlights = [
 ];
 
 const GlobalNetworkSection = (): JSX.Element => {
+  const pinScale = 0.6;
+  const pinTranslateY = -28;
+  const pinTopY = (-20 + pinTranslateY) * pinScale;
+  const tooltipHeight = 24;
+  const tooltipRadius = tooltipHeight / 2;
+  const tooltipGap = 10;
+  const tooltipOffsetY = pinTopY - tooltipGap;
+
   return (
     <section className="network-section py-lg-6" id="about">
       <div className="container-fluid px-0">
@@ -150,31 +149,56 @@ const GlobalNetworkSection = (): JSX.Element => {
                 }
               </Geographies>
               {networkLocations.map((location) => {
-                const offset = location.labelOffset ?? { x: 0, y: -18 };
+                const tooltipWidth = Math.max(96, location.name.length * 7);
+
                 return (
                   <Marker
                     key={location.name}
                     coordinates={location.coordinates}
                   >
-                    <g className="network-marker">
-                      <circle className="marker-outer" r={14}></circle>
-                      <circle className="marker-inner" r={8}></circle>
-                      <text
-                        className="network-marker-flag"
-                        textAnchor="middle"
-                        dominantBaseline="central"
-                      >
-                        {location.flag}
-                      </text>
-                    </g>
-                    <text
-                      className="network-marker-label"
-                      textAnchor="middle"
-                      x={offset.x}
-                      y={offset.y}
+                    <g
+                      className="network-marker"
+                      role="img"
+                      aria-label={`${location.name} location`}
+                      tabIndex={0}
                     >
-                      {location.name}
-                    </text>
+                      <title>{location.name}</title>
+
+                      <g
+                        className="network-marker-pin-group"
+                        transform={`scale(${pinScale}) translate(0, ${pinTranslateY})`}
+                      >
+                        <path
+                          className="network-marker-pin"
+                          d="M0 -20 C9 -20 16 -12 16 -3 C16 8 6 17 0 28 C-6 17 -16 8 -16 -3 C-16 -12 -9 -20 0 -20 Z"
+                        />
+                      </g>
+                      <g
+                        className="network-marker-tooltip"
+                        transform={`translate(0, ${tooltipOffsetY})`}
+                        aria-hidden="true"
+                      >
+                        <g className="network-marker-tooltip-body">
+                          <rect
+                            className="network-marker-tooltip-bg"
+                            x={-tooltipWidth / 2}
+                            y={-tooltipHeight}
+                            width={tooltipWidth}
+                            height={tooltipHeight}
+                            rx={tooltipRadius}
+                            ry={tooltipRadius}
+                          />
+                          <text
+                            className="network-marker-tooltip-label"
+                            textAnchor="middle"
+                            dominantBaseline="central"
+                            y={-tooltipHeight / 2}
+                          >
+                            {location.name}
+                          </text>
+                        </g>
+                      </g>
+                    </g>
                   </Marker>
                 );
               })}
@@ -187,3 +211,5 @@ const GlobalNetworkSection = (): JSX.Element => {
 };
 
 export default memo(GlobalNetworkSection);
+
+

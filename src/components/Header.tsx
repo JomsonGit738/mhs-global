@@ -1,22 +1,20 @@
-import { Link } from 'react-router-dom';
-import logo from '../assets/images/mhs-logo.jpg';
+import { Link } from "react-router-dom";
+import logo from "../assets/images/mhs-logo-brand.png";
 
-type NavLink =
-  | { label: string; to: string }
-  | { label: string; href: string };
+type NavLink = { label: string; to: string } | { label: string; href: string };
 
 const navLinks: NavLink[] = [
-  { label: 'Home', to: '/' },
-  { label: 'Courses', to: '/courses' },
-  { label: 'Student Services', to: '/student-services' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: "Home", to: "/" },
+  { label: "Courses", to: "/courses" },
+  { label: "Student Services", to: "/student-services" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const tickerItems: string[] = [
-  'January 2026 intake - Admissions open!',
-  'Apply early to secure your place!',
-  'Study in the UK at top universities',
+  "January 2026 intake - Admissions open!",
+  "Apply early to secure your place!",
+  "Study in the UK at top universities",
 ];
 
 type HeaderProps = {
@@ -43,11 +41,14 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse justify-content-center" id="mainNav">
+        <div
+          className="collapse navbar-collapse justify-content-center"
+          id="mainNav"
+        >
           <ul className="navbar-nav align-items-lg-center gap-lg-3">
             {navLinks.map((link) => (
               <li className="nav-item" key={link.label}>
-                {'href' in link ? (
+                {"href" in link ? (
                   <a className="nav-link text-secondary" href={link.href}>
                     {link.label}
                   </a>
