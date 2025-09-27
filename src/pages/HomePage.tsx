@@ -1,4 +1,6 @@
 import HeroSlider from '../components/HeroSlider';
+import GlobalNetworkSection from '../components/GlobalNetworkSection';
+import PartnerUniversitiesSlider from '../components/PartnerUniversitiesSlider';
 
 type PromoHighlight = {
   id: string;
@@ -14,25 +16,6 @@ const promoHighlights: PromoHighlight[] = [
     title: 'January 2026 intake - Admissions Open!',
     description: 'Apply early to secure your place! Our counsellors support you every step of the way.',
   },
-];
-
-const networkPins: string[] = [
-  'United Kingdom',
-  'United States',
-  'Canada',
-  'Spain',
-  'Australia',
-  'Singapore',
-  'United Arab Emirates',
-  'Malaysia',
-];
-
-const partnerLogos: string[] = [
-  'University of Birmingham',
-  'University of Aberdeen',
-  'Bangor University',
-  'Aston University',
-  'Aberystwyth University',
 ];
 
 type Course = {
@@ -164,50 +147,8 @@ const HomePage = (): JSX.Element => {
           </section>
         ))}
 
-        <section className="network-section py-5 py-lg-6" id="about">
-          <div className="container">
-            <div className="row g-4 align-items-center">
-              <div className="col-lg-6">
-                <div className="section-heading mb-4">
-                  <span className="badge bg-primary-subtle text-primary-emphasis mb-2">Our Global Network</span>
-                  <h2 className="fw-bold text-dark">Explore academic opportunities across multiple countries</h2>
-                  <p className="text-secondary mb-0">
-                    Our extensive network of partner universities provides a portfolio of international campuses, specialised programs, and scholarship pathways tailored to your ambitions.
-                  </p>
-                </div>
-                <ul className="list-unstyled row row-cols-2 g-3">
-                  {networkPins.map((location) => (
-                    <li key={location} className="col">
-                      <div className="d-flex align-items-center gap-2 text-secondary">
-                        <i className="bi bi-geo-alt-fill text-primary"></i>
-                        {location}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="col-lg-6">
-                <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1529429617124-aee051d5ff97?auto=format&fit=crop&w=1200&q=80"
-                    alt="World map with university locations"
-                    className="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="partners-section py-4 bg-white">
-          <div className="container d-flex flex-wrap justify-content-center gap-4 align-items-center">
-            {partnerLogos.map((partner) => (
-              <span className="text-secondary fw-medium partner-pill" key={partner}>
-                {partner}
-              </span>
-            ))}
-          </div>
-        </section>
+        <GlobalNetworkSection />
+        <PartnerUniversitiesSlider />
 
         <section className="courses-section py-5 py-lg-6" id="courses">
           <div className="container">
@@ -365,3 +306,4 @@ const HomePage = (): JSX.Element => {
 };
 
 export default HomePage;
+
