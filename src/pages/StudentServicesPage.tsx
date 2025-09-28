@@ -158,12 +158,12 @@ const StudentServicesPage = (): JSX.Element => {
                             </li>
                           ))}
                         </ul>
-                        <a
-                          className="btn btn-outline-primary mt-auto"
+                        {/* <a
+                          className="btn btn-lg btn-primary mt-auto"
                           href="/#contact"
                         >
                           Learn More
-                        </a>
+                        </a> */}
                       </div>
                     </div>
                   </div>
@@ -198,13 +198,13 @@ const StudentServicesPage = (): JSX.Element => {
               <aside className="d-flex flex-column gap-4">
                 <div className="card border-0 shadow-sm">
                   <div className="card-body">
-                    <h3 className="h6 text-dark fw-semibold mb-3">
+                    <h3 className="text-dark fw-semibold mb-3">
                       Search Services
                     </h3>
                     <form className="d-flex gap-2">
                       <input
                         type="search"
-                        className="form-control"
+                        className="form-control form-control-lg"
                         placeholder="Keyword"
                         aria-label="Search services"
                       />
@@ -237,7 +237,7 @@ const StudentServicesPage = (): JSX.Element => {
                 </div>
 
                 <div className="card border-0 shadow-sm service-callout text-white">
-                  <div className="card-body">
+                  <div className="card-body p-5">
                     <h3 className="h5 fw-semibold mb-2">
                       Need personalised guidance?
                     </h3>
@@ -246,7 +246,7 @@ const StudentServicesPage = (): JSX.Element => {
                       your academic pathway.
                     </p>
                     <a
-                      className="btn btn-light w-100"
+                      className="btn btn-lg btn-light w-100"
                       href="mailto:admissions@mhsglobalassociates.com"
                     >
                       Book Consultation

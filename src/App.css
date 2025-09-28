@@ -92,72 +92,138 @@
   }
 }
 
-.floating-contact {
-  position: fixed;
-  right: clamp(1rem, 2vw, 1.25rem);
-  bottom: clamp(6rem, 10vw, 7.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  z-index: 1030;
-}
-
-.floating-contact__item {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  box-shadow: 0 0.75rem 1.5rem rgba(15, 35, 75, 0.28);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-
-.floating-contact__item:hover,
-.floating-contact__item:focus-visible {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 1rem 2rem rgba(15, 35, 75, 0.35);
-  opacity: 0.95;
-}
-
-.floating-contact__item:focus-visible {
-  outline: 0.2rem solid rgba(255, 255, 255, 0.8);
-  outline-offset: 0.15rem;
-}
-
-.floating-contact__item i {
-  font-size: 1.45rem;
-}
-
-.floating-contact__item--whatsapp {
-  background: #25d366;
-}
-
-.floating-contact__item--call {
-  background: #1f6ff2;
-}
-
-.floating-contact__item--mail {
-  background: #ff4f4f;
-}
-
-@media (max-width: 575.98px) {
-  .floating-contact {
-    bottom: clamp(4.5rem, 12vw, 5.5rem);
-    right: clamp(0.75rem, 4vw, 1.25rem);
-  }
-
-  .floating-contact__item {
-    width: 3.25rem;
-    height: 3.25rem;
-  }
-
-  .floating-contact__item i {
-    font-size: 1.35rem;
-  }
-}
-
+.floating-contact {
+
+  position: fixed;
+
+  right: clamp(1rem, 2vw, 1.25rem);
+
+  bottom: clamp(6rem, 10vw, 7.5rem);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.75rem;
+
+  z-index: 1030;
+
+}
+
+
+
+.floating-contact__item {
+
+  width: 3.5rem;
+
+  height: 3.5rem;
+
+  border-radius: 50%;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #fff;
+
+  box-shadow: 0 0.75rem 1.5rem rgba(15, 35, 75, 0.28);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+
+}
+
+
+
+.floating-contact__item:hover,
+
+.floating-contact__item:focus-visible {
+
+  transform: translateY(-2px) scale(1.03);
+
+  box-shadow: 0 1rem 2rem rgba(15, 35, 75, 0.35);
+
+  opacity: 0.95;
+
+}
+
+
+
+.floating-contact__item:focus-visible {
+
+  outline: 0.2rem solid rgba(255, 255, 255, 0.8);
+
+  outline-offset: 0.15rem;
+
+}
+
+
+
+.floating-contact__item i {
+
+  font-size: 1.45rem;
+
+}
+
+
+
+.floating-contact__item--whatsapp {
+
+  background: #25d366;
+
+}
+
+
+
+.floating-contact__item--call {
+
+  background: #1f6ff2;
+
+}
+
+
+
+.floating-contact__item--mail {
+
+  background: #ff4f4f;
+
+}
+
+
+
+@media (max-width: 575.98px) {
+
+  .floating-contact {
+
+    bottom: clamp(4.5rem, 12vw, 5.5rem);
+
+    right: clamp(0.75rem, 4vw, 1.25rem);
+
+  }
+
+
+
+  .floating-contact__item {
+
+    width: 3.25rem;
+
+    height: 3.25rem;
+
+  }
+
+
+
+  .floating-contact__item i {
+
+    font-size: 1.35rem;
+
+  }
+
+}
+
+
+
 .hero-section {
   margin: 0;
   padding: 0;
@@ -857,7 +923,7 @@
 }
 
 .contact-section .card p {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.75;
 }
 
@@ -869,7 +935,7 @@
 .contact-section .form-control,
 .contact-section .form-select {
   padding: 0.95rem 1.1rem;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   border-radius: 0.85rem;
 }
 
@@ -1073,6 +1139,8 @@
 
 .network-overlay-list span {
   color: rgba(255, 255, 255, 0.85);
+
+  font-size: 1.1rem;
 }
 
 .network-section .container-fluid {
@@ -1147,7 +1215,7 @@
 
 .promo-section .btn {
   padding: 0.9rem 2.5rem;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 @media (min-width: 992px) {
@@ -1405,7 +1473,7 @@
 
     padding: 0.95rem 1.1rem;
 
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 
   }
 

@@ -52,7 +52,7 @@ const AboutPage = (): JSX.Element => {
             About Us
           </span>
           <h1 className="display-5 fw-bold mb-2">
-            We are MHS Global Associates.
+            We are MHS Global Associates
           </h1>
           <p className="lead text-white-75 mb-0 col-lg-6">
             Since our inception, we have helped aspiring students unlock
@@ -79,10 +79,10 @@ const AboutPage = (): JSX.Element => {
 
               <div className="card border-0 shadow-sm about-contact-card mt-5">
                 <div className="card-body p-4 p-lg-5">
-                  <h3 className="h4 fw-bold text-dark mb-3 text-center">
+                  <h2 className="fw-bold text-dark mb-3 text-center">
                     Get In Touch
-                  </h3>
-                  <p className="text-secondary text-center mb-4">
+                  </h2>
+                  <p className="text-secondary text-start mb-4">
                     We'd love to hear from you. Send us a message and we'll
                     respond as soon as possible.
                   </p>
@@ -91,7 +91,7 @@ const AboutPage = (): JSX.Element => {
                       <label className="form-label">Name</label>
                       <input
                         type="text"
-                        className="form-control form-control-lg"
+                        className="form-control py-3 form-control-lg"
                         placeholder="First Name"
                         required
                       />
@@ -100,7 +100,7 @@ const AboutPage = (): JSX.Element => {
                       <label className="form-label">E-mail</label>
                       <input
                         type="email"
-                        className="form-control form-control-lg"
+                        className="form-control py-3 form-control-lg"
                         placeholder="E-mail"
                         required
                       />
@@ -117,7 +117,7 @@ const AboutPage = (): JSX.Element => {
                     <div className="col-12">
                       <button
                         type="submit"
-                        className="btn btn-primary btn-lg w-100"
+                        className="btn py-3 btn-lg btn-primary btn-lg w-100"
                       >
                         Send Message
                       </button>

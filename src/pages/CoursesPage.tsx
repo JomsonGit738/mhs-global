@@ -157,12 +157,12 @@ const CoursesPage = (): JSX.Element => {
                     <p className="text-secondary flex-grow-1">
                       {program.description}
                     </p>
-                    <a
+                    {/* <a
                       className="btn btn-lg btn-primary mt-3 w-100"
                       href={program.href}
                     >
                       View Details
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>

@@ -40,37 +40,54 @@ const footerColumns = [
   },
 ] as const;
 
-const socialPlatforms = [
-  {
-    icon: 'linkedin',
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/mhs-global-associates-648218387/',
-  },
-  {
-    icon: 'youtube',
-    label: 'YouTube',
-    href: 'https://www.youtube.com/@MHSGlobalAssociates-1',
-  },
-  {
-    icon: 'instagram',
-    label: 'Instagram',
-    href: 'https://www.instagram.com/mhsglobalassociates/',
-  },
-  {
-    icon: 'tiktok',
-    label: 'TikTok',
-    href: 'https://www.tiktok.com/@mhs.globalassociates',
-  },
-  {
-    icon: 'facebook',
-    label: 'Facebook',
-    href: 'https://www.facebook.com/mhsglobalassociiates/',
-  },
-  {
-    icon: 'twitter',
-    label: 'X (Twitter)',
-    href: 'https://x.com/mhsglobala1',
-  },
+const socialPlatforms = [
+  {
+    icon: "linkedin",
+
+    label: "LinkedIn",
+
+    href: "https://www.linkedin.com/in/mhs-global-associates-648218387/",
+  },
+
+  {
+    icon: "youtube",
+
+    label: "YouTube",
+
+    href: "https://www.youtube.com/@MHSGlobalAssociates-1",
+  },
+
+  {
+    icon: "instagram",
+
+    label: "Instagram",
+
+    href: "https://www.instagram.com/mhsglobalassociates/",
+  },
+
+  {
+    icon: "tiktok",
+
+    label: "TikTok",
+
+    href: "https://www.tiktok.com/@mhs.globalassociates",
+  },
+
+  {
+    icon: "facebook",
+
+    label: "Facebook",
+
+    href: "https://www.facebook.com/mhsglobalassociiates/",
+  },
+
+  {
+    icon: "twitter",
+
+    label: "X (Twitter)",
+
+    href: "https://x.com/mhsglobala1",
+  },
 ] as const;
 
 const Footer = (): JSX.Element => {
@@ -79,21 +96,25 @@ const Footer = (): JSX.Element => {
   return (
     <footer className="footer-section pt-5 pb-4 text-white">
       <div className="container">
-        <div className="row g-4 pb-4">
-          <div className="col-lg-3 text-center text-lg-start">
-            <div className="d-flex align-items-center justify-content-center justify-content-lg-start mb-3">
-              <img width={70} src={logo} alt="navbar_brand_footer" />
-            </div>
-            <p className="text-white mb-0 pe-lg-4 mx-auto mx-lg-0">
-              We have been helping students achieve their international study
-              dreams for over 15 years with personalised guidance and
-              comprehensive support.
-            </p>
+        <div className="text-center p-3 mb-5 rounded bg-white text-lg-start">
+          <div className="d-flex align-items-center justify-content-center mb-3">
+            <img width={70} src={logo} alt="navbar_brand_footer" />
+            <h1 className="fw-bold text-primary">MHS Global Associates</h1>
           </div>
+          <p className="text-primary text-center mb-0 pe-lg-4 mx-auto mx-lg-0">
+            We have been helping students achieve their international study
+            dreams for over 15 years with personalised guidance and
+            comprehensive support.
+          </p>
+        </div>
+        <div className="row g-4 pb-4">
           {footerColumns.map((column) => (
-            <div className="col-12 col-md-4 col-lg-3 text-center text-md-start" key={column.title}>
-              <h4 className="h6 text-white mb-3">{column.title}</h4>
-              <ul className="list-unstyled d-flex flex-column gap-2 align-items-center align-items-md-start mb-0">
+            <div
+              className="col-12 col-md-4 col-lg-4 text-center text-md-center"
+              key={column.title}
+            >
+              <h3 className="text-white mb-3">{column.title}</h3>
+              <ul className="list-unstyled d-flex flex-column gap-2 align-items-center align-items-md-center mb-0">
                 {column.items.map((item) => (
                   <li key={item.label}>
                     <a
