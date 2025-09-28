@@ -44,6 +44,10 @@
   color: #1f6ff2 !important;
 }
 
+.navbar .nav-link.active {
+  color: #1f6ff2 !important;
+}
+
 .ticker {
   overflow: hidden;
   background: #f0f4ff;
@@ -423,9 +427,14 @@
 }
 
 .services-hero {
-  background-image: url("https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80");
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../src/assets/images/studen-service-page/1.png");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   position: relative;
   overflow: hidden;
 }
@@ -529,9 +538,14 @@
 }
 
 .about-hero {
-  background-image: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 40rem;
+  background-image: url("../src/assets/images/about-us/2.png");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   position: relative;
   overflow: hidden;
 }
@@ -539,11 +553,11 @@
 .about-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
     140deg,
     rgba(15, 31, 68, 0.82) 0%,
     rgba(34, 82, 160, 0.72) 100%
-  );
+  ); */
 }
 
 .about-content .about-section + .about-section {
@@ -581,7 +595,7 @@
 }
 
 .contact-hero {
-  background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+  background-image: url("../src/assets/images/contact-us/1.png");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -617,6 +631,114 @@
 
 .contact-form-card .btn {
   width: 100%;
+}
+
+.contact-content {
+  position: relative;
+  background: linear-gradient(135deg, #eef3ff 0%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.contact-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      circle at 18% 20%,
+      rgba(31, 111, 242, 0.12) 0,
+      rgba(31, 111, 242, 0.12) 6px,
+      transparent 6px
+    ),
+    radial-gradient(
+      circle at 82% 65%,
+      rgba(15, 52, 141, 0.12) 0,
+      rgba(15, 52, 141, 0.12) 8px,
+      transparent 8px
+    );
+  background-size: 180px 180px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.contact-content .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-content-panels {
+  position: relative;
+}
+
+.contact-content .contact-info-card,
+.contact-content .contact-form-card {
+  border-radius: 1.75rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 26px 55px rgba(22, 71, 151, 0.08);
+}
+
+.contact-content .contact-info-card {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.contact-content .contact-info-card .card-body {
+  gap: 1.5rem;
+}
+
+.contact-content .contact-info-divider {
+  width: 3.5rem;
+  height: 0.25rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(31, 111, 242, 0.85),
+    rgba(31, 111, 242, 0.25)
+  );
+}
+
+.contact-content .contact-info-item .icon-pill {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(31, 111, 242, 0.12);
+  box-shadow: 0 16px 28px rgba(31, 111, 242, 0.12);
+  color: #1f6ff2;
+}
+
+.contact-content .contact-info-item .text-secondary {
+  color: rgba(15, 37, 78, 0.7) !important;
+}
+
+.contact-content .contact-form-card .form-control:not(textarea),
+.contact-content .contact-form-card .form-select {
+  min-height: 3.25rem;
+  padding: 0.95rem 1.1rem;
+}
+
+.contact-content .contact-form-card .form-control,
+.contact-content .contact-form-card .form-select {
+  border: 1px solid rgba(31, 111, 242, 0.16);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-content .contact-form-card .form-control:focus,
+.contact-content .contact-form-card .form-select:focus {
+  border-color: rgba(31, 111, 242, 0.55);
+  box-shadow: 0 0 0 0.15rem rgba(31, 111, 242, 0.18);
+}
+
+.contact-content .contact-form-card .btn {
+  box-shadow: 0 18px 38px rgba(31, 111, 242, 0.22);
+}
+
+@media (max-width: 767.98px) {
+  .contact-content::before {
+    opacity: 0.08;
+  }
+
+  .contact-content .contact-info-card,
+  .contact-content .contact-form-card {
+    border-radius: 1.5rem;
+    box-shadow: 0 18px 45px rgba(22, 71, 151, 0.08);
+  }
 }
 
 .contact-section .contact-info-card,
@@ -666,7 +788,6 @@
   font-size: 1.1rem;
   border-radius: 0.9rem;
 }
-
 
 @media (max-width: 99.198rem) {
   .contact-hero {
@@ -947,19 +1068,6 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .footer-section .social-link i {
   font-size: 1.25rem;
 }
@@ -982,16 +1090,6 @@
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 575.98px) {
   .contact-section .contact-info-card,

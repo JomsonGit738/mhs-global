@@ -1,7 +1,7 @@
 import HeroSlider from '../components/HeroSlider';
 import GlobalNetworkSection from '../components/GlobalNetworkSection';
 import PartnerUniversitiesSlider from '../components/PartnerUniversitiesSlider';
-import ContactForm from '../components/ContactForm';
+import ContactContent, { ContactInfoItem } from '../components/ContactContent';
 
 import foundationImg from '../assets/images/courses/1.png';
 import undergraduateImg from '../assets/images/courses/2.png';
@@ -65,35 +65,35 @@ const courses: Course[] = [
   },
 ];
 
-type ContactChannel = {
-  icon: string;
-  label: string;
-  value: string;
-  href?: string;
-};
-
-const contactChannels: ContactChannel[] = [
+const contactInfo: ContactInfoItem[] = [
   {
     icon: 'bi-telephone',
     label: 'Phone',
-    value: '+44 7521 772131',
-    href: 'tel:+447521772131',
+    lines: [
+      { text: '+44 7521 772131', href: 'tel:+447521772131' },
+    ],
   },
   {
     icon: 'bi-envelope',
     label: 'Email',
-    value: 'info@mhsglobalassociates.com',
-    href: 'mailto:info@mhsglobalassociates.com',
+    lines: [
+      { text: 'info@mhsglobalassociates.com', href: 'mailto:info@mhsglobalassociates.com' },
+    ],
   },
   {
     icon: 'bi-geo-alt',
     label: 'Office',
-    value: '1 Foundant Court, Payne Road, Bow, London, E3 2SP',
+    lines: [
+      { text: '1 Foundant Court, Payne Road, Bow, London, E3 2SP' },
+    ],
   },
   {
     icon: 'bi-clock',
     label: 'Office Hours',
-    value: 'Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 4:00 PM',
+    lines: [
+      { text: 'Monday - Friday: 9:00 AM - 6:00 PM' },
+      { text: 'Saturday: 10:00 AM - 4:00 PM' },
+    ],
   },
 ];
 
@@ -184,40 +184,12 @@ const HomePage = (): JSX.Element => {
           </div>
         </section>
 
-        <section className="contact-section py-5 py-lg-6" id="contact">
-          <div className="container">
-            <div className="row g-4 align-items-stretch">
-              <div className="col-12 col-lg-6 d-flex">
-                <div className="card border-0 shadow-sm contact-info-card h-100 w-100 p-4 p-lg-5">
-                  <h2 className="fw-bold text-dark mb-4">MHS Global Associates</h2>
-                  <p className="text-secondary mb-4">
-                    Connect with our advisors for personalised guidance on course selection, application strategy, scholarships, and visa preparation.
-                  </p>
-                  <div className="d-flex flex-column gap-3">
-                    {contactChannels.map((channel) => (
-                      <div key={channel.label} className="d-flex gap-3 align-items-start">
-                        <span className="icon-pill text-primary"><i className={`bi ${channel.icon}`}></i></span>
-                        <div>
-                          <div className="fw-semibold text-dark">{channel.label}</div>
-                          {channel.href ? (
-                            <a href={channel.href} className="text-secondary text-decoration-none">
-                              {channel.value}
-                            </a>
-                          ) : (
-                            <p className="text-secondary mb-0 whitespace-pre-line">{channel.value}</p>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-6 d-flex">
-                <ContactForm courses={courses} />
-              </div>
-            </div>
-          </div>
-        </section>
+        <ContactContent
+          info={contactInfo}
+          courses={courses}
+          sectionId="contact"
+          infoDescription="Connect with our advisors for personalised guidance on course selection, application strategy, scholarships, and visa preparation."
+        />
 
         <section className="testimonials-section py-5 py-lg-6 bg-white">
           <div className="container">
@@ -225,7 +197,11 @@ const HomePage = (): JSX.Element => {
               <span className="badge bg-primary-subtle text-primary-emphasis mb-2">Student Success Stories</span>
               <h2 className="fw-bold text-dark">Hear from students who turned aspirations into offers</h2>
             </div>
-            <div id="testimonialCarousel" className="carousel slide" data-bs-ride="carousel">
+            <div
+              id="testimonialCarousel"
+              className="carousel carousel-dark slide"
+              data-bs-ride="carousel"
+            >
               <div className="carousel-inner">
                 {testimonials.map((testimonial, index) => (
                   <div
@@ -244,6 +220,24 @@ const HomePage = (): JSX.Element => {
                   </div>
                 ))}
               </div>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev"
+              >
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide="next"
+              >
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+              </button>
               <div className="carousel-indicators position-static mt-4">
                 {testimonials.map((_, index) => (
                   <button

@@ -8,7 +8,7 @@ type ContactFormProps = {
 
 const ContactForm: FC<ContactFormProps> = ({ courses }) => {
   return (
-    <div className="card border-0 shadow-sm contact-form-card h-100 w-100 p-4 p-lg-5">
+    <div className="card border-0 shadow-sm rounded-4 contact-form-card h-100 w-100 p-4 p-lg-5">
       <h3 className="fw-semibold text-dark mb-4">Send us a message</h3>
       <form className="row g-3">
         <div className="col-md-6">

@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/mhs-logo-brand.png";
 
-type NavLink = { label: string; to: string } | { label: string; href: string };
+type NavItem = { label: string; to: string } | { label: string; href: string };
 
-const navLinks: NavLink[] = [
+const navItems: NavItem[] = [
   { label: "Home", to: "/" },
   { label: "Courses", to: "/courses" },
   { label: "Student Services", to: "/student-services" },
@@ -46,16 +46,22 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
           id="mainNav"
         >
           <ul className="navbar-nav align-items-lg-center gap-lg-3">
-            {navLinks.map((link) => (
+            {navItems.map((link) => (
               <li className="nav-item" key={link.label}>
                 {"href" in link ? (
                   <a className="nav-link text-secondary" href={link.href}>
                     {link.label}
                   </a>
                 ) : (
-                  <Link className="nav-link text-secondary" to={link.to}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `nav-link ${isActive ? "active fw-semibold" : ""}`
+                    }
+                    to={link.to}
+                    end={link.to === "/"}
+                  >
                     {link.label}
-                  </Link>
+                  </NavLink>
                 )}
               </li>
             ))}
