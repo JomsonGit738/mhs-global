@@ -67,7 +67,10 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
             ))}
           </ul>
         </div>
-        <a className="btn btn-primary ms-auto mt-3 mt-lg-0" href="/#contact">
+        <a
+          className="btn btn-primary btn-lg ms-auto mt-3 mt-lg-0"
+          href="/#contact"
+        >
           Apply Now
         </a>
       </div>

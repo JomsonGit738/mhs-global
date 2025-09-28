@@ -169,20 +169,25 @@ const HeroSlider = (): JSX.Element => {
                     <div className="badge bg-primary-subtle text-primary-emphasis mb-3">
                       {slide.badge}
                     </div>
-                    <h1 className="display-4 fw-bold text-dark mb-4">{slide.title}</h1>
-                    <p className="lead text-secondary mb-4">{slide.description}</p>
+                    <h1 className="h1 fw-bold text-dark mb-4">{slide.title}</h1>
+                    <p className="lead text-secondary mb-4">
+                      {slide.description}
+                    </p>
                     <div className="d-flex flex-wrap gap-3">
-                      <a className="btn btn-primary btn-lg" href={slide.primaryCta.href}>
+                      <a
+                        className="btn btn-primary btn-lg"
+                        href={slide.primaryCta.href}
+                      >
                         {slide.primaryCta.label}
                       </a>
-                      {slide.secondaryCta ? (
+                      {/* {slide.secondaryCta ? (
                         <a
                           className="btn btn-outline-primary btn-lg"
                           href={slide.secondaryCta.href}
                         >
                           {slide.secondaryCta.label}
                         </a>
-                      ) : null}
+                      ) : null} */}
                     </div>
                   </div>
                 </div>
@@ -195,7 +200,9 @@ const HeroSlider = (): JSX.Element => {
                     />
                     <div className="hero-badge shadow-sm">
                       {slide.statIcon ? (
-                        <i className={`bi ${slide.statIcon} text-primary me-2`}></i>
+                        <i
+                          className={`bi ${slide.statIcon} text-primary me-2`}
+                        ></i>
                       ) : null}
                       {slide.stat}
                     </div>
@@ -211,7 +218,9 @@ const HeroSlider = (): JSX.Element => {
               key={slide.id}
               type="button"
               onClick={() => slider.current?.moveToIdx(index)}
-              className={`hero-control-dot ${currentSlide === index ? "is-active" : ""}`}
+              className={`hero-control-dot ${
+                currentSlide === index ? "is-active" : ""
+              }`}
               aria-label={`Go to slide ${index + 1}`}
               aria-current={currentSlide === index ? "true" : undefined}
             >
@@ -225,4 +234,3 @@ const HeroSlider = (): JSX.Element => {
 };
 
 export default HeroSlider;
-

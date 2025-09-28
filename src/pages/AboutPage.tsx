@@ -91,7 +91,7 @@ const AboutPage = (): JSX.Element => {
                       <label className="form-label">Name</label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control form-control-lg"
                         placeholder="First Name"
                         required
                       />
@@ -100,7 +100,7 @@ const AboutPage = (): JSX.Element => {
                       <label className="form-label">E-mail</label>
                       <input
                         type="email"
-                        className="form-control"
+                        className="form-control form-control-lg"
                         placeholder="E-mail"
                         required
                       />
@@ -108,7 +108,7 @@ const AboutPage = (): JSX.Element => {
                     <div className="col-12">
                       <label className="form-label">Message</label>
                       <textarea
-                        className="form-control"
+                        className="form-control form-control-lg"
                         rows={4}
                         placeholder="Tell us how we can help you"
                         required
