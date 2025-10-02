@@ -93,7 +93,6 @@
 }
 
 .floating-contact {
-
   position: fixed;
 
   right: clamp(1rem, 2vw, 1.25rem);
@@ -107,13 +106,9 @@
   gap: 0.75rem;
 
   z-index: 1030;
-
 }
 
-
-
 .floating-contact__item {
-
   width: 3.5rem;
 
   height: 3.5rem;
@@ -131,98 +126,56 @@
   box-shadow: 0 0.75rem 1.5rem rgba(15, 35, 75, 0.28);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-
 }
 
-
-
 .floating-contact__item:hover,
-
 .floating-contact__item:focus-visible {
-
   transform: translateY(-2px) scale(1.03);
 
   box-shadow: 0 1rem 2rem rgba(15, 35, 75, 0.35);
 
   opacity: 0.95;
-
 }
 
-
-
 .floating-contact__item:focus-visible {
-
   outline: 0.2rem solid rgba(255, 255, 255, 0.8);
 
   outline-offset: 0.15rem;
-
 }
-
-
 
 .floating-contact__item i {
-
   font-size: 1.45rem;
-
 }
-
-
 
 .floating-contact__item--whatsapp {
-
   background: #25d366;
-
 }
-
-
 
 .floating-contact__item--call {
-
   background: #1f6ff2;
-
 }
-
-
 
 .floating-contact__item--mail {
-
   background: #ff4f4f;
-
 }
 
-
-
 @media (max-width: 575.98px) {
-
   .floating-contact {
-
     bottom: clamp(4.5rem, 12vw, 5.5rem);
 
     right: clamp(0.75rem, 4vw, 1.25rem);
-
   }
 
-
-
   .floating-contact__item {
-
     width: 3.25rem;
 
     height: 3.25rem;
-
   }
-
-
 
   .floating-contact__item i {
-
     font-size: 1.35rem;
-
   }
-
 }
-
-
 
 .hero-section {
   margin: 0;
@@ -240,7 +193,6 @@
   background-color: rgba(31, 111, 242, 0.12) !important;
 }
 
-
 .hero-slider-container {
   width: 100%;
 }
@@ -250,7 +202,7 @@
 }
 
 .hero-copy {
-  padding: clamp(2rem, 6vw, 5rem);
+  padding-left: clamp(2rem, 6vw, 10rem);
 }
 
 .hero-copy h1 {
@@ -985,7 +937,8 @@
 .network-map-card {
   position: relative;
   width: 100%;
-  min-height: clamp(30rem, 78vh, 48rem);
+  height: fit-content;
+  min-height: 0;
   margin: 0;
   border-radius: 0;
   overflow: hidden;
@@ -1053,6 +1006,7 @@
 
 .network-marker {
   cursor: pointer;
+  outline: none !important;
 }
 
 .network-marker-pin-group {
@@ -1079,15 +1033,16 @@
 }
 
 .network-marker-tooltip-bg {
-  fill: rgba(16, 45, 98, 0.94);
-  stroke: rgba(8, 22, 50, 0.25);
-  stroke-width: 1px;
-  filter: drop-shadow(0 0.25rem 0.75rem rgba(9, 29, 64, 0.22));
+  border-radius: 0 !important;
+  /* fill: rgba(16, 45, 98, 0.94); */
+  /* stroke: rgba(8, 22, 50, 0.25); */
+  /* stroke-width: 1px; */
+  /* filter: drop-shadow(0 0.25rem 0.75rem rgba(9, 29, 64, 0.22)); */
 }
 
 .network-marker-tooltip-label {
   fill: #ffffff;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1123,7 +1078,8 @@
 
   .network-map-card {
     border-radius: 0;
-    min-height: clamp(28rem, 70vh, 40rem);
+    height: clamp(15rem, 36vh, 22rem);
+    min-height: 0;
   }
 }
 
@@ -1133,14 +1089,15 @@
   }
 
   .network-map-card {
-    min-height: 28rem;
+    height: 16rem;
+    min-height: 0;
   }
 }
 
 .network-overlay-list span {
   color: rgba(255, 255, 255, 0.85);
-
-  font-size: 1.1rem;
+
+  font-size: 1.1rem;
 }
 
 .network-section .container-fluid {
@@ -1150,7 +1107,7 @@
 
 .network-map-shell {
   width: 100%;
-  height: 100%;
+  height: 70rem;
   /* padding: clamp(1.5rem, 5vw, 0rem); */
 }
 
@@ -1230,9 +1187,9 @@
   }
 }
 
-.footer-section .social-link i {
-  font-size: 1.25rem;
-}
+/* .footer-section .social-link i {
+  font-size: 2rem;
+} */
 
 .footer-section h4 {
   font-size: 1.1rem;
@@ -1254,380 +1211,209 @@
 }
 
 @media (max-width: 575.98px) {
-
   header .navbar {
-
     padding-left: clamp(1.6rem, 6vw, 2.2rem);
 
     padding-right: clamp(1.6rem, 6vw, 2.2rem);
-
   }
-
-
 
   .hero-section .hero-copy {
-
     padding: clamp(1.8rem, 6vw, 2.6rem);
-
   }
 
-
-
   .hero-copy h1 {
-
     font-size: clamp(2.8rem, 6vw + 1.6rem, 4.2rem);
 
     line-height: 1.2;
-
   }
-
-
 
   .hero-section .hero-copy .btn {
-
     width: 100%;
-
   }
-
-
 
   .foundation-section .container,
-
   .about-content .container,
-
   .services-content .container,
-
   .contact-content .container {
-
     padding: 0 1.8rem;
-
   }
-
-
 
   .foundation-section .row.align-items-center {
-
     text-align: center;
-
   }
 
-
-
   .foundation-section .foundation-hero-media {
-
     max-width: 22rem;
 
     margin: 0 auto;
-
   }
 
-
-
   .foundation-section .foundation-highlight {
-
     text-align: left;
 
     align-items: center;
-
   }
-
-
 
   .foundation-program-card .card-body {
-
     padding: 2.5rem 2rem;
-
   }
-
-
 
   .foundation-program-card .btn {
-
     width: 100%;
-
   }
-
-
 
   .foundation-programs h2 {
-
     text-align: center;
-
   }
 
-
-
   .services-hero .container,
-
   .about-hero .container {
-
     padding: 0 1.8rem;
 
     text-align: center;
-
   }
-
-
 
   .services-hero .lead,
-
   .about-hero .lead {
-
     max-width: 100%;
-
   }
 
-
-
   .services-content .service-tag {
-
     font-size: 0.95rem;
 
     padding: 0.5rem 0.9rem;
-
   }
-
-
 
   .service-card .card-body,
-
   .service-extra-card .card-body {
-
     padding: 2.5rem;
-
   }
-
-
 
   .service-callout .btn,
-
   .services-content form .btn {
-
     width: 100%;
-
   }
-
-
 
   .about-contact-card .card-body {
-
     padding: 2.5rem !important;
-
   }
-
-
 
   .about-contact-card form .btn {
-
     width: 100%;
-
   }
-
-
 
   .about-contact-card .form-control {
-
     min-height: 3.5rem;
-
   }
-
-
 
   .contact-content .contact-info-card,
-
   .contact-content .contact-form-card,
-
   .contact-section .contact-info-card,
-
   .contact-section .contact-form-card {
-
     padding: 2rem !important;
-
   }
-
-
 
   .contact-content .contact-info-card .card-body {
-
     gap: 1.5rem;
-
   }
-
-
 
   .contact-content .contact-info-item {
-
     gap: 1rem;
-
   }
 
-
-
   .contact-content .contact-form-card .form-control,
-
   .contact-content .contact-form-card .form-select,
-
   .contact-section .form-control,
-
   .contact-section .form-select {
-
     padding: 0.95rem 1.1rem;
 
     font-size: 1.1rem;
-
   }
-
-
 
   .promo-section {
-
     padding: 3.5rem 0;
-
   }
-
-
 
   .promo-section .container {
-
     text-align: center;
-
   }
-
-
 
   .promo-section .col-lg-4 {
-
     margin-top: 2rem;
-
   }
-
-
 
   .courses-section,
-
   .testimonials-section,
-
   .contact-content {
-
     padding: 4rem 0;
-
   }
-
-
 
   .courses-section .section-heading {
-
     margin-bottom: 3rem;
-
   }
-
-
 
   .testimonial-card .card-body {
-
     padding: 3rem;
-
   }
-
-
 
   .footer-section {
-
     padding: 4.5rem 0 3.5rem !important;
-
   }
-
-
 
   .footer-section .container {
-
     padding: 0 2rem;
-
   }
 
-
-
   .footer-section .row {
-
     --bs-gutter-x: 1.75rem;
 
     --bs-gutter-y: 2.5rem;
-
   }
 
-
-
-  .footer-section .container > .row > [class*='col-'] {
-
+  .footer-section .container > .row > [class*="col-"] {
     flex: 0 0 100%;
 
     max-width: 100%;
 
     text-align: center;
-
   }
 
-
-
   .footer-section h4 {
-
     font-size: 1.3rem;
-
   }
 
   .footer-section p,
-
   .footer-section .list-unstyled a {
-
     font-size: 1.15rem;
-
   }
 
   .footer-section .text-center.small {
-
     font-size: 1.1rem;
-
   }
-
-
 
   .footer-section .list-unstyled {
-
     gap: 0.85rem;
-
   }
-
-
 
   .footer-socials {
-
     gap: 1.5rem !important;
-
   }
 
-
-
   .footer-section .social-link {
-
     width: 3.1rem;
 
     height: 3.1rem;
-
   }
-
-
 
   .footer-section .social-link i {
-
     font-size: 1.1rem;
-
   }
-
 }
 
-
-
-
-
-
-
+.footer-img-contain {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.6rem;
+  background-color: white;
+  border-radius: 0.6rem;
+}

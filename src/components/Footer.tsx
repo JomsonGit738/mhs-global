@@ -96,30 +96,32 @@ const Footer = (): JSX.Element => {
   return (
     <footer className="footer-section pt-5 pb-4 text-white">
       <div className="container">
-        <div className="text-center p-3 mb-5 rounded bg-white text-lg-start">
-          <div className="d-flex align-items-center justify-content-center mb-3">
-            <img width={70} src={logo} alt="navbar_brand_footer" />
-            <h1 className="fw-bold text-primary">MHS Global Associates</h1>
+        <div className="row g-4 mt-5 pb-4">
+          <div className="col-12 col-md-4 col-lg-3 rounded text-lg-start">
+            <div className="d-flex gap-3 align-items-center justify-content-start mb-3">
+              <div className="footer-img-contain">
+                <img width={70} src={logo} alt="navbar_brand_footer" />
+              </div>
+            </div>
+            <h2 className="fw-bold text-white">MHS Global Associates</h2>
+            <p className="fs-4 text-white text-start mb-0 pe-lg-4 mx-auto mx-lg-0">
+              We have been helping students achieve their international study
+              dreams for over 15 years with personalised guidance and
+              comprehensive support.
+            </p>
           </div>
-          <p className="text-primary text-center mb-0 pe-lg-4 mx-auto mx-lg-0">
-            We have been helping students achieve their international study
-            dreams for over 15 years with personalised guidance and
-            comprehensive support.
-          </p>
-        </div>
-        <div className="row g-4 pb-4">
           {footerColumns.map((column) => (
             <div
-              className="col-12 col-md-4 col-lg-4 text-center text-md-center"
+              className="col-12 col-md-4 col-lg-3 text-center text-md-start"
               key={column.title}
             >
-              <h3 className="text-white mb-3">{column.title}</h3>
-              <ul className="list-unstyled d-flex flex-column gap-2 align-items-center align-items-md-center mb-0">
+              <h3 className="text-white fw-bolder mb-3">{column.title}</h3>
+              <ul className="list-unstyled d-flex flex-column gap-2 align-items-center align-items-md-start mb-0">
                 {column.items.map((item) => (
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="text-white text-decoration-none"
+                      className="fs-4 text-white text-decoration-none"
                     >
                       {item.label}
                     </a>

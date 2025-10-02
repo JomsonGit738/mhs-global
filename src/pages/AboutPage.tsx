@@ -5,23 +5,23 @@ type AboutSection = {
 
 const aboutSections: AboutSection[] = [
   {
-    title: "Who We Are",
+    title: "Who we are",
     body: "MHS Global Associates is dedicated to empowering students with the right guidance and support to transform their dreams of global education into reality.",
   },
   {
-    title: "Our Vision",
+    title: "Our vision",
     body: "Founded in 2020, MHS Global Associates was built on a mission to empower students to reach their highest academic and career potential. With a clear vision of creating global opportunities, the consultancy has quickly established itself as a trusted bridge between ambitious learners and world-class educational institutions.",
   },
   {
-    title: "Student-Centered Approach",
+    title: "Student-Centered approach",
     body: "At MHS Global Associates, every student is at the heart of what we do. Our team provides personalized guidance, from selecting the right course and university to ensuring smooth application and visa processes. By tailoring strategies to individual needs, we make each journey stress-free, transparent, and inspiring.",
   },
   {
-    title: "Proven Success Stories",
+    title: "Proven success stories",
     body: "The results speak for themselves—hundreds of students have applied through MHS Global Associates and achieved success in securing admissions to prestigious universities worldwide. Each success story adds to our growing legacy of transforming dreams into reality, building trust and confidence among students and families alike.",
   },
   {
-    title: "Our Commitment",
+    title: "Our commitment",
     body: "As we continue to grow, our commitment remains strong—to guide, support, and inspire the next generation of global achievers. With professionalism, integrity, and passion for education, MHS Global Associates stands as a reliable partner in shaping brighter futures and turning aspirations into accomplishments.",
   },
 ];

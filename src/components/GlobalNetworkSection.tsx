@@ -73,30 +73,9 @@ const GlobalNetworkSection = (): JSX.Element => {
   const tooltipOffsetY = pinTopY - tooltipGap;
 
   return (
-    <section className="network-section py-lg-6" id="about">
+    <section className="network-section" id="about">
       <div className="container-fluid px-0">
         <div className="network-map-card position-relative">
-          <div className="network-overlay text-white">
-            <span className="badge bg-white text-primary-emphasis mb-3">
-              Our Global Network
-            </span>
-            <h2 className="fw-bold mb-3 text-white">
-              Explore academic opportunities across continents
-            </h2>
-            <p className="mb-4 text-white-50">
-              We partner with world-ranked universities to open doors to
-              specialised programs, scholarship pathways, and international
-              career launchpads.
-            </p>
-            <ul className="list-unstyled d-grid gap-2 network-overlay-list">
-              {overlayHighlights.map((item) => (
-                <li key={item} className="d-flex align-items-start gap-2">
-                  <span className="network-bullet"></span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
           <div className="network-map-shell">
             <ComposableMap
               projection="geoMercator"
@@ -104,19 +83,9 @@ const GlobalNetworkSection = (): JSX.Element => {
               style={{ width: "100%", height: "100%" }}
             >
               <defs>
-                <linearGradient
-                  id="oceanGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="0%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stopColor="#cfe4ff" />
-                  <stop offset="100%" stopColor="#eaf3ff" />
-                </linearGradient>
                 <radialGradient id="markerGradient" cx="50%" cy="35%" r="65%">
-                  <stop offset="0%" stopColor="#69a5ff" />
-                  <stop offset="100%" stopColor="#1f6ff2" />
+                  <stop offset="0%" stop-color="darkred" />
+                  <stop offset="100%" stop-color="red" />
                 </radialGradient>
               </defs>
               <rect
@@ -211,5 +180,3 @@ const GlobalNetworkSection = (): JSX.Element => {
 };
 
 export default memo(GlobalNetworkSection);
-
-

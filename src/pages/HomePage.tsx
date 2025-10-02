@@ -164,6 +164,20 @@ const HomePage = (): JSX.Element => {
         </section>
       ))}
 
+      <section className="py-5 bg-light">
+        <div className="container">
+          <div className="section-heading text-start mb-5">
+            <h1 className="fs-32-600-130 fw-bold text-dark mb-3">
+              Our Global Network
+            </h1>
+            <p className="text-secondary mb-0">
+              Explore global academic opportunities through our extensive
+              network of partner universities and institutions across multiple
+              countries.
+            </p>
+          </div>
+        </div>
+      </section>
       <GlobalNetworkSection />
       <PartnerUniversitiesSlider />
 
