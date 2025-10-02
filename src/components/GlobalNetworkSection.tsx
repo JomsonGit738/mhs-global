@@ -57,11 +57,11 @@ const networkLocations: NetworkLocation[] = [
   },
 ];
 
-const overlayHighlights = [
-  "11+ destination countries with on-ground support",
-  "Priority application processing & scholarship guidance",
-  "Dedicated visa advisory and post-arrival mentoring",
-];
+// const overlayHighlights = [
+//   "11+ destination countries with on-ground support",
+//   "Priority application processing & scholarship guidance",
+//   "Dedicated visa advisory and post-arrival mentoring",
+// ];
 
 const GlobalNetworkSection = (): JSX.Element => {
   const pinScale = 0.6;
