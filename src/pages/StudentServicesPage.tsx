@@ -1,6 +1,9 @@
+import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+
 const serviceTags: string[] = [
-  "Student Assistance",
-  "Scholarships",
+  "Application coordination",
+  "Free student services",
+  "Value-added support",
   "Book your free consultation",
 ];
 
@@ -13,39 +16,39 @@ type ServiceCard = {
 
 const serviceCards: ServiceCard[] = [
   {
-    title: "Student Assistance & Scholarships",
+    title: "Application Coordination & Admissions",
     description:
-      "Comprehensive guidance and support for your educational journey, from enrolment to graduation.",
-    icon: "bi-mortarboard",
+      "We co-ordinate applications to first degree, foundation, HND and diploma programmes so your submission meets every university requirement on time.",
+    icon: "bi-clipboard-check",
     points: [
-      "Proper guidance before enrolment and future planning",
-      "Latest information on universities and programs for all queries",
-      "Assistance in selecting appropriate courses aligned with career goals",
-      "Personalised counselling sessions and scholarship guidance",
+      "Dedicated advisors for UCAS and direct university applications",
+      "Guidance on entry requirements, supporting documents and translations",
+      "Deadline management for September, January and May intakes",
+      "Offer acceptance, deferral and enrolment support",
     ],
   },
   {
-    title: "Course & University Selection",
+    title: "Student Assistance & Value-Added Offers",
     description:
-      "Expert assistance in choosing the right educational path that matches your aspirations and career goals.",
-    icon: "bi-building",
+      "Benefit from complimentary counselling, institutional briefings and tailored preparation that helps you secure the right place of study.",
+    icon: "bi-people-heart",
     points: [
-      "Comprehensive course catalog and curriculum review",
-      "University ranking and reputation analysis",
-      "Career outcome and employment statistics",
-      "Application requirements and deadlines",
+      "One-to-one academic and career counselling sessions",
+      "Workshops covering personal statements and interview techniques",
+      "Regular updates on scholarships, bursaries and promotional offers",
+      "Priority booking for open days, webinars and campus visits",
     ],
   },
   {
-    title: "Application Support Services",
+    title: "Finance, Welfare & Settlement Support",
     description:
-      "End-to-end support for your university and visa applications to ensure a smooth admission process.",
-    icon: "bi-journal-check",
+      "From finance applications to accommodation advice, we make sure every practical detail is ready before you travel.",
+    icon: "bi-house-heart",
     points: [
-      "Document assessment and qualification mapping",
-      "Personal statement and essay writing assistance",
-      "Admisson interview preparation and pre-departure briefing",
-      "Visa documentation, submission, and follow-up support",
+      "Guidance on tuition fees, instalments and sponsorship options",
+      "Student finance and loan application assistance (where eligible)",
+      "Accommodation search across university-managed and private providers",
+      "Pre-departure briefings covering arrival, banking and NHS registration",
     ],
   },
 ];
@@ -56,56 +59,86 @@ type ServiceCategory = {
 };
 
 const serviceCategories: ServiceCategory[] = [
-  { name: "Foundation", count: 15 },
-  { name: "Undergraduate", count: 48 },
-  { name: "Postgraduate", count: 32 },
-  { name: "Short Courses", count: 28 },
+  { name: "Admissions & UCAS", count: 24 },
+  { name: "Accommodation", count: 12 },
+  { name: "Finance & Scholarships", count: 18 },
+  { name: "Student Welfare", count: 16 },
+  { name: "Visa Support", count: 20 },
 ];
 
 const complimentaryServices: string[] = [
-  "Assessment of documents & qualifications mapping for prospective study",
-  "Course & university selection guidance",
-  "Scholarship opportunities and eligibility assessment",
-  "Personal statement writing support",
+  "Assessment of documents and qualification mapping",
+  "Course and university selection guidance",
+  "Scholarship opportunity briefings",
+  "Personal statement and CV workshops",
   "Admission and credibility interview preparation",
-  "General guidance on visa application documents",
-  "Visa application submission assistance",
-  "Pre-departure briefing and enrolment support",
+  "Guidance on visa application documentation",
+  "Visa submission assistance and follow-up",
+  "Pre-departure briefings and enrolment support",
   "UCAS application assistance",
   "Student finance application support",
-  "Career consultation and planning",
+  "Career consultation and progression planning",
 ];
 
 const StudentServicesPage = (): JSX.Element => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const trimmedQuery = searchQuery.trim();
+  const normalizedQuery = trimmedQuery.toLowerCase();
+
+  const filteredServices = useMemo(() => {
+    if (!normalizedQuery) {
+      return serviceCards;
+    }
+
+    return serviceCards.filter((card) => {
+      const haystack = [card.title, card.description, ...card.points]
+        .join(" ")
+        .toLowerCase();
+
+      return haystack.includes(normalizedQuery);
+    });
+  }, [normalizedQuery]);
+
+  const hasResults = filteredServices.length > 0;
+
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery("");
+  };
+
   return (
     <>
       <section className="services-hero position-relative text-white">
-        {/* <div className="services-hero-overlay"></div> */}
+        <div className="services-hero-overlay" aria-hidden="true"></div>
         <div className="container position-relative py-5 py-lg-6">
           <span className="badge bg-white text-primary fw-semibold mb-3 text-uppercase small shadow-sm">
             Professional Education Services
           </span>
           <h1 className="display-5 fw-bold mb-3">
-            Your Gateway to{" "}
-            <span className="text-primary">Global Education</span>
+            Student Services &amp; Value-Added Support
           </h1>
-          <p className="lead text-white-75 mb-4 col-lg-6">
-            At MHS Global Associates, we open doors to world-class education. We
-            provide comprehensive guidance and support at every stage of your
-            academic journey, connecting you with leading universities across
-            the globe to help you achieve your dreams.
+          <p className="lead text-white-75 mb-4 col-lg-7">
+            The service provided by MHS Global Associates co-ordinates
+            applications to full-time first degree, foundation degree, HND and
+            HNC courses so you progress from enquiry to enrolment with
+            confidence.
           </p>
-          <div className="d-flex justify-content-center flex-wrap gap-3">
+          {/* <div className="d-flex flex-wrap gap-3">
             <a className="btn btn-primary btn-lg" href="/#contact">
               Explore Services
             </a>
-            {/* <a
-              className="btn btn-outline-light btn-lg"
-              href="mailto:info@mhsglobalassociates.com"
-            >
+            <a className="btn btn-outline-light btn-lg" href="mailto:info@mhsglobalassociates.com">
               Speak to an Advisor
-            </a> */}
-          </div>
+            </a>
+          </div> */}
         </div>
       </section>
 
@@ -125,60 +158,117 @@ const StudentServicesPage = (): JSX.Element => {
             <div className="col-lg-8">
               <h2 className="fw-bold text-dark mb-3">Student Services</h2>
               <p className="text-secondary mb-4">
-                Our comprehensive student services are designed to support your
-                educational journey from initial enquiry to successful
-                graduation. MHS coordinates applications for first-time degree,
-                foundation degree, Higher National Diploma (HND), Higher
-                National Certificate (HNC), Diploma of Higher Education, and
-                Certificate of Higher Education courses offered by partner
-                universities and colleges.
+                Our comprehensive services help you identify the right course,
+                secure offers and prepare every logistical detail before your
+                departure. We combine local expertise with strong university
+                partnerships to make the process seamless.
               </p>
-              <div className="row row-cols-1 row-cols-lg-3 g-4 mb-5">
-                {serviceCards.map((card) => (
-                  <div key={card.title} className="col">
-                    <div className="card h-100 border-0 shadow-sm service-card">
-                      <div className="card-body d-flex flex-column">
-                        <div className="service-card-icon icon-pill text-primary mb-3">
-                          <i className={"bi " + card.icon}></i>
-                        </div>
-                        <h3 className="h5 fw-semibold text-dark mb-2">
-                          {card.title}
-                        </h3>
-                        <p className="text-secondary mb-3">
-                          {card.description}
-                        </p>
-                        <ul className="list-unstyled d-flex flex-column gap-2 mb-4">
-                          {card.points.map((point) => (
-                            <li
-                              key={point}
-                              className="d-flex align-items-start gap-2 text-secondary"
-                            >
-                              <i className="bi bi-check-circle-fill text-primary"></i>
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        {/* <a
-                          className="btn btn-lg btn-primary mt-auto"
-                          href="/#contact"
-                        >
-                          Learn More
-                        </a> */}
+
+              <div className="card border-0 shadow-sm service-intro-card mb-5">
+                <div className="card-body p-4 p-lg-5">
+                  <p className="lead mb-4">
+                    We manage all communications with universities and awarding
+                    bodies, ensuring your application is presented
+                    professionally and within the required deadlines. Our free
+                    guidance means you stay focused on choosing the pathway that
+                    fits.
+                  </p>
+                  <div className="row g-4">
+                    <div className="col-sm-6 col-lg-4">
+                      <div className="service-stat">
+                        <span className="service-stat-value">4+</span>
+                        <span className="service-stat-label">
+                          Qualification
+                          <br />
+                          pathways supported
+                        </span>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-lg-4">
+                      <div className="service-stat">
+                        <span className="service-stat-value">3</span>
+                        <span className="service-stat-label">
+                          Annual
+                          <br />
+                          intakes covered
+                        </span>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-lg-4">
+                      <div className="service-stat">
+                        <span className="service-stat-value">100%</span>
+                        <span className="service-stat-label">
+                          Complimentary
+                          <br />
+                          advisory support
+                        </span>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
 
-              <div className="card border-0 shadow-sm service-extra-card">
+              {normalizedQuery && (
+                <p className="services-search-summary mb-4">
+                  <strong>{filteredServices.length}</strong>{" "}
+                  {filteredServices.length === 1 ? "service" : "services"} match
+                  "{trimmedQuery}".
+                </p>
+              )}
+
+              {hasResults ? (
+                <div className="row g-4">
+                  {filteredServices.map((card) => (
+                    <div key={card.title} className="col-md-6">
+                      <div className="card h-100 border-0 shadow-sm service-card">
+                        <div className="card-body d-flex flex-column">
+                          <div className="service-card-icon icon-pill text-primary mb-3">
+                            <i className={"bi " + card.icon}></i>
+                          </div>
+                          <h3 className="h5 fw-semibold text-dark mb-2">
+                            {card.title}
+                          </h3>
+                          <p className="text-secondary mb-3">
+                            {card.description}
+                          </p>
+                          <ul className="list-unstyled d-flex flex-column gap-2 mb-4">
+                            {card.points.map((point) => (
+                              <li
+                                key={point}
+                                className="d-flex align-items-start gap-2 text-secondary"
+                              >
+                                <i className="bi bi-check-circle-fill text-primary"></i>
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className="alert alert-light border shadow-sm"
+                  role="status"
+                >
+                  <h3 className="h6 text-dark mb-2">No services found</h3>
+                  <p className="text-secondary mb-0 small">
+                    Try searching for keywords such as "application",
+                    "scholarship" or "finance", or clear the search to view all
+                    services.
+                  </p>
+                </div>
+              )}
+
+              <div className="card border-0 shadow-sm service-extra-card mt-5">
                 <div className="card-body p-4 p-lg-5">
                   <h3 className="h5 fw-semibold text-dark mb-3">
                     Complimentary Services
                   </h3>
                   <p className="text-secondary mb-4">
-                    Access our comprehensive range of free services designed to
-                    support your educational journey without any additional
-                    cost.
+                    Access our suite of free value-added services that keep you
+                    supported through every milestone of your academic journey.
                   </p>
                   <div className="row row-cols-1 row-cols-md-2 g-3">
                     {complimentaryServices.map((item) => (
@@ -201,17 +291,37 @@ const StudentServicesPage = (): JSX.Element => {
                     <h3 className="text-dark fw-semibold mb-3">
                       Search Services
                     </h3>
-                    <form className="d-flex gap-2">
+                    <form
+                      className="d-flex gap-2"
+                      onSubmit={handleSearchSubmit}
+                    >
                       <input
                         type="search"
                         className="form-control form-control-lg"
                         placeholder="Keyword"
                         aria-label="Search services"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
                       />
-                      <button type="submit" className="btn btn-primary">
+                      <button
+                        type="submit"
+                        className="btn btn-primary"
+                        aria-label="Search"
+                      >
                         <i className="bi bi-search"></i>
                       </button>
                     </form>
+                    {searchQuery && (
+                      <div className="d-flex justify-content-end mt-2">
+                        <button
+                          type="button"
+                          className="btn btn-link btn-sm p-0 text-decoration-none"
+                          onClick={handleClearSearch}
+                        >
+                          Clear search
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
 

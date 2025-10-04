@@ -1,4 +1,5 @@
 import logo from "../assets/images/mhs-logo-brand.png";
+
 const footerColumns = [
   {
     title: "Quick Links",
@@ -43,49 +44,32 @@ const footerColumns = [
 const socialPlatforms = [
   {
     icon: "linkedin",
-
     label: "LinkedIn",
-
     href: "https://www.linkedin.com/in/mhs-global-associates-648218387/",
   },
-
   {
     icon: "youtube",
-
     label: "YouTube",
-
     href: "https://www.youtube.com/@MHSGlobalAssociates-1",
   },
-
   {
     icon: "instagram",
-
     label: "Instagram",
-
     href: "https://www.instagram.com/mhsglobalassociates/",
   },
-
   {
     icon: "tiktok",
-
     label: "TikTok",
-
     href: "https://www.tiktok.com/@mhs.globalassociates",
   },
-
   {
     icon: "facebook",
-
     label: "Facebook",
-
     href: "https://www.facebook.com/mhsglobalassociiates/",
   },
-
   {
     icon: "twitter",
-
     label: "X (Twitter)",
-
     href: "https://x.com/mhsglobala1",
   },
 ] as const;
@@ -96,33 +80,29 @@ const Footer = (): JSX.Element => {
   return (
     <footer className="footer-section pt-5 pb-4 text-white">
       <div className="container">
-        <div className="row g-4 mt-5 pb-4">
-          <div className="col-12 col-md-4 col-lg-3 rounded text-lg-start">
-            <div className="d-flex gap-3 align-items-center justify-content-start mb-3">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 mt-5 pb-4">
+          <div className="col footer-about d-flex flex-column gap-3 align-items-center align-items-sm-start text-center text-sm-start">
+            <div className="d-flex gap-3 align-items-center justify-content-start">
               <div className="footer-img-contain">
-                <img width={70} src={logo} alt="navbar_brand_footer" />
+                <img width={70} src={logo} alt="MHS Global Associates logo" />
+              </div>
+              <div>
+                <h2 className="footer-brand mb-0">MHS Global Associates</h2>
+                <p className="footer-subtitle mb-0">Global Education Consultants</p>
               </div>
             </div>
-            <h2 className="fw-bold text-white">MHS Global Associates</h2>
-            <p className="fs-4 text-white text-start mb-0 pe-lg-4 mx-auto mx-lg-0">
-              We have been helping students achieve their international study
-              dreams for over 15 years with personalised guidance and
-              comprehensive support.
+            <p className="footer-description mb-0 text-center text-sm-start">
+              We have been helping students achieve their international study dreams for over 15 years with personalised guidance and comprehensive support.
             </p>
           </div>
+
           {footerColumns.map((column) => (
-            <div
-              className="col-12 col-md-4 col-lg-3 text-center text-md-start"
-              key={column.title}
-            >
-              <h3 className="text-white fw-bolder mb-3">{column.title}</h3>
-              <ul className="list-unstyled d-flex flex-column gap-2 align-items-center align-items-md-start mb-0">
+            <div className="col d-flex flex-column align-items-center align-items-sm-start text-center text-sm-start" key={column.title}>
+              <h3 className="footer-heading mb-3">{column.title}</h3>
+              <ul className="footer-links mb-0 align-items-center align-items-sm-start text-center text-sm-start">
                 {column.items.map((item) => (
                   <li key={item.label}>
-                    <a
-                      href={item.href}
-                      className="fs-4 text-white text-decoration-none"
-                    >
+                    <a href={item.href} className="footer-link">
                       {item.label}
                     </a>
                   </li>
@@ -158,3 +138,4 @@ const Footer = (): JSX.Element => {
 };
 
 export default Footer;
+
