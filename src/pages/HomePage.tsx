@@ -287,6 +287,7 @@ const HomePage = (): JSX.Element => {
                       )}`}
                       className="course-search-option"
                       role="option"
+                      aria-selected="false"
                       onClick={() => setCourseQuery("")}
                     >
                       <div className="course-search-option-title">

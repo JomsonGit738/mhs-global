@@ -25,7 +25,6 @@ type HeaderProps = {
 
 const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const collapseRef = useRef<HTMLDivElement | null>(null);
   const collapseInstanceRef = useRef<any>(null);
 
@@ -51,16 +50,6 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
       instance.dispose();
       collapseInstanceRef.current = null;
     };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const toggleNav = () => {
     collapseInstanceRef.current?.toggle();
