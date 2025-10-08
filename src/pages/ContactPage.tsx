@@ -21,7 +21,10 @@ const contactInfo: ContactInfoItem[] = [
   {
     icon: "bi-geo-alt",
     label: "Office",
-    lines: [{ text: "123 Education Street" }, { text: "London, UK EC1A 1BB" }],
+    lines: [
+      { text: "1st Floor, 101 Whitechapel High Road" },
+      { text: "London E1 7RA, United Kingdom" },
+    ],
   },
   {
     icon: "bi-clock",

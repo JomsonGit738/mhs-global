@@ -119,11 +119,20 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
         </a>
       </div>
       {showTicker && (
-        <div className="ticker" role="region" aria-label="Admissions updates">
-          <div className="ticker-track">
+        <div
+          className="ticker fw-semibold"
+          role="region"
+          aria-label="Admissions updates"
+        >
+          <div className="ticker-track" role="list">
             {tickerLoop.map((text, index) => (
-              <span className="ticker-item" key={`${text}-${index}`}>
-                {text}
+              <span
+                className="ticker-item"
+                key={`${text}-${index}`}
+                role="listitem"
+              >
+                <i className="bi bi-circle-fill ticker-separator" aria-hidden="true"></i>
+                <span>{text}</span>
               </span>
             ))}
           </div>

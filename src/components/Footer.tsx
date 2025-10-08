@@ -86,18 +86,26 @@ const Footer = (): JSX.Element => {
               <div className="footer-img-contain">
                 <img width={70} src={logo} alt="MHS Global Associates logo" />
               </div>
-              <div>
+              {/* <div>
                 <h2 className="footer-brand mb-0">MHS Global Associates</h2>
-                <p className="footer-subtitle mb-0">Global Education Consultants</p>
-              </div>
+                <p className="footer-subtitle mb-0">
+                  Global Education Consultants
+                </p>
+              </div> */}
             </div>
-            <p className="footer-description mb-0 text-center text-sm-start">
-              We have been helping students achieve their international study dreams for over 15 years with personalised guidance and comprehensive support.
+            <h2 className="footer-brand mb-0">MHS Global Associates</h2>
+            <p className="mb-0">
+              1st Floor, 101 Whitechapel High Road London E1 7RA, United Kingdom
             </p>
+            <p className="mb-0">info@mhsglobalassociates.com</p>
+            <p className="mt-0 mb-0">07521772131</p>
           </div>
 
           {footerColumns.map((column) => (
-            <div className="col d-flex flex-column align-items-center align-items-sm-start text-center text-sm-start" key={column.title}>
+            <div
+              className="col d-flex flex-column align-items-center align-items-sm-start text-center text-sm-start"
+              key={column.title}
+            >
               <h3 className="footer-heading mb-3">{column.title}</h3>
               <ul className="footer-links mb-0 align-items-center align-items-sm-start text-center text-sm-start">
                 {column.items.map((item) => (
@@ -138,4 +146,3 @@ const Footer = (): JSX.Element => {
 };
 
 export default Footer;
-
