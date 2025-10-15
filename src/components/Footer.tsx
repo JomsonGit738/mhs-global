@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+// import { FormEvent } from "react";
 import logo from "../assets/images/mhs-logo-brand.png";
 
 const footerColumns = [
@@ -78,9 +78,9 @@ const socialPlatforms = [
 const Footer = (): JSX.Element => {
   const currentYear = new Date().getFullYear();
 
-  const handleExplore = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
+  // const handleExplore = (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  // };
 
   return (
     <footer className="footer-luxe">
