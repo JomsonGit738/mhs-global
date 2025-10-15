@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -12,6 +13,14 @@ import ContactPage from './pages/ContactPage';
 const Layout = (): JSX.Element => {
   const { pathname } = useLocation();
   const showTicker = pathname === '/';
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto',
+    });
+  }, [pathname]);
 
   return (
     <div className="app-root bg-body-tertiary" id="top">

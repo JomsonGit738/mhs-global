@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
 type ContactFormProps = {
   courses: Array<{
@@ -8,49 +8,108 @@ type ContactFormProps = {
 
 const ContactForm: FC<ContactFormProps> = ({ courses }) => {
   return (
-    <div className="card border-0 shadow-sm rounded-4 contact-form-card h-100 w-100 p-4 p-lg-5">
-      <h3 className="fw-semibold text-dark mb-4">Send us a message</h3>
-      <form className="row g-3">
-        <div className="col-md-6">
-          <label className="form-label">Full Name *</label>
-          <input type="text" className="form-control" placeholder="Your name" required />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Email Address *</label>
-          <input type="email" className="form-control" placeholder="name@email.com" required />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Phone Number *</label>
-          <input type="tel" className="form-control" placeholder="Include country code" required />
-        </div>
-        <div className="col-md-6">
-          <label className="form-label">Country *</label>
-          <input type="text" className="form-control" placeholder="Where do you reside?" required />
-        </div>
-        <div className="col-12">
-          <label className="form-label">Study Interest *</label>
-          <select className="form-select" defaultValue="choose">
-            <option value="choose" disabled>
-              Select program type
-            </option>
-            {courses.map((course) => (
-              <option key={course.title} value={course.title}>
-                {course.title}
+    <div className="contact-form-luxe">
+      <header className="contact-form-luxe__header">
+        <span className="contact-form-luxe__eyebrow">Tailored guidance</span>
+        <h3 className="contact-form-luxe__title">Connect with our advisors</h3>
+        <p className="contact-form-luxe__subtitle">
+          Share your ambitions and we&apos;ll craft a personalised roadmap for
+          your global studies.
+        </p>
+      </header>
+
+      {/* <div className="contact-form-luxe__search" role="search">
+        <span className="contact-form-luxe__search-icon" aria-hidden="true">
+          <i className="bi bi-search"></i>
+        </span>
+        <input
+          type="search"
+          className="contact-form-luxe__search-input"
+          placeholder="Search for programmes, universities, or destinations"
+          aria-label="Search for programmes, universities, or destinations"
+        />
+      </div>
+      <p className="contact-form-luxe__helper">
+        This helps us align our first conversation with what inspires you the most.
+      </p> */}
+
+      <form className="contact-form-luxe__grid">
+        <label className="contact-form-luxe__field">
+          <span className="contact-form-luxe__field-label">Full Name *</span>
+          <input
+            type="text"
+            className="contact-form-luxe__input"
+            placeholder="Alex Morgan"
+            required
+          />
+        </label>
+        <label className="contact-form-luxe__field">
+          <span className="contact-form-luxe__field-label">
+            Email Address *
+          </span>
+          <input
+            type="email"
+            className="contact-form-luxe__input"
+            placeholder="name@email.com"
+            required
+          />
+        </label>
+        <label className="contact-form-luxe__field">
+          <span className="contact-form-luxe__field-label">Phone Number *</span>
+          <input
+            type="tel"
+            className="contact-form-luxe__input"
+            placeholder="+44 1234 567 890"
+            required
+          />
+        </label>
+        <label className="contact-form-luxe__field">
+          <span className="contact-form-luxe__field-label">Country *</span>
+          <input
+            type="text"
+            className="contact-form-luxe__input"
+            placeholder="Where do you currently reside?"
+            required
+          />
+        </label>
+        <label className="contact-form-luxe__field contact-form-luxe__field--full">
+          <span className="contact-form-luxe__field-label">
+            Study Interest *
+          </span>
+          <div className="contact-form-luxe__select-shell">
+            <select
+              className="contact-form-luxe__select"
+              defaultValue="choose"
+              required
+            >
+              <option value="choose" disabled>
+                Select programme type
               </option>
-            ))}
-          </select>
-        </div>
-        <div className="col-12">
-          <label className="form-label">Message</label>
+              {courses.map((course) => (
+                <option key={course.title} value={course.title}>
+                  {course.title}
+                </option>
+              ))}
+            </select>
+            <span className="contact-form-luxe__select-icon" aria-hidden="true">
+              <i className="bi bi-chevron-down"></i>
+            </span>
+          </div>
+        </label>
+        <label className="contact-form-luxe__field contact-form-luxe__field--full">
+          <span className="contact-form-luxe__field-label">Message</span>
           <textarea
-            className="form-control"
+            className="contact-form-luxe__textarea"
             rows={5}
-            placeholder="Tell us about your academic goals"
+            placeholder="Tell us about your academic goals, timelines, or scholarship needs."
           ></textarea>
-        </div>
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary btn-lg contact-form-submit">
+        </label>
+        <div className="contact-form-luxe__actions contact-form-luxe__field--full">
+          <button type="submit" className="contact-form-luxe__submit">
             Send Message
+            <span aria-hidden="true" className="contact-form-luxe__submit-icon">
+              <i className="bi bi-arrow-up-right"></i>
+            </span>
           </button>
         </div>
       </form>
@@ -59,4 +118,3 @@ const ContactForm: FC<ContactFormProps> = ({ courses }) => {
 };
 
 export default ContactForm;
-

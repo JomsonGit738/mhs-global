@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 import foundationImg from "../assets/images/courses/1.png";
 import undergraduateImg from "../assets/images/courses/2.png";
 import postgraduateImg from "../assets/images/courses/3.png";
@@ -251,56 +252,36 @@ const CategorySelector = ({
   activeId,
   onSelect,
 }: CategorySelectorProps) => (
-  <section className="mt-5">
+  <section className="courses-luxe__selector" data-animate="fade-up">
     <h2 className="visually-hidden">Select a course category</h2>
-    <div className="row g-3 row-cols-1 row-cols-md-2 row-cols-xl-4">
-      {categories.map((category) => {
+    <div className="row g-3 g-xl-4 row-cols-1 row-cols-md-2 row-cols-xl-4 courses-luxe__selector-grid">
+      {categories.map((category, index) => {
         const isActive = category.id === activeId;
         const preview =
           category.description.length > 120
             ? `${category.description.substring(0, 120)}...`
             : category.description;
+        const animationStyle: CSSProperties = {
+          animationDelay: `${index * 0.08}s`,
+        };
 
         return (
           <div className="col" key={category.id}>
             <button
               type="button"
-              className={`w-100 h-100 text-start btn ${
-                isActive ? "btn-primary" : "btn-outline-light"
-              } rounded-3 p-4`}
+              className={`courses-luxe__option ${isActive ? "is-active" : ""}`}
               onClick={() => onSelect(category.id)}
               aria-pressed={isActive}
+              data-animate="fade-up"
+              style={animationStyle}
             >
-              <span
-                className={
-                  isActive
-                    ? "text-uppercase d-block text-white-50"
-                    : "text-uppercase d-block text-dark"
-                }
-                style={{ fontSize: "13px", letterSpacing: "0.06em" }}
-              >
+              <span className="courses-luxe__option-eyebrow">
                 {category.tagline}
               </span>
-              <span
-                className={
-                  isActive
-                    ? "fw-semibold d-block text-white"
-                    : "fw-semibold d-block text-dark"
-                }
-                style={{ fontSize: "1.4rem" }}
-              >
+              <span className="courses-luxe__option-title">
                 {category.name}
               </span>
-              <span
-                className={
-                  isActive
-                    ? "d-block mt-2 text-white"
-                    : "d-block mt-2 text-dark"
-                }
-                style={{ fontSize: "13px" }}
-              >
-                {preview}
-              </span>
+              <span className="courses-luxe__option-copy">{preview}</span>
             </button>
           </div>
         );
@@ -313,82 +294,200 @@ type CategoryDetailProps = {
   category: CourseCategory;
 };
 
-const CategoryDetail = ({ category }: CategoryDetailProps) => (
-  <section className="category-detail card border-0 shadow-sm rounded-4 mt-5">
-    <div className="card-body p-4 p-lg-5">
-      <div className="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4 mb-4">
-        <div>
-          <span className="badge bg-secondary-subtle text-secondary-emphasis mb-2">
-            {category.tagline}
-          </span>
-          <h2 className="fw-semibold text-dark mb-3">{category.name}</h2>
-          <p className="text-secondary mb-0">{category.description}</p>
-        </div>
-        <div className="d-flex flex-wrap gap-3">
-          {category.meta.map((item) => (
-            <article
-              key={item.label}
-              className="d-flex align-items-center gap-2 border rounded-3 px-3 py-2 bg-light flex-nowrap"
-            >
-              <span className="fw-semibold text-dark">{item.label}:</span>
-              <span
-                className="text-secondary small text-truncate"
-                style={{ maxWidth: "220px" }}
-              >
-                {item.value}
-              </span>
-            </article>
-          ))}
-        </div>
-      </div>
+const slugifyProgram = (value: string): string =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
-      <div className="row g-4">
-        <div className="col-12">
-          <div className="row g-3 row-cols-1 row-cols-sm-2">
-            {category.highlights.map((highlight) => (
-              <div key={highlight.title} className="col">
-                <article className="highlight-card border rounded-3 bg-light h-100">
-                  <span className="highlight-icon text-primary">
-                    <i className={`bi ${highlight.icon}`}></i>
-                  </span>
-                  <div className="highlight-content">
-                    <span className="fw-semibold text-dark d-block">
-                      {highlight.title}
-                    </span>
-                    <p className="text-secondary small mb-0">
-                      {highlight.description}
-                    </p>
-                  </div>
-                </article>
-              </div>
+const CategoryDetail = ({ category }: CategoryDetailProps) => {
+  const [programQuery, setProgramQuery] = useState("");
+  const [highlightedProgram, setHighlightedProgram] = useState<string | null>(null);
+  const searchId = `program-search-${category.id}`;
+  const resultsId = `program-search-results-${category.id}`;
+
+  const programEntries = useMemo(
+    () =>
+      category.programs.map((program, index) => ({
+        title: program,
+        index,
+        slug: `${category.id}-${slugifyProgram(program)}`,
+      })),
+    [category.id, category.programs]
+  );
+
+  const hasQuery = programQuery.trim().length > 0;
+
+  const searchResults = useMemo(() => {
+    const normalized = programQuery.trim().toLowerCase();
+    if (!normalized) return [];
+
+    return programEntries.filter((entry) =>
+      entry.title.toLowerCase().includes(normalized)
+    );
+  }, [programEntries, programQuery]);
+
+  useEffect(() => {
+    setProgramQuery("");
+    setHighlightedProgram(null);
+  }, [category.id]);
+
+  useEffect(() => {
+    if (!highlightedProgram) {
+      return undefined;
+    }
+
+    const timeout = window.setTimeout(() => setHighlightedProgram(null), 1600);
+
+    return () => window.clearTimeout(timeout);
+  }, [highlightedProgram]);
+
+  const handleResultSelect = (slug: string) => {
+    const target = document.getElementById(`program-${slug}`);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    setHighlightedProgram(slug);
+  };
+
+  return (
+    <section className="courses-luxe__detail mt-5" data-animate="fade-up">
+      <div className="courses-luxe__detail-shell">
+        <div className="courses-luxe__detail-header">
+          <div className="courses-luxe__detail-summary">
+            <span className="courses-luxe__detail-tag">{category.tagline}</span>
+            <h2 className="courses-luxe__detail-title">{category.name}</h2>
+            <p className="courses-luxe__detail-copy">{category.description}</p>
+          </div>
+          <div className="courses-luxe__meta">
+            {category.meta.map((item, index) => (
+              <article
+                key={item.label}
+                className="courses-luxe__meta-card"
+                data-animate="fade-up"
+                style={{ animationDelay: `${index * 0.07}s` }}
+              >
+                <span className="courses-luxe__meta-label">{item.label}</span>
+                <span className="courses-luxe__meta-value">{item.value}</span>
+              </article>
             ))}
           </div>
         </div>
-        <div className="col-12">
-          <div className="row g-3 row-cols-1 row-cols-md-2">
-            {category.programs.map((program, index) => (
-              <div key={program} className="col">
-                <article className="h-100 border rounded-3 p-3 position-relative program-card">
-                  <span className="program-index badge bg-primary-subtle text-primary-emphasis">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="d-flex align-items-center gap-3">
-                    <span className="program-icon text-primary flex-shrink-0">
-                      <i className="bi bi-check2-circle"></i>
+
+        <div className="row g-4">
+          <div className="col-12">
+            <div className="row g-3 g-lg-4 row-cols-1 row-cols-sm-2">
+              {category.highlights.map((highlight, index) => (
+                <div key={highlight.title} className="col">
+                  <article
+                    className="courses-luxe__highlight"
+                    data-animate="fade-up"
+                    style={{ animationDelay: `${index * 0.08}s` }}
+                  >
+                    <span className="courses-luxe__highlight-icon">
+                      <i className={`bi ${highlight.icon}`} aria-hidden="true"></i>
                     </span>
-                    <h3 className="fw-semibold text-dark mb-0 flex-grow-1">
-                      {program}
-                    </h3>
+                    <div className="courses-luxe__highlight-content">
+                      <span className="courses-luxe__highlight-title">
+                        {highlight.title}
+                      </span>
+                      <p className="courses-luxe__highlight-copy">
+                        {highlight.description}
+                      </p>
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="col-12">
+            <div className="courses-luxe__programs">
+              <div className="courses-luxe__programs-head">
+                <h3 className="courses-luxe__programs-title">
+                  Programmes in this pathway
+                </h3>
+                <div className="courses-luxe__search-shell">
+                  <label className="courses-luxe__search" htmlFor={searchId}>
+                    <span className="courses-luxe__search-icon" aria-hidden="true">
+                      <i className="bi bi-search"></i>
+                    </span>
+                    <input
+                      id={searchId}
+                      type="search"
+                      className="courses-luxe__search-input"
+                      placeholder="Search for a programme"
+                      value={programQuery}
+                      onChange={(event) => setProgramQuery(event.target.value)}
+                      aria-controls={resultsId}
+                    />
+                  </label>
+                  <div
+                    className={`courses-luxe__search-results ${
+                      hasQuery ? "is-visible" : ""
+                    }`}
+                    role="listbox"
+                    aria-label="Search results"
+                    id={resultsId}
+                  >
+                    {hasQuery ? (
+                      searchResults.length > 0 ? (
+                        searchResults.map((entry) => (
+                          <button
+                            type="button"
+                            key={entry.slug}
+                            className="courses-luxe__search-option"
+                            onMouseDown={(event) => event.preventDefault()}
+                            onClick={() => handleResultSelect(entry.slug)}
+                          >
+                            <span className="courses-luxe__search-option-index">
+                              {String(entry.index + 1).padStart(2, "0")}
+                            </span>
+                            <span className="courses-luxe__search-option-title">
+                              {entry.title}
+                            </span>
+                          </button>
+                        ))
+                      ) : (
+                        <p className="courses-luxe__search-empty">
+                          No programmes match your search just yet.
+                        </p>
+                      )
+                    ) : null}
                   </div>
-                </article>
+                </div>
               </div>
-            ))}
+
+              <div className="row g-3 g-lg-4 row-cols-1 row-cols-md-2">
+                {programEntries.map((entry) => (
+                  <div key={entry.slug} className="col">
+                    <article
+                      id={`program-${entry.slug}`}
+                      className={`courses-luxe__program ${
+                        highlightedProgram === entry.slug ? "is-highlighted" : ""
+                      }`}
+                      data-animate="fade-up"
+                      style={{ animationDelay: `${entry.index * 0.06}s` }}
+                    >
+                      <span className="courses-luxe__program-index">
+                        {String(entry.index + 1).padStart(2, "0")}
+                      </span>
+                      <div className="courses-luxe__program-content">
+                        <span className="courses-luxe__program-icon" aria-hidden="true">
+                          <i className="bi bi-check2-circle"></i>
+                        </span>
+                        <h3 className="courses-luxe__program-title">{entry.title}</h3>
+                      </div>
+                    </article>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const CoursesPage = (): JSX.Element => {
   const [activeCategoryId, setActiveCategoryId] = useState(
@@ -403,40 +502,41 @@ const CoursesPage = (): JSX.Element => {
   );
 
   return (
-    <section
-      className="courses-overview-section py-5 py-lg-6 bg-white"
-      id="courses"
-    >
-      <div className="container">
-        <header className="row g-5 align-items-center">
-          <div className="col-lg-5 order-lg-2">
-            <div
-              className="rounded-4 overflow-hidden shadow-lg mx-auto"
-              style={{ maxWidth: "420px" }}
-            >
+    <section className="courses-luxe" id="courses">
+      <div className="container courses-luxe__container">
+        <header className="row g-5 align-items-center courses-luxe__hero">
+          <div className="col-lg-5 order-lg-2 d-flex justify-content-center">
+            <div className="courses-luxe__hero-visual" data-animate="fade-up">
               <img
                 src={mainImage}
                 alt={`${activeCategory.name} illustration`}
-                className="img-fluid w-100"
-                style={{ objectFit: "cover", width: "100%" }}
+                className="courses-luxe__hero-image"
               />
             </div>
           </div>
           <div className="col-lg-7 order-lg-1">
-            <span className="badge bg-primary-subtle text-primary-emphasis mb-3">
-              Our Courses
-            </span>
-            <h1 className="fw-bold text-dark mb-3">
-              Choose Your Perfect Study Path
-            </h1>
-            <p className="text-secondary mb-0">
-              At MHS Global Associates we match each learner with a route that
-              fits their goals, from stepping stone foundation pathways to
-              focused postgraduate masters and agile short courses. Explore the
-              options below and find the programme that supports your ambitions.
-            </p>
+            <div className="courses-luxe__hero-copy" data-animate="fade-up">
+              <span className="courses-luxe__hero-eyebrow">Our courses</span>
+              <h1 className="courses-luxe__hero-title">
+                Choose your perfect study path
+              </h1>
+              <p className="courses-luxe__hero-lead">
+                At MHS Global Associates we match each learner with a route that
+                fits their goals, from stepping stone foundation pathways to
+                focused postgraduate masters and agile short courses. Explore the
+                options below and find the programme that supports your ambitions.
+              </p>
+            </div>
           </div>
         </header>
+
+        <div className="courses-luxe__intro" data-animate="fade-up">
+          <span className="courses-luxe__intro-pill">Explore pathways</span>
+          <p className="courses-luxe__intro-copy">
+            Discover curated programmes tailored to your academic journey. Select a
+            pathway to reveal key highlights, support, and a full list of degrees.
+          </p>
+        </div>
 
         <CategorySelector
           categories={courseCategories}
@@ -449,5 +549,4 @@ const CoursesPage = (): JSX.Element => {
     </section>
   );
 };
-
 export default CoursesPage;

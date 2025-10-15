@@ -1,5 +1,4 @@
 import ContactContent, { ContactInfoItem } from "../components/ContactContent";
-import contactOverlay from "../assets/images/contact-us/2.png";
 
 const contactInfo: ContactInfoItem[] = [
   {
@@ -49,26 +48,35 @@ const ContactPage = (): JSX.Element => {
   return (
     <>
       <section className="contact-hero position-relative text-white">
-        {/* <div className="contact-hero-overlay"></div> */}
+        <div className="contact-hero-overlay"></div>
         <div className="container position-relative py-5 py-lg-6">
           <div className="row my-5 align-items-center g-4">
-            <div className="col-lg-7 text-start">
-              <span className="badge bg-white text-primary fw-semibold mb-3 text-uppercase small shadow-sm">
+            <div className="col-lg-7 text-start contact-hero-copy">
+              <span className="badge bg-white text-primary fw-semibold mb-3 text-uppercase shadow-sm contact-hero-badge">
                 Contact Us
               </span>
-              <h1 className="display-5 fw-bold mb-2">We are happy to help</h1>
-              <p className="lead text-white-75 mb-0">
-                Reach out to our dedicated team for personalised support on
-                admissions, visas, scholarships, and everything in between.
+              <h1 className="display-5 fw-bold mb-3 contact-hero-title">
+                Connect With Our Advisory Team
+              </h1>
+              <p className="lead text-white-75 mb-0 contact-hero-lead">
+                Engage with advisors who craft{" "}
+                <strong>bespoke guidance</strong> across admissions, visas,
+                scholarships, and settlement support&mdash;every detail refined
+                for your journey.
               </p>
             </div>
             <div className="col-lg-5">
               <div className="contact-map card border-0 shadow-lg overflow-hidden">
-                <img
-                  src={contactOverlay}
-                  alt="Map showing MHS Global Associates location"
-                  className="img-fluid w-100"
-                />
+                <iframe
+                  title="MHS Global Associates Location"
+                  src="https://www.google.com/maps?q=1st+Floor,+101+Whitechapel+High+Road,+London+E1+7RA,+United+Kingdom&output=embed"
+                  width="100%"
+                  height="260"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>

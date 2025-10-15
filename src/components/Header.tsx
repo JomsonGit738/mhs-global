@@ -62,32 +62,33 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
   const tickerLoop = [...tickerItems, ...tickerItems];
 
   return (
-    <header className="shadow-sm bg-white sticky-top">
-      <div className="navbar navbar-expand-lg container py-3">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
+    <header className="header-luxe sticky-top">
+      <div className="header-luxe__backdrop" aria-hidden="true" />
+      <div className="navbar navbar-expand-lg container py-3 header-luxe__inner">
+        <Link className="navbar-brand d-flex align-items-center header-luxe__brand" to="/">
           <img width={70} src={logo} alt="navbar_brand" />
         </Link>
         <button
-          className={`navbar-toggler ${isNavOpen ? "" : "collapsed"}`}
+          className={`navbar-toggler header-luxe__toggler ${isNavOpen ? "" : "collapsed"}`}
           type="button"
           aria-controls="mainNav"
           aria-expanded={isNavOpen}
           aria-label="Toggle navigation"
           onClick={toggleNav}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon header-luxe__toggler-icon"></span>
         </button>
         <div
-          className="collapse navbar-collapse justify-content-center"
+          className="collapse navbar-collapse justify-content-center header-luxe__nav"
           id="mainNav"
           ref={collapseRef}
         >
-          <ul className="navbar-nav align-items-lg-center gap-lg-3">
+          <ul className="navbar-nav align-items-lg-center gap-lg-3 header-luxe__menu">
             {navItems.map((link) => (
               <li className="nav-item" key={link.label}>
                 {"href" in link ? (
                   <a
-                    className="nav-link text-secondary"
+                    className="nav-link header-luxe__link"
                     href={link.href}
                     onClick={closeNav}
                   >
@@ -96,7 +97,7 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
                 ) : (
                   <NavLink
                     className={({ isActive }) =>
-                      `nav-link ${isActive ? "active fw-semibold" : ""}`
+                      `nav-link header-luxe__link ${isActive ? "is-active" : ""}`
                     }
                     to={link.to}
                     end={link.to === "/"}
@@ -110,7 +111,7 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
           </ul>
         </div>
         <a
-          className="btn btn-primary btn-lg ms-auto mt-3 mt-lg-0 d-none d-lg-inline-flex"
+          className="btn header-luxe__cta ms-auto mt-3 mt-lg-0 d-none d-lg-inline-flex"
           href="/#contact"
           onClick={closeNav}
         >
@@ -119,18 +120,20 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
       </div>
       {showTicker && (
         <div
-          className="ticker fw-semibold"
+          className="header-luxe__ticker"
           role="region"
           aria-label="Admissions updates"
         >
-          <div className="ticker-track" role="list">
+          <div className="header-luxe__ticker-track" role="list">
             {tickerLoop.map((text, index) => (
               <span
-                className="ticker-item"
+                className="header-luxe__ticker-item"
                 key={`${text}-${index}`}
                 role="listitem"
               >
-                <i className="bi bi-circle-fill ticker-separator" aria-hidden="true"></i>
+                <span className="header-luxe__ticker-separator" aria-hidden="true">
+                  <i className="bi bi-circle-fill"></i>
+                </span>
                 <span>{text}</span>
               </span>
             ))}

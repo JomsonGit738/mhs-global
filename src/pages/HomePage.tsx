@@ -216,7 +216,7 @@ const HomePage = (): JSX.Element => {
             <h1 className="fs-32-600-130 fw-bold text-dark mb-3">
               Our Global Network
             </h1>
-            <p className="text-secondary mb-0">
+            <p className="lead text-secondary mb-0">
               Explore global academic opportunities through our extensive
               network of partner universities and institutions across multiple
               countries.
@@ -230,7 +230,7 @@ const HomePage = (): JSX.Element => {
       <section className="courses-section py-5 py-lg-6" id="courses">
         <div className="container">
           <div className="section-heading text-start mb-5">
-            <h1 className="display-1 fw-bold text-dark mb-3">Courses</h1>
+            <h1 className="display-4 fw-bold text-dark mb-3">Courses</h1>
             <p className="lead text-secondary mb-0 fs-4">
               Choose from curated options designed to match your academic
               background, professional goals, and preferred study destinations.
@@ -326,10 +326,7 @@ const HomePage = (): JSX.Element => {
                     </span>
                     <h3 className="course-card-title">{course.title}</h3>
                     <p className="course-card-summary">{course.summary}</p>
-                    <a
-                      href="/courses"
-                      className="course-card-link"
-                    >
+                    <a href="/courses" className="course-card-link">
                       Discover more
                       <i className="bi bi-arrow-up-right ms-2"></i>
                     </a>
@@ -352,8 +349,8 @@ const HomePage = (): JSX.Element => {
         <div
           className="position-absolute top-0 start-50 translate-middle-x rounded-circle"
           style={{
-            width: "60rem",
-            height: "60rem",
+            width: "37.5rem",
+            height: "37.5rem",
             background:
               "radial-gradient(circle at center, rgba(13, 110, 253, 0.25), transparent 60%)",
             filter: "blur(80px)",
@@ -363,17 +360,17 @@ const HomePage = (): JSX.Element => {
         <div className="container position-relative">
           <div className="row align-items-center g-5">
             <div className="col-lg-5">
-              <h1 className="display-3 fw-bold text-dark mb-3">
+              <h1 className="display-5 fw-bold text-dark mb-3">
                 Student Success Stories
               </h1>
-              <p className="display-6 text-secondary mb-4">
+              <p className="display-7 text-secondary mb-4">
                 Hear from students who turned aspirations into offers
               </p>
-              <p className="text-secondary mb-4">
+              {/* <p className="text-secondary mb-4">
                 Our counsellors champion each application with tailored
                 guidance, interview preparation, and visa support so students
                 stay confident from first consultation to campus arrival.
-              </p>
+              </p> */}
               <div className="d-flex align-items-center gap-3 mb-4">
                 <div className="d-flex align-items-center text-warning gap-1 fs-5">
                   <i className="bi bi-star-fill"></i>
@@ -422,8 +419,8 @@ const HomePage = (): JSX.Element => {
                           alt={testimonial.name}
                           className="rounded-circle me-2"
                           style={{
-                            width: "2.5rem",
-                            height: "2.5rem",
+                            width: "1.5625rem",
+                            height: "1.5625rem",
                             objectFit: "cover",
                           }}
                         />
@@ -468,7 +465,7 @@ const HomePage = (): JSX.Element => {
                         >
                           <div
                             className="position-absolute top-0 end-0 opacity-10 text-primary"
-                            style={{ fontSize: "6rem", lineHeight: 1 }}
+                            style={{ fontSize: "3.75rem", lineHeight: 1 }}
                             aria-hidden="true"
                           >
                             <i className="bi bi-quote"></i>
@@ -482,8 +479,8 @@ const HomePage = (): JSX.Element => {
                                     alt={testimonial.name}
                                     className="rounded-circle border border-2 border-white shadow-sm"
                                     style={{
-                                      width: "3.25rem",
-                                      height: "3.25rem",
+                                      width: "2.03125rem",
+                                      height: "2.03125rem",
                                       objectFit: "cover",
                                     }}
                                   />
@@ -491,8 +488,8 @@ const HomePage = (): JSX.Element => {
                                   <div
                                     className="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-semibold"
                                     style={{
-                                      width: "3.25rem",
-                                      height: "3.25rem",
+                                      width: "2.03125rem",
+                                      height: "2.03125rem",
                                     }}
                                   >
                                     {initials}

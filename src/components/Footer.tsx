@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import logo from "../assets/images/mhs-logo-brand.png";
 
 const footerColumns = [
@@ -77,68 +78,115 @@ const socialPlatforms = [
 const Footer = (): JSX.Element => {
   const currentYear = new Date().getFullYear();
 
+  const handleExplore = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
-    <footer className="footer-section pt-5 pb-4 text-white">
-      <div className="container">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 mt-5 pb-4">
-          <div className="col footer-about d-flex flex-column gap-3 align-items-center align-items-sm-start text-center text-sm-start">
-            <div className="d-flex gap-3 align-items-center justify-content-start">
-              <div className="footer-img-contain">
-                <img width={70} src={logo} alt="MHS Global Associates logo" />
+    <footer className="footer-luxe">
+      <div className="footer-luxe__halo" aria-hidden="true"></div>
+      <div>
+        <div className="footer-luxe__surface">
+          <div className="footer-luxe__intro">
+            <div className="footer-luxe__brand">
+              <div className="footer-luxe__logo">
+                <img
+                  src={logo}
+                  alt="MHS Global Associates logo"
+                  className="footer-luxe__logo-img"
+                />
               </div>
-              {/* <div>
-                <h2 className="footer-brand mb-0">MHS Global Associates</h2>
-                <p className="footer-subtitle mb-0">
+              <div>
+                <h2 className="footer-luxe__title">MHS Global Associates</h2>
+                <p className="footer-luxe__subtitle">
                   Global Education Consultants
                 </p>
-              </div> */}
+              </div>
             </div>
-            <h2 className="footer-brand mb-0">MHS Global Associates</h2>
-            <p className="mb-0">
-              1st Floor, 101 Whitechapel High Road London E1 7RA, United Kingdom
+            <p className="footer-luxe__description">
+              Bespoke admissions expertise and student services that connect
+              purposeful learners with distinguished universities worldwide.
             </p>
-            <p className="mb-0">info@mhsglobalassociates.com</p>
-            <p className="mt-0 mb-0">07521772131</p>
+            <div className="footer-luxe__contact">
+              <span>
+                1st Floor, 101 Whitechapel High Road, London E1 7RA, United
+                Kingdom
+              </span>
+              <a
+                className="footer-luxe__contact-link"
+                href="mailto:info@mhsglobalassociates.com"
+              >
+                info@mhsglobalassociates.com
+              </a>
+              <a className="footer-luxe__contact-link" href="tel:+447521772131">
+                07521772131
+              </a>
+            </div>
           </div>
 
-          {footerColumns.map((column) => (
-            <div
-              className="col d-flex flex-column align-items-center align-items-sm-start text-center text-sm-start"
-              key={column.title}
-            >
-              <h3 className="footer-heading mb-3">{column.title}</h3>
-              <ul className="footer-links mb-0 align-items-center align-items-sm-start text-center text-sm-start">
-                {column.items.map((item) => (
-                  <li key={item.label}>
-                    <a href={item.href} className="footer-link">
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+          {/* <div className="footer-luxe__subscribe">
+            <h3 className="footer-luxe__subscribe-title">
+              Discover Your Next Opportunity
+            </h3>
+            <p className="footer-luxe__subscribe-text">
+              Search programmes, destinations, or services to receive curated
+              admissions insights from our advisory team.
+            </p>
+            <form className="footer-luxe__form" onSubmit={handleExplore}>
+              <div className="footer-luxe__input-group">
+                <span className="footer-luxe__input-icon" aria-hidden="true">
+                  <i className="bi bi-search"></i>
+                </span>
+                <input
+                  type="search"
+                  className="footer-luxe__input"
+                  placeholder="Search global pathways or tailored support"
+                  aria-label="Search global pathways or tailored support"
+                />
+                <button type="submit" className="footer-luxe__submit">
+                  Explore
+                </button>
+              </div>
+            </form>
+          </div> */}
 
-        <div className="footer-socials d-flex flex-wrap justify-content-center gap-3 py-4">
-          {socialPlatforms.map((platform) => (
-            <a
-              key={platform.icon}
-              href={platform.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label={platform.label}
-            >
-              <i className={`bi bi-${platform.icon}`}></i>
-            </a>
-          ))}
-        </div>
-      </div>
+          <div className="footer-luxe__grid">
+            {footerColumns.map((column) => (
+              <div className="footer-luxe__column" key={column.title}>
+                <h4 className="footer-luxe__links-title">{column.title}</h4>
+                <ul className="footer-luxe__links-list">
+                  {column.items.map((item) => (
+                    <li key={item.label} className="footer-luxe__links-item">
+                      <a href={item.href} className="footer-luxe__link">
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
-      <div className="container pt-3 border-top border-white border-opacity-10">
-        <div className="text-center text-white small">
-          &copy; {currentYear} MHS Global Associates. All rights reserved.
+          <div className="footer-luxe__social">
+            {socialPlatforms.map((platform) => (
+              <a
+                key={platform.icon}
+                href={platform.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-luxe__social-link"
+                aria-label={platform.label}
+              >
+                <i className={`bi bi-${platform.icon}`}></i>
+              </a>
+            ))}
+          </div>
+
+          <div className="footer-luxe__bottom">
+            <span>
+              &copy; {currentYear} MHS Global Associates. All rights reserved.
+            </span>
+          </div>
         </div>
       </div>
     </footer>

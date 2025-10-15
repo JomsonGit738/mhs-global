@@ -5,24 +5,29 @@ type AboutSection = {
 
 const aboutSections: AboutSection[] = [
   {
-    title: "Who we are",
-    body: "MHS Global Associates is dedicated to empowering students with the right guidance and support to transform their dreams of global education into reality.",
+    title: "Who We Are",
+    body:
+      "MHS Global Associates stands beside ambitious learners with tailored guidance that turns global study goals into confident achievements.",
   },
   {
-    title: "Our vision",
-    body: "Founded in 2020, MHS Global Associates was built on a mission to empower students to reach their highest academic and career potential. With a clear vision of creating global opportunities, the consultancy has quickly established itself as a trusted bridge between ambitious learners and world-class educational institutions.",
+    title: "Our Vision",
+    body:
+      "Established in 2020, our mission is to open world-class campuses to students everywhere. We align aspirations with the right destinations, programmes, and timelines for lasting success.",
   },
   {
-    title: "Student-Centered approach",
-    body: "At MHS Global Associates, every student is at the heart of what we do. Our team provides personalized guidance, from selecting the right course and university to ensuring smooth application and visa processes. By tailoring strategies to individual needs, we make each journey stress-free, transparent, and inspiring.",
+    title: "Student-Centred Approach",
+    body:
+      "Every conversation begins with attentive listening. We curate bespoke pathways that balance academic strengths, financial planning, and wellbeing so each milestone feels clear and supported.",
   },
   {
-    title: "Proven success stories",
-    body: "The results speak for themselves—hundreds of students have applied through MHS Global Associates and achieved success in securing admissions to prestigious universities worldwide. Each success story adds to our growing legacy of transforming dreams into reality, building trust and confidence among students and families alike.",
+    title: "Proven Success Stories",
+    body:
+      "Hundreds of students have secured offers from renowned universities worldwide through our meticulous preparation, deadline management, and post-offer mentorship.",
   },
   {
-    title: "Our commitment",
-    body: "As we continue to grow, our commitment remains strong—to guide, support, and inspire the next generation of global achievers. With professionalism, integrity, and passion for education, MHS Global Associates stands as a reliable partner in shaping brighter futures and turning aspirations into accomplishments.",
+    title: "Our Commitment",
+    body:
+      "We keep elevating our service with integrity, responsiveness, and a passion for education, empowering the next generation of global achievers to thrive abroad.",
   },
 ];
 
@@ -52,12 +57,13 @@ const AboutPage = (): JSX.Element => {
             About Us
           </span>
           <h1 className="display-5 fw-bold mb-2">
-            We are MHS Global Associates
+            Champions of Global Student Success
           </h1>
           <p className="lead text-white-75 mb-0 col-lg-6">
-            Since our inception, we have helped aspiring students unlock
-            pathways to world-class education with end-to-end guidance and
-            personalised support.
+            We partner with driven students through{" "}
+            <strong>bespoke admissions strategy</strong>,{" "}
+            <strong>financial insight</strong>, and steadfast mentorship that
+            unlocks world-class campuses.
           </p>
         </div>
       </section>
@@ -77,38 +83,51 @@ const AboutPage = (): JSX.Element => {
                 ))}
               </div>
 
-              <div className="card border-0 shadow-sm about-contact-card mt-5">
-                <div className="card-body p-4 p-lg-5">
-                  <h2 className="fw-bold text-dark mb-3 text-center">
-                    Get In Touch
+              <div className="card border-0 about-contact-card mt-5">
+                <div className="card-body about-contact-card__body">
+                  <div className="about-contact-card__eyebrow">
+                    <span
+                      aria-hidden="true"
+                      className="about-contact-card__spark"
+                    ></span>
+                    Personal Consultancy
+                  </div>
+                  <h2 className="about-contact-card__title text-center">
+                    Start the Conversation
                   </h2>
-                  <p className="text-secondary text-start mb-4">
-                    We'd love to hear from you. Send us a message and we'll
-                    respond as soon as possible.
+                  <p className="about-contact-card__subtitle">
+                    Share your ambitions with our advisory team and receive a{" "}
+                    <strong>tailored response</strong> within one business day.
                   </p>
-                  <form className="row g-3">
+                  <form className="about-contact-card__form row g-3">
                     <div className="col-md-6">
-                      <label className="form-label">Name</label>
+                      <label className="form-label about-contact-card__label">
+                        Name
+                      </label>
                       <input
                         type="text"
-                        className="form-control py-3 form-control-lg"
+                        className="form-control py-3 form-control-lg about-contact-card__input"
                         placeholder="First Name"
                         required
                       />
                     </div>
                     <div className="col-md-6">
-                      <label className="form-label">E-mail</label>
+                      <label className="form-label about-contact-card__label">
+                        E-mail
+                      </label>
                       <input
                         type="email"
-                        className="form-control py-3 form-control-lg"
+                        className="form-control py-3 form-control-lg about-contact-card__input"
                         placeholder="E-mail"
                         required
                       />
                     </div>
                     <div className="col-12">
-                      <label className="form-label">Message</label>
+                      <label className="form-label about-contact-card__label">
+                        Message
+                      </label>
                       <textarea
-                        className="form-control form-control-lg"
+                        className="form-control form-control-lg about-contact-card__textarea"
                         rows={4}
                         placeholder="Tell us how we can help you"
                         required
@@ -117,9 +136,9 @@ const AboutPage = (): JSX.Element => {
                     <div className="col-12">
                       <button
                         type="submit"
-                        className="btn py-3 btn-lg btn-primary btn-lg w-100"
+                        className="btn py-3 btn-lg btn-primary btn-lg w-100 about-contact-card__submit"
                       >
-                        Send Message
+                        Request Guidance
                       </button>
                     </div>
                   </form>
