@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type AboutSection = {
   title: string;
   body: string;
@@ -32,19 +34,19 @@ const aboutSections: AboutSection[] = [
 ];
 
 const serviceLinks: string[] = [
-  "Accommodation",
-  "Finance",
-  "Services",
-  "Student Services",
-  "Education",
-  "UK Institutions",
+  "University Application Assistance",
+  "Visa Application Assistance",
+  "Accommodation Service Assistance",
+  "Travel Assistance",
+  "Financial Guidance",
+  "Scholarship Guidance",
 ];
 
-const courseLinks: string[] = [
-  "Foundation",
-  "Undergraduate",
-  "Postgraduate",
-  "Short Courses",
+const courseLinks: Array<{ label: string; target: string }> = [
+  { label: "Foundation", target: "foundation" },
+  { label: "Undergraduate", target: "undergraduate" },
+  { label: "Postgraduate", target: "postgraduate" },
+  { label: "Short Courses", target: "shortCourses" },
 ];
 
 const AboutPage = (): JSX.Element => {
@@ -169,10 +171,12 @@ const AboutPage = (): JSX.Element => {
                       Course Links
                     </h3>
                     <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
-                      {courseLinks.map((item) => (
-                        <li key={item} className="about-list-item">
+                      {courseLinks.map(({ label, target }) => (
+                        <li key={target} className="about-list-item">
                           <i className="bi bi-chevron-right text-primary"></i>
-                          <span>{item}</span>
+                          <Link to={`/courses#${target}`} className="about-list-link">
+                            {label}
+                          </Link>
                         </li>
                       ))}
                     </ul>

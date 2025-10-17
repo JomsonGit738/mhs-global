@@ -67,10 +67,11 @@ header .py-3 {
 }
 
 .header-apply-btn {
-  --bs-btn-padding-y: 0.3125rem;
-  --bs-btn-padding-x: 0.625rem;
-  --bs-btn-font-size: 0.78125rem;
+  --bs-btn-padding-y: 0.22rem;
+  --bs-btn-padding-x: 0.45rem;
+  --bs-btn-font-size: clamp(0.78rem, 0.2vw + 0.75rem, 0.95rem);
   --bs-btn-border-radius: 0.3125rem;
+  --bs-btn-line-height: 1.45;
 }
 
 .footer-section.pt-5 {
@@ -102,8 +103,10 @@ header .py-3 {
   gap: 0.625rem !important;
 }
 
+/* Responsive typography refresh for footer base section */
 .footer-section .text-center.small {
-  font-size: 0.546875rem;
+  font-size: clamp(0.875rem, 0.25vw + 0.82rem, 1rem);
+  line-height: 1.5;
 }
 
 .footer-section .g-4 {
@@ -142,22 +145,27 @@ header .py-3 {
   gap: 0.625rem !important;
 }
 
+/* Responsive typography refresh for contact hero */
 .contact-hero .badge {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.45vw + 0.68rem, 0.9rem);
+  line-height: 1.45;
   padding: 0.5rem 1rem;
   border-radius: 999px;
 }
 
 .contact-hero .badge.small {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.45vw + 0.68rem, 0.9rem);
 }
 
 .contact-hero .display-5 {
-  font-size: 2.875rem;
+  font-size: clamp(1.8rem, 1rem + 1.9vw, 3rem);
+  line-height: 1.38;
+  letter-spacing: -0.01em;
 }
 
 .contact-hero .lead {
-  font-size: 1.0625rem;
+  font-size: clamp(0.95rem, 0.4vw + 0.88rem, 1.125rem);
+  line-height: 1.55;
 }
 
 .contact-hero .mb-3 {
@@ -328,15 +336,18 @@ header .py-3 {
   padding: 0.9375rem !important;
 }
 
+/* Responsive typography refresh for courses overview */
 .courses-overview-section .btn {
   --bs-btn-padding-y: 0.234375rem;
   --bs-btn-padding-x: 0.46875rem;
-  --bs-btn-font-size: 0.625rem;
+  --bs-btn-font-size: clamp(0.85rem, 0.2vw + 0.82rem, 1rem);
   --bs-btn-border-radius: 0.234375rem;
+  --bs-btn-line-height: 1.45;
 }
 
 .courses-overview-section .badge {
-  font-size: 0.546875rem;
+  font-size: clamp(0.8rem, 0.2vw + 0.77rem, 0.95rem);
+  line-height: 1.5;
 }
 
 .services-hero .py-5 {
@@ -374,22 +385,26 @@ header .py-3 {
   margin-bottom: 0.9375rem !important;
 }
 
+/* Responsive typography refresh for student services hero */
 .services-hero .badge {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.45vw + 0.68rem, 0.9rem);
+  line-height: 1.45;
   padding: 0.5rem 1rem;
   border-radius: 999px;
 }
 
 .services-hero .badge.small {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.45vw + 0.68rem, 0.9rem);
 }
 
 .services-hero .display-5 {
-  font-size: 2.875rem;
+  font-size: clamp(1.8rem, 1rem + 1.9vw, 3rem);
+  line-height: 1.38;
 }
 
 .services-hero .lead {
-  font-size: 1.125rem;
+  font-size: clamp(0.95rem, 0.4vw + 0.88rem, 1.125rem);
+  line-height: 1.55;
 }
 
 .services-content.py-5 {
@@ -456,65 +471,72 @@ header .py-3 {
   margin-bottom: 1.875rem !important;
 }
 
+/* Responsive typography refresh for student services content */
 .services-content .mt-5 {
   margin-top: 1.875rem !important;
 }
 
 .services-content .lead {
-  font-size: 1.0625rem;
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
 }
 
 .services-content h2 {
-  font-size: 1.875rem;
+  font-size: clamp(1.65rem, 0.9rem + 1.4vw, 2.25rem);
+  line-height: 1.45;
 }
 
 .services-content .h5 {
-  font-size: 1.25rem;
+  font-size: clamp(1.125rem, 0.4vw + 1.05rem, 1.5rem);
+  line-height: 1.5;
 }
 
 .services-content .h6 {
-  font-size: 0.625rem;
+  font-size: clamp(0.875rem, 0.25vw + 0.82rem, 1rem);
+  line-height: 1.5;
 }
 
 .services-content .small {
-  font-size: 0.546875rem;
+  font-size: clamp(0.8rem, 0.2vw + 0.77rem, 0.95rem);
+  line-height: 1.5;
 }
 
 .services-content .btn-lg {
   --bs-btn-padding-y: 0.3125rem;
   --bs-btn-padding-x: 0.625rem;
-  --bs-btn-font-size: 0.78125rem;
+  --bs-btn-font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.125rem);
   --bs-btn-border-radius: 0.3125rem;
 }
 
 .services-content .form-control,
 .services-content .form-select {
   padding: 0.59375rem 0.6875rem;
-  font-size: 0.6875rem;
+  font-size: clamp(0.85rem, 0.25vw + 0.82rem, 1rem);
+  line-height: 1.5;
   border-radius: 0.53125rem;
 }
 
 .services-content .form-control-lg {
   padding-top: 0.59375rem;
   padding-bottom: 0.59375rem;
-  font-size: 0.6875rem;
+  font-size: clamp(0.85rem, 0.25vw + 0.82rem, 1rem);
   border-radius: 0.53125rem;
 }
 
 .services-content .btn {
   --bs-btn-padding-y: 0.3125rem;
   --bs-btn-padding-x: 0.625rem;
-  --bs-btn-font-size: 0.78125rem;
+  --bs-btn-font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.125rem);
 }
 
 .services-content .btn-sm {
   --bs-btn-padding-y: 0.25rem;
   --bs-btn-padding-x: 0.5rem;
-  --bs-btn-font-size: 0.703125rem;
+  --bs-btn-font-size: clamp(0.875rem, 0.25vw + 0.82rem, 1rem);
 }
 
 .services-content .badge {
-  font-size: 0.546875rem;
+  font-size: clamp(0.8rem, 0.2vw + 0.77rem, 0.95rem);
 }
 
 .about-hero .py-5 {
@@ -534,22 +556,27 @@ header .py-3 {
   margin-bottom: 1.875rem !important;
 }
 
+/* Responsive typography refresh for about hero */
 .about-hero .badge {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.45vw + 0.68rem, 0.9rem);
+  line-height: 1.45;
   padding: 0.5rem 1rem;
   border-radius: 999px;
 }
 
 .about-hero .badge.small {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.45vw + 0.68rem, 0.9rem);
 }
 
 .about-hero .display-5 {
-  font-size: 2.875rem;
+  font-size: clamp(1.8rem, 1rem + 1.9vw, 3rem);
+  line-height: 1.38;
+  letter-spacing: -0.01em;
 }
 
 .about-hero .lead {
-  font-size: 1.0625rem;
+  font-size: clamp(0.95rem, 0.4vw + 0.88rem, 1.125rem);
+  line-height: 1.55;
 }
 
 .about-hero .mb-3 {
@@ -614,10 +641,12 @@ header .py-3 {
   padding: 0.9375rem !important;
 }
 
+/* Responsive typography refresh for about content body text */
 .about-content .form-control,
 .about-content .form-select {
   padding: 0.59375rem 0.6875rem;
-  font-size: 0.6875rem;
+  font-size: clamp(0.85rem, 0.25vw + 0.8rem, 1rem);
+  line-height: 1.5;
   border-radius: 0.53125rem;
 }
 
@@ -629,20 +658,23 @@ header .py-3 {
 .about-content .btn-lg {
   --bs-btn-padding-y: 0.3125rem;
   --bs-btn-padding-x: 0.625rem;
-  --bs-btn-font-size: 0.78125rem;
+  --bs-btn-font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.125rem);
   --bs-btn-border-radius: 0.3125rem;
 }
 
 .about-content h2 {
-  font-size: 1.25rem;
+  font-size: clamp(1.5rem, 0.85rem + 1.1vw, 2rem);
+  line-height: 1.45;
 }
 
 .about-content .h4 {
-  font-size: 0.9375rem;
+  font-size: clamp(1.125rem, 0.4vw + 1rem, 1.5rem);
+  line-height: 1.5;
 }
 
 .about-content .h6 {
-  font-size: 0.625rem;
+  font-size: clamp(0.875rem, 0.3vw + 0.82rem, 1.125rem);
+  line-height: 1.5;
 }
 
 .about-content .gap-2 {
@@ -650,7 +682,8 @@ header .py-3 {
 }
 
 .about-content .small {
-  font-size: 0.546875rem;
+  font-size: clamp(0.75rem, 0.2vw + 0.72rem, 0.9rem);
+  line-height: 1.5;
 }
 
 .ticker {
@@ -832,10 +865,13 @@ header .py-3 {
   background: #ffffff;
 }
 
+/* Responsive typography refresh for home hero */
 .hero-section .badge {
   letter-spacing: 0.08em;
   color: #1f6ff2;
-  font-size: 0.84375rem;
+  font-size: clamp(0.82rem, 0.3vw + 0.78rem, 0.95rem);
+  line-height: 1.45;
+  font-weight: 600;
 }
 
 .hero-section .badge.bg-primary-subtle {
@@ -916,8 +952,9 @@ header .py-3 {
 }
 
 .hero-copy h1 {
-  font-size: clamp(2rem, 2.6vw + 1.375rem, 3.125rem);
-  line-height: 1.2;
+  font-size: clamp(2.1rem, 1.15rem + 1.9vw, 3.15rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .hero-media-col {
@@ -1053,7 +1090,8 @@ header .py-3 {
 }
 
 .section-heading h2 {
-  font-size: clamp(1.09375rem, 2.3vw, 1.5625rem);
+  font-size: clamp(1.5rem, 0.85rem + 1.1vw, 2rem);
+  line-height: 1.4;
 }
 
 .partner-pill {
@@ -1101,7 +1139,8 @@ header .py-3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6875rem;
+  font-size: clamp(0.9rem, 0.25vw + 0.86rem, 1.05rem);
+  line-height: 1.5;
 }
 
 .whitespace-pre-line {
@@ -1158,7 +1197,7 @@ header .py-3 {
 }
 
 .footer-section .social-link i {
-  font-size: 0.625rem;
+  font-size: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
 }
 
 .btn-primary {
@@ -1246,7 +1285,8 @@ header .py-3 {
 }
 
 .foundation-program-card .badge {
-  font-size: 0.46875rem;
+  font-size: clamp(0.78rem, 0.2vw + 0.74rem, 0.9rem);
+  line-height: 1.45;
   padding: 0.21875rem 0.46875rem;
   border-radius: 99.9rem;
 }
@@ -1302,11 +1342,12 @@ header .py-3 {
   border-radius: 99.9rem;
   padding: 0.28125rem 0.6875rem;
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.2rem);
+  line-height: 1.5;
 }
 
 .service-tag.badge {
-  font-size: 0.9375rem;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.2rem);
 }
 
 .service-card {
@@ -1374,7 +1415,7 @@ header .py-3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
   color: #1f6ff2;
   box-shadow: 0 18px 35px -28px rgba(15, 60, 130, 0.5);
   transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
@@ -1392,7 +1433,7 @@ header .py-3 {
 }
 
 .service-card ul li i {
-  font-size: 0.75rem;
+  font-size: clamp(0.8rem, 0.2vw + 0.77rem, 0.95rem);
   margin-top: 0.25rem;
 }
 
@@ -1495,7 +1536,8 @@ header .py-3 {
 
 .services-search-luxe__title {
   margin: 0;
-  font-size: clamp(1.75rem, 1vw + 1.5rem, 2.5rem);
+  font-size: clamp(1.65rem, 0.9rem + 1.6vw, 2.4rem);
+  line-height: 1.4;
   font-weight: 600;
   color: #0b1c3d;
   letter-spacing: normal;
@@ -1503,9 +1545,9 @@ header .py-3 {
 
 .services-search-luxe__subtitle {
   margin: 0;
-  font-size: clamp(1rem, 0.4vw + 0.95rem, 1.1875rem);
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
   color: rgba(15, 36, 64, 0.72);
-  line-height: 1.65;
 }
 
 .services-search-luxe__form {
@@ -1618,7 +1660,8 @@ header .py-3 {
   border: none;
   background: transparent;
   padding: 0;
-  font-size: 0.9375rem;
+  font-size: clamp(0.95rem, 0.25vw + 0.9rem, 1.15rem);
+  line-height: 1.5;
   font-weight: 500;
   color: rgba(15, 36, 64, 0.6);
   transition: color 0.35s ease-in-out;
@@ -1793,6 +1836,23 @@ header .py-3 {
   font-size: 0.53125rem;
 }
 
+.about-list-link {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(15, 36, 64, 0.75);
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.15rem);
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.about-list-link:hover,
+.about-list-link:focus-visible {
+  color: #1f6ff2;
+  text-decoration: none;
+  outline: none;
+}
+
 .about-contact-card {
   position: relative;
   border-radius: 1.75rem;
@@ -1852,13 +1912,15 @@ header .py-3 {
   gap: clamp(1rem, 2vw, 1.75rem);
 }
 
+/* Responsive typography refresh for about contact card */
 .about-contact-card__eyebrow {
   align-self: center;
   padding: 0.375rem 0.875rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.78);
   box-shadow: 0 14px 22px -20px rgba(15, 60, 130, 0.55);
-  font-size: 0.9375rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
+  line-height: 1.5;
   font-weight: 600;
   color: rgba(15, 36, 64, 0.7);
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
@@ -1889,17 +1951,18 @@ header .py-3 {
 
 .about-contact-card__title {
   margin: 0;
-  font-size: clamp(2rem, 1.5vw + 1.75rem, 2.625rem);
+  font-size: clamp(1.6rem, 0.95rem + 1.6vw, 2.6rem);
   font-weight: 600;
   color: #0b1c3d;
   letter-spacing: normal;
+  line-height: 1.4;
 }
 
 .about-contact-card__subtitle {
   margin: 0;
-  font-size: clamp(1rem, 0.4vw + 0.95rem, 1.1875rem);
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.25rem);
   color: rgba(15, 36, 64, 0.72);
-  line-height: 1.7;
+  line-height: 1.55;
 }
 
 .about-contact-card__form {
@@ -1909,7 +1972,8 @@ header .py-3 {
 .about-contact-card__label {
   font-weight: 600;
   color: rgba(15, 36, 64, 0.68);
-  font-size: 0.9375rem;
+  font-size: clamp(0.95rem, 0.25vw + 0.9rem, 1.125rem);
+  line-height: 1.5;
 }
 
 .about-contact-card__input,
@@ -1922,6 +1986,8 @@ header .py-3 {
   color: #0b1c3d;
   transition: all 0.5s ease-in-out;
   letter-spacing: normal;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.125rem);
+  line-height: 1.55;
 }
 
 .about-contact-card__input::placeholder,
@@ -1954,6 +2020,8 @@ header .py-3 {
   border: none;
   border-radius: 999px;
   font-weight: 600;
+  font-size: clamp(1rem, 0.35vw + 0.95rem, 1.25rem);
+  line-height: 1.5;
   letter-spacing: normal;
   background: linear-gradient(
     135deg,
@@ -1999,7 +2067,7 @@ header .py-3 {
 
 @media (max-width: 62rem) {
   .about-contact-card__title {
-    font-size: clamp(1.75rem, 1.2vw + 1.5rem, 2.375rem);
+    font-size: clamp(1.45rem, 0.85vw + 1.2rem, 2.25rem);
   }
 }
 
@@ -2299,7 +2367,8 @@ header .py-3 {
 
 .network-overlay .badge {
   font-weight: 600;
-  font-size: 0.53125rem;
+  font-size: clamp(0.85rem, 0.25vw + 0.8rem, 1rem);
+  line-height: 1.45;
 }
 
 .network-overlay h2 {
@@ -2309,7 +2378,8 @@ header .py-3 {
 .network-overlay-list {
   grid-template-columns: repeat(1, minmax(0, 1fr));
   font-weight: 500;
-  font-size: 0.59375rem;
+  font-size: clamp(0.9rem, 0.25vw + 0.86rem, 1.05rem);
+  line-height: 1.55;
 }
 
 .network-bullet {
@@ -2359,7 +2429,7 @@ header .py-3 {
 
 .network-marker-tooltip-label {
   fill: #ffffff;
-  font-size: 0.4375rem;
+  font-size: clamp(0.68rem, 0.2vw + 0.64rem, 0.78rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2478,20 +2548,24 @@ header .py-3 {
 }
 
 .promo-section .small {
-  font-size: 0.59375rem;
+  font-size: clamp(0.85rem, 0.25vw + 0.8rem, 1rem);
+  line-height: 1.5;
 }
 
 .promo-section h2 {
-  font-size: clamp(1.4375rem, 3vw, 2rem);
+  font-size: clamp(1.6rem, 0.9rem + 1.4vw, 2.25rem);
+  line-height: 1.4;
 }
 
 .promo-section .lead {
-  font-size: clamp(0.75rem, 2.2vw, 0.9375rem);
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
 }
 
 .promo-section .btn {
   padding: 0.5625rem 1.5625rem;
-  font-size: 0.6875rem;
+  font-size: clamp(0.95rem, 0.25vw + 0.9rem, 1.15rem);
+  line-height: 1.5;
 }
 
 @media (min-width: 992px) {
@@ -2502,7 +2576,7 @@ header .py-3 {
 
   .promo-section .btn {
     padding: 0.625rem 1.71875rem;
-    font-size: 0.6875rem;
+    font-size: clamp(1rem, 0.25vw + 0.95rem, 1.2rem);
   }
 }
 
@@ -2511,12 +2585,15 @@ header .py-3 {
 } */
 
 .footer-section h4 {
-  font-size: 0.6875rem;
+  font-size: clamp(1.125rem, 0.3vw + 1.05rem, 1.5rem);
+  line-height: 1.45;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .footer-section .list-unstyled a {
+  font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   transition: color 0.2s ease;
 }
 
@@ -2541,9 +2618,8 @@ header .py-3 {
   }
 
   .hero-copy h1 {
-    font-size: clamp(1.75rem, 6vw + 1rem, 2.625rem);
-
-    line-height: 1.2;
+    font-size: clamp(1.8rem, 6vw + 1.1rem, 2.35rem);
+    line-height: 1.35;
   }
 
   .hero-section .hero-copy .btn {
@@ -3177,7 +3253,7 @@ header .py-3 {
   background: rgba(255, 255, 255, 0.18);
   color: #ffffff;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  font-size: 0.84375rem;
+  font-size: clamp(0.9rem, 0.25vw + 0.86rem, 1.05rem);
   transition: transform 0.45s ease, background-color 0.45s ease;
 }
 
@@ -3188,13 +3264,15 @@ header .py-3 {
 }
 
 .course-card-title {
-  font-size: clamp(1rem, 1.2vw + 0.875rem, 1.3125rem);
+  font-size: clamp(1.2rem, 0.65vw + 1.05rem, 1.6rem);
   font-weight: 700;
   margin: 0;
+  line-height: 1.4;
 }
 
 .course-card-summary {
-  font-size: clamp(0.6875rem, 1vw + 0.625rem, 0.84375rem);
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.1rem);
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.82);
   margin: 0;
 }
@@ -3207,7 +3285,8 @@ header .py-3 {
   padding: 0.40625rem 0.90625rem;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 0.6875rem;
+  font-size: clamp(0.95rem, 0.25vw + 0.9rem, 1.1rem);
+  line-height: 1.5;
   text-decoration: none;
   color: #0d6efd;
   background: rgba(255, 255, 255, 0.92);
@@ -3294,24 +3373,29 @@ header .py-3 {
   color: #0d6efd;
 }
 
+/* Responsive typography refresh for footer link stacks */
 .footer-brand {
-  font-size: 0.9375rem;
+  font-size: clamp(1.125rem, 0.3vw + 1.05rem, 1.5rem);
+  line-height: 1.45;
   font-weight: 700;
 }
 
 .footer-subtitle {
-  font-size: 0.59375rem;
+  font-size: clamp(0.875rem, 0.25vw + 0.82rem, 1rem);
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.75);
 }
 
 .footer-description {
-  font-size: 0.875rem;
+  font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.78);
   max-width: 15rem;
 }
 
 .footer-heading {
-  font-size: 0.9375rem;
+  font-size: clamp(1.125rem, 0.3vw + 1.05rem, 1.5rem);
+  line-height: 1.45;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -3326,7 +3410,8 @@ header .py-3 {
 
 .footer-link {
   color: rgba(255, 255, 255, 0.78);
-  font-size: 0.875rem;
+  font-size: clamp(1rem, 0.25vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -3437,6 +3522,7 @@ header .py-3 {
   min-inline-size: 0;
 }
 
+/* Responsive typography refresh for contact luxe section */
 .contact-luxe__info {
   display: flex;
   flex-direction: column;
@@ -3446,23 +3532,24 @@ header .py-3 {
 }
 
 .contact-luxe__eyebrow {
-  font-size: 0.9375rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #3f5e86;
 }
 
 .contact-luxe__title {
-  font-size: clamp(2rem, 4vw, 2.875rem);
+  font-size: clamp(1.8rem, 1rem + 1.8vw, 3rem);
+  line-height: 1.4;
   font-weight: 700;
-  line-height: 1.15;
   color: #0b1933;
   margin: 0;
 }
 
 .contact-luxe__description {
   margin: 0;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
   color: #45556a;
   max-width: 28.75rem;
 }
@@ -3529,7 +3616,8 @@ header .py-3 {
 
 .contact-luxe__label {
   display: block;
-  font-size: 1.0625rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #0f2344;
 }
@@ -3539,7 +3627,8 @@ header .py-3 {
   flex-direction: column;
   gap: 0.375rem;
   margin-top: 0.375rem;
-  font-size: 0.96875rem;
+  font-size: clamp(0.9rem, 0.25vw + 0.86rem, 1.0625rem);
+  line-height: 1.55;
   color: #4b5c72;
   min-inline-size: 0;
   overflow-wrap: anywhere;
@@ -3631,8 +3720,10 @@ header .py-3 {
   gap: 0.75rem;
 }
 
+/* Responsive typography refresh for contact form */
 .contact-form-luxe__eyebrow {
-  font-size: 0.9375rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #3f5e86;
   margin: 0;
@@ -3640,16 +3731,16 @@ header .py-3 {
 
 .contact-form-luxe__title {
   margin: 0;
-  font-size: clamp(2.125rem, 4vw, 2.75rem);
+  font-size: clamp(1.65rem, 0.9rem + 1.6vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.4;
   color: #0b1933;
 }
 
 .contact-form-luxe__subtitle {
   margin: 0;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
   color: #44556d;
 }
 
@@ -3710,7 +3801,8 @@ header .py-3 {
 .contact-form-luxe__helper {
   margin: 0;
   margin-top: -0.5rem;
-  font-size: 0.9375rem;
+  font-size: clamp(0.85rem, 0.25vw + 0.82rem, 1.05rem);
+  line-height: 1.5;
   color: #5b6a7c;
 }
 
@@ -3727,7 +3819,8 @@ header .py-3 {
 }
 
 .contact-form-luxe__field-label {
-  font-size: 0.96875rem;
+  font-size: clamp(0.9rem, 0.25vw + 0.86rem, 1.0625rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #1a2e47;
 }
@@ -3740,8 +3833,8 @@ header .py-3 {
   border-radius: 1.25rem;
   padding: 0.95rem 1.25rem;
   background: rgba(255, 255, 255, 0.82);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.125rem);
+  line-height: 1.55;
   color: #132238;
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.45);
   transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
@@ -4006,13 +4099,13 @@ header .py-3 {
   .courses-luxe__highlight-icon {
     width: 2.3rem;
     height: 2.3rem;
-    font-size: 0.88rem;
+    font-size: clamp(0.78rem, 6vw + 0.5rem, 0.9rem);
   }
 
   .service-card-icon {
     width: 2.6rem;
     height: 2.6rem;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 6vw + 0.5rem, 0.95rem);
   }
 
   .courses-luxe__program {
@@ -4023,7 +4116,7 @@ header .py-3 {
   .courses-luxe__program-icon {
     width: 1.8rem;
     height: 1.8rem;
-    font-size: 0.8rem;
+    font-size: clamp(0.75rem, 6vw + 0.45rem, 0.85rem);
   }
 
   .services-hero .display-5 {
@@ -4103,7 +4196,7 @@ header .py-3 {
   position: relative;
   width: min(25rem, 100%);
   border-radius: 2rem;
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   background: linear-gradient(
     150deg,
     rgba(255, 255, 255, 0.6),
@@ -4151,13 +4244,15 @@ header .py-3 {
   gap: 1.25rem;
 }
 
+/* Responsive typography refresh for courses luxe experience */
 .courses-luxe__hero-eyebrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1.35rem;
   border-radius: 999px;
-  font-size: 0.9375rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #1f6ff2;
   background: rgba(31, 111, 242, 0.12);
@@ -4166,16 +4261,16 @@ header .py-3 {
 
 .courses-luxe__hero-title {
   margin: 0;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 1.1rem + 2vw, 3rem);
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.35;
   color: #0b1933;
 }
 
 .courses-luxe__hero-lead {
   margin: 0;
-  font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
-  line-height: 1.75;
+  font-size: clamp(1rem, 0.4vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   color: #42536d;
 }
 
@@ -4191,7 +4286,8 @@ header .py-3 {
   align-self: flex-start;
   padding: 0.45rem 1.2rem;
   border-radius: 999px;
-  font-size: 0.9375rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.1rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #334d70;
   background: rgba(16, 57, 112, 0.08);
@@ -4200,8 +4296,8 @@ header .py-3 {
 
 .courses-luxe__intro-copy {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
   color: #4a5c76;
 }
 
@@ -4222,11 +4318,11 @@ header .py-3 {
   padding: clamp(1.75rem, 3vw, 2.5rem);
   border: none;
   border-radius: 1.85rem;
-  background: linear-gradient(
+  /* background: linear-gradient(
     155deg,
     rgba(255, 255, 255, 0.9),
     rgba(226, 233, 255, 0.75)
-  );
+  ); */
   color: inherit;
   text-align: left;
   cursor: pointer;
@@ -4263,7 +4359,8 @@ header .py-3 {
 }
 
 .courses-luxe__option-eyebrow {
-  font-size: 0.9375rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
+  line-height: 1.5;
   font-weight: 600;
   color: rgba(12, 33, 64, 0.7);
 }
@@ -4273,14 +4370,15 @@ header .py-3 {
 }
 
 .courses-luxe__option-title {
-  font-size: clamp(1.5rem, 2.8vw, 2.0625rem);
+  font-size: clamp(1.35rem, 0.8rem + 1.2vw, 2rem);
+  line-height: 1.4;
   font-weight: 600;
   color: #0b1933;
 }
 
 .courses-luxe__option-copy {
-  font-size: 0.96875rem;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.15rem);
+  line-height: 1.55;
   color: #4d5e78;
 }
 
@@ -4296,13 +4394,13 @@ header .py-3 {
   position: relative;
   border-radius: 2rem;
   padding: clamp(2.75rem, 4vw, 3.75rem);
-  background: linear-gradient(
+  /* background: linear-gradient(
     155deg,
     rgba(255, 255, 255, 0.96),
     rgba(226, 234, 255, 0.86)
-  );
-  box-shadow: 0 45px 80px -50px rgba(20, 54, 112, 0.5),
-    0 30px 60px -45px rgba(20, 54, 112, 0.28);
+  ); */
+  /* box-shadow: 0 45px 80px -50px rgba(20, 54, 112, 0.5),
+    0 30px 60px -45px rgba(20, 54, 112, 0.28); */
   overflow: hidden;
 }
 
@@ -4347,21 +4445,23 @@ header .py-3 {
   border-radius: 999px;
   background: rgba(31, 111, 242, 0.12);
   color: #1f4e92;
-  font-size: 0.9375rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
+  line-height: 1.5;
   font-weight: 600;
 }
 
 .courses-luxe__detail-title {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.85rem, 1rem + 1.8vw, 2.6rem);
+  line-height: 1.4;
   font-weight: 700;
   color: #0c1b36;
 }
 
 .courses-luxe__detail-copy {
   margin: 0;
-  font-size: 1.03125rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
   color: #415571;
 }
 
@@ -4401,14 +4501,15 @@ header .py-3 {
 }
 
 .courses-luxe__meta-label {
-  font-size: 0.9rem;
+  font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
+  line-height: 1.5;
   font-weight: 600;
   color: rgba(12, 27, 50, 0.72);
 }
 
 .courses-luxe__meta-value {
-  font-size: 0.96875rem;
-  line-height: 1.6;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   color: rgba(12, 27, 50, 0.9);
 }
 
@@ -4449,7 +4550,7 @@ header .py-3 {
     rgba(189, 206, 255, 0.6)
   );
   color: #1c3f7b;
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
   box-shadow: 0 18px 28px -20px rgba(23, 60, 120, 0.4);
   flex-shrink: 0;
 }
@@ -4461,15 +4562,16 @@ header .py-3 {
 }
 
 .courses-luxe__highlight-title {
-  font-size: 1.0625rem;
+  font-size: clamp(1rem, 0.35vw + 0.95rem, 1.25rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #0c1b36;
 }
 
 .courses-luxe__highlight-copy {
   margin: 0;
-  font-size: 0.96875rem;
-  line-height: 1.65;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.15rem);
+  line-height: 1.55;
   color: #4a5c76;
 }
 
@@ -4482,7 +4584,7 @@ header .py-3 {
   .courses-luxe__highlight-icon {
     width: 2.75rem;
     height: 2.75rem;
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 4vw + 0.7rem, 1.05rem);
   }
 
   .courses-luxe__program {
@@ -4496,13 +4598,13 @@ header .py-3 {
   .courses-luxe__program-icon {
     width: 2.2rem;
     height: 2.2rem;
-    font-size: 0.98rem;
+    font-size: clamp(0.9rem, 4vw + 0.65rem, 1rem);
   }
 
   .service-card-icon {
     width: 3rem;
     height: 3rem;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 4vw + 0.7rem, 1.05rem);
   }
 }
 
@@ -4518,7 +4620,7 @@ header .py-3 {
   .courses-luxe__highlight-icon {
     width: 2.5rem;
     height: 2.5rem;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 5vw + 0.6rem, 0.95rem);
   }
 
   .courses-luxe__program {
@@ -4532,13 +4634,13 @@ header .py-3 {
   .courses-luxe__program-icon {
     width: 2rem;
     height: 2rem;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 5vw + 0.55rem, 0.9rem);
   }
 
   .service-card-icon {
     width: 2.75rem;
     height: 2.75rem;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 5vw + 0.6rem, 0.95rem);
   }
 }
 
@@ -4569,7 +4671,8 @@ header .py-3 {
 
 .courses-luxe__programs-title {
   margin: 0;
-  font-size: clamp(1.6rem, 2.6vw, 2.0625rem);
+  font-size: clamp(1.5rem, 0.9rem + 1.3vw, 2.1rem);
+  line-height: 1.4;
   font-weight: 600;
   color: #0c1b36;
 }
@@ -4653,7 +4756,8 @@ header .py-3 {
   padding: 0.75rem 0.85rem;
   background: rgba(255, 255, 255, 0.85);
   color: #0c1b36;
-  font-size: 0.96875rem;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.15rem);
+  line-height: 1.5;
   font-weight: 600;
   text-align: left;
   cursor: pointer;
@@ -4679,7 +4783,7 @@ header .py-3 {
   min-width: 2rem;
   padding: 0.3rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.8125rem;
+  font-size: clamp(0.85rem, 0.2vw + 0.82rem, 1rem);
   font-weight: 600;
   color: #1f4e92;
   background: rgba(31, 111, 242, 0.18);
@@ -4692,15 +4796,15 @@ header .py-3 {
 
 .courses-luxe__search-empty {
   margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 0.25vw + 0.9rem, 1.15rem);
+  line-height: 1.55;
   color: rgba(12, 27, 54, 0.65);
 }
 
 .courses-luxe__search-icon {
   position: absolute;
   left: 1.15rem;
-  font-size: 1.2rem;
+  font-size: clamp(1.05rem, 0.35vw + 1rem, 1.35rem);
   color: #1f6ff2;
 }
 
@@ -4708,7 +4812,7 @@ header .py-3 {
   width: 100%;
   border: none;
   background: transparent;
-  font-size: 0.96875rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.2rem);
   color: #0c1b36;
   font-weight: 500;
   padding: 0;
@@ -4729,13 +4833,13 @@ header .py-3 {
   gap: 1.35rem;
   border-radius: 1.65rem;
   padding: 1.6rem 1.85rem;
-  background: linear-gradient(
+  /* background: linear-gradient(
     150deg,
     rgba(255, 255, 255, 0.92),
     rgba(209, 220, 255, 0.75)
-  );
-  box-shadow: 0 30px 50px -40px rgba(20, 54, 112, 0.42),
-    0 22px 36px -30px rgba(20, 54, 112, 0.28);
+  ); */
+  /* box-shadow: 0 30px 50px -40px rgba(20, 54, 112, 0.42),
+    0 22px 36px -30px rgba(20, 54, 112, 0.28); */
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
     background 0.5s ease-in-out;
 }
@@ -4762,7 +4866,8 @@ header .py-3 {
   align-self: flex-start;
   padding: 0.25rem 0.9rem;
   border-radius: 999px;
-  font-size: 0.875rem;
+  font-size: clamp(0.9rem, 0.25vw + 0.86rem, 1.1rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #1f4e92;
   background: rgba(31, 111, 242, 0.14);
@@ -4787,14 +4892,14 @@ header .py-3 {
     rgba(178, 198, 255, 0.6)
   );
   color: #1c3f7b;
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
   box-shadow: 0 16px 28px -22px rgba(16, 57, 112, 0.45);
   flex-shrink: 0;
 }
 
 .courses-luxe__program-title {
   margin: 0;
-  font-size: 1.03125rem;
+  font-size: clamp(1rem, 0.35vw + 0.95rem, 1.25rem);
   font-weight: 600;
   color: #0c1b36;
   line-height: 1.5;
@@ -4876,7 +4981,7 @@ header .py-3 {
   .courses-luxe__program-icon {
     width: 2.2rem;
     height: 2.2rem;
-    font-size: 0.98rem;
+    font-size: clamp(0.9rem, 4vw + 0.65rem, 1rem);
   }
 }
 
@@ -4919,7 +5024,7 @@ header .py-3 {
   .courses-luxe__program-icon {
     width: 2rem;
     height: 2rem;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 5vw + 0.55rem, 0.9rem);
   }
 }
 
@@ -5004,16 +5109,18 @@ header .py-3 {
 }
 
 .header-luxe__menu {
-  gap: clamp(1.25rem, 3vw, 2rem) !important;
+  gap: clamp(0.75rem, 2vw, 1.5rem) !important;
 }
 
+/* Responsive typography refresh for header navigation */
 .header-luxe__link {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(0.95rem, 1.75vw, 1.25rem) clamp(1.125rem, 2.25vw, 1.75rem);
-  font-size: clamp(1.3rem, 1vw + 0.85rem, 1.6rem);
+  padding: clamp(0.65rem, 1.3vw, 1rem) clamp(0.95rem, 2vw, 1.4rem);
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.15rem);
+  line-height: 1.5;
   font-weight: 500;
   color: rgba(17, 39, 72, 0.78) !important;
   text-transform: none;
@@ -5057,11 +5164,13 @@ header .py-3 {
   font-weight: 600;
 }
 
+/* Responsive typography refresh for header primary CTA */
 .header-luxe__cta {
   position: relative;
   border-radius: 999px;
-  padding: 0.65rem 1.45rem;
-  font-size: 0.96875rem;
+  padding: 0.5rem 1.2rem;
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.2rem);
+  line-height: 1.5;
   font-weight: 600;
   color: #ffffff;
   background: linear-gradient(135deg, #1f6ff2 0%, #4f8cff 48%, #90b2ff 100%);
@@ -5172,6 +5281,8 @@ header .py-3 {
   align-items: center;
   gap: 0.65rem;
   white-space: nowrap;
+  font-size: clamp(0.875rem, 0.25vw + 0.84rem, 1.125rem);
+  line-height: 1.5;
 }
 
 .header-luxe__ticker-separator {
@@ -5182,7 +5293,7 @@ header .py-3 {
   height: 0.5rem;
   color: rgba(31, 111, 242, 0.75);
   opacity: 0.75;
-  font-size: 0.46875rem;
+  font-size: clamp(0.75rem, 0.2vw + 0.7rem, 0.875rem);
 }
 
 @keyframes headerTicker {
@@ -5201,8 +5312,8 @@ header .py-3 {
   }
 
   .header-luxe__nav {
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 1.25rem;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -5210,19 +5321,24 @@ header .py-3 {
 
   .header-luxe__menu {
     align-items: stretch !important;
+    gap: 0.5rem !important;
   }
 
   .header-luxe__link {
     justify-content: flex-start;
-    padding: 1rem 1.35rem;
-    border-radius: 1rem;
-    font-size: clamp(1.15rem, 4vw, 1.4rem);
+    padding: 0.75rem 1rem;
+    border-radius: 0.85rem;
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+    line-height: 1.5;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      0 12px 24px -20px rgba(17, 39, 72, 0.25);
   }
 
   .header-luxe__link::after {
-    left: 1rem;
-    right: 1rem;
-    bottom: 0.6rem;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.45rem;
   }
 
   .header-luxe__cta {
@@ -5364,9 +5480,11 @@ header .py-3 {
   height: auto;
 }
 
+/* Responsive typography refresh for footer luxe section */
 .footer-luxe__title {
   margin: 0;
-  font-size: clamp(1.75rem, 1.5vw + 1.5rem, 2.5rem);
+  font-size: clamp(1.875rem, 1.05rem + 1.75vw, 3rem);
+  line-height: 1.4;
   font-weight: 700;
   letter-spacing: normal;
   color: #0b1c3d;
@@ -5374,7 +5492,8 @@ header .py-3 {
 
 .footer-luxe__subtitle {
   margin: 0.15rem 0 0;
-  font-size: 1rem;
+  font-size: clamp(1rem, 0.35vw + 0.95rem, 1.25rem);
+  line-height: 1.5;
   color: rgba(11, 28, 61, 0.58);
   letter-spacing: normal;
 }
@@ -5382,8 +5501,8 @@ header .py-3 {
 .footer-luxe__description {
   margin: 0;
   max-width: 36rem;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   color: rgba(11, 28, 61, 0.72);
 }
 
@@ -5391,13 +5510,16 @@ header .py-3 {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 1rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   color: rgba(11, 28, 61, 0.72);
 }
 
 .footer-luxe__contact-link {
   color: #1f4c88;
   font-weight: 600;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
+  line-height: 1.5;
   text-decoration: none;
   transition: color 0.5s ease-in-out;
 }
@@ -5435,16 +5557,17 @@ header .py-3 {
 
 .footer-luxe__subscribe-title {
   margin: 0;
-  font-size: clamp(1.5rem, 1.2vw + 1.25rem, 2rem);
+  font-size: clamp(1.5rem, 0.9rem + 1.25vw, 2rem);
+  line-height: 1.4;
   font-weight: 600;
   color: #0b1c3d;
 }
 
 .footer-luxe__subscribe-text {
   margin: 0.75rem 0 0;
-  font-size: 1.0625rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
+  line-height: 1.55;
   color: rgba(11, 28, 61, 0.7);
-  line-height: 1.65;
 }
 
 .footer-luxe__form {
@@ -5472,7 +5595,7 @@ header .py-3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: clamp(1.125rem, 0.35vw + 1.05rem, 1.5rem);
   color: rgba(31, 76, 136, 0.65);
   margin-left: 0.25rem;
   transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -5488,7 +5611,8 @@ header .py-3 {
   border: none;
   background: transparent;
   padding: 0.75rem 0.5rem;
-  font-size: 1rem;
+  font-size: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
+  line-height: 1.55;
   color: #0b1c3d;
   outline: none;
 }
@@ -5501,7 +5625,8 @@ header .py-3 {
   border: none;
   border-radius: 999px;
   padding: 0.75rem 1.75rem;
-  font-size: 1rem;
+  font-size: clamp(1.125rem, 0.35vw + 1.05rem, 1.5rem);
+  line-height: 1.5;
   font-weight: 600;
   letter-spacing: normal;
   color: #ffffff;
@@ -5542,7 +5667,8 @@ header .py-3 {
 
 .footer-luxe__links-title {
   margin: 0 0 1rem;
-  font-size: 1.125rem;
+  font-size: clamp(1.125rem, 0.3vw + 1.05rem, 1.5rem);
+  line-height: 1.45;
   font-weight: 600;
   color: #0b1c3d;
 }
@@ -5560,7 +5686,8 @@ header .py-3 {
   position: relative;
   color: rgba(11, 28, 61, 0.7);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.25rem);
+  line-height: 1.5;
   transition: color 0.45s ease-in-out, transform 0.45s ease-in-out;
 }
 
@@ -5596,41 +5723,117 @@ header .py-3 {
 .footer-luxe__social {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
+  gap: clamp(1.1rem, 1vw + 0.8rem, 1.5rem);
   flex-wrap: wrap;
 }
 
 .footer-luxe__social-link {
-  width: 2.75rem;
-  height: 2.75rem;
+  position: relative;
+  width: clamp(3.1rem, 2vw + 2.7rem, 3.5rem);
+  height: clamp(3.1rem, 2vw + 2.7rem, 3.5rem);
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    rgba(31, 111, 242, 0.16),
-    rgba(15, 57, 146, 0.12)
-  );
-  color: #1f4c88;
-  font-size: 1.125rem;
+  background: linear-gradient(140deg, #ffffff 0%, #e6eeff 48%, #d5e2ff 100%);
+  border: 1px solid rgba(31, 111, 242, 0.18);
+  color: #0f2d68;
+  font-size: clamp(1.25rem, 0.4vw + 1.1rem, 1.65rem);
   text-decoration: none;
-  box-shadow: 0 18px 36px -28px rgba(15, 60, 130, 0.45);
-  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
-    background 0.5s ease-in-out, color 0.5s ease-in-out;
+  box-shadow: 0 22px 48px -28px rgba(15, 60, 130, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.45s ease, box-shadow 0.45s ease,
+    background 0.45s ease, color 0.45s ease, border-color 0.45s ease;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.footer-luxe__social-link::before,
+.footer-luxe__social-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.footer-luxe__social-link::before {
+  background: radial-gradient(
+      circle at 35% 35%,
+      rgba(31, 111, 242, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 60% 65%,
+      rgba(120, 132, 255, 0.28),
+      transparent 62%
+    );
+  filter: blur(16px);
+  opacity: 0.55;
+  transform: scale(0.85);
+  z-index: -2;
+}
+
+.footer-luxe__social-link::after {
+  background: conic-gradient(
+    from 0deg,
+    rgba(31, 111, 242, 0.4),
+    rgba(143, 176, 255, 0.35),
+    rgba(31, 111, 242, 0.4)
+  );
+  mask: radial-gradient(circle at center, transparent 55%, black 58%);
+  opacity: 0.65;
+  animation: footerSocialPulse 4s ease-in-out infinite;
+  z-index: -1;
 }
 
 .footer-luxe__social-link:hover,
 .footer-luxe__social-link:focus-visible {
-  transform: translateY(-0.2rem) scale(1.05);
-  background: linear-gradient(
-    135deg,
-    rgba(31, 111, 242, 0.26),
-    rgba(15, 57, 146, 0.22)
-  );
-  color: #0b1c3d;
-  box-shadow: 0 26px 52px -32px rgba(15, 60, 130, 0.5);
+  transform: translateY(-0.25rem) scale(1.08) rotate(-2deg);
+  background: linear-gradient(140deg, #366dfc 0%, #5c8dff 45%, #9bb7ff 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  box-shadow: 0 32px 60px -28px rgba(24, 60, 125, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   outline: none;
+}
+
+.footer-luxe__social-link:hover::before,
+.footer-luxe__social-link:focus-visible::before {
+  opacity: 0.9;
+  transform: scale(1);
+}
+
+.footer-luxe__social-link:hover::after,
+.footer-luxe__social-link:focus-visible::after {
+  opacity: 1;
+}
+
+.footer-luxe__social-link i {
+  transition: transform 0.45s ease;
+}
+
+.footer-luxe__social-link:hover i,
+.footer-luxe__social-link:focus-visible i {
+  transform: scale(1.15);
+}
+
+@keyframes footerSocialPulse {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.08) rotate(180deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(0.9) rotate(360deg);
+    opacity: 0.55;
+  }
 }
 
 .footer-luxe__bottom {

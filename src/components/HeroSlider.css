@@ -148,16 +148,16 @@
 }
 
 .luxury-heading {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  line-height: 1.05;
+  font-size: clamp(1.95rem, 1.1rem + 1.8vw, 3rem);
+  line-height: 1.35;
   font-weight: 700;
   letter-spacing: normal;
   color: #0f172a;
 }
 
 .luxury-description {
-  font-size: clamp(1.05rem, 2.1vw, 1.25rem);
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 0.35vw + 0.9rem, 1.2rem);
+  line-height: 1.55;
   color: rgba(15, 23, 42, 0.72);
   letter-spacing: normal;
 }
@@ -177,7 +177,8 @@
     rgba(111, 66, 193, 0.8)
   );
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: clamp(1rem, 0.35vw + 0.95rem, 1.25rem);
+  line-height: 1.5;
   font-weight: 600;
   letter-spacing: normal;
   text-decoration: none;
@@ -294,6 +295,6 @@
 
 @media (min-width: 992px) {
   .luxury-heading {
-    font-size: clamp(2.5rem, 3vw, 3.5rem);
+    font-size: clamp(2.25rem, 1.3rem + 1.7vw, 3.25rem);
   }
 }

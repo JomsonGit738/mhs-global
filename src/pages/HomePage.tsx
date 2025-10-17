@@ -36,6 +36,7 @@ type Course = {
   title: string;
   summary: string;
   image: string;
+  slug: string;
 };
 
 const courses: Course[] = [
@@ -44,36 +45,42 @@ const courses: Course[] = [
     summary:
       "Bridge programs designed to prepare you for undergraduate studies with confident English and academic skills.",
     image: foundationImg,
+    slug: "foundation",
   },
   {
     title: "Undergraduate Degrees",
     summary:
       "Bachelor's degree programs across diverse fields with a global reputation and career-ready outcomes.",
     image: undergraduateImg,
+    slug: "undergraduate",
   },
   {
     title: "Pre-Masters",
     summary:
       "Pre-Master's programs designed for career advancement with research-informed faculty guidance.",
     image: preMastersImg,
+    slug: "postgraduate",
   },
   {
     title: "Masters in Research",
     summary:
       "Research-focused Master's pathways emphasising independent projects and mentorship.",
     image: mastersResearchImg,
+    slug: "postgraduate",
   },
   {
     title: "PhD Degrees",
     summary:
       "Doctoral programs designed for career advancement with cross-disciplinary research exposure.",
     image: phdImg,
+    slug: "postgraduate",
   },
   {
     title: "Executive Education",
     summary:
       "Short, intensive experiences tailored for working professionals accelerating leadership ambitions.",
     image: executiveImg,
+    slug: "shortCourses",
   },
 ];
 
@@ -326,7 +333,10 @@ const HomePage = (): JSX.Element => {
                     </span>
                     <h3 className="course-card-title">{course.title}</h3>
                     <p className="course-card-summary">{course.summary}</p>
-                    <a href="/courses" className="course-card-link">
+                    <a
+                      href={`/courses#${course.slug}`}
+                      className="course-card-link"
+                    >
                       Discover more
                       <i className="bi bi-arrow-up-right ms-2"></i>
                     </a>

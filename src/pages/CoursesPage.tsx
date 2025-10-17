@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import type { CSSProperties } from "react";
 import foundationImg from "../assets/images/courses/1.png";
 import undergraduateImg from "../assets/images/courses/2.png";
@@ -241,6 +242,18 @@ const courseCategories: CourseCategory[] = [
   },
 ];
 
+const normalizeCategoryKey = (value: string): string =>
+  value.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+const categorySlugMap = courseCategories.reduce<Record<string, string>>(
+  (acc, category) => {
+    acc[normalizeCategoryKey(category.id)] = category.id;
+    acc[normalizeCategoryKey(category.name)] = category.id;
+    return acc;
+  },
+  {}
+);
+
 type CategorySelectorProps = {
   categories: CourseCategory[];
   activeId: string;
@@ -351,7 +364,11 @@ const CategoryDetail = ({ category }: CategoryDetailProps) => {
   };
 
   return (
-    <section className="courses-luxe__detail mt-5" data-animate="fade-up">
+    <section
+      id={`category-${category.id}`}
+      className="courses-luxe__detail mt-5"
+      data-animate="fade-up"
+    >
       <div className="courses-luxe__detail-shell">
         <div className="courses-luxe__detail-header">
           <div className="courses-luxe__detail-summary">
@@ -490,9 +507,35 @@ const CategoryDetail = ({ category }: CategoryDetailProps) => {
 };
 
 const CoursesPage = (): JSX.Element => {
-  const [activeCategoryId, setActiveCategoryId] = useState(
-    courseCategories[0].id
-  );
+  const location = useLocation();
+
+  const getCategoryIdFromHash = useCallback((hash: string): string | undefined => {
+    if (!hash) return undefined;
+    const normalized = normalizeCategoryKey(hash.replace(/^#/, ""));
+    return categorySlugMap[normalized];
+  }, []);
+
+  const [activeCategoryId, setActiveCategoryId] = useState(() => {
+    return getCategoryIdFromHash(location.hash) ?? courseCategories[0].id;
+  });
+
+  useEffect(() => {
+    const targetId = getCategoryIdFromHash(location.hash);
+    if (!targetId) {
+      return;
+    }
+
+    setActiveCategoryId((current) =>
+      current === targetId ? current : targetId
+    );
+
+    requestAnimationFrame(() => {
+      const targetElement =
+        document.getElementById(`category-${targetId}`) ??
+        document.getElementById("courses");
+      targetElement?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [getCategoryIdFromHash, location.hash]);
 
   const activeCategory = useMemo(
     () =>

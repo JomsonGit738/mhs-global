@@ -11,16 +11,28 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 
 const Layout = (): JSX.Element => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const showTicker = pathname === '/';
 
   useEffect(() => {
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        requestAnimationFrame(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        return;
+      }
+    }
+
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: 'auto',
     });
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return (
     <div className="app-root bg-body-tertiary" id="top">
