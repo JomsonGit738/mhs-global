@@ -285,6 +285,13 @@
   }
 }
 
+@media (max-width: 567px) {
+  .luxury-hero-slide::after {
+    mask-image: none;
+    background-position: center;
+  }
+}
+
 @media (min-width: 992px) {
   .luxury-heading {
     font-size: clamp(2.5rem, 3vw, 3.5rem);
