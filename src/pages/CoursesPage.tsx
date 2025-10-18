@@ -32,40 +32,40 @@ type CourseCategory = {
 const courseCategories: CourseCategory[] = [
   {
     id: "foundation",
-    name: "Foundation Programs",
-    tagline: "Hons Courses Pathway",
+    name: "Foundation Programmes",
+    tagline: "Pathway to Honours Degrees",
     description:
-      "Our foundation year equips you with the academic confidence, critical thinking and study skills needed to step smoothly into a full honours degree. Subject specific modules blend with intensive support in writing, maths and digital literacy.",
+      "Our foundation year builds academic confidence, critical thinking, and study skills to support a smooth transition into an honours degree. Subject modules are combined with intensive support in writing, mathematics, and digital literacy.",
     image: foundationImg,
     meta: [
-      { label: "Duration", value: "4 Years inc. foundation year" },
+      { label: "Duration", value: "Up to four years including the foundation year" },
       { label: "Entry Points", value: "September / January / May" },
-      { label: "Progression", value: "Direct degree progression" },
+      { label: "Progression", value: "Direct progression to selected degrees" },
     ],
     highlights: [
       {
         icon: "bi-mortarboard",
         title: "Dedicated Faculty",
         description:
-          "Learn from tutors who specialise in helping international and returning learners transition to university study.",
+          "Learn from tutors who specialise in supporting international and returning students as they transition to university study.",
       },
       {
         icon: "bi-lightbulb",
         title: "Academic Skills",
         description:
-          "Intensive coaching in research, academic writing, presentations and independent learning habits.",
+          "Gain intensive coaching in research, academic writing, presentations, and independent learning.",
       },
       {
         icon: "bi-people",
         title: "Personal Support",
         description:
-          "Small group seminars, mentoring, and regular progress reviews keep you on track from day one.",
+          "Small-group seminars, mentoring, and regular progress reviews keep you on track from the first week.",
       },
       {
         icon: "bi-bar-chart",
         title: "Subject Pathways",
         description:
-          "Pathway modules align with business, finance, healthcare and service industries to ease degree entry.",
+          "Pathway modules align with business, finance, healthcare, and service industries to support degree entry.",
       },
     ],
     programs: [
@@ -82,14 +82,14 @@ const courseCategories: CourseCategory[] = [
   },
   {
     id: "undergraduate",
-    name: "Undergraduate Programs",
-    tagline: "BSc (Hons) and LLB Routes",
+    name: "Undergraduate Programmes",
+    tagline: "BSc (Hons) and LLB pathways",
     description:
-      "Progress into internationally recognised bachelor's degrees that pair academic depth with real world learning. Placements, live projects and guest industry speakers are embedded across each award.",
+      "Progress into internationally recognised bachelor's degrees that combine academic depth with applied learning. Placements, live projects, and guest speakers are integrated across each programme.",
     image: undergraduateImg,
     meta: [
       { label: "Qualification", value: "BSc (Hons) / LLB (Hons)" },
-      { label: "Study Mode", value: "Full time with placement options" },
+      { label: "Study Mode", value: "Full-time study with placement options" },
       { label: "Entry Points", value: "September / January / May" },
     ],
     highlights: [
@@ -97,25 +97,25 @@ const courseCategories: CourseCategory[] = [
         icon: "bi-briefcase",
         title: "Career Focused Teaching",
         description:
-          "Curricula mapped to current industry practice with applied assignments and employer briefs.",
+          "Curricula aligned with current industry practice featuring applied assignments and employer briefs.",
       },
       {
         icon: "bi-diagram-3",
         title: "Networking and Events",
         description:
-          "Meet sector specialists through masterclasses, field visits and student societies.",
+          "Meet sector specialists through masterclasses, field visits, and student societies.",
       },
       {
         icon: "bi-compass",
         title: "Advisory Support",
         description:
-          "Dedicated success coaches guide CV building, interview preparation and placement searches.",
+          "Dedicated success coaches support CV development, interview preparation, and placement searches.",
       },
       {
         icon: "bi-globe2",
         title: "Global Perspective",
         description:
-          "International cohorts enrich debate and develop intercultural leadership skills.",
+          "International cohorts enrich discussion and build intercultural leadership skills.",
       },
     ],
     programs: [
@@ -134,14 +134,14 @@ const courseCategories: CourseCategory[] = [
   },
   {
     id: "postgraduate",
-    name: "Postgraduate Programs",
+    name: "Postgraduate Programmes",
     tagline: "MBA / MSc / LLM",
     description:
-      "Advance your expertise with focused master's programmes that combine strategic insight and practical application. Each pathway is designed for ambitious professionals ready to accelerate their career or shift into leadership roles.",
+      "Advance your expertise with focused Master's programmes that combine strategic insight with practical application. Each pathway supports professionals who are ready to progress or move into leadership roles.",
     image: postgraduateImg,
     meta: [
-      { label: "Duration", value: "12 Months intensive" },
-      { label: "Format", value: "Full time and executive pathways" },
+      { label: "Duration", value: "12-month intensive study" },
+      { label: "Format", value: "Full-time and executive pathways" },
       { label: "Entry Points", value: "September / January / May" },
     ],
     highlights: [
@@ -149,13 +149,13 @@ const courseCategories: CourseCategory[] = [
         icon: "bi-award",
         title: "Industry Led Projects",
         description:
-          "Tackle consultancy briefs and capstone assignments that mirror contemporary business challenges.",
+          "Work on consultancy briefs and capstone assignments that reflect contemporary business challenges.",
       },
       {
         icon: "bi-graph-up-arrow",
         title: "Leadership Growth",
         description:
-          "Sharpen decision making, analytics and change management capabilities across every module.",
+          "Strengthen decision-making, analytical, and change-management capabilities in every module.",
       },
       {
         icon: "bi-people-fill",
@@ -167,7 +167,7 @@ const courseCategories: CourseCategory[] = [
         icon: "bi-journal-text",
         title: "Research Support",
         description:
-          "Access expert supervision for dissertations, professional reports and applied investigations.",
+          "Access expert supervision for dissertations, professional reports, and applied investigations.",
       },
     ],
     programs: [
@@ -185,7 +185,7 @@ const courseCategories: CourseCategory[] = [
     name: "Short Courses",
     tagline: "Professional and CPD Credits",
     description:
-      "Targeted short courses help you upskill quickly, refresh specialist knowledge or explore a new discipline. Flexible scheduling keeps learning accessible for working professionals and organisations.",
+      "Targeted short courses help you develop specialist knowledge or explore a new discipline. Flexible scheduling keeps learning accessible for working professionals and organisations.",
     image: shortCoursesImg,
     meta: [
       { label: "Format", value: "Evening / Weekend / Online" },
@@ -197,25 +197,25 @@ const courseCategories: CourseCategory[] = [
         icon: "bi-clock-history",
         title: "Flexible Timetables",
         description:
-          "Blend self paced study with live workshops and focused intensives to suit your schedule.",
+          "Blend self-paced study with live workshops and focused sessions to suit your schedule.",
       },
       {
         icon: "bi-tools",
         title: "Practical Content",
         description:
-          "Hands on sessions emphasise immediate workplace application and measurable impact.",
+          "Hands-on sessions emphasise immediate workplace application and measurable impact.",
       },
       {
         icon: "bi-person-check",
         title: "Focused Cohorts",
         description:
-          "Small groups encourage discussion, peer learning and tailored tutor feedback.",
+          "Small groups encourage discussion, peer learning, and tailored tutor feedback.",
       },
       {
         icon: "bi-lightning",
         title: "Rapid Outcomes",
         description:
-          "Gain new skills in weeks, with pathways that ladder into longer awards if desired.",
+          "Build new skills within weeks, with pathways that can lead to longer awards when needed.",
       },
     ],
     programs: [
@@ -456,17 +456,14 @@ const CategoryDetail = ({ category }: CategoryDetailProps) => {
                             onMouseDown={(event) => event.preventDefault()}
                             onClick={() => handleResultSelect(entry.slug)}
                           >
-                            <span className="courses-luxe__search-option-index">
-                              {String(entry.index + 1).padStart(2, "0")}
-                            </span>
-                            <span className="courses-luxe__search-option-title">
+                            <span className="courses-luxe__search-option-label">
                               {entry.title}
                             </span>
                           </button>
                         ))
                       ) : (
                         <p className="courses-luxe__search-empty">
-                          No programmes match your search just yet.
+                          No programmes match your search at the moment.
                         </p>
                       )
                     ) : null}
@@ -474,9 +471,9 @@ const CategoryDetail = ({ category }: CategoryDetailProps) => {
                 </div>
               </div>
 
-              <div className="row g-3 g-lg-4 row-cols-1 row-cols-md-2">
+              <ol className="courses-luxe__programs-list">
                 {programEntries.map((entry) => (
-                  <div key={entry.slug} className="col">
+                  <li key={entry.slug} className="courses-luxe__programs-item">
                     <article
                       id={`program-${entry.slug}`}
                       className={`courses-luxe__program ${
@@ -485,19 +482,11 @@ const CategoryDetail = ({ category }: CategoryDetailProps) => {
                       data-animate="fade-up"
                       style={{ animationDelay: `${entry.index * 0.06}s` }}
                     >
-                      <span className="courses-luxe__program-index">
-                        {String(entry.index + 1).padStart(2, "0")}
-                      </span>
-                      <div className="courses-luxe__program-content">
-                        <span className="courses-luxe__program-icon" aria-hidden="true">
-                          <i className="bi bi-check2-circle"></i>
-                        </span>
-                        <h3 className="courses-luxe__program-title">{entry.title}</h3>
-                      </div>
+                      <h3 className="courses-luxe__program-title">{entry.title}</h3>
                     </article>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
           </div>
         </div>
@@ -561,13 +550,13 @@ const CoursesPage = (): JSX.Element => {
             <div className="courses-luxe__hero-copy" data-animate="fade-up">
               <span className="courses-luxe__hero-eyebrow">Our courses</span>
               <h1 className="courses-luxe__hero-title">
-                Choose your perfect study path
+                Explore your study pathway
               </h1>
               <p className="courses-luxe__hero-lead">
-                At MHS Global Associates we match each learner with a route that
-                fits their goals, from stepping stone foundation pathways to
-                focused postgraduate masters and agile short courses. Explore the
-                options below and find the programme that supports your ambitions.
+                At MHS Global Associates we help each learner select a route that
+                fits their goals, from foundation pathways to focused postgraduate
+                study and flexible short courses. Explore the options below to find
+                the programme that supports your ambitions.
               </p>
             </div>
           </div>
@@ -576,8 +565,9 @@ const CoursesPage = (): JSX.Element => {
         <div className="courses-luxe__intro" data-animate="fade-up">
           <span className="courses-luxe__intro-pill">Explore pathways</span>
           <p className="courses-luxe__intro-copy">
-            Discover curated programmes tailored to your academic journey. Select a
-            pathway to reveal key highlights, support, and a full list of degrees.
+            Discover programmes aligned with your academic journey. Select a
+            pathway to view key highlights, available support, and the full list
+            of degrees.
           </p>
         </div>
 

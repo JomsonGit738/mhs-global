@@ -36,10 +36,10 @@ const contactInfo: ContactInfoItem[] = [
 ];
 
 const contactCourses = [
-  "Foundation Programs",
+  "Foundation Programmes",
   "Undergraduate Degrees",
   "Postgraduate Degrees",
-  "Student Services",
+  "Student Support",
   "Visa Guidance",
   "Scholarship Support",
 ].map((title) => ({ title }));
@@ -56,13 +56,13 @@ const ContactPage = (): JSX.Element => {
                 Contact Us
               </span>
               <h1 className="display-5 fw-bold mb-3 contact-hero-title">
-                Connect With Our Advisory Team
+                Connect with Our Advisory Team
               </h1>
               <p className="lead text-white-75 mb-0 contact-hero-lead">
-                Engage with advisors who craft{" "}
-                <strong>bespoke guidance</strong> across admissions, visas,
-                scholarships, and settlement support&mdash;every detail refined
-                for your journey.
+                Engage with advisers who provide{" "}
+                <strong>personalised guidance</strong> across admissions, visas,
+                scholarships, and student support&mdash;every detail carefully
+                considered for your journey.
               </p>
             </div>
             <div className="col-lg-5">
@@ -86,7 +86,7 @@ const ContactPage = (): JSX.Element => {
       <ContactContent
         info={contactInfo}
         courses={contactCourses}
-        infoDescription="Contact our advisors for guidance on course selection, application strategy, scholarships, and visa preparation. We're here to help you navigate every step of your international education journey."
+        infoDescription="Contact our advisers for guidance on course selection, application planning, scholarships, and visa preparation. We are here to help you navigate each step of your international education journey."
         sectionId="contact"
         formId="contact-form"
       />

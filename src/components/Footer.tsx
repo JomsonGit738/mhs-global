@@ -32,12 +32,12 @@ const footerColumns = [
     ],
   },
   {
-    title: "Programs",
+    title: "Programmes",
     items: [
-      { label: "Foundation Programs", href: "/courses" },
-      { label: "Undergraduate Programs", href: "/courses" },
-      { label: "Postgraduate Programs", href: "/courses" },
-      { label: "Short Programs", href: "/courses" },
+      { label: "Foundation Programmes", href: "/courses" },
+      { label: "Undergraduate Programmes", href: "/courses" },
+      { label: "Postgraduate Programmes", href: "/courses" },
+      { label: "Short Programmes", href: "/courses" },
     ],
   },
 ] as const;
@@ -104,8 +104,8 @@ const Footer = (): JSX.Element => {
               </div>
             </div>
             <p className="footer-luxe__description">
-              Bespoke admissions expertise and student services that connect
-              purposeful learners with distinguished universities worldwide.
+              Personalised admissions guidance and student services that connect
+              dedicated learners with respected universities worldwide.
             </p>
             <div className="footer-luxe__contact">
               <span>
@@ -129,7 +129,7 @@ const Footer = (): JSX.Element => {
               Discover Your Next Opportunity
             </h3>
             <p className="footer-luxe__subscribe-text">
-              Search programmes, destinations, or services to receive curated
+              Search programmes, destinations, or services to receive tailored
               admissions insights from our advisory team.
             </p>
             <form className="footer-luxe__form" onSubmit={handleExplore}>

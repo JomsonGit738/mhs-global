@@ -25,10 +25,10 @@ type PromoHighlight = {
 const promoHighlights: PromoHighlight[] = [
   {
     id: "uk-intake",
-    eyebrow: "Study in the UK at top universities",
-    title: "January 2026 intake - Admissions Open!",
+    eyebrow: "Pursue your studies at leading UK universities",
+    title: "January 2026 intake: applications now open",
     description:
-      "Apply early to secure your place! Our counsellors support you every step of the way.",
+      "Submit your application early to secure a place. Our advisers offer guidance throughout the process.",
   },
 ];
 
@@ -43,42 +43,42 @@ const courses: Course[] = [
   {
     title: "Foundation Courses",
     summary:
-      "Bridge programs designed to prepare you for undergraduate studies with confident English and academic skills.",
+      "Preparatory programmes that strengthen academic English and study skills for undergraduate entry.",
     image: foundationImg,
     slug: "foundation",
   },
   {
     title: "Undergraduate Degrees",
     summary:
-      "Bachelor's degree programs across diverse fields with a global reputation and career-ready outcomes.",
+      "Bachelor's degree programmes across varied disciplines with strong academic reputations and clear graduate prospects.",
     image: undergraduateImg,
     slug: "undergraduate",
   },
   {
     title: "Pre-Masters",
     summary:
-      "Pre-Master's programs designed for career advancement with research-informed faculty guidance.",
+      "Pre-Master's pathways that build subject knowledge and academic readiness with guidance from experienced faculty.",
     image: preMastersImg,
     slug: "postgraduate",
   },
   {
     title: "Masters in Research",
     summary:
-      "Research-focused Master's pathways emphasising independent projects and mentorship.",
+      "Research-focused Master's routes that emphasise independent enquiry supported by dedicated supervision.",
     image: mastersResearchImg,
     slug: "postgraduate",
   },
   {
     title: "PhD Degrees",
     summary:
-      "Doctoral programs designed for career advancement with cross-disciplinary research exposure.",
+      "Doctoral programmes that combine advanced research training with opportunities for interdisciplinary collaboration.",
     image: phdImg,
     slug: "postgraduate",
   },
   {
     title: "Executive Education",
     summary:
-      "Short, intensive experiences tailored for working professionals accelerating leadership ambitions.",
+      "Intensive short courses for working professionals who want to extend their leadership capability.",
     image: executiveImg,
     slug: "shortCourses",
   },
@@ -131,21 +131,21 @@ const testimonials: Testimonial[] = [
     name: "John Eseny",
     program: "MSc Data Science - University of Birmingham",
     quote:
-      "The expertise and dedication of the MHS Global team exceeded my expectations. They not only helped me gain offers but also provided invaluable insights about living and working in Aberdeen.",
+      "The MHS Global team provided clear advice and timely support. They helped me secure offers and shared practical insight about living and working in Aberdeen.",
     image: student1Img,
   },
   {
     name: "Clair Yeo",
     program: "PhD in Clinical Psychology - Aston University",
     quote:
-      "Applying for a PhD is complex, but MHS Global Associates guided me through each step. Their mentoring, mock interviews, and detailed editorial support made the difference.",
+      "Applying for a PhD is complex, and MHS Global Associates guided me through each stage. Their mentoring, practice interviews, and detailed editorial feedback were invaluable.",
     image: student2Img,
   },
   {
     name: "Luis Romero",
     program: "Pre-Masters in Finance - Bangor University",
     quote:
-      "From my first consultation to visa approval, I felt supported. They helped me shortlist the right universities and tailor my personal statement to showcase my strengths.",
+      "From the first consultation to visa approval, I received consistent support. They helped me shortlist universities and refine my personal statement to present my strengths clearly.",
     image: student3Img,
   },
 ];
@@ -209,7 +209,7 @@ const HomePage = (): JSX.Element => {
                   href="/#contact"
                   className="btn btn-lg btn-outline-light btn-lg"
                 >
-                  Start Your Application
+                  Begin your application
                 </a>
               </div>
             </div>
@@ -224,9 +224,8 @@ const HomePage = (): JSX.Element => {
               Our Global Network
             </h1>
             <p className="lead text-secondary mb-0">
-              Explore global academic opportunities through our extensive
-              network of partner universities and institutions across multiple
-              countries.
+              Explore academic opportunities through our network of partner
+              universities and institutions across multiple countries.
             </p>
           </div>
         </div>
@@ -239,8 +238,8 @@ const HomePage = (): JSX.Element => {
           <div className="section-heading text-start mb-5">
             <h1 className="display-4 fw-bold text-dark mb-3">Courses</h1>
             <p className="lead text-secondary mb-0 fs-4">
-              Choose from curated options designed to match your academic
-              background, professional goals, and preferred study destinations.
+              Select programmes that align with your academic background,
+              professional goals, and preferred study destinations.
             </p>
           </div>
           <div className="course-search-panel w-100 mb-5">
@@ -258,10 +257,10 @@ const HomePage = (): JSX.Element => {
                 id="course-search"
                 type="search"
                 className="course-search-input"
-                placeholder="Search by program name or summary"
+                placeholder="Search by programme name or summary"
                 value={courseQuery}
                 onChange={handleCourseSearchChange}
-                aria-label="Search courses by program name or summary"
+                aria-label="Search courses by programme name or summary"
               />
               <button
                 type="button"
@@ -276,8 +275,8 @@ const HomePage = (): JSX.Element => {
               <span className="course-search-glow" aria-hidden="true"></span>
             </div>
             <p className="course-search-helper text-secondary">
-              Refine programmes by typing keywords such as foundation, finance,
-              or PhD.
+              Refine your search by typing keywords such as foundation,
+              finance, or PhD.
             </p>
             {shouldShowSuggestions ? (
               <div
@@ -297,12 +296,12 @@ const HomePage = (): JSX.Element => {
                       aria-selected="false"
                       onClick={() => setCourseQuery("")}
                     >
-                      <div className="course-search-option-title">
-                        {course.title}
-                      </div>
-                      <div className="course-search-option-copy">
-                        {course.summary}
-                      </div>
+                  <div className="course-search-option-title">
+                    {course.title}
+                  </div>
+                  <div className="course-search-option-copy">
+                    {course.summary}
+                  </div>
                       <span
                         className="course-search-option-chevron"
                         aria-hidden="true"
@@ -313,7 +312,8 @@ const HomePage = (): JSX.Element => {
                   ))
                 ) : (
                   <div className="course-search-empty" role="status">
-                    No matching programmes yet. Try different keywords.
+                    No programmes match your search. Please try different
+                    keywords.
                   </div>
                 )}
               </div>
@@ -337,7 +337,7 @@ const HomePage = (): JSX.Element => {
                       href={`/courses#${course.slug}`}
                       className="course-card-link"
                     >
-                      Discover more
+                      View programme details
                       <i className="bi bi-arrow-up-right ms-2"></i>
                     </a>
                   </div>
@@ -353,7 +353,7 @@ const HomePage = (): JSX.Element => {
         courses={courses}
         sectionId="contact"
         formId="contact-form"
-        infoDescription="Connect with our advisors for personalised guidance on course selection, application strategy, scholarships, and visa preparation."
+        infoDescription="Speak with our advisers for personalised guidance on course selection, application planning, scholarships, and visa preparation."
       />
 
       <section
@@ -378,7 +378,7 @@ const HomePage = (): JSX.Element => {
                 Student Success Stories
               </h1>
               <p className="display-7 text-secondary mb-4">
-                Hear from students who turned aspirations into offers
+                Hear from students who transformed their aspirations into offers
               </p>
               {/* <p className="text-secondary mb-4">
                 Our counsellors champion each application with tailored
@@ -394,26 +394,30 @@ const HomePage = (): JSX.Element => {
                   <i className="bi bi-star-half"></i>
                 </div>
                 <p className="mb-0 text-secondary small">
-                  Rated 4.9/5 by 120+ successful admissions in the past year
+                  Rated 4.9/5 by more than 120 students admitted in the past
+                  year
                 </p>
               </div>
               <ul className="list-unstyled text-secondary small mb-0">
                 <li className="d-flex align-items-start mb-3">
                   <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
                   <span>
-                    Personal statements polished to reflect your unique story
+                    Personal statements refined to reflect your individual
+                    strengths
                   </span>
                 </li>
                 <li className="d-flex align-items-start mb-3">
                   <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
                   <span>
-                    Scholarship strategies that position you for funding success
+                    Scholarship guidance that helps you present a strong case
+                    for funding
                   </span>
                 </li>
                 <li className="d-flex align-items-start">
                   <i className="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
                   <span>
-                    Dedicated post-offer support for visas, housing, and travel
+                    Dedicated post-offer support covering visas, accommodation,
+                    and travel
                   </span>
                 </li>
               </ul>

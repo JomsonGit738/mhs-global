@@ -2,9 +2,9 @@ import { ChangeEvent, FormEvent, useMemo, useState } from "react";
 
 const serviceTags: string[] = [
   "Admissions coordination",
-  "Complimentary advisory",
-  "Scholarship insights",
-  "Premium student care",
+  "Advisory support",
+  "Scholarship guidance",
+  "Student care",
 ];
 
 type ServiceCard = {
@@ -21,7 +21,7 @@ const serviceCards: ServiceCard[] = [
       "Receive step-by-step guidance throughout your application process to ensure your submission is accurate, timely, and aligned with university requirements.",
     icon: "bi-clipboard-check",
     points: [
-      "Dedicated advisors for UCAS and direct university applications",
+      "Dedicated advisers for UCAS and direct university applications",
       "Clear information on entry requirements, documentation, and certified translations",
       "Structured application timelines for September, January, and May intakes",
       "Support with offer responses, deferrals, and enrolment preparation",
@@ -120,16 +120,16 @@ const StudentServicesPage = (): JSX.Element => {
         <div className="services-hero-overlay" aria-hidden="true"></div>
         <div className="container position-relative py-5 py-lg-6">
           <span className="badge bg-white text-primary fw-semibold mb-3 text-uppercase small shadow-sm">
-            Premier Student Services
+            Student Services
           </span>
           <h1 className="display-5 fw-bold mb-3">
-            Student Services &amp; Signature Support
+            Student Services and Support
           </h1>
           <p className="lead text-white-75 mb-4 col-lg-7">
-            MHS Global Associates guides every stage of your journey with{" "}
-            <strong>curated admissions expertise</strong>,{" "}
-            <strong>elevated student care</strong>, and tailored insights that
-            move you from enquiry to enrolment with calm confidence.
+            MHS Global Associates supports every stage of your journey with{" "}
+            <strong>personalised admissions expertise</strong>,{" "}
+            <strong>attentive student care</strong>, and practical guidance that
+            carries you from enquiry to enrolment with confidence.
           </p>
           {/* <div className="d-flex flex-wrap gap-3">
             <a className="btn btn-primary btn-lg" href="/#contact">
@@ -157,24 +157,23 @@ const StudentServicesPage = (): JSX.Element => {
           <div className="row g-5">
             <div className="col-lg-8">
               <h2 className="fw-bold text-dark mb-3">
-                Curated Support for Every Milestone
+                Comprehensive Support for Every Milestone
               </h2>
               <p className="text-secondary mb-4">
-                Discover a suite of <strong>refined student services</strong>{" "}
-                that helps you shortlist the right course, secure competitive
-                offers, and finesse every travel detail. We blend regional
-                insight with trusted university partnerships so each step feels
-                effortless.
+                Explore a suite of student services that helps you shortlist the
+                right course, secure competitive offers, and arrange the
+                practical details of study. We combine regional insight with
+                trusted university partnerships so each step is well informed.
               </p>
 
               <div className="card border-0 shadow-sm service-intro-card mb-5">
                 <div className="card-body p-4 p-lg-5">
                   <p className="lead mb-4">
-                    We orchestrate university communications, documentation and
-                    deadlines with <strong>meticulous care</strong>, presenting
-                    your profile to decision makers in its best light. Our{" "}
-                    <strong>complimentary support</strong> keeps your focus on
-                    selecting the path that inspires you.
+                    We coordinate university communications, documentation, and
+                    deadlines with <strong>careful attention</strong>,
+                    presenting your profile clearly to decision makers. Our{" "}
+                    <strong>complimentary support</strong> allows you to focus on
+                    choosing the path that inspires you.
                   </p>
                   <div className="row g-4">
                     <div className="col-sm-6 col-lg-4">
@@ -267,12 +266,13 @@ const StudentServicesPage = (): JSX.Element => {
               <div className="card border-0 shadow-sm service-extra-card mt-5">
                 <div className="card-body p-4 p-lg-5">
                   <h3 className="h5 fw-semibold text-dark mb-3">
-                    Complimentary Enhancements
+                    Additional Support Included
                   </h3>
                   <p className="text-secondary mb-4">
-                    Elevate your experience with a portfolio of{" "}
-                    <strong>no-cost value add-ons</strong> that provide clarity,
-                    structure and motivation from first enquiry through arrival.
+                    Benefit from a portfolio of{" "}
+                    <strong>no-cost services</strong> that provide clarity,
+                    structure, and motivation from first enquiry through
+                    arrival.
                   </p>
                   <div className="row row-cols-1 row-cols-md-2 g-3">
                     {complimentaryServices.map((item) => (
@@ -293,11 +293,11 @@ const StudentServicesPage = (): JSX.Element => {
                 <div className="card border-0 services-search-luxe">
                   <div className="card-body services-search-luxe__body">
                     <h3 className="services-search-luxe__title">
-                      Find Your Service
+                      Find a Service
                     </h3>
                     <p className="services-search-luxe__subtitle">
-                      Locate admissions expertise, finance insights and
-                      wellbeing support in a single elegant search.
+                      Locate admissions expertise, finance guidance, and
+                      wellbeing support in a single search.
                     </p>
                     <form
                       className="services-search-luxe__form"
@@ -344,7 +344,7 @@ const StudentServicesPage = (): JSX.Element => {
                 <div className="card border-0 shadow-sm service-category-card">
                   <div className="card-body">
                     <h3 className="h6 text-dark fw-semibold mb-3">
-                      Out services
+                      Our services
                     </h3>
                     <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
                       {serviceCategories.map((category) => (
@@ -365,10 +365,10 @@ const StudentServicesPage = (): JSX.Element => {
                 <div className="card border-0 shadow-sm service-callout text-white">
                   <div className="card-body p-5">
                     <h3 className="h5 fw-semibold mb-2">
-                      Ready for Personal Guidance?
+                      Ready for Personalised Guidance?
                     </h3>
                     <p className="text-white-75 mb-3">
-                      Reserve a complimentary session with our senior advisors
+                      Arrange a complimentary session with our senior advisers
                       to design a <strong>tailored academic roadmap</strong>.
                     </p>
                     <a

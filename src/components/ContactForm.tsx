@@ -10,10 +10,10 @@ const ContactForm: FC<ContactFormProps> = ({ courses }) => {
   return (
     <div className="contact-form-luxe">
       <header className="contact-form-luxe__header">
-        <span className="contact-form-luxe__eyebrow">Tailored guidance</span>
-        <h3 className="contact-form-luxe__title">Connect with our advisors</h3>
+        <span className="contact-form-luxe__eyebrow">Personalised guidance</span>
+        <h3 className="contact-form-luxe__title">Connect with our advisers</h3>
         <p className="contact-form-luxe__subtitle">
-          Share your ambitions and we&apos;ll craft a personalised roadmap for
+          Share your ambitions and we will prepare a personalised roadmap for
           your global studies.
         </p>
       </header>

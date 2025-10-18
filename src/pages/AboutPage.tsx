@@ -9,37 +9,37 @@ const aboutSections: AboutSection[] = [
   {
     title: "Who We Are",
     body:
-      "MHS Global Associates stands beside ambitious learners with tailored guidance that turns global study goals into confident achievements.",
+      "MHS Global Associates supports ambitious learners with practical guidance that turns international study plans into achievable outcomes.",
   },
   {
     title: "Our Vision",
     body:
-      "Established in 2020, our mission is to open world-class campuses to students everywhere. We align aspirations with the right destinations, programmes, and timelines for lasting success.",
+      "Established in 2020, our mission is to make world-class campuses accessible to students everywhere. We match aspirations with suitable destinations, programmes, and timelines for lasting success.",
   },
   {
     title: "Student-Centred Approach",
     body:
-      "Every conversation begins with attentive listening. We curate bespoke pathways that balance academic strengths, financial planning, and wellbeing so each milestone feels clear and supported.",
+      "Every conversation begins with attentive listening. We design personalised pathways that balance academic strengths, financial planning, and wellbeing so each milestone feels clear and supported.",
   },
   {
     title: "Proven Success Stories",
     body:
-      "Hundreds of students have secured offers from renowned universities worldwide through our meticulous preparation, deadline management, and post-offer mentorship.",
+      "Hundreds of students have secured offers from renowned universities worldwide through careful preparation, deadline management, and post-offer mentoring.",
   },
   {
     title: "Our Commitment",
     body:
-      "We keep elevating our service with integrity, responsiveness, and a passion for education, empowering the next generation of global achievers to thrive abroad.",
+      "We continue to develop our service with integrity, responsiveness, and a commitment to education, enabling the next generation of global graduates to thrive abroad.",
   },
 ];
 
 const serviceLinks: string[] = [
-  "University Application Assistance",
-  "Visa Application Assistance",
-  "Accommodation Service Assistance",
-  "Travel Assistance",
-  "Financial Guidance",
-  "Scholarship Guidance",
+  "University application support",
+  "Visa application support",
+  "Accommodation guidance",
+  "Travel planning support",
+  "Financial planning advice",
+  "Scholarship guidance",
 ];
 
 const courseLinks: Array<{ label: string; target: string }> = [
@@ -59,13 +59,13 @@ const AboutPage = (): JSX.Element => {
             About Us
           </span>
           <h1 className="display-5 fw-bold mb-2">
-            Champions of Global Student Success
+            Supporting Global Student Success
           </h1>
           <p className="lead text-white-75 mb-0 col-lg-6">
-            We partner with driven students through{" "}
-            <strong>bespoke admissions strategy</strong>,{" "}
-            <strong>financial insight</strong>, and steadfast mentorship that
-            unlocks world-class campuses.
+            We work with motivated students through{" "}
+            <strong>personalised admissions planning</strong>,{" "}
+            <strong>financial guidance</strong>, and steady mentorship that
+            opens access to leading universities.
           </p>
         </div>
       </section>
@@ -92,14 +92,15 @@ const AboutPage = (): JSX.Element => {
                       aria-hidden="true"
                       className="about-contact-card__spark"
                     ></span>
-                    Personal Consultancy
+                    Personalised Guidance
                   </div>
                   <h2 className="about-contact-card__title text-center">
-                    Start the Conversation
+                    Start a Conversation
                   </h2>
                   <p className="about-contact-card__subtitle">
                     Share your ambitions with our advisory team and receive a{" "}
-                    <strong>tailored response</strong> within one business day.
+                    <strong>personalised response</strong> within one business
+                    day.
                   </p>
                   <form
                     id="consultation-form"
@@ -118,12 +119,12 @@ const AboutPage = (): JSX.Element => {
                     </div>
                     <div className="col-md-6">
                       <label className="form-label about-contact-card__label">
-                        E-mail
+                        Email
                       </label>
                       <input
                         type="email"
                         className="form-control py-3 form-control-lg about-contact-card__input"
-                        placeholder="E-mail"
+                        placeholder="Email"
                         required
                       />
                     </div>
