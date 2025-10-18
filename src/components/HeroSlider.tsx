@@ -13,6 +13,7 @@ import heroImage5 from "../assets/images/hero-slider-images/5.png";
 
 type HeroSlide = {
   id: string;
+  mainHeading: string[];
   heading: string;
   description: string;
   image: string;
@@ -24,6 +25,7 @@ type HeroSlide = {
 const heroSlides: HeroSlide[] = [
   {
     id: "who-we-are",
+    mainHeading: ["Dream Destination", "Your Destination"],
     heading: "Who We Are",
     description:
       "MHS Global Associates empowers students with personalised guidance that turns global education goals into achievable plans.",
@@ -34,6 +36,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: "our-vision",
+    mainHeading: ["Our Universities"],
     heading: "Our Vision",
     description:
       "Founded in 2020, we create trusted pathways that connect ambitious learners with world-class universities across the globe.",
@@ -44,6 +47,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: "student-centered",
+    mainHeading: ["Book a Consultation"],
     heading: "Student-Centered Approach",
     description:
       "From course selection to visas, our experts tailor every step to each student, keeping the journey transparent and stress-free.",
@@ -54,6 +58,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: "success-stories",
+    mainHeading: ["Scholarships Made Easy", "Study for Less"],
     heading: "Proven Success Stories",
     description:
       "Hundreds of students have launched global study journeys with us, gaining offers from prestigious institutions worldwide.",
@@ -64,6 +69,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: "our-commitment",
+    mainHeading: ["Apply Now for Jan 2026"],
     heading: "Our Commitment",
     description:
       "We stay committed to guiding, supporting, and inspiring the next generation of achievers with integrity and passion.",
@@ -74,7 +80,7 @@ const heroSlides: HeroSlide[] = [
   },
 ];
 
-const SLIDE_INTERVAL = 6000;
+const SLIDE_INTERVAL = 50000;
 
 const HeroSlider = (): JSX.Element => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -147,7 +153,10 @@ const HeroSlider = (): JSX.Element => {
               animationDelay: `${index * 120}ms`,
             };
 
-            (slideStyles as Record<string, string>)["--slide-image"] = `url(${slide.image})`;
+            (slideStyles as Record<string, string>)[
+              "--slide-image"
+            ] = `url(${slide.image})`;
+            const mainHeadingText = slide.mainHeading.join(" / ");
 
             return (
               <div className="keen-slider__slide" key={slide.id}>
@@ -155,13 +164,29 @@ const HeroSlider = (): JSX.Element => {
                   className="hero-slide row g-0 align-items-stretch luxury-hero-slide"
                   style={slideStyles}
                 >
+                  <span
+                    className="hero-accent hero-accent--primary"
+                    aria-hidden="true"
+                  />
+                  <span
+                    className="hero-accent hero-accent--secondary"
+                    aria-hidden="true"
+                  />
                   <div className="col-lg-6 d-flex align-items-center">
                     <div className="hero-copy w-100 luxury-hero-copy">
-                      <h2 className="luxury-heading text-primary mb-3">
-                        {slide.heading}
-                      </h2>
+                      <h1 className="hero-main-heading">
+                        {slide.mainHeading.map((line, lineIndex) => (
+                          <span
+                            key={`${slide.id}-main-${lineIndex}`}
+                            className="hero-main-heading__line"
+                          >
+                            {line}
+                          </span>
+                        ))}
+                      </h1>
+                      <h2 className="luxury-heading">{slide.heading}</h2>
                       <p
-                        className="luxury-description text-secondary mb-4"
+                        className="luxury-description"
                         style={descriptionClampStyles}
                       >
                         {slide.description}
@@ -170,7 +195,7 @@ const HeroSlider = (): JSX.Element => {
                         type="button"
                         className="hero-cta-link"
                         onClick={handleCTAClick(slide.ctaHref)}
-                        aria-label={`${slide.heading} - ${slide.ctaLabel}`}
+                        aria-label={`${mainHeadingText} - ${slide.heading} - ${slide.ctaLabel}`}
                       >
                         {slide.ctaLabel}
                       </button>
