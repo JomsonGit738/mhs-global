@@ -16,39 +16,39 @@ type ServiceCard = {
 
 const serviceCards: ServiceCard[] = [
   {
-    title: "Admissions Coordination Suite",
+    title: "Admissions Guidance & Coordination",
     description:
-      "Align every element of your application so universities receive a polished, on-schedule submission that reflects your ambition.",
+      "Receive step-by-step guidance throughout your application process to ensure your submission is accurate, timely, and aligned with university requirements.",
     icon: "bi-clipboard-check",
     points: [
-      "Specialist advisors for UCAS and direct-entry pathways",
-      "Clarity on entry criteria, documentation and certified translations",
-      "Proactive deadline orchestration across September, January and May intakes",
-      "Confident offer management, deferrals and enrolment briefings",
+      "Dedicated advisors for UCAS and direct university applications",
+      "Clear information on entry requirements, documentation, and certified translations",
+      "Structured application timelines for September, January, and May intakes",
+      "Support with offer responses, deferrals, and enrolment preparation",
     ],
   },
   {
-    title: "Student Success Concierge",
+    title: "Student Success & Support Services",
     description:
-      "Enjoy bespoke counselling, institution intelligence and interview preparation that positions you for standout offers.",
+      "Access personalised academic and career support designed to help you make confident choices, strengthen your applications, and succeed in your studies.",
     icon: "bi-stars",
     points: [
-      "One-to-one academic and career strategy consultations",
-      "Immersive workshops for personal statements and interviews",
-      "Early intelligence on scholarships, bursaries and limited offers",
-      "Priority access to open days, webinars and curated campus visits",
+      "One-to-one academic and career guidance sessions",
+      "Interactive workshops on personal statements and interview preparation",
+      "Early updates on scholarships, bursaries, and financial aid opportunities",
+      "Invitations to open days, webinars, and campus visit programmes",
     ],
   },
   {
-    title: "Finance & Wellbeing Support",
+    title: "Finance, Housing & Wellbeing Assistance",
     description:
-      "Secure funding, housing and arrival logistics with guidance that keeps every practical detail serene and on track.",
+      "Get comprehensive guidance on financial planning, accommodation options, and practical arrangements for a smooth and supported university experience.",
     icon: "bi-house-heart",
     points: [
-      "Expertise on tuition fees, instalments and sponsorship pathways",
-      "Support for student finance and loan applications where eligible",
-      "Accommodation matchmaking across university and premium private providers",
-      "Pre-departure briefings spanning arrival, banking and NHS registration",
+      "Advice on tuition fees, instalment plans, and sponsorship routes",
+      "Assistance with student finance and loan applications where eligible",
+      "Guidance on university and private accommodation options",
+      "Pre-departure support including travel, banking, and healthcare registration",
     ],
   },
 ];
@@ -296,8 +296,8 @@ const StudentServicesPage = (): JSX.Element => {
                       Find Your Service
                     </h3>
                     <p className="services-search-luxe__subtitle">
-                      Locate admissions expertise, finance insights and wellbeing
-                      support in a single elegant search.
+                      Locate admissions expertise, finance insights and
+                      wellbeing support in a single elegant search.
                     </p>
                     <form
                       className="services-search-luxe__form"
@@ -344,7 +344,7 @@ const StudentServicesPage = (): JSX.Element => {
                 <div className="card border-0 shadow-sm service-category-card">
                   <div className="card-body">
                     <h3 className="h6 text-dark fw-semibold mb-3">
-                      Course Categories
+                      Out services
                     </h3>
                     <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
                       {serviceCategories.map((category) => (
