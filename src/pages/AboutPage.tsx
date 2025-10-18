@@ -101,7 +101,10 @@ const AboutPage = (): JSX.Element => {
                     Share your ambitions with our advisory team and receive a{" "}
                     <strong>tailored response</strong> within one business day.
                   </p>
-                  <form className="about-contact-card__form row g-3">
+                  <form
+                    id="consultation-form"
+                    className="about-contact-card__form row g-3 scroll-target"
+                  >
                     <div className="col-md-6">
                       <label className="form-label about-contact-card__label">
                         Name

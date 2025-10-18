@@ -352,10 +352,14 @@ const HomePage = (): JSX.Element => {
         info={contactInfo}
         courses={courses}
         sectionId="contact"
+        formId="contact-form"
         infoDescription="Connect with our advisors for personalised guidance on course selection, application strategy, scholarships, and visa preparation."
       />
 
-      <section className="testimonials-section mt-5 py-5 py-lg-6 position-relative overflow-hidden">
+      <section
+        id="success-stories"
+        className="testimonials-section mt-5 py-5 py-lg-6 position-relative overflow-hidden scroll-target"
+      >
         <div
           className="position-absolute top-0 start-50 translate-middle-x rounded-circle"
           style={{

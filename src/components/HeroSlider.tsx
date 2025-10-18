@@ -31,8 +31,8 @@ const heroSlides: HeroSlide[] = [
       "MHS Global Associates empowers students with personalised guidance that turns global education goals into achievable plans.",
     image: heroImage1,
     imageAlt: "Students collaborating in a modern study space",
-    ctaLabel: "Learn More",
-    ctaHref: "/about",
+    ctaLabel: "Apply Now",
+    ctaHref: "/contact#contact-form",
   },
   {
     id: "our-vision",
@@ -42,8 +42,8 @@ const heroSlides: HeroSlide[] = [
       "Founded in 2020, we create trusted pathways that connect ambitious learners with world-class universities across the globe.",
     image: heroImage2,
     imageAlt: "Education consultant guiding international students",
-    ctaLabel: "Learn More",
-    ctaHref: "/about",
+    ctaLabel: "See More",
+    ctaHref: "/#universities",
   },
   {
     id: "student-centered",
@@ -53,8 +53,8 @@ const heroSlides: HeroSlide[] = [
       "From course selection to visas, our experts tailor every step to each student, keeping the journey transparent and stress-free.",
     image: heroImage3,
     imageAlt: "Advisor supporting a student with university applications",
-    ctaLabel: "Learn More",
-    ctaHref: "/about",
+    ctaLabel: "Book Now",
+    ctaHref: "/about#consultation-form",
   },
   {
     id: "success-stories",
@@ -65,7 +65,7 @@ const heroSlides: HeroSlide[] = [
     image: heroImage4,
     imageAlt: "Graduates celebrating their university acceptance",
     ctaLabel: "Learn More",
-    ctaHref: "/about",
+    ctaHref: "/#success-stories",
   },
   {
     id: "our-commitment",
@@ -75,8 +75,8 @@ const heroSlides: HeroSlide[] = [
       "We stay committed to guiding, supporting, and inspiring the next generation of achievers with integrity and passion.",
     image: heroImage5,
     imageAlt: "Consultants discussing education plans with students",
-    ctaLabel: "Learn More",
-    ctaHref: "/about",
+    ctaLabel: "Apply Now",
+    ctaHref: "/#contact-form",
   },
 ];
 
@@ -137,6 +137,21 @@ const HeroSlider = (): JSX.Element => {
   );
 
   const handleCTAClick = (destination: string) => () => {
+    if (destination.includes("#")) {
+      navigate(destination);
+
+      const hash = destination.split("#")[1];
+      if (hash) {
+        window.setTimeout(() => {
+          document.getElementById(hash)?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 250);
+      }
+      return;
+    }
+
     navigate(destination);
   };
 

@@ -364,6 +364,10 @@
     opacity: 0.45;
     background-position: center;
     clip-path: none;
+    -webkit-clip-path: none;
+    border-radius: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .luxury-hero-copy {

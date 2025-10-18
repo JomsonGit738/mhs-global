@@ -22,6 +22,7 @@ type ContactContentProps = {
   infoSubtitle?: string;
   infoDescription?: string;
   sectionId?: string;
+  formId?: string;
   className?: string;
 };
 
@@ -32,9 +33,12 @@ const ContactContent: FC<ContactContentProps> = ({
   infoSubtitle = 'Contact Information',
   infoDescription,
   sectionId,
+  formId,
   className,
 }) => {
-  const sectionClassName = ['contact-luxe', className].filter(Boolean).join(' ');
+  const sectionClassName = ['contact-luxe', 'scroll-target', className]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <section id={sectionId} className={sectionClassName}>
@@ -85,7 +89,11 @@ const ContactContent: FC<ContactContentProps> = ({
               </ul>
             </aside>
 
-            <div className="contact-luxe__form" data-animate="fade-up">
+            <div
+              className="contact-luxe__form scroll-target"
+              data-animate="fade-up"
+              id={formId}
+            >
               <ContactForm courses={courses} />
             </div>
           </div>

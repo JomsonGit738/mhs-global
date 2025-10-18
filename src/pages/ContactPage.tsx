@@ -87,6 +87,8 @@ const ContactPage = (): JSX.Element => {
         info={contactInfo}
         courses={contactCourses}
         infoDescription="Contact our advisors for guidance on course selection, application strategy, scholarships, and visa preparation. We're here to help you navigate every step of your international education journey."
+        sectionId="contact"
+        formId="contact-form"
       />
     </>
   );

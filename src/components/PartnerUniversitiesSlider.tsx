@@ -76,7 +76,11 @@ const PartnerUniversitiesSlider = (): JSX.Element => {
   );
 
   return (
-    <section className="partners-section py-4 bg-white" aria-label="Partner universities">
+    <section
+      id="universities"
+      className="partners-section py-4 bg-white scroll-target"
+      aria-label="Partner universities"
+    >
       <div className="container">
         <div ref={sliderRef} className="keen-slider partner-slider">
           {sliderUniversities.map((partner, index) => (

@@ -5946,3 +5946,8 @@ header .py-3 {
     animation: none;
   }
 }
+
+.scroll-target {
+  scroll-margin-top: clamp(5rem, 8vw, 7.5rem);
+}
+
