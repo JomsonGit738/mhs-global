@@ -111,7 +111,7 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
       <div className="navbar navbar-expand-lg container header-luxe__inner">
         <div className="header-luxe__brand-wrap">
           <Link className="navbar-brand d-flex align-items-center header-luxe__brand" to="/">
-            <img width={70} src={logo} alt="navbar_brand" />
+            <img src={logo} alt="MHS Global Associates logo" />
           </Link>
           <button
             className={`navbar-toggler header-luxe__toggler ${isNavOpen ? "" : "collapsed"}`}

@@ -66,11 +66,6 @@ const networkLocations: NetworkLocation[] = [
 const GlobalNetworkSection = (): JSX.Element => {
   const pinScale = 0.6;
   const pinTranslateY = -28;
-  const pinTopY = (-20 + pinTranslateY) * pinScale;
-  const tooltipHeight = 24;
-  const tooltipRadius = tooltipHeight / 2;
-  const tooltipGap = 10;
-  const tooltipOffsetY = pinTopY - tooltipGap;
 
   return (
     <section className="network-section" id="about">
@@ -117,60 +112,29 @@ const GlobalNetworkSection = (): JSX.Element => {
                     ))
                 }
               </Geographies>
-              {networkLocations.map((location) => {
-                const tooltipWidth = Math.max(96, location.name.length * 7);
-
-                return (
-                  <Marker
-                    key={location.name}
-                    coordinates={location.coordinates}
+              {networkLocations.map((location) => (
+                <Marker
+                  key={location.name}
+                  coordinates={location.coordinates}
+                >
+                  <g
+                    className="network-marker"
+                    role="img"
+                    aria-label={`${location.name} location`}
+                    tabIndex={0}
                   >
                     <g
-                      className="network-marker"
-                      role="img"
-                      aria-label={`${location.name} location`}
-                      tabIndex={0}
+                      className="network-marker-pin-group"
+                      transform={`scale(${pinScale}) translate(0, ${pinTranslateY})`}
                     >
-                      <title>{location.name}</title>
-
-                      <g
-                        className="network-marker-pin-group"
-                        transform={`scale(${pinScale}) translate(0, ${pinTranslateY})`}
-                      >
-                        <path
-                          className="network-marker-pin"
-                          d="M0 -20 C9 -20 16 -12 16 -3 C16 8 6 17 0 28 C-6 17 -16 8 -16 -3 C-16 -12 -9 -20 0 -20 Z"
-                        />
-                      </g>
-                      <g
-                        className="network-marker-tooltip"
-                        transform={`translate(0, ${tooltipOffsetY})`}
-                        aria-hidden="true"
-                      >
-                        <g className="network-marker-tooltip-body">
-                          <rect
-                            className="network-marker-tooltip-bg"
-                            x={-tooltipWidth / 2}
-                            y={-tooltipHeight}
-                            width={tooltipWidth}
-                            height={tooltipHeight}
-                            rx={tooltipRadius}
-                            ry={tooltipRadius}
-                          />
-                          <text
-                            className="network-marker-tooltip-label"
-                            textAnchor="middle"
-                            dominantBaseline="central"
-                            y={-tooltipHeight / 2}
-                          >
-                            {location.name}
-                          </text>
-                        </g>
-                      </g>
+                      <path
+                        className="network-marker-pin"
+                        d="M0 -20 C9 -20 16 -12 16 -3 C16 8 6 17 0 28 C-6 17 -16 8 -16 -3 C-16 -12 -9 -20 0 -20 Z"
+                      />
                     </g>
-                  </Marker>
-                );
-              })}
+                  </g>
+                </Marker>
+              ))}
             </ComposableMap>
           </div>
         </div>

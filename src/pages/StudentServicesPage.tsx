@@ -1,5 +1,3 @@
-import { ChangeEvent, FormEvent, useMemo, useState } from "react";
-
 const serviceTags: string[] = [
   "Admissions coordination",
   "Advisory support",
@@ -81,38 +79,7 @@ const complimentaryServices: string[] = [
 ];
 
 const StudentServicesPage = (): JSX.Element => {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const trimmedQuery = searchQuery.trim();
-  const normalizedQuery = trimmedQuery.toLowerCase();
-
-  const filteredServices = useMemo(() => {
-    if (!normalizedQuery) {
-      return serviceCards;
-    }
-
-    return serviceCards.filter((card) => {
-      const haystack = [card.title, card.description, ...card.points]
-        .join(" ")
-        .toLowerCase();
-
-      return haystack.includes(normalizedQuery);
-    });
-  }, [normalizedQuery]);
-
-  const hasResults = filteredServices.length > 0;
-
-  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleClearSearch = () => {
-    setSearchQuery("");
-  };
+  const filteredServices = serviceCards;
 
   return (
     <>
@@ -210,58 +177,36 @@ const StudentServicesPage = (): JSX.Element => {
                 </div>
               </div>
 
-              {normalizedQuery && (
-                <p className="services-search-summary mb-4">
-                  <strong>{filteredServices.length}</strong>{" "}
-                  {filteredServices.length === 1 ? "service" : "services"} match
-                  "{trimmedQuery}".
-                </p>
-              )}
-
-              {hasResults ? (
-                <div className="row g-4">
-                  {filteredServices.map((card) => (
-                    <div key={card.title} className="col-md-6">
-                      <div className="card h-100 border-0 shadow-sm service-card">
-                        <div className="card-body d-flex flex-column">
-                          <div className="service-card-icon icon-pill text-primary mb-3">
-                            <i className={"bi " + card.icon}></i>
-                          </div>
-                          <h3 className="h5 fw-semibold text-dark mb-2">
-                            {card.title}
-                          </h3>
-                          <p className="text-secondary mb-3">
-                            {card.description}
-                          </p>
-                          <ul className="list-unstyled d-flex flex-column gap-2 mb-4">
-                            {card.points.map((point) => (
-                              <li
-                                key={point}
-                                className="d-flex align-items-start gap-2 text-secondary"
-                              >
-                                <i className="bi bi-check-circle-fill text-primary"></i>
-                                <span>{point}</span>
-                              </li>
-                            ))}
-                          </ul>
+              <div className="row g-4">
+                {filteredServices.map((card) => (
+                  <div key={card.title} className="col-md-6">
+                    <div className="card h-100 border-0 shadow-sm service-card">
+                      <div className="card-body d-flex flex-column">
+                        <div className="service-card-icon icon-pill text-primary mb-3">
+                          <i className={"bi " + card.icon}></i>
                         </div>
+                        <h3 className="h5 fw-semibold text-dark mb-2">
+                          {card.title}
+                        </h3>
+                        <p className="text-secondary mb-3">
+                          {card.description}
+                        </p>
+                        <ul className="list-unstyled d-flex flex-column gap-2 mb-4">
+                          {card.points.map((point) => (
+                            <li
+                              key={point}
+                              className="d-flex align-items-start gap-2 text-secondary"
+                            >
+                              <i className="bi bi-check-circle-fill text-primary"></i>
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div
-                  className="alert alert-light border shadow-sm"
-                  role="status"
-                >
-                  <h3 className="h6 text-dark mb-2">No services found</h3>
-                  <p className="text-secondary mb-0 small">
-                    Try searching for keywords such as "application",
-                    "scholarship" or "finance", or clear the search to view all
-                    services.
-                  </p>
-                </div>
-              )}
+                  </div>
+                ))}
+              </div>
 
               <div className="card border-0 shadow-sm service-extra-card mt-5">
                 <div className="card-body p-4 p-lg-5">
@@ -290,57 +235,6 @@ const StudentServicesPage = (): JSX.Element => {
 
             <div className="col-lg-4">
               <aside className="d-flex flex-column gap-4">
-                <div className="card border-0 services-search-luxe">
-                  <div className="card-body services-search-luxe__body">
-                    <h3 className="services-search-luxe__title">
-                      Find a Service
-                    </h3>
-                    <p className="services-search-luxe__subtitle">
-                      Locate admissions expertise, finance guidance, and
-                      wellbeing support in a single search.
-                    </p>
-                    <form
-                      className="services-search-luxe__form"
-                      onSubmit={handleSearchSubmit}
-                    >
-                      <div className="services-search-luxe__field">
-                        <span
-                          className="services-search-luxe__icon"
-                          aria-hidden="true"
-                        >
-                          <i className="bi bi-search"></i>
-                        </span>
-                        <input
-                          type="search"
-                          className="services-search-luxe__input"
-                          placeholder="Search by service or keyword"
-                          aria-label="Search services"
-                          value={searchQuery}
-                          onChange={handleSearchChange}
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        className="services-search-luxe__submit"
-                        aria-label="Submit services search"
-                      >
-                        Search
-                      </button>
-                    </form>
-                    {searchQuery && (
-                      <div className="services-search-luxe__clear">
-                        <button
-                          type="button"
-                          className="services-search-luxe__clear-btn"
-                          onClick={handleClearSearch}
-                        >
-                          Clear search
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
                 <div className="card border-0 shadow-sm service-category-card">
                   <div className="card-body">
                     <h3 className="h6 text-dark fw-semibold mb-3">

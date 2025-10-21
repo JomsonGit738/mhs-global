@@ -8,13 +8,11 @@ import "./HeroSlider.css";
 import heroImage1 from "../assets/images/hero-slider-images/1.png";
 import heroImage2 from "../assets/images/hero-slider-images/2.png";
 import heroImage3 from "../assets/images/hero-slider-images/3.png";
-import heroImage4 from "../assets/images/hero-slider-images/4.png";
-import heroImage5 from "../assets/images/hero-slider-images/5.png";
+import heroImage4 from "../assets/images/hero-slider-images/5.png";
 
 type HeroSlide = {
   id: string;
-  mainHeading: string[];
-  heading: string;
+  title: string;
   description: string;
   image: string;
   imageAlt: string;
@@ -24,59 +22,44 @@ type HeroSlide = {
 
 const heroSlides: HeroSlide[] = [
   {
-    id: "who-we-are",
-    mainHeading: ["Plan with Confidence", "Shape Your Future"],
-    heading: "Who We Are",
+    id: "apply-now",
+    title: "Apply Now for January 2026",
     description:
-      "MHS Global Associates supports students with personalised guidance that turns global education goals into achievable plans.",
+      "Start your international education journey and secure your place before deadlines close.",
     image: heroImage1,
     imageAlt: "Students collaborating in a modern study space",
-    ctaLabel: "Contact Us",
+    ctaLabel: "Apply Now",
     ctaHref: "/contact#contact-form",
   },
   {
-    id: "our-vision",
-    mainHeading: ["Our University Partners"],
-    heading: "Our Vision",
+    id: "scholarships-guidance",
+    title: "Scholarships Guidance",
     description:
-      "Founded in 2020, we create trusted pathways that connect ambitious learners with leading universities around the world.",
+      "Explore funding opportunities and personalized advice to make your studies more affordable.",
     image: heroImage2,
     imageAlt: "Education consultant guiding international students",
-    ctaLabel: "View Partners",
-    ctaHref: "/#universities",
+    ctaLabel: "Explore Scholarships",
+    ctaHref: "/student-services",
   },
   {
-    id: "student-centered",
-    mainHeading: ["Arrange a Consultation"],
-    heading: "Student-Centred Approach",
+    id: "book-consultation",
+    title: "Book a Consultation",
     description:
-      "From course selection to visas, our specialists tailor each step to the individual student, keeping the journey clear and manageable.",
+      "Get expert one-on-one guidance to choose the right course, university, and country for you.",
     image: heroImage3,
     imageAlt: "Advisor supporting a student with university applications",
-    ctaLabel: "Request Advice",
+    ctaLabel: "Book a Session",
     ctaHref: "/about#consultation-form",
   },
   {
-    id: "success-stories",
-    mainHeading: ["Scholarship Guidance", "Support That Lasts"],
-    heading: "Proven Success Stories",
+    id: "partner-universities",
+    title: "Our Partner Universities",
     description:
-      "Hundreds of students have begun international study with us, securing offers from respected institutions worldwide.",
+      "Access a global network of trusted universities offering diverse programs and pathways.",
     image: heroImage4,
     imageAlt: "Graduates celebrating their university acceptance",
-    ctaLabel: "Read Stories",
-    ctaHref: "/#success-stories",
-  },
-  {
-    id: "our-commitment",
-    mainHeading: ["January 2026 Intake"],
-    heading: "Our Commitment",
-    description:
-      "We remain committed to guiding, supporting, and inspiring the next generation of achievers with integrity and dedication.",
-    image: heroImage5,
-    imageAlt: "Consultants discussing education plans with students",
-    ctaLabel: "Begin Application",
-    ctaHref: "/#contact-form",
+    ctaLabel: "View Partners",
+    ctaHref: "/#universities",
   },
 ];
 
@@ -171,7 +154,7 @@ const HeroSlider = (): JSX.Element => {
             (slideStyles as Record<string, string>)[
               "--slide-image"
             ] = `url(${slide.image})`;
-            const mainHeadingText = slide.mainHeading.join(" / ");
+            const mainHeadingText = slide.title;
 
             return (
               <div className="keen-slider__slide" key={slide.id}>
@@ -190,16 +173,10 @@ const HeroSlider = (): JSX.Element => {
                   <div className="col-lg-6 d-flex align-items-center">
                     <div className="hero-copy w-100 luxury-hero-copy">
                       <h1 className="hero-main-heading">
-                        {slide.mainHeading.map((line, lineIndex) => (
-                          <span
-                            key={`${slide.id}-main-${lineIndex}`}
-                            className="hero-main-heading__line"
-                          >
-                            {line}
-                          </span>
-                        ))}
+                        <span className="hero-main-heading__line">
+                          {slide.title}
+                        </span>
                       </h1>
-                      <h2 className="luxury-heading">{slide.heading}</h2>
                       <p
                         className="luxury-description"
                         style={descriptionClampStyles}
@@ -210,7 +187,7 @@ const HeroSlider = (): JSX.Element => {
                         type="button"
                         className="hero-cta-link"
                         onClick={handleCTAClick(slide.ctaHref)}
-                        aria-label={`${mainHeadingText} - ${slide.heading} - ${slide.ctaLabel}`}
+                        aria-label={`${mainHeadingText} - ${slide.ctaLabel}`}
                       >
                         {slide.ctaLabel}
                       </button>
