@@ -8,7 +8,7 @@ const footerColumns = [
       { label: "About Us", href: "/#about" },
       { label: "Our Services", href: "/student-services" },
       { label: "Universities", href: "/#universities" },
-      { label: "Courses", href: "/courses" },
+      { label: "Courses", href: "/foundation-programmes" },
       { label: "Student Support", href: "/#support" },
       { label: "Success Stories", href: "/#testimonials" },
       { label: "Blog", href: "/#blog" },
@@ -34,10 +34,10 @@ const footerColumns = [
   {
     title: "Programmes",
     items: [
-      { label: "Foundation Programmes", href: "/courses" },
-      { label: "Undergraduate Programmes", href: "/courses" },
-      { label: "Postgraduate Programmes", href: "/courses" },
-      { label: "Short Programmes", href: "/courses" },
+      { label: "Foundation Programmes", href: "/foundation-programmes" },
+      { label: "Undergraduate Programmes", href: "/undergraduate-programmes" },
+      { label: "Postgraduate Programmes", href: "/postgraduate-programmes" },
+      { label: "Short Programmes", href: "/short-programmes" },
     ],
   },
 ] as const;
@@ -109,14 +109,16 @@ const Footer = (): JSX.Element => {
             </p>
             <div className="footer-luxe__contact">
               <span>
-                1st Floor, 101 Whitechapel High Road, London E1 7RA, United
-                Kingdom
+                Suite F5, New Road Business Centre, 109 New Road, Whitechapel, E 1 1HJ.
               </span>
               <a
                 className="footer-luxe__contact-link"
                 href="mailto:info@mhsglobalassociates.com"
               >
                 info@mhsglobalassociates.com
+              </a>
+              <a className="footer-luxe__contact-link" href="tel:+442045975444">
+                +44 20 4597 5444
               </a>
               <a className="footer-luxe__contact-link" href="tel:+447521772131">
                 07521772131

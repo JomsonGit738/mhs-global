@@ -4188,46 +4188,21 @@ header .py-3 {
 .courses-luxe__hero-visual {
   position: relative;
   width: min(25rem, 100%);
-  border-radius: 2rem;
-  /* padding: 0.75rem; */
-  background: linear-gradient(
-    150deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(205, 215, 255, 0.35)
-  );
-  box-shadow: 0 32px 60px -45px rgba(45, 77, 129, 0.45),
-    0 22px 40px -30px rgba(45, 77, 129, 0.25);
-  overflow: hidden;
-  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
 }
 
 .courses-luxe__hero-visual::after {
-  content: "";
-  position: absolute;
-  inset: 12%;
-  border-radius: 1.6rem;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.16),
-    rgba(31, 111, 242, 0.12)
-  );
-  backdrop-filter: blur(6px);
-  z-index: -1;
+  content: none;
 }
 
 .courses-luxe__hero-visual:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 46px 90px -50px rgba(20, 54, 112, 0.55),
-    0 28px 52px -35px rgba(20, 54, 112, 0.35);
+  transform: none;
+  box-shadow: none;
 }
 
 .courses-luxe__hero-image {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 1.5rem;
-  object-fit: cover;
-  box-shadow: 0 25px 55px -35px rgba(16, 57, 112, 0.45);
 }
 
 .courses-luxe__hero-copy {
@@ -4242,6 +4217,7 @@ header .py-3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-self: flex-start;
   padding: 0.5rem 1.35rem;
   border-radius: 999px;
   font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
@@ -4470,27 +4446,16 @@ header .py-3 {
   gap: 0.4rem;
   min-width: clamp(11rem, 24vw, 13.5rem);
   padding: 1.1rem 1.35rem;
-  border-radius: 1.35rem;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.92),
-    rgba(209, 220, 255, 0.72)
-  );
-  box-shadow: 0 24px 40px -34px rgba(20, 54, 112, 0.45),
-    0 18px 30px -28px rgba(20, 54, 112, 0.28);
-  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
-    background 0.5s ease-in-out;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transition: none;
 }
 
 .courses-luxe__meta-card:hover {
-  transform: translateY(-4px);
-  background: linear-gradient(
-    150deg,
-    rgba(255, 255, 255, 0.96),
-    rgba(194, 208, 255, 0.78)
-  );
-  box-shadow: 0 32px 50px -36px rgba(14, 46, 98, 0.5),
-    0 22px 36px -28px rgba(14, 46, 98, 0.32);
+  transform: none;
+  background: none;
+  box-shadow: none;
 }
 
 .courses-luxe__meta-label {
@@ -4979,7 +4944,7 @@ header .py-3 {
   z-index: 1050;
   background: linear-gradient(120deg, #f6f8ff 0%, #ffffff 58%, #e9f1ff 100%);
   box-shadow: 0 1px 0 rgba(18, 36, 66, 0.08);
-  overflow: hidden;
+  overflow: visible;
   transform: translateY(0);
   transition: transform 0.45s ease, box-shadow 0.3s ease;
   will-change: transform;
@@ -5049,6 +5014,47 @@ header .py-3 {
 .header-luxe__nav {
   flex: 1 1 auto;
   width: 100%;
+}
+
+/* Header submenu (Courses) */
+.header-luxe__menu-item.has-submenu { position: relative; }
+.header-luxe__submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+  z-index: 1000;
+}
+.header-luxe__menu-item.has-submenu.is-open > .header-luxe__submenu { display: block; }
+.header-luxe__submenu-link {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+}
+.header-luxe__submenu-link:hover,
+.header-luxe__submenu-link:focus-visible {
+  background: rgba(13, 110, 253, 0.08);
+  color: #0f172a;
+}
+
+@media (max-width: 991.98px) {
+  .header-luxe__menu-item.has-submenu { width: 100%; }
+  .header-luxe__submenu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    padding: 0.25rem 0;
+    background: transparent;
+  }
+  .header-luxe__menu-item.has-submenu.is-open > .header-luxe__submenu { display: block; }
 }
 
 .header-luxe__menu {

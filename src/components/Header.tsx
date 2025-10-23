@@ -7,7 +7,7 @@ type NavItem = { label: string; to: string } | { label: string; href: string };
 
 const navItems: NavItem[] = [
   { label: "Home", to: "/" },
-  { label: "Courses", to: "/courses" },
+  // Courses handled as a custom submenu below
   { label: "Student Services", to: "/student-services" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
@@ -25,6 +25,7 @@ type HeaderProps = {
 
 const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const collapseRef = useRef<HTMLDivElement | null>(null);
   const collapseInstanceRef = useRef<any>(null);
   const lastScrollYRef = useRef(0);
@@ -59,6 +60,11 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
 
   const closeNav = () => {
     collapseInstanceRef.current?.hide();
+  };
+
+  const closeAllMenus = () => {
+    setIsCoursesOpen(false);
+    closeNav();
   };
 
   const tickerLoop = [...tickerItems, ...tickerItems];
@@ -103,6 +109,13 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
     }
   }, [isNavOpen]);
 
+  const homeItem = navItems.find(
+    (link) => "to" in link && link.to === "/"
+  ) as { label: string; to: string } | undefined;
+  const otherNavItems = navItems.filter(
+    (link) => !("to" in link && link.to === "/")
+  );
+
   return (
     <header
       className={`header-luxe sticky-top ${isHeaderHidden ? "is-hidden" : "is-visible"}`}
@@ -126,7 +139,50 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
         </div>
         <div className="collapse navbar-collapse header-luxe__nav" id="mainNav" ref={collapseRef}>
           <ul className="navbar-nav header-luxe__menu">
-            {navItems.map((link) => (
+            {homeItem && (
+              <li className="nav-item" key={homeItem.label}>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link header-luxe__link ${isActive ? "is-active" : ""}`
+                  }
+                  to={homeItem.to}
+                  end
+                  onClick={closeNav}
+                >
+                  {homeItem.label}
+                </NavLink>
+              </li>
+            )}
+            <li
+              className={`nav-item header-luxe__menu-item has-submenu ${isCoursesOpen ? "is-open" : ""}`}
+              onMouseEnter={() => setIsCoursesOpen(true)}
+              onMouseLeave={() => setIsCoursesOpen(false)}
+            >
+              <button
+                type="button"
+                className={`nav-link header-luxe__link ${isCoursesOpen ? "is-active" : ""}`}
+                aria-haspopup="true"
+                aria-expanded={isCoursesOpen}
+                onClick={() => setIsCoursesOpen((v) => !v)}
+              >
+                Courses
+              </button>
+              <div className="header-luxe__submenu" role="menu" aria-label="Courses">
+                <NavLink className="header-luxe__submenu-link" to="/foundation-programmes" onClick={closeAllMenus} role="menuitem">
+                  Foundation Programmes
+                </NavLink>
+                <NavLink className="header-luxe__submenu-link" to="/undergraduate-programmes" onClick={closeAllMenus} role="menuitem">
+                  Undergraduate Programmes
+                </NavLink>
+                <NavLink className="header-luxe__submenu-link" to="/postgraduate-programmes" onClick={closeAllMenus} role="menuitem">
+                  Postgraduate Programmes
+                </NavLink>
+                <NavLink className="header-luxe__submenu-link" to="/short-programmes" onClick={closeAllMenus} role="menuitem">
+                  Short Programmes
+                </NavLink>
+              </div>
+            </li>
+            {otherNavItems.map((link) => (
               <li className="nav-item" key={link.label}>
                 {"href" in link ? (
                   <a className="nav-link header-luxe__link" href={link.href} onClick={closeNav}>

@@ -88,7 +88,10 @@ const contactInfo: ContactInfoItem[] = [
   {
     icon: "bi-telephone",
     label: "Phone",
-    lines: [{ text: "+44 7521 772131", href: "tel:+447521772131" }],
+    lines: [
+      { text: "Telephone: +44 20 4597 5444", href: "tel:+442045975444" },
+      { text: "Mobile: 07521772131", href: "tel:+447521772131" },
+    ],
   },
   {
     icon: "bi-envelope",
@@ -105,7 +108,7 @@ const contactInfo: ContactInfoItem[] = [
     label: "Office",
     lines: [
       {
-        text: "1st Floor, 101 Whitechapel High Road London E1 7RA, United Kingdom",
+        text: "Suite F5, New Road Business Centre, 109 New Road, Whitechapel, E 1 1HJ.",
       },
     ],
   },
@@ -288,9 +291,7 @@ const HomePage = (): JSX.Element => {
                   suggestionCourses.map((course) => (
                     <a
                       key={`course-suggestion-${course.title}`}
-                      href={`/courses?search=${encodeURIComponent(
-                        course.title
-                      )}`}
+                      href="/undergraduate-programmes"
                       className="course-search-option"
                       role="option"
                       aria-selected="false"
@@ -334,7 +335,14 @@ const HomePage = (): JSX.Element => {
                     <h3 className="course-card-title">{course.title}</h3>
                     <p className="course-card-summary">{course.summary}</p>
                     <a
-                      href={`/courses#${course.slug}`}
+                      href={
+                        ({
+                          foundation: "/foundation-programmes",
+                          undergraduate: "/undergraduate-programmes",
+                          postgraduate: "/postgraduate-programmes",
+                          shortCourses: "/short-programmes",
+                        } as Record<string, string>)[course.slug] ?? "/undergraduate-programmes"
+                      }
                       className="course-card-link"
                     >
                       View programme details

@@ -5,6 +5,8 @@ import "keen-slider/keen-slider.min.css";
 import { useNavigate } from "react-router-dom";
 import "./HeroSlider.css";
 
+// GSAP animations removed from HeroSlider
+
 import heroImage1 from "../assets/images/hero-slider-images/1.png";
 import heroImage2 from "../assets/images/hero-slider-images/2.png";
 import heroImage3 from "../assets/images/hero-slider-images/3.png";
@@ -33,7 +35,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: "scholarships-guidance",
-    title: "Scholarships Guidance",
+    title: "Scholarship Guidance",
     description:
       "Explore funding opportunities and personalized advice to make your studies more affordable.",
     image: heroImage2,
@@ -63,7 +65,7 @@ const heroSlides: HeroSlide[] = [
   },
 ];
 
-const SLIDE_INTERVAL = 50000;
+const SLIDE_INTERVAL = 6000;
 
 const HeroSlider = (): JSX.Element => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,6 +77,8 @@ const HeroSlider = (): JSX.Element => {
     overflow: "hidden",
     textOverflow: "ellipsis",
   };
+
+  // GSAP reveal animations removed
 
   const autoSlide = useMemo(
     () => (slider: KeenSliderInstance) => {
@@ -102,6 +106,119 @@ const HeroSlider = (): JSX.Element => {
     },
     []
   );
+
+  // GSAP prepareSlide removed
+
+  /* const animateSlide = useCallback((index: number) => {
+    const slideId = heroSlides[index]?.id;
+    if (!slideId) {
+      return;
+    }
+
+    const sliderRoot = sliderContainerRef.current;
+    if (!sliderRoot) {
+      window.requestAnimationFrame(() => {
+        animateSlide(index);
+      });
+      return;
+    }
+
+    const visibleSlide =
+      sliderRoot.querySelector<HTMLElement>(
+        `.keen-slider__slide[aria-hidden="false"][data-slide-id="${slideId}"] .hero-slide`
+      ) ??
+      sliderRoot.querySelector<HTMLElement>(
+        `.keen-slider__slide[data-slide-id="${slideId}"] .hero-slide`
+      );
+
+    if (!visibleSlide) {
+      window.requestAnimationFrame(() => {
+        animateSlide(index);
+      });
+      return;
+    }
+
+    const heading = visibleSlide.querySelector<HTMLElement>(
+      ".hero-main-heading__line"
+    );
+    const description = visibleSlide.querySelector<HTMLElement>(
+      ".luxury-description"
+    );
+    const button =
+      visibleSlide.querySelector<HTMLButtonElement>(".hero-cta-link");
+    const accents = Array.from(
+      visibleSlide.querySelectorAll<HTMLElement>(".hero-accent")
+    );
+    const visual = visibleSlide.querySelector<HTMLElement>(".hero-visual");
+
+    if (!heading || !description || !button) {
+      return;
+    }
+
+    if (animatedSlidesRef.current.has(slideId)) {
+      const elements = [
+        heading,
+        description,
+        button,
+        visual,
+        ...accents,
+      ].filter((el): el is HTMLElement => Boolean(el));
+
+      if (elements.length) {
+        gsapInstance.set(elements, { clearProps: "all", autoAlpha: 1 });
+      }
+      return;
+    }
+
+    animatedSlidesRef.current.add(slideId);
+
+    if (activeTimelineRef.current) {
+      activeTimelineRef.current.progress(1);
+      activeTimelineRef.current.kill();
+    }
+
+    const timeline = createGsapTimeline();
+
+    // Ensure elements are preset before animating
+    if (accents.length) {
+      gsapInstance.set(accents, {
+        autoAlpha: 0,
+        scaleX: 0.82,
+        transformOrigin: "left center",
+      });
+      timeline.to(
+        accents,
+        {
+          autoAlpha: 1,
+          scaleX: 1,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: "power2.out",
+        },
+        0
+      );
+    }
+
+    gsapInstance.set(heading, { autoAlpha: 0, y: 48 });
+    timeline.to(heading, { autoAlpha: 1, y: 0, duration: 0.9 });
+
+    gsapInstance.set(description, { autoAlpha: 0, y: 28 });
+    timeline.to(description, { autoAlpha: 1, y: 0, duration: 0.75 }, "-=0.55");
+
+    gsapInstance.set(button, { autoAlpha: 0, y: 18 });
+    timeline.to(button, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.48");
+
+    if (visual) {
+      gsapInstance.set(visual, { autoAlpha: 0, scale: 1.035 });
+      timeline.to(
+        visual,
+        { autoAlpha: 1, scale: 1, duration: 1, ease: "power2.out" },
+        "-=0.72"
+      );
+    }
+
+    activeTimelineRef.current = timeline;
+  }, []); */
 
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>(
     {
@@ -146,10 +263,8 @@ const HeroSlider = (): JSX.Element => {
           className="keen-slider luxury-slider"
           aria-live="polite"
         >
-          {heroSlides.map((slide, index) => {
-            const slideStyles: CSSProperties = {
-              animationDelay: `${index * 120}ms`,
-            };
+          {heroSlides.map((slide) => {
+            const slideStyles: CSSProperties = {};
 
             (slideStyles as Record<string, string>)[
               "--slide-image"
@@ -157,7 +272,11 @@ const HeroSlider = (): JSX.Element => {
             const mainHeadingText = slide.title;
 
             return (
-              <div className="keen-slider__slide" key={slide.id}>
+              <div
+                className="keen-slider__slide"
+                key={slide.id}
+                data-slide-id={slide.id}
+              >
                 <div
                   className="hero-slide row g-0 align-items-stretch luxury-hero-slide"
                   style={slideStyles}

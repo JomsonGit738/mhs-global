@@ -70,9 +70,6 @@
   padding: clamp(1rem, 3vw, 2rem);
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
     background 0.5s ease-in-out;
-  animation: heroSlideFade 0.9s ease forwards;
-  opacity: 0;
-  transform: translateY(24px);
   backdrop-filter: blur(6px);
 }
 
@@ -160,7 +157,6 @@
     ); */
 }
 
-.luxury-hero-slide:hover,
 .luxury-hero-slide:focus-within {
   transform: translateY(-14px);
   box-shadow: 0 34px 80px rgba(13, 110, 253, 0.16),
@@ -267,7 +263,6 @@
   transition: all 0.5s ease-in-out;
 }
 
-.hero-cta-link:hover,
 .hero-cta-link:focus-visible {
   background: linear-gradient(
     135deg,

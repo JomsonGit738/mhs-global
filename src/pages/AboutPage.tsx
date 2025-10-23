@@ -178,7 +178,17 @@ const AboutPage = (): JSX.Element => {
                       {courseLinks.map(({ label, target }) => (
                         <li key={target} className="about-list-item">
                           <i className="bi bi-chevron-right text-primary"></i>
-                          <Link to={`/courses#${target}`} className="about-list-link">
+                          <Link
+                            to={
+                              ({
+                                foundation: "/foundation-programmes",
+                                undergraduate: "/undergraduate-programmes",
+                                postgraduate: "/postgraduate-programmes",
+                                shortCourses: "/short-programmes",
+                              } as Record<string, string>)[target] ?? "/undergraduate-programmes"
+                            }
+                            className="about-list-link"
+                          >
                             {label}
                           </Link>
                         </li>

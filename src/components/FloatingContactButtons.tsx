@@ -15,7 +15,7 @@ const FloatingContactButtons: FC = () => {
       </a>
       <a
         className="floating-contact__item floating-contact__item--call"
-        href="tel:+447521772131"
+        href="tel:+442045975444"
         aria-label="Call us"
       >
         <i className="bi bi-telephone"></i>

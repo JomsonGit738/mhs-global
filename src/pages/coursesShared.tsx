@@ -1,24 +1,21 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
-import type { CSSProperties } from "react";
+import { useEffect, useMemo, useState } from "react";
 import foundationImg from "../assets/images/courses/1.png";
 import undergraduateImg from "../assets/images/courses/2.png";
 import postgraduateImg from "../assets/images/courses/3.png";
 import shortCoursesImg from "../assets/images/courses/4.png";
-import mainImage from "../assets/images/coursesPage/1.png";
 
-type CourseMeta = {
+export type CourseMeta = {
   label: string;
   value: string;
 };
 
-type CourseHighlight = {
+export type CourseHighlight = {
   icon: string;
   title: string;
   description: string;
 };
 
-type CourseCategory = {
+export type CourseCategory = {
   id: string;
   name: string;
   tagline: string;
@@ -29,7 +26,7 @@ type CourseCategory = {
   programs: string[];
 };
 
-const courseCategories: CourseCategory[] = [
+export const courseCategories: CourseCategory[] = [
   {
     id: "foundation",
     name: "Foundation Programmes",
@@ -242,67 +239,6 @@ const courseCategories: CourseCategory[] = [
   },
 ];
 
-const normalizeCategoryKey = (value: string): string =>
-  value.toLowerCase().replace(/[^a-z0-9]/g, "");
-
-const categorySlugMap = courseCategories.reduce<Record<string, string>>(
-  (acc, category) => {
-    acc[normalizeCategoryKey(category.id)] = category.id;
-    acc[normalizeCategoryKey(category.name)] = category.id;
-    return acc;
-  },
-  {}
-);
-
-type CategorySelectorProps = {
-  categories: CourseCategory[];
-  activeId: string;
-  onSelect: (id: string) => void;
-};
-
-const CategorySelector = ({
-  categories,
-  activeId,
-  onSelect,
-}: CategorySelectorProps) => (
-  <section className="courses-luxe__selector" data-animate="fade-up">
-    <h2 className="visually-hidden">Select a course category</h2>
-    <div className="row g-3 g-xl-4 row-cols-1 row-cols-md-2 row-cols-xl-4 courses-luxe__selector-grid">
-      {categories.map((category, index) => {
-        const isActive = category.id === activeId;
-        const preview =
-          category.description.length > 120
-            ? `${category.description.substring(0, 120)}...`
-            : category.description;
-        const animationStyle: CSSProperties = {
-          animationDelay: `${index * 0.08}s`,
-        };
-
-        return (
-          <div className="col" key={category.id}>
-            <button
-              type="button"
-              className={`courses-luxe__option ${isActive ? "is-active" : ""}`}
-              onClick={() => onSelect(category.id)}
-              aria-pressed={isActive}
-              data-animate="fade-up"
-              style={animationStyle}
-            >
-              <span className="courses-luxe__option-eyebrow">
-                {category.tagline}
-              </span>
-              <span className="courses-luxe__option-title">
-                {category.name}
-              </span>
-              <span className="courses-luxe__option-copy">{preview}</span>
-            </button>
-          </div>
-        );
-      })}
-    </div>
-  </section>
-);
-
 type CategoryDetailProps = {
   category: CourseCategory;
 };
@@ -313,7 +249,7 @@ const slugifyProgram = (value: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-const CategoryDetail = ({ category }: CategoryDetailProps) => {
+export const CategoryDetail = ({ category }: CategoryDetailProps) => {
   const [programQuery, setProgramQuery] = useState("");
   const [highlightedProgram, setHighlightedProgram] = useState<string | null>(null);
   const searchId = `program-search-${category.id}`;
@@ -438,22 +374,16 @@ const CategoryDetail = ({ category }: CategoryDetailProps) => {
                       aria-controls={resultsId}
                     />
                   </label>
-                  <div
-                    className={`courses-luxe__search-results ${
-                      hasQuery ? "is-visible" : ""
-                    }`}
-                    role="listbox"
-                    aria-label="Search results"
-                    id={resultsId}
-                  >
+                  <div id={resultsId} className="courses-luxe__search-results" role="listbox">
                     {hasQuery ? (
-                      searchResults.length > 0 ? (
+                      searchResults.length ? (
                         searchResults.map((entry) => (
                           <button
-                            type="button"
                             key={entry.slug}
+                            type="button"
                             className="courses-luxe__search-option"
-                            onMouseDown={(event) => event.preventDefault()}
+                            role="option"
+                            aria-selected="false"
                             onClick={() => handleResultSelect(entry.slug)}
                           >
                             <span className="courses-luxe__search-option-label">
@@ -494,92 +424,3 @@ const CategoryDetail = ({ category }: CategoryDetailProps) => {
     </section>
   );
 };
-
-const CoursesPage = (): JSX.Element => {
-  const location = useLocation();
-
-  const getCategoryIdFromHash = useCallback((hash: string): string | undefined => {
-    if (!hash) return undefined;
-    const normalized = normalizeCategoryKey(hash.replace(/^#/, ""));
-    return categorySlugMap[normalized];
-  }, []);
-
-  const [activeCategoryId, setActiveCategoryId] = useState(() => {
-    return getCategoryIdFromHash(location.hash) ?? courseCategories[0].id;
-  });
-
-  useEffect(() => {
-    const targetId = getCategoryIdFromHash(location.hash);
-    if (!targetId) {
-      return;
-    }
-
-    setActiveCategoryId((current) =>
-      current === targetId ? current : targetId
-    );
-
-    requestAnimationFrame(() => {
-      const targetElement =
-        document.getElementById(`category-${targetId}`) ??
-        document.getElementById("courses");
-      targetElement?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }, [getCategoryIdFromHash, location.hash]);
-
-  const activeCategory = useMemo(
-    () =>
-      courseCategories.find((category) => category.id === activeCategoryId) ??
-      courseCategories[0],
-    [activeCategoryId]
-  );
-
-  return (
-    <section className="courses-luxe" id="courses">
-      <div className="container courses-luxe__container">
-        <header className="row g-5 align-items-center courses-luxe__hero">
-          <div className="col-lg-5 order-lg-2 d-flex justify-content-center">
-            <div className="courses-luxe__hero-visual" data-animate="fade-up">
-              <img
-                src={mainImage}
-                alt={`${activeCategory.name} illustration`}
-                className="courses-luxe__hero-image"
-              />
-            </div>
-          </div>
-          <div className="col-lg-7 order-lg-1">
-            <div className="courses-luxe__hero-copy" data-animate="fade-up">
-              <span className="courses-luxe__hero-eyebrow">Our courses</span>
-              <h1 className="courses-luxe__hero-title">
-                Explore your study pathway
-              </h1>
-              <p className="courses-luxe__hero-lead">
-                At MHS Global Associates we help each learner select a route that
-                fits their goals, from foundation pathways to focused postgraduate
-                study and flexible short courses. Explore the options below to find
-                the programme that supports your ambitions.
-              </p>
-            </div>
-          </div>
-        </header>
-
-        <div className="courses-luxe__intro" data-animate="fade-up">
-          <span className="courses-luxe__intro-pill">Explore pathways</span>
-          <p className="courses-luxe__intro-copy">
-            Discover programmes aligned with your academic journey. Select a
-            pathway to view key highlights, available support, and the full list
-            of degrees.
-          </p>
-        </div>
-
-        <CategorySelector
-          categories={courseCategories}
-          activeId={activeCategoryId}
-          onSelect={setActiveCategoryId}
-        />
-
-        <CategoryDetail category={activeCategory} />
-      </div>
-    </section>
-  );
-};
-export default CoursesPage;

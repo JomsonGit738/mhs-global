@@ -4,7 +4,10 @@ const contactInfo: ContactInfoItem[] = [
   {
     icon: "bi-telephone",
     label: "Phone",
-    lines: [{ text: "+1 (555) 123-4567" }, { text: "+44 20 7946 0958" }],
+    lines: [
+      { text: "Telephone: +44 20 4597 5444", href: "tel:+442045975444" },
+      { text: "Mobile: 07521772131", href: "tel:+447521772131" },
+    ],
   },
   {
     icon: "bi-envelope",
@@ -21,8 +24,8 @@ const contactInfo: ContactInfoItem[] = [
     icon: "bi-geo-alt",
     label: "Office",
     lines: [
-      { text: "1st Floor, 101 Whitechapel High Road" },
-      { text: "London E1 7RA, United Kingdom" },
+      { text: "Suite F5, New Road Business Centre" },
+      { text: "109 New Road, Whitechapel, E 1 1HJ." },
     ],
   },
   {
@@ -69,7 +72,7 @@ const ContactPage = (): JSX.Element => {
               <div className="contact-map card border-0 shadow-lg overflow-hidden">
                 <iframe
                   title="MHS Global Associates Location"
-                  src="https://www.google.com/maps?q=1st+Floor,+101+Whitechapel+High+Road,+London+E1+7RA,+United+Kingdom&output=embed"
+                  src="https://www.google.com/maps?q=Suite+F5,+New+Road+Business+Centre,+109+New+Road,+Whitechapel,+E+1+1HJ.&output=embed"
                   width="100%"
                   height="260"
                   style={{ border: 0 }}
