@@ -4942,7 +4942,7 @@ header .py-3 {
   position: sticky;
   top: 0;
   z-index: 1050;
-  background: linear-gradient(120deg, #f6f8ff 0%, #ffffff 58%, #e9f1ff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #eef3ff 100%);
   box-shadow: 0 1px 0 rgba(18, 36, 66, 0.08);
   overflow: visible;
   transform: translateY(0);
@@ -4963,22 +4963,8 @@ header .py-3 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-      circle at 10% 0%,
-      rgba(31, 111, 242, 0.22),
-      transparent 52%
-    ),
-    radial-gradient(
-      circle at 85% -10%,
-      rgba(102, 134, 255, 0.18),
-      transparent 60%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(236, 242, 255, 0.92)
-    );
-  opacity: 0.85;
+  background: transparent;
+  opacity: 1;
 }
 
 .header-luxe__inner {
@@ -5019,7 +5005,6 @@ header .py-3 {
 /* Header submenu (Courses) */
 .header-luxe__menu-item.has-submenu { position: relative; }
 .header-luxe__submenu {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -5029,8 +5014,20 @@ header .py-3 {
   padding: 0.5rem;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
   z-index: 1000;
+  display: block;
+  opacity: 0;
+  transform: translateY(8px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
 }
-.header-luxe__menu-item.has-submenu.is-open > .header-luxe__submenu { display: block; }
+.header-luxe__menu-item.has-submenu.is-open > .header-luxe__submenu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
 .header-luxe__submenu-link {
   display: block;
   padding: 0.55rem 0.75rem;
@@ -5049,12 +5046,25 @@ header .py-3 {
   .header-luxe__menu-item.has-submenu { width: 100%; }
   .header-luxe__submenu {
     position: static;
-    display: none;
     box-shadow: none;
     padding: 0.25rem 0;
     background: transparent;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: none;
+    transition: max-height 0.3s ease, opacity 0.25s ease, visibility 0s linear 0.25s;
   }
-  .header-luxe__menu-item.has-submenu.is-open > .header-luxe__submenu { display: block; }
+  .header-luxe__menu-item.has-submenu.is-open > .header-luxe__submenu {
+    max-height: 800px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
 }
 
 .header-luxe__menu {
@@ -5157,11 +5167,11 @@ header .py-3 {
   transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
 }
 
-.header-luxe__toggler:focus-visible {
-  outline: none;
-  border-color: rgba(31, 111, 242, 0.5);
-  box-shadow: 0 0 0 4px rgba(31, 111, 242, 0.2);
-}
+  .header-luxe__toggler:focus-visible {
+    outline: none;
+    border-color: rgba(31, 111, 242, 0.5);
+    box-shadow: 0 0 0 4px rgba(31, 111, 242, 0.2);
+  }
 
 .header-luxe__toggler-icon {
   display: inline-block;
@@ -5274,6 +5284,9 @@ header .py-3 {
     justify-content: flex-start;
     gap: 0.75rem;
     padding: 0 clamp(0.75rem, 4vw, 1.25rem);
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .header-luxe__nav {
@@ -5281,9 +5294,10 @@ header .py-3 {
     margin-left: 0;
     margin-top: 0.5rem;
     padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 0.95rem;
-    box-shadow: 0 16px 28px -24px rgba(17, 39, 72, 0.22);
+    background: #ffffff;
+    border: 1px solid rgba(17, 39, 72, 0.08);
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 20px -18px rgba(17, 39, 72, 0.18);
   }
 
   .header-luxe__menu {
@@ -5291,12 +5305,15 @@ header .py-3 {
     align-items: stretch;
     gap: 0.5rem;
   }
+  .header-luxe__menu > .nav-item + .nav-item {
+    border-top: 1px solid rgba(17, 39, 72, 0.06);
+  }
 
   .header-luxe__link {
     justify-content: flex-start;
     width: 100%;
-    padding: 0.65rem 0.85rem;
-    background: rgba(247, 249, 255, 0.75);
+    padding: 0.75rem 0.85rem;
+    background: transparent;
     box-shadow: none;
   }
 
@@ -5307,11 +5324,25 @@ header .py-3 {
   .header-luxe__link.is-active,
   .header-luxe__link:hover,
   .header-luxe__link:focus-visible {
-    background: rgba(31, 111, 242, 0.16);
+    background: rgba(31, 111, 242, 0.08);
   }
 
   .header-luxe__cta--mobile {
     margin-top: 0.75rem;
+  }
+
+  /* Submenu visual hierarchy on mobile */
+  .header-luxe__submenu-link {
+    padding-left: 1.75rem;
+  }
+
+  /* Simpler hamburger lines on mobile */
+  .header-luxe__toggler-icon {
+    background: #163a66;
+  }
+  .header-luxe__toggler:not(.collapsed) .header-luxe__toggler-icon::before,
+  .header-luxe__toggler:not(.collapsed) .header-luxe__toggler-icon::after {
+    background: #163a66;
   }
 }
 
@@ -5327,6 +5358,9 @@ header .py-3 {
     flex-wrap: nowrap;
   }
 }
+
+/* Header CTA emphasis */
+
 
 @media (max-width: 576px) {
   .header-luxe__inner {

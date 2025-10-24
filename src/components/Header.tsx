@@ -26,6 +26,7 @@ type HeaderProps = {
 const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+  const [canHover, setCanHover] = useState(false);
   const collapseRef = useRef<HTMLDivElement | null>(null);
   const collapseInstanceRef = useRef<any>(null);
   const lastScrollYRef = useRef(0);
@@ -52,6 +53,40 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
       element.removeEventListener("hidden.bs.collapse", handleHidden);
       instance.dispose();
       collapseInstanceRef.current = null;
+    };
+  }, []);
+  
+  // Detect whether the current device supports hover (i.e., desktops)
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      setCanHover(false);
+      return;
+    }
+  
+    const query = "(hover: hover) and (pointer: fine)";
+    const mql = window.matchMedia(query);
+  
+    // Initialize
+    setCanHover(mql.matches);
+  
+    // Listener for changes (e.g., device rotate, hybrid devices)
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+      setCanHover("matches" in e ? e.matches : (e as MediaQueryList).matches);
+    };
+  
+    // addEventListener is preferred, but fall back to addListener for older Safari
+    if (typeof (mql as any).addEventListener === "function") {
+      (mql as any).addEventListener("change", handler as (ev: Event) => void);
+    } else if (typeof (mql as any).addListener === "function") {
+      (mql as any).addListener(handler);
+    }
+  
+    return () => {
+      if (typeof (mql as any).removeEventListener === "function") {
+        (mql as any).removeEventListener("change", handler as (ev: Event) => void);
+      } else if (typeof (mql as any).removeListener === "function") {
+        (mql as any).removeListener(handler);
+      }
     };
   }, []);
   const toggleNav = () => {
@@ -155,8 +190,8 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
             )}
             <li
               className={`nav-item header-luxe__menu-item has-submenu ${isCoursesOpen ? "is-open" : ""}`}
-              onMouseEnter={() => setIsCoursesOpen(true)}
-              onMouseLeave={() => setIsCoursesOpen(false)}
+              onMouseEnter={canHover ? () => setIsCoursesOpen(true) : undefined}
+              onMouseLeave={canHover ? () => setIsCoursesOpen(false) : undefined}
             >
               <button
                 type="button"

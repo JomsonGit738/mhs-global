@@ -237,17 +237,34 @@ const HeroSlider = (): JSX.Element => {
   );
 
   const handleCTAClick = (destination: string) => () => {
+    // If a hash is present, navigate then perform an offset scroll
     if (destination.includes("#")) {
       navigate(destination);
 
       const hash = destination.split("#")[1];
       if (hash) {
-        window.setTimeout(() => {
-          document.getElementById(hash)?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }, 250);
+        const scrollWithOffset = () => {
+          const raw = document.getElementById(hash);
+          if (!raw) return;
+
+          // For About page consultation form, prefer the card container so the
+          // "Start a Conversation" heading is included in view.
+          const cardContainer = raw.closest<HTMLElement>(".about-contact-card");
+          const target = cardContainer ?? raw;
+
+          const header = document.querySelector<HTMLElement>(".header-luxe");
+          const headerHeight = header?.offsetHeight ?? 0;
+
+          // Leave a small visual gap below the header for breathing room
+          const extra = 16;
+          const y = target.getBoundingClientRect().top + window.scrollY - (headerHeight + extra);
+          window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+        };
+
+        // Give the route time to render, then adjust scroll.
+        window.setTimeout(scrollWithOffset, 300);
+        // Nudge again in case late layout shifts (images/fonts) moved things.
+        window.setTimeout(scrollWithOffset, 900);
       }
       return;
     }
