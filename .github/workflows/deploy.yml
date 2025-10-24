@@ -19,13 +19,27 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # NEW FIX: Switching to the 'ssh-deploy' action which correctly supports SFTP (Port 22).
+      - name: Deploy via SFTP (IONOS Recommended)
+        uses: easingthemes/ssh-deploy@v4.1.10
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
-          protocol: ftp
-          local-dir: build/
-          server-dir: /htdocs/
+          # SSH_HOST corresponds to your Server / Host (access-xxxx.webspace-host.com)
+          SSH_HOST: ${{ secrets.FTP_SERVER }}
+
+          # SSH_USERNAME corresponds to your User name (su482289)
+          SSH_USERNAME: ${{ secrets.FTP_USERNAME }}
+
+          # SSH_PASSWORD is your password
+          SSH_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+
+          # PORT 22 is explicitly required by IONOS
+          PORT: 22
+
+          # The source directory to upload (your 'build' folder, with the required trailing slash)
+          SOURCE: "build/"
+
+          # The target directory on the server
+          TARGET: "/htdocs/"
+
+          # Optionally delete files on server that are not in the source folder
+          EXCLUDE: "/dist/, /node_modules/"
