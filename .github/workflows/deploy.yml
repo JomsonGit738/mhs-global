@@ -3,7 +3,7 @@ name: Deploy to IONOS
 on:
   push:
     branches:
-      - production # change this if your deployment branch is different
+      - production
 
 jobs:
   build-and-deploy:
@@ -14,32 +14,34 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
 
-      # NEW FIX: Switching to the 'ssh-deploy' action which correctly supports SFTP (Port 22).
-      - name: Deploy via SFTP (IONOS Recommended)
+      - name: Deploy via rsync over SSH to IONOS
         uses: easingthemes/ssh-deploy@v4.1.10
         with:
-          # SSH_HOST corresponds to your Server / Host (access-xxxx.webspace-host.com)
-          SSH_HOST: ${{ secrets.FTP_SERVER }}
+          # <-- put the *private* SSH key for this IONOS account in this secret
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          # SSH_USERNAME corresponds to your User name (su482289)
-          SSH_USERNAME: ${{ secrets.FTP_USERNAME }}
+          # Host from your IONOS "Server / Host"
+          REMOTE_HOST: ${{ secrets.FTP_SERVER }}
 
-          # SSH_PASSWORD is your password
-          SSH_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          # Username from IONOS ("su482289" in your screenshot)
+          REMOTE_USER: ${{ secrets.FTP_USERNAME }}
 
-          # PORT 22 is explicitly required by IONOS
-          PORT: 22
+          # IONOS uses port 22 for SFTP/SSH
+          REMOTE_PORT: 22
 
-          # The source directory to upload (your 'build' folder, with the required trailing slash)
-          SOURCE: "build/"
+          # What to upload (adjust if your build output is named "dist" instead of "build")
+          SOURCE: build/
 
-          # The target directory on the server
-          TARGET: "/htdocs/"
+          # Where to upload it on IONOS
+          TARGET: /htdocs/
 
-          # Optionally delete files on server that are not in the source folder
-          EXCLUDE: "/dist/, /node_modules/"
+          # Don't upload these
+          EXCLUDE: "dist/, node_modules/"
+
+          # (optional) tell rsync to delete removed files on the server so it stays in sync
+          ARGS: "-rlgoDzvc -i --delete"
