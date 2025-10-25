@@ -19,29 +19,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy via rsync over SSH to IONOS
-        uses: easingthemes/ssh-deploy@v4.1.10
+      # Upload the build/ folder to IONOS via SFTP + password
+      - name: Deploy to IONOS over SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          # <-- put the *private* SSH key for this IONOS account in this secret
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
-          # Host from your IONOS "Server / Host"
-          REMOTE_HOST: ${{ secrets.FTP_SERVER }}
-
-          # Username from IONOS ("su482289" in your screenshot)
-          REMOTE_USER: ${{ secrets.FTP_USERNAME }}
-
-          # IONOS uses port 22 for SFTP/SSH
-          REMOTE_PORT: 22
-
-          # What to upload (adjust if your build output is named "dist" instead of "build")
-          SOURCE: build/
-
-          # Where to upload it on IONOS
-          TARGET: /htdocs/
-
-          # Don't upload these
-          EXCLUDE: "dist/, node_modules/"
-
-          # (optional) tell rsync to delete removed files on the server so it stays in sync
-          ARGS: "-rlgoDzvc -i --delete"
+          username: ${{ secrets.FTP_USERNAME }} # su482289
+          server: ${{ secrets.FTP_SERVER }} # access-...webspace-host.com
+          port: ${{ secrets.FTP_PORT }} # 22
+          password: ${{ secrets.FTP_PASSWORD }} # your IONOS password
+          local_path: "./build/*" # what to upload
+          remote_path: "/htdocs/" # where it lives on IONOS
+          sftp_only: true # force pure SFTP mode
