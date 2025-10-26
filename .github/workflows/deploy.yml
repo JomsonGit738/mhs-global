@@ -28,5 +28,5 @@ jobs:
           port: ${{ secrets.FTP_PORT }} # 22
           password: ${{ secrets.FTP_PASSWORD }} # your IONOS password
           local_path: "./build/*" # what to upload
-          remote_path: "./" # where it lives on IONOS
+          remote_path: "./mhsglobalassociatescom" # where it lives on IONOS
           sftp_only: true # force pure SFTP mode
