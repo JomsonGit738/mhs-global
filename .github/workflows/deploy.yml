@@ -21,14 +21,24 @@ jobs:
 
       - name: Prepare build directory for SFTP (Include .htaccess) 🛠️
         run: |
-
+          # 1. Create a temporary deployment directory
           mkdir deploy_temp
 
+          # 2. Temporarily enable dotglob to match hidden files (dotfiles)
           shopt -s dotglob
 
-          cp -r build/* build/.* deploy_temp/ 2>/dev/null
+          # 3. Copy EVERYTHING (non-hidden and hidden files) to the temp directory.
+          # The -T flag treats deploy_temp as a directory, not a file.
+          # The -r flag is used for directories like 'static/'
+          cp -r build/ deploy_temp/
 
-          rm -f deploy_temp/. deploy_temp/..
+          # 4. Turn off dotglob (good practice)
+          shopt -u dotglob
+
+          # 5. Move the CONTENTS of build/ inside deploy_temp/ 
+          # to the root of deploy_temp/ and remove the extra 'build' folder.
+          mv deploy_temp/build/* deploy_temp/
+          rmdir deploy_temp/build/
 
       # Upload the build/ folder to IONOS via SFTP + password
       - name: Deploy to IONOS over SFTP
