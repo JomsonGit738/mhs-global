@@ -27,18 +27,20 @@ jobs:
           # 2. Temporarily enable dotglob to match hidden files (dotfiles)
           shopt -s dotglob
 
-          # 3. Copy EVERYTHING (non-hidden and hidden files) to the temp directory.
-          # The -T flag treats deploy_temp as a directory, not a file.
-          # The -r flag is used for directories like 'static/'
+          # 3. Copy EVERYTHING (non-hidden and hidden files, including .htaccess)
+          # The result is a structure: deploy_temp/build/...
           cp -r build/ deploy_temp/
 
           # 4. Turn off dotglob (good practice)
           shopt -u dotglob
 
-          # 5. Move the CONTENTS of build/ inside deploy_temp/ 
-          # to the root of deploy_temp/ and remove the extra 'build' folder.
+          # 5. Move all contents *out* of the nested 'build' folder 
+          # The 'mv' command will move all files, including .htaccess
           mv deploy_temp/build/* deploy_temp/
-          rmdir deploy_temp/build/
+
+          # 6. Forcefully remove the nested 'build' directory and all its contents
+          # This resolves the "Directory not empty" error.
+          rm -rf deploy_temp/build/
 
       # Upload the build/ folder to IONOS via SFTP + password
       - name: Deploy to IONOS over SFTP
