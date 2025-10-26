@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+import {
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type FocusEvent,
+} from "react";
 
 type AboutSection = {
   title: string;
@@ -8,28 +14,23 @@ type AboutSection = {
 const aboutSections: AboutSection[] = [
   {
     title: "Who We Are",
-    body:
-      "MHS Global Associates supports ambitious learners with practical guidance that turns international study plans into achievable outcomes.",
+    body: "MHS Global Associates supports ambitious learners with practical guidance that turns international study plans into achievable outcomes.",
   },
   {
     title: "Our Vision",
-    body:
-      "Established in 2020, our mission is to make world-class campuses accessible to students everywhere. We match aspirations with suitable destinations, programmes, and timelines for lasting success.",
+    body: "Established in 2020, our mission is to make world-class campuses accessible to students everywhere. We match aspirations with suitable destinations, programmes, and timelines for lasting success.",
   },
   {
     title: "Student-Centred Approach",
-    body:
-      "Every conversation begins with attentive listening. We design personalised pathways that balance academic strengths, financial planning, and wellbeing so each milestone feels clear and supported.",
+    body: "Every conversation begins with attentive listening. We design personalised pathways that balance academic strengths, financial planning, and wellbeing so each milestone feels clear and supported.",
   },
   {
     title: "Proven Success Stories",
-    body:
-      "Hundreds of students have secured offers from renowned universities worldwide through careful preparation, deadline management, and post-offer mentoring.",
+    body: "Hundreds of students have secured offers from renowned universities worldwide through careful preparation, deadline management, and post-offer mentoring.",
   },
   {
     title: "Our Commitment",
-    body:
-      "We continue to develop our service with integrity, responsiveness, and a commitment to education, enabling the next generation of global graduates to thrive abroad.",
+    body: "We continue to develop our service with integrity, responsiveness, and a commitment to education, enabling the next generation of global graduates to thrive abroad.",
   },
 ];
 
@@ -49,7 +50,115 @@ const courseLinks: Array<{ label: string; target: string }> = [
   { label: "Short Courses", target: "shortCourses" },
 ];
 
+const SCRIPT_URL =
+  (process.env.REACT_APP_SCRIPT_URL as string | undefined) ||
+  "https://script.google.com/macros/s/AKfycbwKQg34leor2CgdBgCGWHygTYQBOEgGn2xsDoF03rgI8QRtnMJNr2vptIIgKXlQ8pnC/exec"; // replace with your Apps Script Web App URL
+
 const AboutPage = (): JSX.Element => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<{
+    name: string;
+    email: string;
+    message: string;
+  }>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [touched, setTouched] = useState<{
+    name: boolean;
+    email: boolean;
+    message: boolean;
+  }>({ name: false, email: false, message: false });
+  const [status, setStatus] = useState({
+    submitting: false,
+    sent: false,
+    error: "",
+  });
+
+  type FieldName = "name" | "email" | "message";
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function validate(values: typeof formData) {
+    const next: typeof errors = { name: "", email: "", message: "" };
+    if (!values.name.trim()) next.name = "Name is required";
+    if (!values.email.trim()) next.email = "Email is required";
+    else if (!emailRegex.test(values.email)) next.email = "Enter a valid email";
+    if (!values.message.trim()) next.message = "Message is required";
+    return next;
+  }
+
+  function validateField(name: FieldName, value: string): string {
+    if (name === "name") return value.trim() ? "" : "Name is required";
+    if (name === "email") {
+      if (!value.trim()) return "Email is required";
+      return emailRegex.test(value) ? "" : "Enter a valid email";
+    }
+    if (name === "message") return value.trim() ? "" : "Message is required";
+    return "";
+  }
+
+  function handleChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target as { name: FieldName; value: string };
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+  }
+
+  function handleBlur(e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target as { name: FieldName; value: string };
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+  }
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus({ submitting: true, sent: false, error: "" });
+
+    // Validate all fields
+    const nextErrors = validate(formData);
+    setErrors(nextErrors);
+    setTouched({ name: true, email: true, message: true });
+    const isValid =
+      !nextErrors.name && !nextErrors.email && !nextErrors.message;
+    if (!isValid) {
+      setStatus({ submitting: false, sent: false, error: "" });
+      return;
+    }
+    const body = new FormData();
+    body.append("name", formData.name);
+    body.append("email", formData.email);
+    body.append("message", formData.message);
+
+    // meta fields for Apps Script processing (adjust to match your script)
+    body.append("formId", "contact");
+    body.append("formTitle", "Website Contact Form");
+    body.append("formGoogleSheetName", "responses");
+    body.append("formGoogleSendEmail", "info@mhsglobal.com");
+    body.append(
+      "formDataNameOrder",
+      JSON.stringify(["name", "email", "message"])
+    );
+
+    try {
+      await fetch(SCRIPT_URL, { method: "POST", body, mode: "no-cors" });
+      setStatus({ submitting: false, sent: true, error: "" });
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({ name: "", email: "", message: "" });
+      setTouched({ name: false, email: false, message: false });
+    } catch (err) {
+      setStatus({
+        submitting: false,
+        sent: false,
+        error: "Something went wrong. Please try again.",
+      });
+    }
+  }
   return (
     <>
       <section className="about-hero position-relative text-white">
@@ -105,6 +214,8 @@ const AboutPage = (): JSX.Element => {
                   <form
                     id="consultation-form"
                     className="about-contact-card__form row g-3 scroll-target"
+                    onSubmit={handleSubmit}
+                    noValidate
                   >
                     <div className="col-md-6">
                       <label className="form-label about-contact-card__label">
@@ -112,10 +223,28 @@ const AboutPage = (): JSX.Element => {
                       </label>
                       <input
                         type="text"
-                        className="form-control py-3 form-control-lg about-contact-card__input"
+                        className={`form-control py-3 form-control-lg about-contact-card__input ${
+                          touched.name && errors.name ? "is-invalid" : ""
+                        }`}
                         placeholder="First Name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        aria-invalid={touched.name && !!errors.name}
+                        aria-describedby={
+                          touched.name && errors.name ? "name-error" : undefined
+                        }
                         required
                       />
+                      {touched.name && errors.name ? (
+                        <div
+                          id="name-error"
+                          className="invalid-feedback d-block"
+                        >
+                          {errors.name}
+                        </div>
+                      ) : null}
                     </div>
                     <div className="col-md-6">
                       <label className="form-label about-contact-card__label">
@@ -123,29 +252,86 @@ const AboutPage = (): JSX.Element => {
                       </label>
                       <input
                         type="email"
-                        className="form-control py-3 form-control-lg about-contact-card__input"
+                        className={`form-control py-3 form-control-lg about-contact-card__input ${
+                          touched.email && errors.email ? "is-invalid" : ""
+                        }`}
                         placeholder="Email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        aria-invalid={touched.email && !!errors.email}
+                        aria-describedby={
+                          touched.email && errors.email
+                            ? "email-error"
+                            : undefined
+                        }
                         required
                       />
+                      {touched.email && errors.email ? (
+                        <div
+                          id="email-error"
+                          className="invalid-feedback d-block"
+                        >
+                          {errors.email}
+                        </div>
+                      ) : null}
                     </div>
                     <div className="col-12">
                       <label className="form-label about-contact-card__label">
                         Message
                       </label>
                       <textarea
-                        className="form-control form-control-lg about-contact-card__textarea"
+                        className={`form-control form-control-lg about-contact-card__textarea ${
+                          touched.message && errors.message ? "is-invalid" : ""
+                        }`}
                         rows={4}
                         placeholder="Tell us how we can help you"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        aria-invalid={touched.message && !!errors.message}
+                        aria-describedby={
+                          touched.message && errors.message
+                            ? "message-error"
+                            : undefined
+                        }
                         required
                       ></textarea>
+                      {touched.message && errors.message ? (
+                        <div
+                          id="message-error"
+                          className="invalid-feedback d-block"
+                        >
+                          {errors.message}
+                        </div>
+                      ) : null}
                     </div>
                     <div className="col-12">
                       <button
                         type="submit"
                         className="btn py-3 btn-lg btn-primary btn-lg w-100 about-contact-card__submit"
+                        disabled={status.submitting}
                       >
-                        Request Guidance
+                        {status.submitting ? "Sending..." : "Request Guidance"}
                       </button>
+                      {status.sent ? (
+                        <p
+                          className="text-success text-center mt-3"
+                          role="status"
+                        >
+                          Thanks! We’ll be in touch within one business day.
+                        </p>
+                      ) : null}
+                      {status.error ? (
+                        <p
+                          className="text-danger text-center mt-3"
+                          role="alert"
+                        >
+                          {status.error}
+                        </p>
+                      ) : null}
                     </div>
                   </form>
                 </div>
@@ -180,12 +366,14 @@ const AboutPage = (): JSX.Element => {
                           <i className="bi bi-chevron-right text-primary"></i>
                           <Link
                             to={
-                              ({
-                                foundation: "/foundation-programmes",
-                                undergraduate: "/undergraduate-programmes",
-                                postgraduate: "/postgraduate-programmes",
-                                shortCourses: "/short-programmes",
-                              } as Record<string, string>)[target] ?? "/undergraduate-programmes"
+                              (
+                                {
+                                  foundation: "/foundation-programmes",
+                                  undergraduate: "/undergraduate-programmes",
+                                  postgraduate: "/postgraduate-programmes",
+                                  shortCourses: "/short-programmes",
+                                } as Record<string, string>
+                              )[target] ?? "/undergraduate-programmes"
                             }
                             className="about-list-link"
                           >
