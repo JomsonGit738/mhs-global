@@ -19,6 +19,17 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Prepare build directory for SFTP (Include .htaccess) 🛠️
+        run: |
+
+          mkdir deploy_temp
+
+          shopt -s dotglob
+
+          cp -r build/* build/.* deploy_temp/ 2>/dev/null
+
+          rm -f deploy_temp/. deploy_temp/..
+
       # Upload the build/ folder to IONOS via SFTP + password
       - name: Deploy to IONOS over SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
@@ -27,8 +38,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }} # access-...webspace-host.com
           port: ${{ secrets.FTP_PORT }} # 22
           password: ${{ secrets.FTP_PASSWORD }} # your IONOS password
-          local_path: | # Use the | (pipe) to support a multi-line string
-            ./build/*
-            ./build/.*
+          local_path: "./deploy_temp/*"
           remote_path: "./mhsglobalassociatescom" # where it lives on IONOS
           sftp_only: true # force pure SFTP mode
