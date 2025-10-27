@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import {
   useState,
+  useRef,
+  useEffect,
   type ChangeEvent,
   type FormEvent,
   type FocusEvent,
@@ -52,7 +54,7 @@ const courseLinks: Array<{ label: string; target: string }> = [
 
 const SCRIPT_URL =
   (process.env.REACT_APP_SCRIPT_URL as string | undefined) ||
-  "https://script.google.com/macros/s/AKfycbwKQg34leor2CgdBgCGWHygTYQBOEgGn2xsDoF03rgI8QRtnMJNr2vptIIgKXlQ8pnC/exec"; // replace with your Apps Script Web App URL
+  "https://script.google.com/macros/s/AKfycby9lM1TjcaWNXXV2i0mrhGjhIGj0K7H_ElQQGYtiNhRq3eXfiQrOzcttZG7HXn0nnGA/exec"; // replace with your Apps Script Web App URL
 
 const AboutPage = (): JSX.Element => {
   const [formData, setFormData] = useState({
@@ -79,6 +81,13 @@ const AboutPage = (): JSX.Element => {
     sent: false,
     error: "",
   });
+
+  const [toast, setToast] = useState<{
+    visible: boolean;
+    type: "success" | "error";
+    message: string;
+  }>({ visible: false, type: "success", message: "" });
+  const toastTimer = useRef<number | null>(null);
 
   type FieldName = "name" | "email" | "message";
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -136,8 +145,8 @@ const AboutPage = (): JSX.Element => {
     body.append("message", formData.message);
 
     // meta fields for Apps Script processing (adjust to match your script)
-    body.append("formId", "contact");
-    body.append("formTitle", "Website Contact Form");
+    body.append("formId", "guidance");
+    body.append("formTitle", "Personalised Guidance");
     body.append("formGoogleSheetName", "responses");
     body.append("formGoogleSendEmail", "info@mhsglobal.com");
     body.append(
@@ -151,14 +160,40 @@ const AboutPage = (): JSX.Element => {
       setFormData({ name: "", email: "", message: "" });
       setErrors({ name: "", email: "", message: "" });
       setTouched({ name: false, email: false, message: false });
+      if (toastTimer.current) window.clearTimeout(toastTimer.current);
+      setToast({
+        visible: true,
+        type: "success",
+        message: "Thank you! Your message has been sent.",
+      });
+      toastTimer.current = window.setTimeout(
+        () => setToast((t) => ({ ...t, visible: false })),
+        4000
+      );
     } catch (err) {
       setStatus({
         submitting: false,
         sent: false,
         error: "Something went wrong. Please try again.",
       });
+      if (toastTimer.current) window.clearTimeout(toastTimer.current);
+      setToast({
+        visible: true,
+        type: "error",
+        message: "Something went wrong. Please try again.",
+      });
+      toastTimer.current = window.setTimeout(
+        () => setToast((t) => ({ ...t, visible: false })),
+        5000
+      );
     }
   }
+
+  useEffect(() => {
+    return () => {
+      if (toastTimer.current) window.clearTimeout(toastTimer.current);
+    };
+  }, []);
   return (
     <>
       <section className="about-hero position-relative text-white">
@@ -216,6 +251,7 @@ const AboutPage = (): JSX.Element => {
                     className="about-contact-card__form row g-3 scroll-target"
                     onSubmit={handleSubmit}
                     noValidate
+                    aria-busy={status.submitting}
                   >
                     <div className="col-md-6">
                       <label className="form-label about-contact-card__label">
@@ -235,6 +271,7 @@ const AboutPage = (): JSX.Element => {
                         aria-describedby={
                           touched.name && errors.name ? "name-error" : undefined
                         }
+                        disabled={status.submitting}
                         required
                       />
                       {touched.name && errors.name ? (
@@ -266,6 +303,7 @@ const AboutPage = (): JSX.Element => {
                             ? "email-error"
                             : undefined
                         }
+                        disabled={status.submitting}
                         required
                       />
                       {touched.email && errors.email ? (
@@ -297,6 +335,7 @@ const AboutPage = (): JSX.Element => {
                             ? "message-error"
                             : undefined
                         }
+                        disabled={status.submitting}
                         required
                       ></textarea>
                       {touched.message && errors.message ? (
@@ -314,9 +353,20 @@ const AboutPage = (): JSX.Element => {
                         className="btn py-3 btn-lg btn-primary btn-lg w-100 about-contact-card__submit"
                         disabled={status.submitting}
                       >
-                        {status.submitting ? "Sending..." : "Request Guidance"}
+                        {status.submitting ? (
+                          <>
+                            <span
+                              className="spinner-border spinner-border-sm me-2"
+                              role="status"
+                              aria-hidden="true"
+                            ></span>
+                            Sending...
+                          </>
+                        ) : (
+                          "Request Guidance"
+                        )}
                       </button>
-                      {status.sent ? (
+                      {false && status.sent ? (
                         <p
                           className="text-success text-center mt-3"
                           role="status"
@@ -324,7 +374,7 @@ const AboutPage = (): JSX.Element => {
                           Thanks! We’ll be in touch within one business day.
                         </p>
                       ) : null}
-                      {status.error ? (
+                      {false && status.error ? (
                         <p
                           className="text-danger text-center mt-3"
                           role="alert"
@@ -334,6 +384,21 @@ const AboutPage = (): JSX.Element => {
                       ) : null}
                     </div>
                   </form>
+                  {toast.visible ? (
+                    <div
+                      className={`alert ${
+                        toast.type === "success"
+                          ? "alert-success"
+                          : "alert-danger"
+                      } position-fixed bottom-0 end-0 m-3 shadow`}
+                      role={toast.type === "error" ? "alert" : "status"}
+                      aria-live={
+                        toast.type === "error" ? "assertive" : "polite"
+                      }
+                    >
+                      {toast.message}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
