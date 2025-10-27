@@ -20,7 +20,7 @@ export function resolveScriptUrl(): string {
     host === "localhost" || host === "127.0.0.1" || host.endsWith(".local");
 
   // Treat Netlify preview/branch deploys as "dev"
-  const isNetlifyPreview = host.endsWith(".netlify.app") && host.includes("--");
+  const isNetlifyPreview = host.endsWith("netlify");
 
   if (isLocalhost || isNetlifyPreview) return DEV_SCRIPT_URL;
 
