@@ -3,6 +3,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  REACT_APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9lM1TjcaWNXXV2i0mrhGjhIGj0K7H_ElQQGYtiNhRq3eXfiQrOzcttZG7HXn0nnGA/exec"
 
 [[redirects]]
   from = "/*"
