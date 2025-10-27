@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SCRIPT_URL } from "../config/env";
 import {
   useState,
   useRef,
@@ -52,9 +53,7 @@ const courseLinks: Array<{ label: string; target: string }> = [
   { label: "Short Courses", target: "shortCourses" },
 ];
 
-const SCRIPT_URL =
-  (process.env.REACT_APP_SCRIPT_URL as string | undefined) ||
-  "https://script.google.com/macros/s/AKfycby9lM1TjcaWNXXV2i0mrhGjhIGj0K7H_ElQQGYtiNhRq3eXfiQrOzcttZG7HXn0nnGA/exec"; // replace with your Apps Script Web App URL
+// Using centralised env config for script URL
 
 const AboutPage = (): JSX.Element => {
   const [formData, setFormData] = useState({

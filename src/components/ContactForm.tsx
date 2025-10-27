@@ -7,6 +7,7 @@ import {
   type FocusEvent,
   type FormEvent,
 } from "react";
+import { SCRIPT_URL } from "../config/env";
 
 type ContactFormProps = {
   courses: Array<{
@@ -14,9 +15,7 @@ type ContactFormProps = {
   }>;
 };
 
-const SCRIPT_URL =
-  (process.env.REACT_APP_SCRIPT_URL as string | undefined) ||
-  "https://script.google.com/macros/s/AKfycby9lM1TjcaWNXXV2i0mrhGjhIGj0K7H_ElQQGYtiNhRq3eXfiQrOzcttZG7HXn0nnGA/exec";
+// Using centralised env config for script URL
 
 type FieldName =
   | "name"
