@@ -19,28 +19,15 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Prepare build directory for SFTP (Include .htaccess) 🛠️
+      # Just prepare the build folder for SFTP (no .htaccess handling)
+      - name: Prepare build directory for SFTP
         run: |
-          # 1. Create a temporary deployment directory
+          # 1. Clean and recreate temporary deployment directory
+          rm -rf deploy_temp
           mkdir deploy_temp
 
-          # 2. Temporarily enable dotglob to match hidden files (dotfiles)
-          shopt -s dotglob
-
-          # 3. Copy EVERYTHING (non-hidden and hidden files, including .htaccess)
-          # The result is a structure: deploy_temp/build/...
-          cp -r build/ deploy_temp/
-
-          # 4. Turn off dotglob (good practice)
-          shopt -u dotglob
-
-          # 5. Move all contents *out* of the nested 'build' folder 
-          # The 'mv' command will move all files, including .htaccess
-          mv deploy_temp/build/* deploy_temp/
-
-          # 6. Forcefully remove the nested 'build' directory and all its contents
-          # This resolves the "Directory not empty" error.
-          rm -rf deploy_temp/build/
+          # 2. Copy everything from build/ (excluding dotfiles like .htaccess)
+          cp -r build/* deploy_temp/
 
       # Upload the build/ folder to IONOS via SFTP + password
       - name: Deploy to IONOS over SFTP
@@ -50,6 +37,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }} # access-...webspace-host.com
           port: ${{ secrets.FTP_PORT }} # 22
           password: ${{ secrets.FTP_PASSWORD }} # your IONOS password
-          local_path: "./deploy_temp/*"
+          local_path: "./deploy_temp/"
           remote_path: "./mhsglobalassociatescom" # where it lives on IONOS
           sftp_only: true # force pure SFTP mode
