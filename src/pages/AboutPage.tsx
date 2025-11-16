@@ -147,7 +147,7 @@ const AboutPage = (): JSX.Element => {
     body.append("formId", "guidance");
     body.append("formTitle", "Personalised Guidance");
     body.append("formGoogleSheetName", "responses");
-    body.append("formGoogleSendEmail", "info@mhsglobal.com");
+    body.append("formGoogleSendEmail", "info@mhsglobalassociates.com");
     body.append(
       "formDataNameOrder",
       JSON.stringify(["name", "email", "message"])

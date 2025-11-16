@@ -5,12 +5,12 @@ const footerColumns = [
   {
     title: "Quick Links",
     items: [
-      { label: "About Us", href: "/#about" },
+      { label: "About Us", href: "/about" },
       { label: "Our Services", href: "/student-services" },
       { label: "Universities", href: "/#universities" },
-      { label: "Courses", href: "/foundation-programmes" },
-      { label: "Student Support", href: "/#support" },
-      { label: "Success Stories", href: "/#testimonials" },
+      { label: "Courses", href: "/#courses" },
+      { label: "Student Support", href: "/student-services" },
+      { label: "Success Stories", href: "/#success-stories" },
       { label: "Blog", href: "/#blog" },
       { label: "Contact Us", href: "/#contact" },
       { label: "Career Opportunities", href: "/#careers" },
@@ -116,12 +116,6 @@ const Footer = (): JSX.Element => {
                 href="mailto:info@mhsglobalassociates.com"
               >
                 info@mhsglobalassociates.com
-              </a>
-              <a className="footer-luxe__contact-link" href="tel:+442045975444">
-                +44 20 4597 5444
-              </a>
-              <a className="footer-luxe__contact-link" href="tel:+447521772131">
-                07521772131
               </a>
             </div>
           </div>

@@ -207,7 +207,7 @@ const ContactForm: FC<ContactFormProps> = ({ courses }) => {
     body.append("formId", "application");
     body.append("formTitle", "New student application");
     body.append("formGoogleSheetName", "responses");
-    body.append("formGoogleSendEmail", "info@mhsglobal.com");
+    body.append("formGoogleSendEmail", "info@mhsglobalassociates.com");
     body.append(
       "formDataNameOrder",
       JSON.stringify([

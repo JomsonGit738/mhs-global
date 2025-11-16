@@ -2,21 +2,16 @@ import ContactContent, { ContactInfoItem } from "../components/ContactContent";
 
 const contactInfo: ContactInfoItem[] = [
   {
-    icon: "bi-telephone",
-    label: "Phone",
-    lines: [
-      { text: "Telephone: +44 20 4597 5444", href: "tel:+442045975444" },
-      { text: "Mobile: 07521772131", href: "tel:+447521772131" },
-    ],
-  },
-  {
     icon: "bi-envelope",
     label: "Email",
     lines: [
-      { text: "info@mhsglobal.com", href: "mailto:info@mhsglobal.com" },
       {
-        text: "admissions@mhsglobal.com",
-        href: "mailto:admissions@mhsglobal.com",
+        text: "info@mhsglobalassociates.com",
+        href: "mailto:info@mhsglobalassociates.com",
+      },
+      {
+        text: "admission@mhsglobalassociates.com",
+        href: "mailto:admission@mhsglobalassociates.com",
       },
     ],
   },
@@ -32,8 +27,7 @@ const contactInfo: ContactInfoItem[] = [
     icon: "bi-clock",
     label: "Office Hours",
     lines: [
-      { text: "Monday - Friday: 9:00 AM - 6:00 PM" },
-      { text: "Saturday: 10:00 AM - 4:00 PM" },
+      { text: "Monday to Friday: 10:00 AM - 5:00 PM" },
     ],
   },
 ];
