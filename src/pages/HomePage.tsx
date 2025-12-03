@@ -96,6 +96,11 @@ const contactInfo: ContactInfoItem[] = [
     ],
   },
   {
+    icon: "bi-phone",
+    label: "Mobile",
+    lines: [{ text: "07521772131", href: "tel:07521772131" }],
+  },
+  {
     icon: "bi-geo-alt",
     label: "Office",
     lines: [

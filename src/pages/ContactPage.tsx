@@ -16,6 +16,11 @@ const contactInfo: ContactInfoItem[] = [
     ],
   },
   {
+    icon: "bi-phone",
+    label: "Mobile",
+    lines: [{ text: "07521772131", href: "tel:07521772131" }],
+  },
+  {
     icon: "bi-geo-alt",
     label: "Office",
     lines: [
@@ -66,7 +71,7 @@ const ContactPage = (): JSX.Element => {
               <div className="contact-map card border-0 shadow-lg overflow-hidden">
                 <iframe
                   title="MHS Global Associates Location"
-                  src="https://www.google.com/maps?q=Suite+F5,+New+Road+Business+Centre,+109+New+Road,+Whitechapel,+E+1+1HJ.&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1141.3108862237777!2d-0.05676868277712285!3d51.519660332254155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761da75520c803%3A0xee69c987d59298b!2sMHS%20Global%20Associates!5e1!3m2!1sen!2sin!4v1764785969804!5m2!1sen!2sin"
                   width="100%"
                   height="260"
                   style={{ border: 0 }}
