@@ -19,7 +19,24 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Upload the build folder to IONOS via SFTP + password
+      # Clean target folder using SFTP-only (IONOS blocks shell access)
+      - name: Clean remote folder over SFTP
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
+        run: |
+          set -e
+          cat <<'EOF' > sftp-clean.cmd
+          mkdir mhsglobalassociatescom
+          cd mhsglobalassociatescom
+          rm -r *
+          EOF
+          # Ignore non-zero exit if the folder is already empty
+          sshpass -p "$FTP_PASSWORD" sftp -o StrictHostKeyChecking=no -P "$FTP_PORT" "$FTP_USERNAME@$FTP_SERVER" < sftp-clean.cmd || true
+
+      # Upload the build folder to IONOS via SFTP + password (pure SFTP, no SSH)
       - name: Deploy to IONOS over SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
@@ -29,4 +46,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }} # your IONOS password
           local_path: "./build/*"
           remote_path: "./mhsglobalassociatescom" # where it lives on IONOS
-          delete_remote_files: true # clear existing contents before upload
+          sftp_only: true # avoid SSH because the host allows SFTP only
+          delete_remote_files: false # cleaned via SFTP above; avoid SSH-only delete
