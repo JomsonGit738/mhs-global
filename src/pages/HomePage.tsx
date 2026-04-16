@@ -4,6 +4,8 @@ import HeroSlider from "../components/HeroSlider";
 import GlobalNetworkSection from "../components/GlobalNetworkSection";
 import PartnerUniversitiesSlider from "../components/PartnerUniversitiesSlider";
 import ContactContent, { ContactInfoItem } from "../components/ContactContent";
+import StudyDestinationsCarousel from "../components/StudyDestinationsCarousel";
+import StudyDestinationPopup from "../components/StudyDestinationPopup";
 
 import foundationImg from "../assets/images/courses/1.png";
 import undergraduateImg from "../assets/images/courses/2.png";
@@ -185,6 +187,7 @@ const HomePage = (): JSX.Element => {
 
   return (
     <>
+      <StudyDestinationPopup />
       <HeroSlider />
 
       {promoHighlights.map((promo) => (
@@ -216,6 +219,7 @@ const HomePage = (): JSX.Element => {
         </section>
       ))}
 
+      <StudyDestinationsCarousel />
       <section className="py-5 bg-light">
         <div className="container">
           <div className="section-heading text-start mb-5">

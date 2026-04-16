@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import './App.css';
+import './styles/studyDestinations.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingContactButtons';
@@ -12,6 +13,7 @@ import ShortProgrammesPage from './pages/ShortProgrammesPage';
 import StudentServicesPage from './pages/StudentServicesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import StudyDestinationPage from './pages/StudyDestinationPage';
 
 const Layout = (): JSX.Element => {
   const { pathname, hash } = useLocation();
@@ -63,6 +65,7 @@ const App = (): JSX.Element => {
           <Route path="student-services" element={<StudentServicesPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="study-destinations/:destinationId" element={<StudyDestinationPage />} />
         </Route>
       </Routes>
     </Router>
