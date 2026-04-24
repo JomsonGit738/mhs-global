@@ -1,0 +1,535 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "MHS Global Associates logo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "MHS Global Associates logo" [ref=e8]
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - link "Home" [ref=e12] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e13]:
+          - button "Courses" [ref=e14] [cursor=pointer]
+        - listitem [ref=e15]:
+          - link "Student Services" [ref=e16] [cursor=pointer]:
+            - /url: /student-services
+        - listitem [ref=e17]:
+          - link "About" [ref=e18] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e19]:
+          - link "Contact" [ref=e20] [cursor=pointer]:
+            - /url: /contact
+      - link "Apply now" [ref=e21] [cursor=pointer]:
+        - /url: /#contact
+    - region "Admissions updates" [ref=e22]:
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - generic [ref=e26]: 
+          - generic [ref=e27]: "January 2026 intake: applications now open"
+        - listitem [ref=e28]:
+          - generic [ref=e30]: 
+          - generic [ref=e31]: Apply early to secure your place
+        - listitem [ref=e32]:
+          - generic [ref=e34]: 
+          - generic [ref=e35]: Study in the UK with leading universities
+        - listitem [ref=e36]:
+          - generic [ref=e38]: 
+          - generic [ref=e39]: "January 2026 intake: applications now open"
+        - listitem [ref=e40]:
+          - generic [ref=e42]: 
+          - generic [ref=e43]: Apply early to secure your place
+        - listitem [ref=e44]:
+          - generic [ref=e46]: 
+          - generic [ref=e47]: Study in the UK with leading universities
+  - main [ref=e48]:
+    - dialog "Study in Ireland" [ref=e49]:
+      - button "Close destination popup" [ref=e50] [cursor=pointer]:
+        - generic [ref=e51]: 
+      - img "Students gathered in a modern study environment" [ref=e53]
+      - generic [ref=e54]:
+        - generic [ref=e55]: Featured destination
+        - heading "Study in Ireland" [level=2] [ref=e56]
+        - paragraph [ref=e57]: High-quality education, global industry access, and a welcoming English-speaking environment within the EU.
+        - generic [ref=e58]:
+          - generic [ref=e59]: Intakes
+          - generic [ref=e60]: January / September
+        - generic [ref=e61]:
+          - button "View destination details" [ref=e62] [cursor=pointer]
+          - button "Maybe later" [ref=e63] [cursor=pointer]
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e70]:
+          - heading "Apply Now for January 2026" [level=1] [ref=e71]:
+            - generic [ref=e72]: Apply Now for January 2026
+          - paragraph [ref=e73]: Start your international education journey and secure your place before deadlines close.
+          - button "Apply Now for January 2026 - Apply Now" [ref=e74] [cursor=pointer]: Apply Now
+        - generic [ref=e78]:
+          - heading "Scholarship Guidance" [level=1] [ref=e79]:
+            - generic [ref=e80]: Scholarship Guidance
+          - paragraph [ref=e81]: Explore funding opportunities and personalized advice to make your studies more affordable.
+          - button "Scholarship Guidance - Explore Scholarships" [ref=e82] [cursor=pointer]: Explore Scholarships
+        - generic [ref=e86]:
+          - heading "Book a Consultation" [level=1] [ref=e87]:
+            - generic [ref=e88]: Book a Consultation
+          - paragraph [ref=e89]: Get expert one-on-one guidance to choose the right course, university, and country for you.
+          - button "Book a Consultation - Book a Session" [ref=e90] [cursor=pointer]: Book a Session
+        - generic [ref=e94]:
+          - heading "Our Partner Universities" [level=1] [ref=e95]:
+            - generic [ref=e96]: Our Partner Universities
+          - paragraph [ref=e97]: Access a global network of trusted universities offering diverse programs and pathways.
+          - button "Our Partner Universities - View Partners" [ref=e98] [cursor=pointer]: View Partners
+      - generic [ref=e99]:
+        - button "Go to slide 1" [ref=e100] [cursor=pointer]:
+          - generic [ref=e101]: Slide 1
+        - button "Go to slide 2" [ref=e102] [cursor=pointer]:
+          - generic [ref=e103]: Slide 2
+        - button "Go to slide 3" [ref=e104] [cursor=pointer]:
+          - generic [ref=e105]: Slide 3
+        - button "Go to slide 4" [ref=e106] [cursor=pointer]:
+          - generic [ref=e107]: Slide 4
+    - generic [ref=e111]:
+      - generic [ref=e112]:
+        - paragraph [ref=e113]: Pursue your studies at leading UK universities
+        - 'heading "January 2026 intake: applications now open" [level=2] [ref=e114]'
+        - paragraph [ref=e115]: Submit your application early to secure a place. Our advisers offer guidance throughout the process.
+      - link "Begin your application" [ref=e117] [cursor=pointer]:
+        - /url: /#contact
+    - region "Study destinations" [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: Study destinations
+            - heading "Compare popular destinations before you apply" [level=2] [ref=e123]
+          - generic "Destination carousel controls" [ref=e124]:
+            - button "Previous destination" [ref=e125] [cursor=pointer]:
+              - generic [ref=e126]: 
+            - button "Next destination" [ref=e127] [cursor=pointer]:
+              - generic [ref=e128]: 
+        - generic [ref=e129]:
+          - article [ref=e131]:
+            - link "Students gathered in a modern study environment Europe's fast-rising destination Study in Ireland High-quality education, global industry access, and a welcoming English-speaking environment within the EU. Intakes January / September View full details " [ref=e132] [cursor=pointer]:
+              - /url: /study-destinations/ireland
+              - img "Students gathered in a modern study environment" [ref=e134]
+              - generic [ref=e135]:
+                - generic [ref=e136]: Europe's fast-rising destination
+                - heading "Study in Ireland" [level=3] [ref=e137]
+                - paragraph [ref=e138]: High-quality education, global industry access, and a welcoming English-speaking environment within the EU.
+                - generic [ref=e139]:
+                  - generic [ref=e140]: Intakes
+                  - generic [ref=e141]: January / September
+                - generic [ref=e142]:
+                  - text: View full details
+                  - generic [ref=e143]: 
+          - article [ref=e145]:
+            - link "Students working together with study materials in a bright learning space Globally respected universities Study in UK Shorter degrees, strong graduate outcomes, and a multicultural academic environment with deep institutional history. Intakes January / May / September View full details " [ref=e146] [cursor=pointer]:
+              - /url: /study-destinations/uk
+              - img "Students working together with study materials in a bright learning space" [ref=e148]
+              - generic [ref=e149]:
+                - generic [ref=e150]: Globally respected universities
+                - heading "Study in UK" [level=3] [ref=e151]
+                - paragraph [ref=e152]: Shorter degrees, strong graduate outcomes, and a multicultural academic environment with deep institutional history.
+                - generic [ref=e153]:
+                  - generic [ref=e154]: Intakes
+                  - generic [ref=e155]: January / May / September
+                - generic [ref=e156]:
+                  - text: View full details
+                  - generic [ref=e157]: 
+          - article [ref=e159]:
+            - link "University students discussing their coursework together Research, innovation, and scale Study in USA Prestigious institutions, broad program choice, strong research culture, and major global career pathways. Intakes January / May / Aug-Sep View full details " [ref=e160] [cursor=pointer]:
+              - /url: /study-destinations/usa
+              - img "University students discussing their coursework together" [ref=e162]
+              - generic [ref=e163]:
+                - generic [ref=e164]: Research, innovation, and scale
+                - heading "Study in USA" [level=3] [ref=e165]
+                - paragraph [ref=e166]: Prestigious institutions, broad program choice, strong research culture, and major global career pathways.
+                - generic [ref=e167]:
+                  - generic [ref=e168]: Intakes
+                  - generic [ref=e169]: January / May / Aug-Sep
+                - generic [ref=e170]:
+                  - text: View full details
+                  - generic [ref=e171]: 
+          - article [ref=e173]:
+            - link "Students studying together in a calm classroom setting High-quality education with migration pathways Study in Canada A safe environment, practical programs, strong work rights, and clear post-study opportunities. Intakes January / May / September View full details " [ref=e174] [cursor=pointer]:
+              - /url: /study-destinations/canada
+              - img "Students studying together in a calm classroom setting" [ref=e176]
+              - generic [ref=e177]:
+                - generic [ref=e178]: High-quality education with migration pathways
+                - heading "Study in Canada" [level=3] [ref=e179]
+                - paragraph [ref=e180]: A safe environment, practical programs, strong work rights, and clear post-study opportunities.
+                - generic [ref=e181]:
+                  - generic [ref=e182]: Intakes
+                  - generic [ref=e183]: January / May / September
+                - generic [ref=e184]:
+                  - text: View full details
+                  - generic [ref=e185]: 
+          - article [ref=e187]:
+            - link "Students reviewing notes together in a collaborative campus environment Flexible study with strong work rights Study in Australia Career-oriented study, practical training, and clear post-study work options in a welcoming setting. Intakes February / July / November View full details " [ref=e188] [cursor=pointer]:
+              - /url: /study-destinations/australia
+              - img "Students reviewing notes together in a collaborative campus environment" [ref=e190]
+              - generic [ref=e191]:
+                - generic [ref=e192]: Flexible study with strong work rights
+                - heading "Study in Australia" [level=3] [ref=e193]
+                - paragraph [ref=e194]: Career-oriented study, practical training, and clear post-study work options in a welcoming setting.
+                - generic [ref=e195]:
+                  - generic [ref=e196]: Intakes
+                  - generic [ref=e197]: February / July / November
+                - generic [ref=e198]:
+                  - text: View full details
+                  - generic [ref=e199]: 
+        - tablist [ref=e200]:
+          - tab "Go to Study in Ireland" [selected] [ref=e201] [cursor=pointer]
+          - tab "Go to Study in UK" [ref=e202] [cursor=pointer]
+          - tab "Go to Study in USA" [ref=e203] [cursor=pointer]
+          - tab "Go to Study in Canada" [ref=e204] [cursor=pointer]
+          - tab "Go to Study in Australia" [ref=e205] [cursor=pointer]
+    - generic [ref=e208]:
+      - heading "Our Global Network" [level=1] [ref=e209]
+      - paragraph [ref=e210]: Explore academic opportunities through our network of partner universities and institutions across multiple countries.
+    - img [ref=e215]:
+      - img "Canada location" [ref=e218] [cursor=pointer]
+      - img "United States location" [ref=e222] [cursor=pointer]
+      - img "United Kingdom location" [ref=e226] [cursor=pointer]
+      - img "Spain location" [ref=e230] [cursor=pointer]
+      - img "United Arab Emirates location" [ref=e234] [cursor=pointer]
+      - img "Singapore location" [ref=e238] [cursor=pointer]
+      - img "Malaysia location" [ref=e242] [cursor=pointer]
+      - img "Australia location" [ref=e246] [cursor=pointer]
+    - region "Partner universities" [ref=e249]:
+      - generic [ref=e251]:
+        - generic [ref=e253]:
+          - img "University of Birmingham"
+        - generic [ref=e255]:
+          - img "University of Aberdeen"
+        - generic [ref=e257]:
+          - img "Bangor University"
+        - generic [ref=e259]:
+          - img "Aston University"
+        - generic [ref=e261]:
+          - img "Aberystwyth University"
+        - generic [ref=e263]:
+          - img "University of Birmingham"
+        - generic [ref=e265]:
+          - img "University of Aberdeen"
+        - generic [ref=e267]:
+          - img "Bangor University"
+        - generic [ref=e269]:
+          - img "Aston University"
+        - generic [ref=e271]:
+          - img "Aberystwyth University"
+    - generic [ref=e273]:
+      - generic [ref=e274]:
+        - heading "Courses" [level=1] [ref=e275]
+        - paragraph [ref=e276]: Select programmes that align with your academic background, professional goals, and preferred study destinations.
+      - generic [ref=e277]:
+        - generic [ref=e278]: Search Courses
+        - generic [ref=e279]:
+          - generic [ref=e281]: 
+          - searchbox "Search courses by programme name or summary" [ref=e282]
+          - button "Clear course search":
+            - generic: 
+        - paragraph [ref=e283]: Refine your search by typing keywords such as foundation, finance, or PhD.
+      - generic [ref=e284]:
+        - article "Foundation Courses" [ref=e286]:
+          - generic [ref=e287]:
+            - generic [ref=e289]: 
+            - heading "Foundation Courses" [level=3] [ref=e290]
+            - paragraph [ref=e291]: Preparatory programmes that strengthen academic English and study skills for undergraduate entry.
+            - link "View programme details " [ref=e292] [cursor=pointer]:
+              - /url: /foundation-programmes
+              - text: View programme details
+              - generic [ref=e293]: 
+        - article "Undergraduate Degrees" [ref=e295]:
+          - generic [ref=e296]:
+            - generic [ref=e298]: 
+            - heading "Undergraduate Degrees" [level=3] [ref=e299]
+            - paragraph [ref=e300]: Bachelor's degree programmes across varied disciplines with strong academic reputations and clear graduate prospects.
+            - link "View programme details " [ref=e301] [cursor=pointer]:
+              - /url: /undergraduate-programmes
+              - text: View programme details
+              - generic [ref=e302]: 
+        - article "Pre-Masters" [ref=e304]:
+          - generic [ref=e305]:
+            - generic [ref=e307]: 
+            - heading "Pre-Masters" [level=3] [ref=e308]
+            - paragraph [ref=e309]: Pre-Master's pathways that build subject knowledge and academic readiness with guidance from experienced faculty.
+            - link "View programme details " [ref=e310] [cursor=pointer]:
+              - /url: /postgraduate-programmes
+              - text: View programme details
+              - generic [ref=e311]: 
+        - article "Masters in Research" [ref=e313]:
+          - generic [ref=e314]:
+            - generic [ref=e316]: 
+            - heading "Masters in Research" [level=3] [ref=e317]
+            - paragraph [ref=e318]: Research-focused Master's routes that emphasise independent enquiry supported by dedicated supervision.
+            - link "View programme details " [ref=e319] [cursor=pointer]:
+              - /url: /postgraduate-programmes
+              - text: View programme details
+              - generic [ref=e320]: 
+        - article "PhD Degrees" [ref=e322]:
+          - generic [ref=e323]:
+            - generic [ref=e325]: 
+            - heading "PhD Degrees" [level=3] [ref=e326]
+            - paragraph [ref=e327]: Doctoral programmes that combine advanced research training with opportunities for interdisciplinary collaboration.
+            - link "View programme details " [ref=e328] [cursor=pointer]:
+              - /url: /postgraduate-programmes
+              - text: View programme details
+              - generic [ref=e329]: 
+        - article "Executive Education" [ref=e331]:
+          - generic [ref=e332]:
+            - generic [ref=e334]: 
+            - heading "Executive Education" [level=3] [ref=e335]
+            - paragraph [ref=e336]: Intensive short courses for working professionals who want to extend their leadership capability.
+            - link "View programme details " [ref=e337] [cursor=pointer]:
+              - /url: /short-programmes
+              - text: View programme details
+              - generic [ref=e338]: 
+    - generic [ref=e342]:
+      - complementary [ref=e343]:
+        - generic [ref=e344]: Contact Information
+        - heading "MHS Global Associates" [level=2] [ref=e345]
+        - paragraph [ref=e346]: Speak with our advisers for personalised guidance on course selection, application planning, scholarships, and visa preparation.
+        - list [ref=e347]:
+          - listitem [ref=e348]:
+            - generic [ref=e350]: 
+            - generic [ref=e351]:
+              - generic [ref=e352]: Email
+              - link "info@mhsglobalassociates.com" [ref=e354] [cursor=pointer]:
+                - /url: mailto:info@mhsglobalassociates.com
+          - listitem [ref=e355]:
+            - generic [ref=e357]: 
+            - generic [ref=e358]:
+              - generic [ref=e359]: Mobile
+              - link "07521772131" [ref=e361] [cursor=pointer]:
+                - /url: tel:07521772131
+          - listitem [ref=e362]:
+            - generic [ref=e364]: 
+            - generic [ref=e365]:
+              - generic [ref=e366]: Office
+              - generic [ref=e368]: Suite F5, New Road Business Centre, 109 New Road, Whitechapel, E 1 1HJ.
+          - listitem [ref=e369]:
+            - generic [ref=e371]: 
+            - generic [ref=e372]:
+              - generic [ref=e373]: Office Hours
+              - generic [ref=e375]: "Monday to Friday: 10:00 AM - 5:00 PM"
+      - generic [ref=e377]:
+        - generic [ref=e378]:
+          - generic [ref=e379]: Personalised guidance
+          - heading "Connect with our advisers" [level=3] [ref=e380]
+          - paragraph [ref=e381]: Share your ambitions and we will prepare a personalised roadmap for your global studies.
+        - generic [ref=e382]:
+          - generic [ref=e383]:
+            - generic [ref=e384]: Full Name *
+            - textbox "Full Name *" [ref=e385]:
+              - /placeholder: Alex Morgan
+          - generic [ref=e386]:
+            - generic [ref=e387]: Email Address *
+            - textbox "Email Address *" [ref=e388]:
+              - /placeholder: name@email.com
+          - generic [ref=e389]:
+            - generic [ref=e390]: Phone Number *
+            - textbox "Phone Number *" [ref=e391]:
+              - /placeholder: +44 1234 567 890
+          - generic [ref=e392]:
+            - generic [ref=e393]: Country *
+            - textbox "Country *" [ref=e394]:
+              - /placeholder: Where do you currently reside?
+          - generic [ref=e395]:
+            - generic [ref=e396]: Study Interest *
+            - generic [ref=e397]:
+              - combobox "Study Interest *" [ref=e398]:
+                - option "Select programme type" [disabled] [selected]
+                - option "Foundation Courses"
+                - option "Undergraduate Degrees"
+                - option "Pre-Masters"
+                - option "Masters in Research"
+                - option "PhD Degrees"
+                - option "Executive Education"
+              - generic:
+                - generic: 
+          - generic [ref=e399]:
+            - generic [ref=e400]: Message
+            - textbox "Message" [ref=e401]:
+              - /placeholder: Tell us about your academic goals, timelines, or scholarship needs.
+          - button "Send Message" [ref=e403] [cursor=pointer]:
+            - text: Send Message
+            - generic [ref=e405]: 
+    - generic [ref=e409]:
+      - generic [ref=e410]:
+        - heading "Student Success Stories" [level=1] [ref=e411]
+        - paragraph [ref=e412]: Hear from students who transformed their aspirations into offers
+        - generic [ref=e413]:
+          - generic [ref=e414]:
+            - generic [ref=e415]: 
+            - generic [ref=e416]: 
+            - generic [ref=e417]: 
+            - generic [ref=e418]: 
+            - generic [ref=e419]: 
+          - paragraph [ref=e420]: Rated 4.9/5 by more than 120 students admitted in the past year
+        - list [ref=e421]:
+          - listitem [ref=e422]:
+            - generic [ref=e423]: 
+            - generic [ref=e424]: Personal statements refined to reflect your individual strengths
+          - listitem [ref=e425]:
+            - generic [ref=e426]: 
+            - generic [ref=e427]: Scholarship guidance that helps you present a strong case for funding
+          - listitem [ref=e428]:
+            - generic [ref=e429]: 
+            - generic [ref=e430]: Dedicated post-offer support covering visas, accommodation, and travel
+        - generic [ref=e431]:
+          - generic [ref=e432]:
+            - img "John Eseny" [ref=e433]
+            - generic [ref=e434]: John Eseny
+          - generic [ref=e435]:
+            - img "Clair Yeo" [ref=e436]
+            - generic [ref=e437]: Clair Yeo
+          - generic [ref=e438]:
+            - img "Luis Romero" [ref=e439]
+            - generic [ref=e440]: Luis Romero
+      - generic [ref=e442]:
+        - generic [ref=e443]:
+          - generic [ref=e445]:
+            - generic [ref=e447]: 
+            - generic [ref=e448]:
+              - generic [ref=e449]:
+                - img "John Eseny" [ref=e451]
+                - generic [ref=e452]:
+                  - generic [ref=e453]: John Eseny
+                  - generic [ref=e454]: MSc Data Science - University of Birmingham
+              - blockquote [ref=e455]:
+                - paragraph [ref=e456]: "\"The MHS Global team provided clear advice and timely support. They helped me secure offers and shared practical insight about living and working in Aberdeen.\""
+          - text:  
+        - generic [ref=e457]:
+          - generic [ref=e458]:
+            - button "Slide 1" [ref=e459] [cursor=pointer]
+            - button "Slide 2" [ref=e460] [cursor=pointer]
+            - button "Slide 3" [ref=e461] [cursor=pointer]
+          - generic [ref=e462]:
+            - button "" [ref=e463] [cursor=pointer]:
+              - generic [ref=e464]: 
+            - button "" [ref=e465] [cursor=pointer]:
+              - generic [ref=e466]: 
+  - generic "Quick contact options" [ref=e467]:
+    - link "Chat with us on WhatsApp" [ref=e468] [cursor=pointer]:
+      - /url: https://wa.me/447521772131
+      - generic [ref=e469]: 
+      - generic [ref=e470]: WhatsApp
+    - link "Call us" [ref=e471] [cursor=pointer]:
+      - /url: tel:+442045975444
+      - generic [ref=e472]: 
+      - generic [ref=e473]: Call
+    - link "Email us" [ref=e474] [cursor=pointer]:
+      - /url: mailto:info@mhsglobalassociates.com
+      - generic [ref=e475]: 
+      - generic [ref=e476]: Email
+  - contentinfo [ref=e477]:
+    - generic [ref=e479]:
+      - generic [ref=e480]:
+        - generic [ref=e481]:
+          - img "MHS Global Associates logo" [ref=e483]
+          - generic [ref=e484]:
+            - heading "MHS Global Associates" [level=2] [ref=e485]
+            - paragraph [ref=e486]: Global Education Consultants
+        - paragraph [ref=e487]: Personalised admissions guidance and student services that connect dedicated learners with respected universities worldwide.
+        - generic [ref=e488]:
+          - generic [ref=e489]: Suite F5, New Road Business Centre, 109 New Road, Whitechapel, E 1 1HJ.
+          - link "info@mhsglobalassociates.com" [ref=e490] [cursor=pointer]:
+            - /url: mailto:info@mhsglobalassociates.com
+      - generic [ref=e491]:
+        - generic [ref=e492]:
+          - heading "Quick Links" [level=4] [ref=e493]
+          - list [ref=e494]:
+            - listitem [ref=e495]:
+              - link "About Us" [ref=e496] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e497]:
+              - link "Our Services" [ref=e498] [cursor=pointer]:
+                - /url: /student-services
+            - listitem [ref=e499]:
+              - link "Universities" [ref=e500] [cursor=pointer]:
+                - /url: /#universities
+            - listitem [ref=e501]:
+              - link "Courses" [ref=e502] [cursor=pointer]:
+                - /url: /#courses
+            - listitem [ref=e503]:
+              - link "Student Support" [ref=e504] [cursor=pointer]:
+                - /url: /student-services
+            - listitem [ref=e505]:
+              - link "Success Stories" [ref=e506] [cursor=pointer]:
+                - /url: /#success-stories
+            - listitem [ref=e507]:
+              - link "Blog" [ref=e508] [cursor=pointer]:
+                - /url: /#blog
+            - listitem [ref=e509]:
+              - link "Contact Us" [ref=e510] [cursor=pointer]:
+                - /url: /#contact
+            - listitem [ref=e511]:
+              - link "Career Opportunities" [ref=e512] [cursor=pointer]:
+                - /url: /#careers
+        - generic [ref=e513]:
+          - heading "Study Destinations" [level=4] [ref=e514]
+          - list [ref=e515]:
+            - listitem [ref=e516]:
+              - link "Study in UK" [ref=e517] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e518]:
+              - link "Study in USA" [ref=e519] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e520]:
+              - link "Study in Canada" [ref=e521] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e522]:
+              - link "Study in Australia" [ref=e523] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e524]:
+              - link "Study in Germany" [ref=e525] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e526]:
+              - link "Study in France" [ref=e527] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e528]:
+              - link "Study in Ireland" [ref=e529] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e530]:
+              - link "Study in Spain" [ref=e531] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e532]:
+              - link "Study in UAE" [ref=e533] [cursor=pointer]:
+                - /url: /#destinations
+            - listitem [ref=e534]:
+              - link "Study in Malta" [ref=e535] [cursor=pointer]:
+                - /url: /#destinations
+        - generic [ref=e536]:
+          - heading "Programmes" [level=4] [ref=e537]
+          - list [ref=e538]:
+            - listitem [ref=e539]:
+              - link "Foundation Programmes" [ref=e540] [cursor=pointer]:
+                - /url: /foundation-programmes
+            - listitem [ref=e541]:
+              - link "Undergraduate Programmes" [ref=e542] [cursor=pointer]:
+                - /url: /undergraduate-programmes
+            - listitem [ref=e543]:
+              - link "Postgraduate Programmes" [ref=e544] [cursor=pointer]:
+                - /url: /postgraduate-programmes
+            - listitem [ref=e545]:
+              - link "Short Programmes" [ref=e546] [cursor=pointer]:
+                - /url: /short-programmes
+      - generic [ref=e547]:
+        - link "LinkedIn" [ref=e548] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/mhs-global-associates-648218387/
+          - generic [ref=e549]: 
+        - link "YouTube" [ref=e550] [cursor=pointer]:
+          - /url: https://www.youtube.com/@MHSGlobalAssociates-1
+          - generic [ref=e551]: 
+        - link "Instagram" [ref=e552] [cursor=pointer]:
+          - /url: https://www.instagram.com/mhsglobalassociates/
+          - generic [ref=e553]: 
+        - link "TikTok" [ref=e554] [cursor=pointer]:
+          - /url: https://www.tiktok.com/@mhs.globalassociates
+          - generic [ref=e555]: 
+        - link "Facebook" [ref=e556] [cursor=pointer]:
+          - /url: https://www.facebook.com/mhsglobalassociiates/
+          - generic [ref=e557]: 
+        - link "X (Twitter)" [ref=e558] [cursor=pointer]:
+          - /url: https://x.com/mhsglobala1
+          - generic [ref=e559]: 
+      - generic [ref=e561]: © 2026 MHS Global Associates. All rights reserved.
