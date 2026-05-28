@@ -1,11 +1,11 @@
 import { ChangeEvent, useMemo, useState } from "react";
 
 import HeroSlider from "../components/HeroSlider";
-import GlobalNetworkSection from "../components/GlobalNetworkSection";
 import PartnerUniversitiesSlider from "../components/PartnerUniversitiesSlider";
 import ContactContent, { ContactInfoItem } from "../components/ContactContent";
 import StudyDestinationsCarousel from "../components/StudyDestinationsCarousel";
 import StudyDestinationPopup from "../components/StudyDestinationPopup";
+import { getCurrentPromoIntakeTitle } from "../utils/intakeMessaging";
 
 import foundationImg from "../assets/images/courses/1.png";
 import undergraduateImg from "../assets/images/courses/2.png";
@@ -28,7 +28,7 @@ const promoHighlights: PromoHighlight[] = [
   {
     id: "uk-intake",
     eyebrow: "Pursue your studies at leading UK universities",
-    title: "January 2026 intake: applications now open",
+    title: getCurrentPromoIntakeTitle(new Date()),
     description:
       "Submit your application early to secure a place. Our advisers offer guidance throughout the process.",
   },
@@ -233,7 +233,6 @@ const HomePage = (): JSX.Element => {
           </div>
         </div>
       </section>
-      <GlobalNetworkSection />
       <PartnerUniversitiesSlider />
 
       <section className="courses-section py-5 py-lg-6" id="courses">

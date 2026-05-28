@@ -1,8 +1,8 @@
 const serviceTags: string[] = [
-  "Admissions coordination",
-  "Advisory support",
-  "Scholarship guidance",
-  "Student care",
+  "End-to-end support",
+  "Personalised guidance",
+  "Global education journey",
+  "Post-study planning",
 ];
 
 type ServiceCard = {
@@ -14,73 +14,162 @@ type ServiceCard = {
 
 const serviceCards: ServiceCard[] = [
   {
-    title: "Admissions Guidance & Coordination",
+    title: "Career Counselling & Profile Assessment",
     description:
-      "Receive step-by-step guidance throughout your application process to ensure your submission is accurate, timely, and aligned with university requirements.",
-    icon: "bi-clipboard-check",
+      "Choosing the right academic path is critical. Our expert advisors provide:",
+    icon: "bi-compass",
     points: [
-      "Dedicated advisers for UCAS and direct university applications",
-      "Clear information on entry requirements, documentation, and certified translations",
-      "Structured application timelines for September, January, and May intakes",
-      "Support with offer responses, deferrals, and enrolment preparation",
+      "One-on-one career counselling sessions",
+      "Detailed profile evaluation (academic background, interests, and career goals)",
+      "Guidance on selecting the right country, course, and institution",
+      "Personalised recommendations based on future career prospects",
     ],
   },
   {
-    title: "Student Success & Support Services",
+    title: "Course & University Selection",
     description:
-      "Access personalised academic and career support designed to help you make confident choices, strengthen your applications, and succeed in your studies.",
-    icon: "bi-stars",
+      "With access to a wide network of global institutions, we assist in:",
+    icon: "bi-buildings",
     points: [
-      "One-to-one academic and career guidance sessions",
-      "Interactive workshops on personal statements and interview preparation",
-      "Early updates on scholarships, bursaries, and financial aid opportunities",
-      "Invitations to open days, webinars, and campus visit programmes",
+      "Identifying suitable universities and programs",
+      "Comparing course structures, rankings, and career outcomes",
+      "Selecting options that align with budget and academic profile",
     ],
   },
   {
-    title: "Finance, Housing & Wellbeing Assistance",
+    title: "Application & Admission Support",
     description:
-      "Get comprehensive guidance on financial planning, accommodation options, and practical arrangements for a smooth and supported university experience.",
-    icon: "bi-house-heart",
+      "Our team simplifies the application process through:",
+    icon: "bi-file-earmark-check",
     points: [
-      "Advice on tuition fees, instalment plans, and sponsorship routes",
-      "Assistance with student finance and loan applications where eligible",
-      "Guidance on university and private accommodation options",
-      "Pre-departure support including travel, banking, and healthcare registration",
+      "Preparation and review of key documents (SOP, CV, LORs)",
+      "Accurate and timely application submissions",
+      "Direct coordination with institutions",
+      "Interview preparation where required",
+    ],
+  },
+  {
+    title: "Visa Guidance & Immigration Support",
+    description:
+      "We provide structured support for visa applications, including:",
+    icon: "bi-passport",
+    points: [
+      "Step-by-step guidance on visa procedures",
+      "Documentation checks and compliance review",
+      "Mock interview preparation",
+      "Updates on immigration policies",
+    ],
+  },
+  {
+    title: "Test Preparation Support",
+    description:
+      "We assist in meeting admission requirements by offering guidance for:",
+    icon: "bi-journal-text",
+    points: [
+      "English proficiency tests such as IELTS, TOEFL, and PTE",
+      "GRE and GMAT preparation for postgraduate programs",
+      "Study resources and exam strategies",
+    ],
+  },
+  {
+    title: "Scholarship & Financial Guidance",
+    description:
+      "We help make education more accessible through:",
+    icon: "bi-cash-coin",
+    points: [
+      "Identification of relevant scholarships and grants",
+      "Assistance with scholarship applications",
+      "Guidance on education loans and financial planning",
+    ],
+  },
+  {
+    title: "Pre-Departure Support",
+    description:
+      "Preparing for a new environment is essential. Our services include:",
+    icon: "bi-briefcase",
+    points: [
+      "Pre-departure orientation sessions",
+      "Guidance on travel, packing, and documentation",
+      "Information on local culture and academic expectations",
+      "Support with insurance and foreign exchange",
+    ],
+  },
+  {
+    title: "Accommodation & Travel Assistance",
+    description:
+      "We help secure safe and convenient arrangements by offering:",
+    icon: "bi-house-check",
+    points: [
+      "Assistance with student housing (on-campus and off-campus)",
+      "Temporary accommodation support",
+      "Travel planning guidance",
+      "Airport pickup coordination",
+    ],
+  },
+  {
+    title: "Arrival & Settlement Support",
+    description: "Support continues after arrival with:",
+    icon: "bi-geo-alt",
+    points: [
+      "Initial guidance upon reaching the destination",
+      "Help with essential setup (banking, communication, local services)",
+      "Orientation to the local area",
+      "Ongoing assistance when needed",
+    ],
+  },
+  {
+    title: "Academic & Language Support",
+    description: "We support academic success through:",
+    icon: "bi-mortarboard",
+    points: [
+      "Study skills guidance",
+      "Adaptation to new education systems",
+      "Language support where required",
+    ],
+  },
+  {
+    title: "Career & Part-Time Work Guidance",
+    description:
+      "We assist in building practical experience and career readiness:",
+    icon: "bi-briefcase-fill",
+    points: [
+      "Guidance on part-time work opportunities",
+      "CV development and interview preparation",
+      "Internship and placement advice",
+      "Career planning support",
+    ],
+  },
+  {
+    title: "Post-Study Support",
+    description: "Our support extends beyond education:",
+    icon: "bi-arrow-up-right-circle",
+    points: [
+      "Guidance on post-study work opportunities",
+      "Career planning and job search strategies",
+      "Advice on further studies or long-term pathways",
     ],
   },
 ];
 
-type ServiceCategory = {
-  name: string;
-  count: number;
-};
-
-const serviceCategories: ServiceCategory[] = [
-  { name: "Admissions & UCAS", count: 24 },
-  { name: "Accommodation", count: 12 },
-  { name: "Finance & Scholarships", count: 18 },
-  { name: "Student Welfare", count: 16 },
-  { name: "Visa Support", count: 20 },
+const serviceJourney: string[] = [
+  "Career Counselling & Profile Assessment",
+  "Course & University Selection",
+  "Application & Admission Support",
+  "Visa Guidance & Immigration Support",
+  "Pre-Departure Support",
+  "Arrival & Settlement Support",
+  "Post-Study Support",
 ];
 
-const complimentaryServices: string[] = [
-  "Assessment of documents and qualification mapping",
-  "Course and university selection guidance",
-  "Scholarship opportunity briefings",
-  "Personal statement and CV workshops",
-  "Admission and credibility interview preparation",
-  "Guidance on visa application documentation",
-  "Visa submission assistance and follow-up",
-  "Pre-departure briefings and enrolment support",
-  "UCAS application assistance",
-  "Student finance application support",
-  "Career consultation and progression planning",
+const whyChoosePoints: string[] = [
+  "Personalised and student-focused approach",
+  "End-to-end guidance from start to finish",
+  "Strong network of global institutions",
+  "Experienced and knowledgeable advisors",
+  "Transparent and ethical services",
 ];
 
 const StudentServicesPage = (): JSX.Element => {
-  const filteredServices = serviceCards;
-
   return (
     <>
       <section className="services-hero position-relative text-white">
@@ -92,20 +181,14 @@ const StudentServicesPage = (): JSX.Element => {
           <h1 className="display-5 fw-bold mb-3">
             Student Services and Support
           </h1>
-          <p className="lead text-white-75 mb-4 col-lg-7">
-            MHS Global Associates supports every stage of your journey with{" "}
-            <strong>personalised admissions expertise</strong>,{" "}
-            <strong>attentive student care</strong>, and practical guidance that
-            carries you from enquiry to enrolment with confidence.
+          <p className="lead text-white-75 mb-4 col-lg-8">
+            At MHS Global Associates, we provide comprehensive, end-to-end
+            support designed to guide students through every stage of their
+            study abroad journey, from initial consultation to post-graduation
+            success. Our approach focuses on delivering personalised, reliable,
+            and efficient services to ensure a smooth and successful transition
+            into global education.
           </p>
-          {/* <div className="d-flex flex-wrap gap-3">
-            <a className="btn btn-primary btn-lg" href="/#contact">
-              Explore Services
-            </a>
-            <a className="btn btn-outline-light btn-lg" href="mailto:info@mhsglobalassociates.com">
-              Speak to an Advisor
-            </a>
-          </div> */}
         </div>
       </section>
 
@@ -121,89 +204,67 @@ const StudentServicesPage = (): JSX.Element => {
               </span>
             ))}
           </div>
+
           <div className="row g-5">
             <div className="col-lg-8">
               <h2 className="fw-bold text-dark mb-3">
-                Comprehensive Support for Every Milestone
+                Comprehensive Support for Every Stage
               </h2>
               <p className="text-secondary mb-4">
-                Explore a suite of student services that helps you shortlist the
-                right course, secure competitive offers, and arrange the
-                practical details of study. We combine regional insight with
-                trusted university partnerships so each step is well informed.
+                We help students make informed decisions aligned with long-term
+                success, ensure the right fit academically, financially, and
+                professionally, and support a smooth transition into life and
+                study abroad.
               </p>
 
               <div className="card border-0 shadow-sm service-intro-card mb-5">
                 <div className="card-body p-4 p-lg-5">
-                  <p className="lead mb-4">
-                    We coordinate university communications, documentation, and
-                    deadlines with <strong>careful attention</strong>,
-                    presenting your profile clearly to decision makers. Our{" "}
-                    <strong>complimentary support</strong> allows you to focus on
-                    choosing the path that inspires you.
+                  <p className="lead mb-3">
+                    Our goal is to guide each student with structured support at
+                    every milestone, from choosing a course and preparing
+                    applications to settling in and planning beyond graduation.
                   </p>
-                  <div className="row g-4">
-                    <div className="col-sm-6 col-lg-4">
-                      <div className="service-stat">
-                        <span className="service-stat-value">4+</span>
-                        <span className="service-stat-label">
-                          Qualification
-                          <br />
-                          pathways supported
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-lg-4">
-                      <div className="service-stat">
-                        <span className="service-stat-value">3</span>
-                        <span className="service-stat-label">
-                          Annual
-                          <br />
-                          intakes covered
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 col-lg-4">
-                      <div className="service-stat">
-                        <span className="service-stat-value">100%</span>
-                        <span className="service-stat-label">
-                          Complimentary
-                          <br />
-                          advisory support
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-secondary mb-0">
+                    We aim to support long-term success beyond graduation.
+                  </p>
                 </div>
               </div>
 
               <div className="row g-4">
-                {filteredServices.map((card) => (
+                {serviceCards.map((card) => (
                   <div key={card.title} className="col-md-6">
-                    <div className="card h-100 border-0 shadow-sm service-card">
+                    <article
+                      id={
+                        card.title === "Scholarship & Financial Guidance"
+                          ? "scholarship-guidance"
+                          : undefined
+                      }
+                      className="card h-100 border-0 shadow-sm service-card"
+                    >
                       <div className="card-body d-flex flex-column">
                         <div className="service-card-icon icon-pill text-primary mb-3">
-                          <i className={"bi " + card.icon}></i>
+                          <i className={"bi " + card.icon} aria-hidden="true"></i>
                         </div>
                         <h3 className="h5 fw-semibold text-dark mb-2">
                           {card.title}
                         </h3>
-                        <p className="text-secondary mb-3">
-                          {card.description}
-                        </p>
-                        <ul className="list-unstyled d-flex flex-column gap-2 mb-4">
+                        <p className="text-secondary mb-3">{card.description}</p>
+                        <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
                           {card.points.map((point) => (
                             <li
                               key={point}
                               className="d-flex align-items-start gap-2 text-secondary"
                             >
-                              <i className="bi bi-check-circle-fill text-primary"></i>
+                              <i
+                                className="bi bi-check-circle-fill text-primary"
+                                aria-hidden="true"
+                              ></i>
                               <span>{point}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                    </div>
+                    </article>
                   </div>
                 ))}
               </div>
@@ -211,19 +272,20 @@ const StudentServicesPage = (): JSX.Element => {
               <div className="card border-0 shadow-sm service-extra-card mt-5">
                 <div className="card-body p-4 p-lg-5">
                   <h3 className="h5 fw-semibold text-dark mb-3">
-                    Additional Support Included
+                    Why Choose MHS Global Associates?
                   </h3>
                   <p className="text-secondary mb-4">
-                    Benefit from a portfolio of{" "}
-                    <strong>no-cost services</strong> that provide clarity,
-                    structure, and motivation from first enquiry through
-                    arrival.
+                    We are committed to helping every student achieve their
+                    academic and career goals with confidence.
                   </p>
                   <div className="row row-cols-1 row-cols-md-2 g-3">
-                    {complimentaryServices.map((item) => (
+                    {whyChoosePoints.map((item) => (
                       <div key={item} className="col">
                         <div className="d-flex align-items-start gap-2 text-secondary">
-                          <i className="bi bi-check2 text-primary mt-1"></i>
+                          <i
+                            className="bi bi-check2 text-primary mt-1"
+                            aria-hidden="true"
+                          ></i>
                           <span>{item}</span>
                         </div>
                       </div>
@@ -238,20 +300,34 @@ const StudentServicesPage = (): JSX.Element => {
                 <div className="card border-0 shadow-sm service-category-card">
                   <div className="card-body">
                     <h3 className="h6 text-dark fw-semibold mb-3">
-                      Our services
+                      Student support journey
                     </h3>
-                    <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
-                      {serviceCategories.map((category) => (
+                    <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
+                      {serviceJourney.map((step, index) => (
                         <li
-                          key={category.name}
-                          className="d-flex justify-content-between align-items-center text-secondary"
+                          key={step}
+                          className="d-flex justify-content-between align-items-start gap-3 text-secondary"
                         >
-                          <span>{category.name}</span>
+                          <span>{step}</span>
                           <span className="badge rounded-pill bg-primary-subtle text-primary-emphasis fw-semibold">
-                            {category.count}
+                            {index + 1}
                           </span>
                         </li>
                       ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="card border-0 shadow-sm service-category-card">
+                  <div className="card-body">
+                    <h3 className="h6 text-dark fw-semibold mb-3">
+                      Funding and preparation
+                    </h3>
+                    <ul className="list-unstyled d-flex flex-column gap-2 mb-0 text-secondary">
+                      <li>Scholarship and grant identification</li>
+                      <li>Guidance on education loans and financial planning</li>
+                      <li>Test preparation guidance for IELTS, TOEFL, PTE, GRE, and GMAT</li>
+                      <li>Travel, documentation, insurance, and foreign exchange support</li>
                     </ul>
                   </div>
                 </div>
@@ -262,8 +338,9 @@ const StudentServicesPage = (): JSX.Element => {
                       Ready for Personalised Guidance?
                     </h3>
                     <p className="text-white-75 mb-3">
-                      Arrange a complimentary session with our senior advisers
-                      to design a <strong>tailored academic roadmap</strong>.
+                      Speak with our advisers for one-on-one career counselling,
+                      course selection support, and a clear plan for your study
+                      abroad journey.
                     </p>
                     <a
                       className="btn btn-lg btn-light w-100"

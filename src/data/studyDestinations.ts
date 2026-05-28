@@ -3,6 +3,11 @@ import ukImg from "../assets/countries/uk.webp";
 import usaImg from "../assets/countries/usa.webp";
 import canadaImg from "../assets/countries/canada.webp";
 import australiaImg from "../assets/countries/australia.webp";
+import uaeImg from "../assets/countries/UAE.webp";
+import franceImg from "../assets/countries/france.webp";
+import germanyImg from "../assets/countries/germany.webp";
+import spainImg from "../assets/countries/spain.webp";
+import maltaImg from "../assets/countries/malta.webp";
 
 export type DestinationFact = {
   label: string;
@@ -441,6 +446,517 @@ export const studyDestinations: StudyDestination[] = [
           "Canada actively supports international students seeking high-quality education abroad.",
           "Many scholarships are offered by universities and the government to students with outstanding academic records.",
           "Award amounts vary widely, and some university scholarships for international students range from CAD 10,000 to CAD 60,000+ over multiple years.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "uae",
+    name: "Study in UAE",
+    image: uaeImg,
+    imageAlt: "Students reviewing notes together in an international campus environment",
+    cardEyebrow: "A fast-growing education hub in the Middle East",
+    cardSummary:
+      "Globally recognized degrees, modern campuses, strong industry links, and English-taught programs in a multicultural setting.",
+    cardFacts: [
+      { label: "Capital", value: "Abu Dhabi" },
+      { label: "Currency", value: "AED" },
+      { label: "Intakes", value: "January / September" },
+    ],
+    overview:
+      "The UAE is a fast-growing education hub in the Middle East, offering globally recognized degrees, modern campuses, and strong industry connections. With a diverse international student population and English widely used in education, the UAE provides a dynamic environment for academic and professional growth.",
+    keyFacts: [
+      {
+        label: "General",
+        value:
+          "The UAE is located in the Middle East and is known for its modern infrastructure and global connectivity.",
+      },
+      { label: "Capital", value: "Abu Dhabi" },
+      {
+        label: "Number of Universities",
+        value: "70+ universities and international branch campuses",
+      },
+      {
+        label: "Climate",
+        value: "Desert climate with hot summers and mild winters",
+      },
+      { label: "Official Language", value: "Arabic" },
+      { label: "Currency", value: "UAE Dirham (AED)" },
+    ],
+    sections: [
+      {
+        id: "why-uae",
+        title: "Why UAE?",
+        intro:
+          "The UAE offers a globally oriented education system in a modern, multicultural setting.",
+        bullets: [
+          "Many programs delivered in English.",
+          "Home to international branch campuses from UK, US, and Australian universities.",
+          "Strong focus on business, engineering, IT, and hospitality.",
+          "Excellent infrastructure and student facilities.",
+          "Safe and multicultural environment.",
+          "Opportunities for internships and industry exposure.",
+          "Students can work part-time subject to visa rules.",
+          "Strategic location with global career opportunities.",
+        ],
+      },
+      {
+        id: "uae-academic-system",
+        title: "UAE Academic System",
+        intro: "The UAE higher education system includes:",
+        bullets: [
+          "Public universities",
+          "Private universities",
+          "International branch campuses",
+          "Vocational and technical institutions",
+        ],
+      },
+      {
+        id: "available-qualifications",
+        title: "Available Qualifications",
+        bullets: [
+          "Foundation / Pathway Programs",
+          "Diploma Programs",
+          "Bachelor's Degree",
+          "Master's Degree",
+          "Doctoral Degree (PhD)",
+          "MBA and specialized business programs",
+        ],
+      },
+      {
+        id: "entry-test-requirements",
+        title: "Entry Test Requirements",
+        bullets: [
+          "IELTS typically 5.5 to 6.5 or TOEFL / PTE.",
+          "Some universities may conduct internal assessments.",
+          "GMAT or GRE for certain postgraduate programs.",
+        ],
+      },
+      {
+        id: "intake",
+        title: "Intake",
+        bullets: [
+          "September (main intake)",
+          "January (secondary intake)",
+          "Some institutions offer rolling admissions",
+        ],
+      },
+      {
+        id: "scholarships",
+        title: "Scholarships",
+        bullets: [
+          "University-specific merit-based scholarships.",
+          "Government and institutional funding.",
+          "Tuition fee discounts and grants.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "france",
+    name: "Study in France",
+    image: franceImg,
+    imageAlt: "Students studying together in a European university setting",
+    cardEyebrow: "Academic excellence with cultural depth",
+    cardSummary:
+      "Prestigious institutions, affordable public university tuition, growing English-taught programs, and access to the European job market.",
+    cardFacts: [
+      { label: "Capital", value: "Paris" },
+      { label: "Currency", value: "EUR" },
+      { label: "Intakes", value: "January / September" },
+    ],
+    overview:
+      "France is one of the world's top destinations for higher education, known for its academic excellence, cultural richness, and strong research focus. With an increasing number of English-taught programs, France offers international students access to prestigious institutions and global career opportunities.",
+    keyFacts: [
+      {
+        label: "General",
+        value:
+          "France is located in Western Europe and is a member of the European Union.",
+      },
+      { label: "Capital", value: "Paris" },
+      {
+        label: "Number of Universities",
+        value:
+          "3,500+ higher education institutions including universities and grandes ecoles",
+      },
+      {
+        label: "Climate",
+        value: "Temperate climate with mild winters and warm summers",
+      },
+      { label: "Official Language", value: "French" },
+      { label: "Currency", value: "Euro (€ / EUR)" },
+    ],
+    sections: [
+      {
+        id: "why-france",
+        title: "Why France?",
+        intro:
+          "France combines world-class education with rich cultural exposure.",
+        bullets: [
+          "Increasing number of English-taught programs.",
+          "Affordable tuition at public universities.",
+          "Prestigious institutions like Sorbonne University.",
+          "Strong focus on business, fashion, culinary arts, and engineering.",
+          "Access to the European job market.",
+          "Opportunity to learn French.",
+          "Students can work up to 20 hours per week.",
+        ],
+      },
+      {
+        id: "france-academic-system",
+        title: "France Academic System",
+        intro: "The French system includes:",
+        bullets: [
+          "Public universities",
+          "Grandes ecoles (elite institutions)",
+          "Private schools",
+          "Specialized institutes",
+          "France follows the Bologna Process",
+        ],
+      },
+      {
+        id: "available-qualifications",
+        title: "Available Qualifications",
+        bullets: [
+          "Foundation / Pathway Programs",
+          "Bachelor's Degree (Licence)",
+          "Master's Degree",
+          "Doctoral Degree (PhD)",
+          "MBA and specialized programs",
+        ],
+      },
+      {
+        id: "entry-test-requirements",
+        title: "Entry Test Requirements",
+        bullets: [
+          "IELTS 6.0 to 6.5 or equivalent.",
+          "French proficiency such as DELF or DALF for French-taught programs.",
+          "GMAT or GRE for business programs.",
+        ],
+      },
+      {
+        id: "intake",
+        title: "Intake",
+        bullets: [
+          "September (main intake)",
+          "January (limited programs)",
+        ],
+      },
+      {
+        id: "scholarships",
+        title: "Scholarships",
+        bullets: [
+          "Eiffel Excellence Scholarship.",
+          "Erasmus+ funding.",
+          "Government and university scholarships.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "germany",
+    name: "Study in Germany",
+    image: germanyImg,
+    imageAlt: "Students collaborating in a modern European academic environment",
+    cardEyebrow: "Low tuition with strong research excellence",
+    cardSummary:
+      "High-quality education, minimal tuition costs at public universities, strong STEM pathways, and solid post-study career prospects.",
+    cardFacts: [
+      { label: "Capital", value: "Berlin" },
+      { label: "Currency", value: "EUR" },
+      { label: "Intakes", value: "April / October" },
+    ],
+    overview:
+      "Germany is one of the most popular study destinations in Europe, offering high-quality education, low or no tuition fees at public universities, and strong career prospects. Known for its innovation and research excellence, Germany attracts students from around the world.",
+    keyFacts: [
+      {
+        label: "General",
+        value:
+          "Germany is located in Central Europe and is part of the EU and Schengen Area.",
+      },
+      { label: "Capital", value: "Berlin" },
+      {
+        label: "Number of Universities",
+        value: "400+ higher education institutions",
+      },
+      {
+        label: "Climate",
+        value: "Temperate seasonal climate",
+      },
+      { label: "Official Language", value: "German" },
+      { label: "Currency", value: "Euro (€ / EUR)" },
+    ],
+    sections: [
+      {
+        id: "why-germany",
+        title: "Why Germany?",
+        intro:
+          "Germany offers excellent education with minimal tuition costs.",
+        bullets: [
+          "Low or no tuition fees at public universities.",
+          "Wide range of English-taught programs.",
+          "Globally respected institutions like Technical University of Munich.",
+          "Strong focus on engineering, IT, and sciences.",
+          "Opportunity to work 20 hours per week.",
+          "Post-study work opportunities through an 18-month job search visa.",
+          "Strong economy and job market.",
+        ],
+      },
+      {
+        id: "germany-academic-system",
+        title: "Germany Academic System",
+        intro: "Includes:",
+        bullets: [
+          "Public universities",
+          "Universities of applied sciences",
+          "Private universities",
+          "Research institutions",
+          "Germany follows the Bologna Process",
+        ],
+      },
+      {
+        id: "available-qualifications",
+        title: "Available Qualifications",
+        bullets: [
+          "Foundation (Studienkolleg)",
+          "Bachelor's Degree",
+          "Master's Degree",
+          "Doctoral Degree (PhD)",
+        ],
+      },
+      {
+        id: "entry-test-requirements",
+        title: "Entry Test Requirements",
+        bullets: [
+          "IELTS 6.0 to 6.5 or TOEFL.",
+          "German proficiency such as TestDaF or DSH for German-taught programs.",
+          "GRE or GMAT for some programs.",
+        ],
+      },
+      {
+        id: "intake",
+        title: "Intake",
+        bullets: [
+          "October (main intake)",
+          "April (secondary intake)",
+        ],
+      },
+      {
+        id: "scholarships",
+        title: "Scholarships",
+        bullets: [
+          "DAAD scholarships.",
+          "Erasmus+.",
+          "University-specific funding.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "spain",
+    name: "Study in Spain",
+    image: spainImg,
+    imageAlt: "Students discussing coursework in a bright European campus setting",
+    cardEyebrow: "Affordable study with a vibrant lifestyle",
+    cardSummary:
+      "Globally recognized universities, lower tuition costs, strong cultural exposure, and access to the wider European job market.",
+    cardFacts: [
+      { label: "Capital", value: "Madrid" },
+      { label: "Currency", value: "EUR" },
+      { label: "Intakes", value: "Jan-Feb / September" },
+    ],
+    overview:
+      "Spain is an increasingly popular destination for international students, known for its affordable education, vibrant lifestyle, and globally recognized universities. With a rich cultural heritage, warm climate, and growing number of English-taught programs, Spain offers a unique blend of academic quality and an enjoyable student experience. Students benefit from lower tuition fees compared to many Western countries and access to the wider European job market.",
+    keyFacts: [
+      {
+        label: "General",
+        value:
+          "Spain is located in southwestern Europe and is part of the European Union and the Schengen Area.",
+      },
+      { label: "Capital", value: "Madrid" },
+      {
+        label: "Number of Universities",
+        value: "90+ universities and higher education institutions",
+      },
+      {
+        label: "Climate",
+        value:
+          "Mediterranean climate with hot summers and mild winters, varying by region",
+      },
+      { label: "Official Language", value: "Spanish" },
+      { label: "Currency", value: "Euro (€ / EUR)" },
+    ],
+    sections: [
+      {
+        id: "why-spain",
+        title: "Why Spain?",
+        intro:
+          "Spain combines high-quality education with an exceptional lifestyle.",
+        bullets: [
+          "Increasing number of English-taught programs, especially at postgraduate level.",
+          "Affordable tuition fees and lower cost of living compared to countries like the UK or US.",
+          "Home to respected institutions such as the University of Barcelona and the Autonomous University of Madrid.",
+          "Rich cultural experience with world-famous cuisine, festivals, and historic cities.",
+          "Opportunity to learn or improve Spanish, one of the most widely spoken languages globally.",
+          "Students can work up to 20 hours per week during studies.",
+          "Access to the European job market after graduation subject to visa regulations.",
+          "Strong programs in business, tourism, architecture, arts, and engineering.",
+        ],
+      },
+      {
+        id: "spain-academic-system",
+        title: "Spain Academic System",
+        intro: "The Spanish higher education system includes:",
+        bullets: [
+          "Public universities",
+          "Private universities",
+          "Business schools",
+          "Vocational and technical institutions",
+          "Language schools",
+          "International study centers",
+          "Spain follows the Bologna Process, ensuring compatibility with degrees across Europe",
+        ],
+      },
+      {
+        id: "available-qualifications",
+        title: "Available Qualifications",
+        bullets: [
+          "Foundation / Pathway Programs",
+          "Diploma Programs",
+          "Bachelor's Degree (Grado)",
+          "Master's Degree (Master)",
+          "Doctoral Degree (PhD)",
+          "MBA and specialized business programs",
+        ],
+      },
+      {
+        id: "entry-test-requirements",
+        title: "Entry Test Requirements",
+        bullets: [
+          "Proof of English proficiency through IELTS typically 6.0 to 6.5 or TOEFL / PTE for English-taught programs.",
+          "For Spanish-taught programs, DELE or SIELE certification may be required.",
+          "Some programs may require entrance exams or academic assessments.",
+          "GMAT or GRE may be required for certain postgraduate business programs.",
+        ],
+      },
+      {
+        id: "intake",
+        title: "Intake",
+        bullets: [
+          "September (main intake)",
+          "January / February (limited programs)",
+          "Some universities offer rolling admissions or additional intakes",
+        ],
+      },
+      {
+        id: "scholarships",
+        title: "Scholarships",
+        intro:
+          "Spain offers various scholarship opportunities for international students:",
+        bullets: [
+          "Government-funded scholarships through the Spanish Ministry of Education.",
+          "Erasmus+ funding for EU and partner-country students.",
+          "University-specific merit-based scholarships.",
+          "Scholarships from organizations like La Caixa Foundation.",
+          "Tuition discounts and financial aid depending on the institution.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "malta",
+    name: "Study in Malta",
+    image: maltaImg,
+    imageAlt: "Students learning together in a Mediterranean campus environment",
+    cardEyebrow: "English-taught study in a Mediterranean setting",
+    cardSummary:
+      "British-style education, affordable tuition, a safe student environment, and a smaller-scale academic experience within Europe.",
+    cardFacts: [
+      { label: "Capital", value: "Valletta" },
+      { label: "Currency", value: "EUR" },
+      { label: "Intakes", value: "February / October" },
+    ],
+    overview:
+      "Malta is an emerging study destination offering British-style education, English-taught programs, and a Mediterranean lifestyle. Its safe environment and smaller student population provide a more personalized academic experience.",
+    keyFacts: [
+      {
+        label: "General",
+        value:
+          "Malta is an island country in Southern Europe, part of the EU and Schengen Area.",
+      },
+      { label: "Capital", value: "Valletta" },
+      {
+        label: "Number of Universities",
+        value: "10+ institutions",
+      },
+      {
+        label: "Climate",
+        value: "Mediterranean climate with hot summers and mild winters",
+      },
+      { label: "Official Language", value: "English and Maltese" },
+      { label: "Currency", value: "Euro (€ / EUR)" },
+    ],
+    sections: [
+      {
+        id: "why-malta",
+        title: "Why Malta?",
+        intro:
+          "Malta offers a relaxed, English-speaking environment with quality education.",
+        bullets: [
+          "English is widely spoken and used in education.",
+          "Affordable tuition compared to the UK.",
+          "Recognized institutions like the University of Malta.",
+          "Safe and student-friendly environment.",
+          "Strong tourism, business, and IT programs.",
+          "Opportunity to work part-time.",
+          "Gateway to Europe.",
+        ],
+      },
+      {
+        id: "malta-academic-system",
+        title: "Malta Academic System",
+        intro: "Includes:",
+        bullets: [
+          "Public universities",
+          "Private institutions",
+          "Vocational colleges",
+          "Language schools",
+        ],
+      },
+      {
+        id: "available-qualifications",
+        title: "Available Qualifications",
+        bullets: [
+          "Foundation Programs",
+          "Diploma Programs",
+          "Bachelor's Degree",
+          "Master's Degree",
+          "Doctoral Degree",
+        ],
+      },
+      {
+        id: "entry-test-requirements",
+        title: "Entry Test Requirements",
+        bullets: [
+          "IELTS typically 5.5 to 6.5.",
+          "Some institutions may conduct interviews.",
+        ],
+      },
+      {
+        id: "intake",
+        title: "Intake",
+        bullets: [
+          "October (main intake)",
+          "February (secondary intake)",
+        ],
+      },
+      {
+        id: "scholarships",
+        title: "Scholarships",
+        bullets: [
+          "Government of Malta scholarships.",
+          "Erasmus+.",
+          "Institutional scholarships and fee discounts.",
         ],
       },
     ],
