@@ -11,6 +11,7 @@ import heroImage1 from "../assets/images/hero-slider-images/1.png";
 import heroImage2 from "../assets/images/hero-slider-images/2.png";
 import heroImage3 from "../assets/images/hero-slider-images/3.png";
 import heroImage4 from "../assets/images/hero-slider-images/5.png";
+import { getCurrentHeroIntakeTitle } from "../utils/intakeMessaging";
 
 type HeroSlide = {
   id: string;
@@ -22,10 +23,10 @@ type HeroSlide = {
   ctaHref: string;
 };
 
-const heroSlides: HeroSlide[] = [
+const heroSlidesTemplate: HeroSlide[] = [
   {
     id: "apply-now",
-    title: "Apply Now for January 2026",
+    title: "",
     description:
       "Start your international education journey and secure your place before deadlines close.",
     image: heroImage1,
@@ -41,7 +42,7 @@ const heroSlides: HeroSlide[] = [
     image: heroImage2,
     imageAlt: "Education consultant guiding international students",
     ctaLabel: "Explore Scholarships",
-    ctaHref: "/student-services",
+    ctaHref: "/student-services#scholarship-guidance",
   },
   {
     id: "book-consultation",
@@ -70,6 +71,16 @@ const SLIDE_INTERVAL = 6000;
 const HeroSlider = (): JSX.Element => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
+  const heroSlides = useMemo<HeroSlide[]>(
+    () => [
+      {
+        ...heroSlidesTemplate[0],
+        title: getCurrentHeroIntakeTitle(new Date()),
+      },
+      ...heroSlidesTemplate.slice(1),
+    ],
+    []
+  );
   const descriptionClampStyles: CSSProperties = {
     display: "-webkit-box",
     WebkitLineClamp: 3,
