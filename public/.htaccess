@@ -3,10 +3,30 @@ DirectoryIndex index.html
 RewriteEngine On
 RewriteBase /
 
+# Mark hashed build assets so they can be cached aggressively.
+RewriteRule ^static/ - [E=IS_STATIC:1]
+
 # Serve real files and real directories normally
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
+
+# Keep the HTML shell fresh so it does not reference deleted or outdated hashed assets.
+<IfModule mod_headers.c>
+  <FilesMatch "^(index\.html|manifest\.json|asset-manifest\.json)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  <FilesMatch "^service-worker\.js$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  Header set Cache-Control "public, max-age=31536000, immutable" env=IS_STATIC
+</IfModule>
 
 # Send all React routes to index.html
 RewriteRule ^ index.html [L]

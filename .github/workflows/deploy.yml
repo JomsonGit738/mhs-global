@@ -29,7 +29,7 @@ jobs:
           ls -la build
           find build -maxdepth 3 -type f
 
-      - name: Deploy clean build to IONOS over SFTP
+      - name: Deploy build to IONOS over SFTP
         env:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
@@ -41,13 +41,26 @@ jobs:
           lftp -u "$FTP_USERNAME","$FTP_PASSWORD" -p "$FTP_PORT" sftp://"$FTP_SERVER" <<EOF
           set sftp:auto-confirm yes
           set ssl:verify-certificate no
+ 
+          mkdir -p /mhsglobalassociatescom/static
 
+          # Upload hashed static assets first so all chunks/media exist before index.html changes.
           mirror \
             --reverse \
-            --delete \
             --verbose \
+            ./build/static/ \
+            /mhsglobalassociatescom/static/
+
+          # Upload non-static root files next, but keep index.html for last to avoid mixed deployments.
+          mirror \
+            --reverse \
+            --verbose \
+            --exclude-glob static \
+            --exclude-glob index.html \
             ./build/ \
             /mhsglobalassociatescom/
+
+          put ./build/index.html -o /mhsglobalassociatescom/index.html
 
           bye
           EOF
