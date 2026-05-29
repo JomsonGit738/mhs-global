@@ -13,14 +13,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build project
         run: npm run build
 
-      # Clean target folder using SFTP-only (IONOS blocks shell access)
-      - name: Clean remote folder over SFTP
+      - name: Verify build output
+        run: |
+          test -f build/index.html
+          test -d build/static
+          ls -la build
+          find build -maxdepth 3 -type f
+
+      - name: Remove and recreate remote folder over SFTP
         env:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
@@ -28,23 +37,25 @@ jobs:
           FTP_PORT: ${{ secrets.FTP_PORT }}
         run: |
           set -e
-          cat <<'EOF' > sftp-clean.cmd
-          mkdir mhsglobalassociatescom
-          cd mhsglobalassociatescom
-          rm -r *
-          EOF
-          # Ignore non-zero exit if the folder is already empty
-          sshpass -p "$FTP_PASSWORD" sftp -o StrictHostKeyChecking=no -P "$FTP_PORT" "$FTP_USERNAME@$FTP_SERVER" < sftp-clean.cmd || true
 
-      # Upload the build folder to IONOS via SFTP + password (pure SFTP, no SSH)
+          cat > sftp-clean.cmd <<'EOF'
+          -rm -r mhsglobalassociatescom
+          mkdir mhsglobalassociatescom
+          EOF
+
+          sshpass -p "$FTP_PASSWORD" sftp \
+            -o StrictHostKeyChecking=no \
+            -P "$FTP_PORT" \
+            "$FTP_USERNAME@$FTP_SERVER" < sftp-clean.cmd
+
       - name: Deploy to IONOS over SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          username: ${{ secrets.FTP_USERNAME }} # su482289
-          server: ${{ secrets.FTP_SERVER }} # access-...webspace-host.com
-          port: ${{ secrets.FTP_PORT }} # 22
-          password: ${{ secrets.FTP_PASSWORD }} # your IONOS password
-          local_path: "./build/*"
-          remote_path: "./mhsglobalassociatescom" # where it lives on IONOS
-          sftp_only: true # avoid SSH because the host allows SFTP only
-          delete_remote_files: false # cleaned via SFTP above; avoid SSH-only delete
+          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_path: "./build/"
+          remote_path: "./mhsglobalassociatescom/"
+          sftp_only: true
+          delete_remote_files: false
