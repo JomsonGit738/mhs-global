@@ -21,8 +21,17 @@ export type DestinationSection = {
   bullets: string[];
 };
 
+export type AdmissionStatus = "Open" | "Opening soon" | "Closed";
+
 export type StudyDestination = {
   id: string;
+  slug: string;
+  country: string;
+  flag?: string;
+  href: string;
+  intakeLabel?: string;
+  admissionStatus?: AdmissionStatus;
+  featuredInHeader?: boolean;
   name: string;
   image: string;
   imageAlt: string;
@@ -37,6 +46,13 @@ export type StudyDestination = {
 export const studyDestinations: StudyDestination[] = [
   {
     id: "ireland",
+    slug: "ireland",
+    country: "Ireland",
+    flag: "🇮🇪",
+    href: "/study-destinations/ireland",
+    intakeLabel: "Sep 2026",
+    admissionStatus: "Open",
+    featuredInHeader: true,
     name: "Study in Ireland",
     image: irelandImg,
     imageAlt: "Students gathered in a modern study environment",
@@ -136,6 +152,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "uk",
+    slug: "uk",
+    country: "UK",
+    flag: "🇬🇧",
+    href: "/study-destinations/uk",
+    intakeLabel: "Sep 2026",
+    admissionStatus: "Open",
+    featuredInHeader: true,
     name: "Study in UK",
     image: ukImg,
     imageAlt: "Students working together with study materials in a bright learning space",
@@ -237,6 +260,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "usa",
+    slug: "usa",
+    country: "USA",
+    flag: "🇺🇸",
+    href: "/study-destinations/usa",
+    intakeLabel: "Jan 2027",
+    admissionStatus: "Opening soon",
+    featuredInHeader: false,
     name: "Study in USA",
     image: usaImg,
     imageAlt: "University students discussing their coursework together",
@@ -347,6 +377,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "canada",
+    slug: "canada",
+    country: "Canada",
+    flag: "🇨🇦",
+    href: "/study-destinations/canada",
+    intakeLabel: "Jan 2027",
+    admissionStatus: "Opening soon",
+    featuredInHeader: true,
     name: "Study in Canada",
     image: canadaImg,
     imageAlt: "Students studying together in a calm classroom setting",
@@ -452,6 +489,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "uae",
+    slug: "uae",
+    country: "UAE",
+    flag: "🇦🇪",
+    href: "/study-destinations/uae",
+    intakeLabel: "Sep 2026",
+    admissionStatus: "Open",
+    featuredInHeader: false,
     name: "Study in UAE",
     image: uaeImg,
     imageAlt: "Students reviewing notes together in an international campus environment",
@@ -554,6 +598,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "france",
+    slug: "france",
+    country: "France",
+    flag: "🇫🇷",
+    href: "/study-destinations/france",
+    intakeLabel: "Sep 2026",
+    admissionStatus: "Opening soon",
+    featuredInHeader: false,
     name: "Study in France",
     image: franceImg,
     imageAlt: "Students studying together in a European university setting",
@@ -655,6 +706,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "germany",
+    slug: "germany",
+    country: "Germany",
+    flag: "🇩🇪",
+    href: "/study-destinations/germany",
+    intakeLabel: "Oct 2026",
+    admissionStatus: "Opening soon",
+    featuredInHeader: false,
     name: "Study in Germany",
     image: germanyImg,
     imageAlt: "Students collaborating in a modern European academic environment",
@@ -754,6 +812,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "spain",
+    slug: "spain",
+    country: "Spain",
+    flag: "🇪🇸",
+    href: "/study-destinations/spain",
+    intakeLabel: "Sep 2026",
+    admissionStatus: "Opening soon",
+    featuredInHeader: false,
     name: "Study in Spain",
     image: spainImg,
     imageAlt: "Students discussing coursework in a bright European campus setting",
@@ -865,6 +930,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "malta",
+    slug: "malta",
+    country: "Malta",
+    flag: "🇲🇹",
+    href: "/study-destinations/malta",
+    intakeLabel: "Oct 2026",
+    admissionStatus: "Open",
+    featuredInHeader: false,
     name: "Study in Malta",
     image: maltaImg,
     imageAlt: "Students learning together in a Mediterranean campus environment",
@@ -963,6 +1035,13 @@ export const studyDestinations: StudyDestination[] = [
   },
   {
     id: "australia",
+    slug: "australia",
+    country: "Australia",
+    flag: "🇦🇺",
+    href: "/study-destinations/australia",
+    intakeLabel: "Feb 2027",
+    admissionStatus: "Open",
+    featuredInHeader: true,
     name: "Study in Australia",
     image: australiaImg,
     imageAlt: "Students reviewing notes together in a collaborative campus environment",
@@ -1073,6 +1152,19 @@ export const studyDestinations: StudyDestination[] = [
     ],
   },
 ];
+
+export const headerStudyDestinations: StudyDestination[] = studyDestinations
+  .filter((destination) => {
+    if (!destination.intakeLabel || !destination.admissionStatus) {
+      return false;
+    }
+
+    return (
+      destination.admissionStatus === "Open" ||
+      destination.admissionStatus === "Opening soon"
+    );
+  })
+  .slice(0, 3);
 
 export const getStudyDestination = (
   destinationId: string

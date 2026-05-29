@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Collapse from "bootstrap/js/dist/collapse";
 import logo from "../assets/images/mhs-logo-brand.png";
+import { headerStudyDestinations } from "../data/studyDestinations";
 
 type NavItem = { label: string; to: string } | { label: string; href: string };
 
@@ -13,17 +14,11 @@ const navItems: NavItem[] = [
   { label: "Contact", to: "/contact" },
 ];
 
-const tickerItems: string[] = [
-  "Applications are open for upcoming intakes",
-  "Get expert support with admissions, visas, and scholarships",
-  "Study in the UK with trusted university partners",
-];
-
 type HeaderProps = {
-  showTicker?: boolean;
+  showIntakeBar?: boolean;
 };
 
-const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
+const Header = ({ showIntakeBar = false }: HeaderProps): JSX.Element => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [canHover, setCanHover] = useState(false);
@@ -102,7 +97,14 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
     closeNav();
   };
 
-  const tickerLoop = [...tickerItems, ...tickerItems];
+  const activeHeaderDestination = useMemo(() => {
+    if (headerStudyDestinations.length === 0) {
+      return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * headerStudyDestinations.length);
+    return headerStudyDestinations[randomIndex];
+  }, []);
 
   useEffect(() => {
     lastScrollYRef.current = window.scrollY;
@@ -254,30 +256,50 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
           Apply now
         </a>
       </div>
-      {showTicker && (
+      {showIntakeBar && activeHeaderDestination && (
         <div
-          className="header-luxe__ticker"
+          className="header-luxe__intakebar"
           role="region"
-          aria-label="Admissions updates"
+          aria-label="Current study destination intake updates"
         >
-          <div className="header-luxe__ticker-track" role="list">
-            {tickerLoop.map((text, index) => {
-              const isDuplicate = index >= tickerItems.length;
-
-              return (
-              <span
-                className="header-luxe__ticker-item"
-                key={`${text}-${index}`}
-                role={isDuplicate ? undefined : "listitem"}
-                aria-hidden={isDuplicate ? true : undefined}
-              >
-                <span className="header-luxe__ticker-separator" aria-hidden="true">
-                  <i className="bi bi-circle-fill"></i>
-                </span>
-                <span>{text}</span>
+          <div className="container header-luxe__intakebar-inner">
+            <Link
+              className="header-luxe__intake-feature"
+              to={activeHeaderDestination.href}
+              onClick={closeNav}
+            >
+              <span className="header-luxe__intake-feature-kicker">
+                {activeHeaderDestination.name}
               </span>
-              );
-            })}
+              <span className="header-luxe__intake-feature-copy">
+                <span className="header-luxe__intake-feature-highlight">
+                  {activeHeaderDestination.intakeLabel} intake
+                </span>
+                <span className="header-luxe__intake-feature-separator" aria-hidden="true">
+                  ·
+                </span>
+                <span className="header-luxe__intake-feature-tagline">
+                  {activeHeaderDestination.cardEyebrow}
+                </span>
+                <span className="header-luxe__intake-feature-separator" aria-hidden="true">
+                  ·
+                </span>
+                <span
+                  className={`header-luxe__intake-status header-luxe__intake-status--${activeHeaderDestination.admissionStatus
+                    ?.toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                >
+                  {activeHeaderDestination.admissionStatus}
+                </span>
+              </span>
+              <span className="header-luxe__intake-feature-copy-mobile">
+                {activeHeaderDestination.country}
+                <span aria-hidden="true"> · </span>
+                {activeHeaderDestination.intakeLabel}
+                <span aria-hidden="true"> · </span>
+                {activeHeaderDestination.admissionStatus}
+              </span>
+            </Link>
           </div>
         </div>
       )}

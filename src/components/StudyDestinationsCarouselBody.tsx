@@ -68,10 +68,7 @@ const StudyDestinationsCarouselBody = (): JSX.Element => {
                 );
 
                 return (
-                  <Link
-                    to={`/study-destinations/${destination.id}`}
-                    className="destination-card__link"
-                  >
+                  <Link to={destination.href} className="destination-card__link">
                     <div className="destination-card__media">
                       <img
                         src={destination.image}

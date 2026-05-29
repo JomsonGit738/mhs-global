@@ -20,7 +20,7 @@ const routeFallback = <div aria-hidden="true" />;
 
 const Layout = (): JSX.Element => {
   const { pathname, hash } = useLocation();
-  const showTicker = pathname === '/';
+  const showIntakeBar = pathname === '/';
 
   useEffect(() => {
     if (hash) {
@@ -44,7 +44,7 @@ const Layout = (): JSX.Element => {
 
   return (
     <div className="app-root bg-body-tertiary" id="top">
-      <Header showTicker={showTicker} />
+      <Header showIntakeBar={showIntakeBar} />
       <main>
         <Outlet />
       </main>

@@ -54,7 +54,7 @@ const StudyDestinationPopup = (): JSX.Element | null => {
 
   const handleOpenDestination = () => {
     setIsOpen(false);
-    navigate(`/study-destinations/${featuredDestination.id}`);
+    navigate(featuredDestination.href);
   };
 
   return (
