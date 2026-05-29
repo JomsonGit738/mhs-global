@@ -52,9 +52,10 @@
 }
 
 .luxury-hero-slide {
+  --hero-slide-pad: clamp(1rem, 3vw, 2rem);
   width: 100%;
   height: 100%;
-  min-height: inherit;
+  min-height: clamp(28rem, 58vw, 38rem);
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -67,7 +68,7 @@
   border-radius: 1.5rem;
   box-shadow: 0 24px 60px rgba(13, 110, 253, 0.1),
     0 12px 30px rgba(15, 23, 42, 0.08);
-  padding: clamp(1rem, 3vw, 2rem);
+  padding: var(--hero-slide-pad);
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
     background 0.5s ease-in-out;
   backdrop-filter: blur(6px);
@@ -113,48 +114,42 @@
   );
 }
 
-.luxury-hero-slide::after {
-  content: "";
+.hero-image-layer {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  right: 0;
-  z-index: 0;
-  background-image: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 32%,
-      rgba(255, 255, 255, 0) 58%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    var(--slide-image);
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  opacity: 0.88;
-  mix-blend-mode: multiply;
-  filter: saturate(1.08);
-  transition: opacity 0.6s ease-in-out, clip-path 0.6s ease-in-out;
+  inset: 0;
+  overflow: hidden;
   pointer-events: none;
   border-radius: 30% 70% 70% 30% / 33% 32% 68% 67%;
   clip-path: inset(8% 15% 10% 14% round 30% 70% 70% 30% / 33% 32% 68% 67%);
   -webkit-clip-path: inset(
     8% 15% 10% 14% round 30% 70% 70% 30% / 33% 32% 68% 67%
   );
-  /* -webkit-mask-image: linear-gradient(
+  transition: opacity 0.6s ease-in-out, clip-path 0.6s ease-in-out;
+}
+
+.hero-image-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(
     90deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.65) 38%,
-    rgba(0, 0, 0, 1) 100%
-  ); */
-  /* mask-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 0, 0, 0.65) 35%,
-      rgba(0, 0, 0, 1) 60%,
-      rgba(0, 0, 0, 1) 100%
-    ); */
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 32%,
+    rgba(255, 255, 255, 0) 58%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: 0.88;
+  mix-blend-mode: multiply;
+  filter: saturate(1.08);
 }
 
 .luxury-hero-slide:focus-within {
@@ -289,6 +284,7 @@
   flex: 1 1 50%;
   pointer-events: none;
   z-index: 1;
+  min-height: clamp(16rem, 34vw, 28rem);
 }
 
 .hero-visual {
@@ -339,30 +335,36 @@
     border-radius: 0;
   }
 
-  .luxury-hero-slide::after {
-    left: 45%;
-    right: 0;
+  .hero-media-col {
+    min-height: clamp(14rem, 32vw, 22rem);
   }
 }
 
 @media (max-width: 767.98px) {
   .luxury-hero-slide {
-    padding: clamp(1.5rem, 6vw, 3rem);
+    --hero-slide-pad: clamp(1.5rem, 6vw, 3rem);
+    padding: var(--hero-slide-pad);
+    min-height: clamp(22rem, 78vw, 30rem);
   }
 
   .hero-accent {
     display: none;
   }
 
-  .luxury-hero-slide::after {
-    left: 0;
+  .hero-media-col {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    width: auto;
+    flex: none;
+    z-index: 0;
+  }
+
+  .hero-image-layer {
     opacity: 0.45;
-    background-position: center;
     clip-path: none;
     -webkit-clip-path: none;
     border-radius: 0;
-    -webkit-mask-image: none;
-    mask-image: none;
   }
 
   .luxury-hero-copy {
@@ -371,9 +373,8 @@
 }
 
 @media (max-width: 567px) {
-  .luxury-hero-slide::after {
-    mask-image: none;
-    background-position: center;
+  .hero-image-layer {
+    inset: 0;
   }
 }
 

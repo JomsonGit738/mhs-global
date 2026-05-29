@@ -38,6 +38,8 @@ type Course = {
   title: string;
   summary: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   slug: string;
 };
 
@@ -47,6 +49,8 @@ const courses: Course[] = [
     summary:
       "Preparatory programmes that strengthen academic English and study skills for undergraduate entry.",
     image: foundationImg,
+    imageWidth: 465,
+    imageHeight: 456,
     slug: "foundation",
   },
   {
@@ -54,6 +58,8 @@ const courses: Course[] = [
     summary:
       "Bachelor's degree programmes across varied disciplines with strong academic reputations and clear graduate prospects.",
     image: undergraduateImg,
+    imageWidth: 463,
+    imageHeight: 456,
     slug: "undergraduate",
   },
   {
@@ -61,6 +67,8 @@ const courses: Course[] = [
     summary:
       "Pre-Master's pathways that build subject knowledge and academic readiness with guidance from experienced faculty.",
     image: preMastersImg,
+    imageWidth: 468,
+    imageHeight: 456,
     slug: "postgraduate",
   },
   {
@@ -68,6 +76,8 @@ const courses: Course[] = [
     summary:
       "Research-focused Master's routes that emphasise independent enquiry supported by dedicated supervision.",
     image: mastersResearchImg,
+    imageWidth: 466,
+    imageHeight: 456,
     slug: "postgraduate",
   },
   {
@@ -75,6 +85,8 @@ const courses: Course[] = [
     summary:
       "Doctoral programmes that combine advanced research training with opportunities for interdisciplinary collaboration.",
     image: phdImg,
+    imageWidth: 462,
+    imageHeight: 456,
     slug: "postgraduate",
   },
   {
@@ -82,6 +94,8 @@ const courses: Course[] = [
     summary:
       "Intensive short courses for working professionals who want to extend their leadership capability.",
     image: executiveImg,
+    imageWidth: 463,
+    imageHeight: 456,
     slug: "shortCourses",
   },
 ];
@@ -324,9 +338,19 @@ const HomePage = (): JSX.Element => {
               <div className="col-md-6 col-xl-4" key={course.title}>
                 <article
                   className="course-card-premium"
-                  style={{ backgroundImage: `url(${course.image})` }}
                   aria-label={course.title}
                 >
+                  <img
+                    src={course.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="course-card-image"
+                    loading="lazy"
+                    decoding="async"
+                    width={course.imageWidth}
+                    height={course.imageHeight}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 33vw"
+                  />
                   <div className="course-card-content">
                     <span className="course-card-icon">
                       <i className="bi bi-search"></i>
@@ -443,6 +467,10 @@ const HomePage = (): JSX.Element => {
                           src={testimonial.image}
                           alt={testimonial.name}
                           className="rounded-circle me-2"
+                          loading="lazy"
+                          decoding="async"
+                          width={25}
+                          height={25}
                           style={{
                             width: "1.5625rem",
                             height: "1.5625rem",
@@ -503,6 +531,10 @@ const HomePage = (): JSX.Element => {
                                     src={testimonial.image}
                                     alt={testimonial.name}
                                     className="rounded-circle border border-2 border-white shadow-sm"
+                                    loading="lazy"
+                                    decoding="async"
+                                    width={33}
+                                    height={33}
                                     style={{
                                       width: "2.03125rem",
                                       height: "2.03125rem",

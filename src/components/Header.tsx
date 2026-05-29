@@ -14,9 +14,9 @@ const navItems: NavItem[] = [
 ];
 
 const tickerItems: string[] = [
-  "January 2026 intake: applications now open",
-  "Apply early to secure your place",
-  "Study in the UK with leading universities",
+  "Applications are open for upcoming intakes",
+  "Get expert support with admissions, visas, and scholarships",
+  "Study in the UK with trusted university partners",
 ];
 
 type HeaderProps = {
@@ -261,18 +261,23 @@ const Header = ({ showTicker = false }: HeaderProps): JSX.Element => {
           aria-label="Admissions updates"
         >
           <div className="header-luxe__ticker-track" role="list">
-            {tickerLoop.map((text, index) => (
+            {tickerLoop.map((text, index) => {
+              const isDuplicate = index >= tickerItems.length;
+
+              return (
               <span
                 className="header-luxe__ticker-item"
                 key={`${text}-${index}`}
-                role="listitem"
+                role={isDuplicate ? undefined : "listitem"}
+                aria-hidden={isDuplicate ? true : undefined}
               >
                 <span className="header-luxe__ticker-separator" aria-hidden="true">
                   <i className="bi bi-circle-fill"></i>
                 </span>
                 <span>{text}</span>
               </span>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

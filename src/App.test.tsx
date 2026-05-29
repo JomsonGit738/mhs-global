@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders home hero heading', () => {
   render(<App />);
-  const heading = screen.getByText(/MHS Global Associates is a modern organization/i);
+  const heading = screen.getByRole('heading', { name: /Our Global Network/i });
   expect(heading).toBeInTheDocument();
 });

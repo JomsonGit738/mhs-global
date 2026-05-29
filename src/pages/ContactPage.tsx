@@ -1,4 +1,5 @@
 import ContactContent, { ContactInfoItem } from "../components/ContactContent";
+import contactHeroImage from "../assets/images/contact-us/1.png";
 
 const contactInfo: ContactInfoItem[] = [
   {
@@ -50,6 +51,17 @@ const ContactPage = (): JSX.Element => {
   return (
     <>
       <section className="contact-hero position-relative text-white">
+        <div className="contact-hero-media" aria-hidden="true">
+          <img
+            src={contactHeroImage}
+            alt=""
+            className="contact-hero-image"
+            decoding="async"
+            width={1521}
+            height={516}
+            sizes="100vw"
+          />
+        </div>
         <div className="contact-hero-overlay"></div>
         <div className="container position-relative py-5 py-lg-6">
           <div className="row my-5 align-items-center g-4">

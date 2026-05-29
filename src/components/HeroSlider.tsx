@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import type { KeenSliderInstance } from "keen-slider";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -80,6 +80,9 @@ const HeroSlider = (): JSX.Element => {
       ...heroSlidesTemplate.slice(1),
     ],
     []
+  );
+  const [loadedSlides, setLoadedSlides] = useState<Set<string>>(
+    () => new Set([heroSlides[0].id])
   );
   const descriptionClampStyles: CSSProperties = {
     display: "-webkit-box",
@@ -231,6 +234,52 @@ const HeroSlider = (): JSX.Element => {
     activeTimelineRef.current = timeline;
   }, []); */
 
+  useEffect(() => {
+    const activeSlideId = heroSlides[currentSlide]?.id;
+
+    if (!activeSlideId) {
+      return;
+    }
+
+    setLoadedSlides((prev) => {
+      if (prev.has(activeSlideId)) {
+        return prev;
+      }
+
+      const next = new Set(prev);
+      next.add(activeSlideId);
+      return next;
+    });
+  }, [currentSlide, heroSlides]);
+
+  useEffect(() => {
+    const nextSlideId = heroSlides[(currentSlide + 1) % heroSlides.length]?.id;
+
+    if (!nextSlideId || loadedSlides.has(nextSlideId)) {
+      return;
+    }
+
+    const preloadNextSlide = () => {
+      setLoadedSlides((prev) => {
+        if (prev.has(nextSlideId)) {
+          return prev;
+        }
+
+        const next = new Set(prev);
+        next.add(nextSlideId);
+        return next;
+      });
+    };
+
+    if (typeof window !== "undefined" && typeof window.requestIdleCallback === "function") {
+      const idleId = window.requestIdleCallback(preloadNextSlide, { timeout: 2500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timer = window.setTimeout(preloadNextSlide, 1800);
+    return () => window.clearTimeout(timer);
+  }, [currentSlide, heroSlides, loadedSlides]);
+
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
@@ -292,12 +341,9 @@ const HeroSlider = (): JSX.Element => {
           aria-live="polite"
         >
           {heroSlides.map((slide) => {
-            const slideStyles: CSSProperties = {};
-
-            (slideStyles as Record<string, string>)[
-              "--slide-image"
-            ] = `url(${slide.image})`;
             const mainHeadingText = slide.title;
+            const shouldLoadImage = loadedSlides.has(slide.id);
+            const isInitiallyVisibleSlide = slide.id === heroSlides[0].id;
 
             return (
               <div
@@ -307,7 +353,6 @@ const HeroSlider = (): JSX.Element => {
               >
                 <div
                   className="hero-slide row g-0 align-items-stretch luxury-hero-slide"
-                  style={slideStyles}
                 >
                   <span
                     className="hero-accent hero-accent--primary"
@@ -341,7 +386,23 @@ const HeroSlider = (): JSX.Element => {
                     </div>
                   </div>
                   <div className="col-lg-6 hero-media-col" aria-hidden="true">
-                    <div className="hero-visual"></div>
+                    <div className="hero-image-layer">
+                      {shouldLoadImage ? (
+                        <img
+                          src={slide.image}
+                          alt=""
+                          className="hero-image"
+                          loading={isInitiallyVisibleSlide ? "eager" : "lazy"}
+                          decoding={isInitiallyVisibleSlide ? "auto" : "async"}
+                          width={940}
+                          height={595}
+                          sizes="(max-width: 767px) 100vw, 50vw"
+                          {...(isInitiallyVisibleSlide
+                            ? { fetchpriority: "high" }
+                            : { fetchpriority: "low" })}
+                        />
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </div>

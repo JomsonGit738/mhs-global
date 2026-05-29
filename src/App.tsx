@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import './App.css';
 import './styles/studyDestinations.css';
@@ -6,14 +6,17 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingContactButtons';
 import HomePage from './pages/HomePage';
-import FoundationProgrammesPage from './pages/FoundationProgrammesPage';
-import UndergraduateProgrammesPage from './pages/UndergraduateProgrammesPage';
-import PostgraduateProgrammesPage from './pages/PostgraduateProgrammesPage';
-import ShortProgrammesPage from './pages/ShortProgrammesPage';
-import StudentServicesPage from './pages/StudentServicesPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import StudyDestinationPage from './pages/StudyDestinationPage';
+
+const FoundationProgrammesPage = lazy(() => import('./pages/FoundationProgrammesPage'));
+const UndergraduateProgrammesPage = lazy(() => import('./pages/UndergraduateProgrammesPage'));
+const PostgraduateProgrammesPage = lazy(() => import('./pages/PostgraduateProgrammesPage'));
+const ShortProgrammesPage = lazy(() => import('./pages/ShortProgrammesPage'));
+const StudentServicesPage = lazy(() => import('./pages/StudentServicesPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const StudyDestinationPage = lazy(() => import('./pages/StudyDestinationPage'));
+
+const routeFallback = <div aria-hidden="true" />;
 
 const Layout = (): JSX.Element => {
   const { pathname, hash } = useLocation();
@@ -58,14 +61,70 @@ const App = (): JSX.Element => {
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           {/* Programme category pages */}
-          <Route path="foundation-programmes" element={<FoundationProgrammesPage />} />
-          <Route path="undergraduate-programmes" element={<UndergraduateProgrammesPage />} />
-          <Route path="postgraduate-programmes" element={<PostgraduateProgrammesPage />} />
-          <Route path="short-programmes" element={<ShortProgrammesPage />} />
-          <Route path="student-services" element={<StudentServicesPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="study-destinations/:destinationId" element={<StudyDestinationPage />} />
+          <Route
+            path="foundation-programmes"
+            element={
+              <Suspense fallback={routeFallback}>
+                <FoundationProgrammesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="undergraduate-programmes"
+            element={
+              <Suspense fallback={routeFallback}>
+                <UndergraduateProgrammesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="postgraduate-programmes"
+            element={
+              <Suspense fallback={routeFallback}>
+                <PostgraduateProgrammesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="short-programmes"
+            element={
+              <Suspense fallback={routeFallback}>
+                <ShortProgrammesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="student-services"
+            element={
+              <Suspense fallback={routeFallback}>
+                <StudentServicesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="about"
+            element={
+              <Suspense fallback={routeFallback}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contact"
+            element={
+              <Suspense fallback={routeFallback}>
+                <ContactPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="study-destinations/:destinationId"
+            element={
+              <Suspense fallback={routeFallback}>
+                <StudyDestinationPage />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </Router>

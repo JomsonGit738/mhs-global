@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { SCRIPT_URL } from "../config/env";
+import aboutHeroImage from "../assets/images/about-us/2.png";
 import {
   useState,
   useRef,
@@ -196,6 +197,17 @@ const AboutPage = (): JSX.Element => {
   return (
     <>
       <section className="about-hero position-relative text-white">
+        <div className="about-hero-media" aria-hidden="true">
+          <img
+            src={aboutHeroImage}
+            alt=""
+            className="about-hero-image"
+            decoding="async"
+            width={1521}
+            height={516}
+            sizes="100vw"
+          />
+        </div>
         <div className="about-hero-overlay"></div>
         <div className="container h-fit my-5 position-relative py-5 py-lg-6">
           <span className="badge bg-white text-primary fw-semibold mb-3 text-uppercase small shadow-sm">

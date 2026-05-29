@@ -1,3 +1,5 @@
+import studentServicesHeroImage from "../assets/images/studen-service-page/1.png";
+
 const serviceTags: string[] = [
   "End-to-end support",
   "Personalised guidance",
@@ -173,6 +175,17 @@ const StudentServicesPage = (): JSX.Element => {
   return (
     <>
       <section className="services-hero position-relative text-white">
+        <div className="services-hero-media" aria-hidden="true">
+          <img
+            src={studentServicesHeroImage}
+            alt=""
+            className="services-hero-image"
+            decoding="async"
+            width={1521}
+            height={471}
+            sizes="100vw"
+          />
+        </div>
         <div className="services-hero-overlay" aria-hidden="true"></div>
         <div className="container position-relative py-5 py-lg-6">
           <span className="badge bg-white text-primary fw-semibold mb-3 text-uppercase small shadow-sm">
