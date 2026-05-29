@@ -1,8 +1,9 @@
 import { Suspense, lazy } from "react";
 import DeferredRender from "./DeferredRender";
+import { lazyWithRetry } from "../utils/lazyWithRetry";
 
 const StudyDestinationsCarouselBody = lazy(
-  () => import("./StudyDestinationsCarouselBody")
+  () => lazyWithRetry(() => import("./StudyDestinationsCarouselBody"))
 );
 
 const StudyDestinationsCarousel = (): JSX.Element => {

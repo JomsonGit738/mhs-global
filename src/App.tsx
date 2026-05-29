@@ -6,15 +6,28 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingContactButtons';
 import HomePage from './pages/HomePage';
+import { lazyWithRetry } from './utils/lazyWithRetry';
 
-const FoundationProgrammesPage = lazy(() => import('./pages/FoundationProgrammesPage'));
-const UndergraduateProgrammesPage = lazy(() => import('./pages/UndergraduateProgrammesPage'));
-const PostgraduateProgrammesPage = lazy(() => import('./pages/PostgraduateProgrammesPage'));
-const ShortProgrammesPage = lazy(() => import('./pages/ShortProgrammesPage'));
-const StudentServicesPage = lazy(() => import('./pages/StudentServicesPage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const StudyDestinationPage = lazy(() => import('./pages/StudyDestinationPage'));
+const FoundationProgrammesPage = lazy(() =>
+  lazyWithRetry(() => import('./pages/FoundationProgrammesPage'))
+);
+const UndergraduateProgrammesPage = lazy(() =>
+  lazyWithRetry(() => import('./pages/UndergraduateProgrammesPage'))
+);
+const PostgraduateProgrammesPage = lazy(() =>
+  lazyWithRetry(() => import('./pages/PostgraduateProgrammesPage'))
+);
+const ShortProgrammesPage = lazy(() =>
+  lazyWithRetry(() => import('./pages/ShortProgrammesPage'))
+);
+const StudentServicesPage = lazy(() =>
+  lazyWithRetry(() => import('./pages/StudentServicesPage'))
+);
+const AboutPage = lazy(() => lazyWithRetry(() => import('./pages/AboutPage')));
+const ContactPage = lazy(() => lazyWithRetry(() => import('./pages/ContactPage')));
+const StudyDestinationPage = lazy(() =>
+  lazyWithRetry(() => import('./pages/StudyDestinationPage'))
+);
 
 const routeFallback = <div aria-hidden="true" />;
 
