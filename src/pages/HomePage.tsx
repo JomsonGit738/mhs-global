@@ -1,6 +1,8 @@
 import { ChangeEvent, useMemo, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import HeroSlider from "../components/HeroSlider";
+import HeroGlobeSection from "../components/HeroGlobeSection";
+// import HeroSlider from "../components/HeroSlider";
 import PartnerUniversitiesSlider from "../components/PartnerUniversitiesSlider";
 import ContactContent, { ContactInfoItem } from "../components/ContactContent";
 import StudyDestinationsCarousel from "../components/StudyDestinationsCarousel";
@@ -40,7 +42,7 @@ type Course = {
   image: string;
   imageWidth: number;
   imageHeight: number;
-  slug: string;
+  route: string;
 };
 
 const courses: Course[] = [
@@ -51,7 +53,7 @@ const courses: Course[] = [
     image: foundationImg,
     imageWidth: 465,
     imageHeight: 456,
-    slug: "foundation",
+    route: "/foundation-programmes",
   },
   {
     title: "Undergraduate Degrees",
@@ -60,7 +62,7 @@ const courses: Course[] = [
     image: undergraduateImg,
     imageWidth: 463,
     imageHeight: 456,
-    slug: "undergraduate",
+    route: "/undergraduate-programmes",
   },
   {
     title: "Pre-Masters",
@@ -69,7 +71,7 @@ const courses: Course[] = [
     image: preMastersImg,
     imageWidth: 468,
     imageHeight: 456,
-    slug: "postgraduate",
+    route: "/postgraduate-programmes",
   },
   {
     title: "Masters in Research",
@@ -78,7 +80,7 @@ const courses: Course[] = [
     image: mastersResearchImg,
     imageWidth: 466,
     imageHeight: 456,
-    slug: "postgraduate",
+    route: "/postgraduate-programmes",
   },
   {
     title: "PhD Degrees",
@@ -87,7 +89,7 @@ const courses: Course[] = [
     image: phdImg,
     imageWidth: 462,
     imageHeight: 456,
-    slug: "postgraduate",
+    route: "/postgraduate-programmes",
   },
   {
     title: "Executive Education",
@@ -96,7 +98,7 @@ const courses: Course[] = [
     image: executiveImg,
     imageWidth: 463,
     imageHeight: 456,
-    slug: "shortCourses",
+    route: "/short-programmes",
   },
 ];
 
@@ -177,6 +179,7 @@ const getInitials = (name: string): string =>
 const HomePage = (): JSX.Element => {
   const spotlightTestimonials = testimonials.slice(0, 3);
   const [courseQuery, setCourseQuery] = useState("");
+  const navigate = useNavigate();
 
   const filteredCourses = useMemo(() => {
     const trimmed = courseQuery.trim();
@@ -199,10 +202,29 @@ const HomePage = (): JSX.Element => {
     setCourseQuery(event.target.value);
   };
 
+  const buildCourseSearchHref = (course: Course): string => {
+    const params = new URLSearchParams({
+      search: courseQuery.trim() || course.title,
+    });
+
+    return `${course.route}?${params.toString()}`;
+  };
+
+  const handleCourseSearchSubmit = () => {
+    const firstMatch = suggestionCourses[0];
+    if (!firstMatch) {
+      return;
+    }
+
+    navigate(buildCourseSearchHref(firstMatch));
+    setCourseQuery("");
+  };
+
   return (
     <>
       <StudyDestinationPopup />
-      <HeroSlider />
+      {/* <HeroSlider /> */}
+      <HeroGlobeSection />
 
       {promoHighlights.map((promo) => (
         <section
@@ -276,6 +298,12 @@ const HomePage = (): JSX.Element => {
                 placeholder="Search by programme name or summary"
                 value={courseQuery}
                 onChange={handleCourseSearchChange}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    event.preventDefault();
+                    handleCourseSearchSubmit();
+                  }
+                }}
                 aria-label="Search courses by programme name or summary"
               />
               <button
@@ -302,27 +330,27 @@ const HomePage = (): JSX.Element => {
               >
                 {suggestionCourses.length ? (
                   suggestionCourses.map((course) => (
-                    <a
+                    <Link
                       key={`course-suggestion-${course.title}`}
-                      href="/undergraduate-programmes"
+                      to={buildCourseSearchHref(course)}
                       className="course-search-option"
                       role="option"
                       aria-selected="false"
                       onClick={() => setCourseQuery("")}
                     >
-                  <div className="course-search-option-title">
-                    {course.title}
-                  </div>
-                  <div className="course-search-option-copy">
-                    {course.summary}
-                  </div>
+                      <div className="course-search-option-title">
+                        {course.title}
+                      </div>
+                      <div className="course-search-option-copy">
+                        {course.summary}
+                      </div>
                       <span
                         className="course-search-option-chevron"
                         aria-hidden="true"
                       >
                         <i className="bi bi-arrow-up-right"></i>
                       </span>
-                    </a>
+                    </Link>
                   ))
                 ) : (
                   <div className="course-search-empty" role="status">
@@ -334,7 +362,7 @@ const HomePage = (): JSX.Element => {
             ) : null}
           </div>
           <div className="row g-4 align-items-stretch">
-            {courses.map((course) => (
+            {(shouldShowSuggestions ? filteredCourses : courses).map((course) => (
               <div className="col-md-6 col-xl-4" key={course.title}>
                 <article
                   className="course-card-premium"
@@ -357,17 +385,7 @@ const HomePage = (): JSX.Element => {
                     </span>
                     <h3 className="course-card-title">{course.title}</h3>
                     <p className="course-card-summary">{course.summary}</p>
-                    <a
-                      href={
-                        ({
-                          foundation: "/foundation-programmes",
-                          undergraduate: "/undergraduate-programmes",
-                          postgraduate: "/postgraduate-programmes",
-                          shortCourses: "/short-programmes",
-                        } as Record<string, string>)[course.slug] ?? "/undergraduate-programmes"
-                      }
-                      className="course-card-link"
-                    >
+                    <a href={course.route} className="course-card-link">
                       View programme details
                       <i className="bi bi-arrow-up-right ms-2"></i>
                     </a>

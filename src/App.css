@@ -1306,7 +1306,7 @@ header .py-3 {
 }
 
 .services-hero {
-  height: 25rem;
+  min-height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2445,11 +2445,30 @@ header .py-3 {
     width: 100%;
   }
 
+  .services-hero {
+    min-height: auto;
+    height: auto;
+  }
+
   .foundation-section .container,
   .about-content .container,
+  .services-hero .container,
   .services-content .container,
   .contact-content .container {
-    padding: 0 1.125rem;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+  }
+
+  .services-hero > .container.position-relative.py-5.py-lg-6 {
+    padding-top: 1.75rem !important;
+    padding-bottom: 2rem !important;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .services-hero > .container.position-relative.py-5.py-lg-6 > .lead {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .foundation-section .row.align-items-center {
@@ -4010,22 +4029,40 @@ header .py-3 {
 
 .courses-luxe__hero-visual {
   position: relative;
-  width: min(25rem, 100%);
+  width: min(31rem, 100%);
+  padding: clamp(0.35rem, 1.1vw, 0.7rem);
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at 20% 22%, rgba(13, 110, 253, 0.08), transparent 38%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(242, 247, 255, 0.94));
+  box-shadow: 0 1.2rem 2.4rem rgba(15, 23, 42, 0.06);
+  overflow: hidden;
 }
 
 .courses-luxe__hero-visual::after {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.28) 92%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(226, 236, 255, 0.08));
+  pointer-events: none;
 }
 
 .courses-luxe__hero-visual:hover {
   transform: none;
-  box-shadow: none;
+  box-shadow: 0 1.45rem 2.8rem rgba(15, 23, 42, 0.08);
 }
 
 .courses-luxe__hero-image {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 1.5rem;
+  filter: saturate(0.98) contrast(1.01);
+  opacity: 0.98;
+  -webkit-mask-image: radial-gradient(circle at center, black 76%, transparent 100%);
+  mask-image: radial-gradient(circle at center, black 76%, transparent 100%);
 }
 
 .courses-luxe__hero-copy {

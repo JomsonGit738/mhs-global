@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { CategoryDetail, courseCategories } from "./coursesShared";
-import postgraduateSvg from "../assets/svg/3.svg";
+import postgraduateImage from "../assets/images/course-pages/Postgraduate_Programmes.webp";
 
 const PostgraduateProgrammesPage = (): JSX.Element => {
   const category = useMemo(
@@ -14,7 +14,7 @@ const PostgraduateProgrammesPage = (): JSX.Element => {
         <header className="row g-5 align-items-center courses-luxe__hero">
           <div className="col-lg-5 order-lg-2 d-flex justify-content-center">
             <div className="courses-luxe__hero-visual" data-animate="fade-up">
-              <img src={postgraduateSvg} alt={`${category.name} illustration`} className="courses-luxe__hero-image" />
+              <img src={postgraduateImage} alt={`${category.name} illustration`} className="courses-luxe__hero-image" />
             </div>
           </div>
           <div className="col-lg-7 order-lg-1">

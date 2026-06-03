@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import foundationImg from "../assets/images/courses/1.png";
 import undergraduateImg from "../assets/images/courses/2.png";
 import postgraduateImg from "../assets/images/courses/3.png";
@@ -252,8 +253,13 @@ const slugifyProgram = (value: string): string =>
 export const CategoryDetail = ({ category }: CategoryDetailProps) => {
   const [programQuery, setProgramQuery] = useState("");
   const [highlightedProgram, setHighlightedProgram] = useState<string | null>(null);
+  const location = useLocation();
   const searchId = `program-search-${category.id}`;
   const resultsId = `program-search-results-${category.id}`;
+  const incomingSearchQuery = useMemo(() => {
+    const params = new URLSearchParams(location.search);
+    return params.get("search")?.trim() ?? "";
+  }, [location.search]);
 
   const programEntries = useMemo(
     () =>
@@ -276,10 +282,15 @@ export const CategoryDetail = ({ category }: CategoryDetailProps) => {
     );
   }, [programEntries, programQuery]);
 
+  const visibleProgramEntries = useMemo(
+    () => (hasQuery ? searchResults : programEntries),
+    [hasQuery, programEntries, searchResults]
+  );
+
   useEffect(() => {
-    setProgramQuery("");
+    setProgramQuery(incomingSearchQuery);
     setHighlightedProgram(null);
-  }, [category.id]);
+  }, [category.id, incomingSearchQuery]);
 
   useEffect(() => {
     if (!highlightedProgram) {
@@ -290,6 +301,14 @@ export const CategoryDetail = ({ category }: CategoryDetailProps) => {
 
     return () => window.clearTimeout(timeout);
   }, [highlightedProgram]);
+
+  useEffect(() => {
+    if (!incomingSearchQuery || !searchResults.length) {
+      return;
+    }
+
+    handleResultSelect(searchResults[0].slug);
+  }, [incomingSearchQuery, searchResults]);
 
   const handleResultSelect = (slug: string) => {
     const target = document.getElementById(`program-${slug}`);
@@ -402,20 +421,30 @@ export const CategoryDetail = ({ category }: CategoryDetailProps) => {
               </div>
 
               <ol className="courses-luxe__programs-list">
-                {programEntries.map((entry) => (
-                  <li key={entry.slug} className="courses-luxe__programs-item">
-                    <article
-                      id={`program-${entry.slug}`}
-                      className={`courses-luxe__program ${
-                        highlightedProgram === entry.slug ? "is-highlighted" : ""
-                      }`}
-                      data-animate="fade-up"
-                      style={{ animationDelay: `${entry.index * 0.06}s` }}
-                    >
-                      <h3 className="courses-luxe__program-title">{entry.title}</h3>
+                {visibleProgramEntries.length ? (
+                  visibleProgramEntries.map((entry) => (
+                    <li key={entry.slug} className="courses-luxe__programs-item">
+                      <article
+                        id={`program-${entry.slug}`}
+                        className={`courses-luxe__program ${
+                          highlightedProgram === entry.slug ? "is-highlighted" : ""
+                        }`}
+                        data-animate="fade-up"
+                        style={{ animationDelay: `${entry.index * 0.06}s` }}
+                      >
+                        <h3 className="courses-luxe__program-title">{entry.title}</h3>
+                      </article>
+                    </li>
+                  ))
+                ) : (
+                  <li className="courses-luxe__programs-item">
+                    <article className="courses-luxe__program">
+                      <h3 className="courses-luxe__program-title">
+                        No programmes match your search.
+                      </h3>
                     </article>
                   </li>
-                ))}
+                )}
               </ol>
             </div>
           </div>
