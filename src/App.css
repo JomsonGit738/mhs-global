@@ -2529,11 +2529,26 @@ header .py-3 {
 
   .foundation-section .container,
   .about-content .container,
+  .contact-hero .container,
   .services-hero .container,
   .services-content .container,
-  .contact-content .container {
-    padding-left: 1.125rem;
-    padding-right: 1.125rem;
+  .contact-content .container,
+  .courses-section .container,
+  .testimonials-section .container,
+  .home-insights-section .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .contact-hero .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .contact-hero .col-lg-7,
+  .contact-hero .col-lg-5 {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .services-hero > .container.position-relative.py-5.py-lg-6 {
@@ -3468,6 +3483,12 @@ header .py-3 {
   min-inline-size: 0;
 }
 
+.contact-luxe__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 .contact-luxe__eyebrow {
   font-size: clamp(0.9rem, 0.2vw + 0.86rem, 1.125rem);
   line-height: 1.5;
@@ -3976,11 +3997,17 @@ header .py-3 {
   }
 
   .contact-luxe__surface {
-    padding: clamp(1.5rem, 7vw, 2rem);
+    padding: 0;
   }
 
   .contact-luxe__grid {
     gap: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .contact-luxe__intro {
+    padding-top: 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .contact-luxe__title {
@@ -4011,7 +4038,7 @@ header .py-3 {
 
   .contact-luxe__surface {
     border-radius: 1.5rem;
-    padding: clamp(1.25rem, 7vw, 1.75rem);
+    padding: 0;
     gap: clamp(1.25rem, 7vw, 1.75rem);
   }
 

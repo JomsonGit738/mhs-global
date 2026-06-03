@@ -47,13 +47,15 @@ const ContactContent: FC<ContactContentProps> = ({
           <div className="contact-luxe__halo" aria-hidden />
           <div className="contact-luxe__grid">
             <aside className="contact-luxe__info" data-animate="fade-up">
-              {infoSubtitle ? (
-                <span className="contact-luxe__eyebrow">{infoSubtitle}</span>
-              ) : null}
-              <h2 className="contact-luxe__title">{infoTitle}</h2>
-              {infoDescription ? (
-                <p className="contact-luxe__description">{infoDescription}</p>
-              ) : null}
+              <div className="contact-luxe__intro">
+                {infoSubtitle ? (
+                  <span className="contact-luxe__eyebrow">{infoSubtitle}</span>
+                ) : null}
+                <h2 className="contact-luxe__title">{infoTitle}</h2>
+                {infoDescription ? (
+                  <p className="contact-luxe__description">{infoDescription}</p>
+                ) : null}
+              </div>
 
               <ul className="contact-luxe__list">
                 {info.map((item) => (
