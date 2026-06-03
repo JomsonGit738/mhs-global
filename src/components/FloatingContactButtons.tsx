@@ -1,4 +1,14 @@
 import type { FC } from 'react';
+import { socialPlatforms } from '../data/socialPlatforms';
+
+const socialClassNames: Record<string, string> = {
+  linkedin: 'floating-contact__item--linkedin',
+  youtube: 'floating-contact__item--youtube',
+  instagram: 'floating-contact__item--instagram',
+  tiktok: 'floating-contact__item--tiktok',
+  facebook: 'floating-contact__item--facebook',
+  twitter: 'floating-contact__item--twitter',
+};
 
 const FloatingContactButtons: FC = () => {
   return (
@@ -29,6 +39,19 @@ const FloatingContactButtons: FC = () => {
         <i className="bi bi-envelope"></i>
         <span className="visually-hidden">Email</span>
       </a>
+      {socialPlatforms.map((platform) => (
+        <a
+          key={platform.icon}
+          className={`floating-contact__item ${socialClassNames[platform.icon] ?? ''}`.trim()}
+          href={platform.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={platform.label}
+        >
+          <i className={`bi bi-${platform.icon}`}></i>
+          <span className="visually-hidden">{platform.label}</span>
+        </a>
+      ))}
     </div>
   );
 };

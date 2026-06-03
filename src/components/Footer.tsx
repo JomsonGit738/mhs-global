@@ -1,5 +1,6 @@
 // import { FormEvent } from "react";
 import logo from "../assets/images/mhs-logo-brand.png";
+import { socialPlatforms } from "../data/socialPlatforms";
 
 const footerColumns = [
   {
@@ -7,6 +8,8 @@ const footerColumns = [
     items: [
       { label: "About Us", href: "/about" },
       { label: "Our Services", href: "/student-services" },
+      { label: "Blog", href: "/blog" },
+      { label: "Career Opportunities", href: "/career-opportunities" },
       { label: "Universities", href: "/#universities" },
       { label: "Courses", href: "/#courses" },
       { label: "Student Support", href: "/student-services" },
@@ -37,39 +40,6 @@ const footerColumns = [
       { label: "Postgraduate Programmes", href: "/postgraduate-programmes" },
       { label: "Short Programmes", href: "/short-programmes" },
     ],
-  },
-] as const;
-
-const socialPlatforms = [
-  {
-    icon: "linkedin",
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mhs-global-associates-648218387/",
-  },
-  {
-    icon: "youtube",
-    label: "YouTube",
-    href: "https://www.youtube.com/@MHSGlobalAssociates-1",
-  },
-  {
-    icon: "instagram",
-    label: "Instagram",
-    href: "https://www.instagram.com/mhsglobalassociates/",
-  },
-  {
-    icon: "tiktok",
-    label: "TikTok",
-    href: "https://www.tiktok.com/@mhs.globalassociates",
-  },
-  {
-    icon: "facebook",
-    label: "Facebook",
-    href: "https://www.facebook.com/mhsglobalassociiates/",
-  },
-  {
-    icon: "twitter",
-    label: "X (Twitter)",
-    href: "https://x.com/mhsglobala1",
   },
 ] as const;
 
@@ -168,7 +138,7 @@ const Footer = (): JSX.Element => {
                 href={platform.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-luxe__social-link"
+                className={`footer-luxe__social-link footer-luxe__social-link--${platform.icon}`}
                 aria-label={platform.label}
               >
                 <i className={`bi bi-${platform.icon}`}></i>

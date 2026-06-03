@@ -256,7 +256,7 @@ const HomePage = (): JSX.Element => {
       ))}
 
       <StudyDestinationsCarousel />
-      <section className="py-5 bg-light">
+      <section className="home-network-section py-5 bg-light">
         <div className="container">
           <div className="section-heading text-start mb-5">
             <h1 className="fs-32-600-130 fw-bold text-dark mb-3">
@@ -627,6 +627,45 @@ const HomePage = (): JSX.Element => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-insights-section py-5 bg-light">
+        <div className="container">
+          <div className="row g-4">
+            <div className="col-lg-6">
+              <article className="home-insights-card h-100">
+                <span className="home-insights-card__eyebrow">Blog</span>
+                <h2 className="home-insights-card__title">Blog and Insights</h2>
+                <p className="home-insights-card__copy">
+                  Explore updates on admissions, destination planning,
+                  scholarships, and preparation advice for international
+                  students.
+                </p>
+                <a href="/blog" className="home-insights-card__link">
+                  View blog section
+                </a>
+              </article>
+            </div>
+            <div className="col-lg-6">
+              <article className="home-insights-card h-100">
+                <span className="home-insights-card__eyebrow">
+                  Career Opportunities
+                </span>
+                <h2 className="home-insights-card__title">
+                  Career Opportunities
+                </h2>
+                <p className="home-insights-card__copy">
+                  Learn how course selection, destination strategy, part-time
+                  work, and post-study planning support stronger career
+                  outcomes.
+                </p>
+                <a href="/career-opportunities" className="home-insights-card__link">
+                  Explore career guidance
+                </a>
+              </article>
             </div>
           </div>
         </div>

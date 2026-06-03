@@ -123,6 +123,8 @@
   position: relative;
   display: grid;
   place-items: center;
+  justify-items: center;
+  width: 100%;
   min-height: clamp(11rem, 24vw, 18rem);
   padding: clamp(0.5rem, 1.5vw, 1rem);
 }
@@ -141,8 +143,11 @@
   position: relative;
   z-index: 2;
   display: block;
+  max-width: 100%;
   width: clamp(12.5rem, 30vw, 28rem);
+  aspect-ratio: 1 / 1;
   height: auto;
+  margin-inline: auto;
   cursor: grab;
 }
 
@@ -206,12 +211,18 @@
 .hero-globe-orbit--large {
   width: min(100%, 36rem);
   aspect-ratio: 1;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   transform: rotate(12deg);
 }
 
 .hero-globe-orbit--small {
   width: min(76%, 26rem);
   aspect-ratio: 1;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   transform: rotate(-18deg);
 }
 
@@ -235,25 +246,54 @@
 
 @media (max-width: 575.98px) {
   .hero-globe-shell {
-    padding-top: 1.75rem;
-    padding-bottom: 2rem;
+    padding-top: 1.35rem;
+    padding-bottom: 1.6rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  .hero-globe-kicker {
+    font-size: 0.7rem;
+    padding: 0.38rem 0.72rem;
+    margin-bottom: 0.7rem;
   }
 
   .hero-globe-title {
-    font-size: clamp(1.85rem, 1.55rem + 2vw, 2.5rem);
+    font-size: clamp(1.6rem, 1.3rem + 1.8vw, 2.05rem);
+    letter-spacing: -0.035em;
+  }
+
+  .hero-globe-description {
+    font-size: 0.92rem;
+    line-height: 1.48;
+    margin-top: 0.8rem;
+  }
+
+  .hero-globe-button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.88rem;
   }
 
   .hero-globe-stage {
-    min-height: 9rem;
+    min-height: 11.5rem;
     padding: 0;
+    overflow: hidden;
   }
 
   .hero-globe-canvas {
-    width: min(100%, 15rem);
+    width: min(100%, 15.75rem);
+  }
+
+  .hero-globe-orbit--large {
+    width: min(88%, 16.5rem);
+  }
+
+  .hero-globe-orbit--small {
+    width: min(66%, 12rem);
   }
 
   .hero-globe-label {
-    font-size: 0.58rem;
-    padding: 0.2rem 0.48rem;
+    display: none;
   }
 }

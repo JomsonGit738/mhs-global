@@ -8,6 +8,7 @@ const serviceTags: string[] = [
 ];
 
 type ServiceCard = {
+  group: "Planning" | "Admissions" | "Settlement" | "Career";
   title: string;
   description: string;
   icon: string;
@@ -16,6 +17,7 @@ type ServiceCard = {
 
 const serviceCards: ServiceCard[] = [
   {
+    group: "Planning",
     title: "Career Counselling & Profile Assessment",
     description:
       "Choosing the right academic path is critical. Our expert advisors provide:",
@@ -28,6 +30,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Planning",
     title: "Course & University Selection",
     description:
       "With access to a wide network of global institutions, we assist in:",
@@ -39,6 +42,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Admissions",
     title: "Application & Admission Support",
     description:
       "Our team simplifies the application process through:",
@@ -51,6 +55,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Admissions",
     title: "Visa Guidance & Immigration Support",
     description:
       "We provide structured support for visa applications, including:",
@@ -63,6 +68,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Admissions",
     title: "Test Preparation Support",
     description:
       "We assist in meeting admission requirements by offering guidance for:",
@@ -74,6 +80,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Admissions",
     title: "Scholarship & Financial Guidance",
     description:
       "We help make education more accessible through:",
@@ -85,6 +92,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Settlement",
     title: "Pre-Departure Support",
     description:
       "Preparing for a new environment is essential. Our services include:",
@@ -97,6 +105,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Settlement",
     title: "Accommodation & Travel Assistance",
     description:
       "We help secure safe and convenient arrangements by offering:",
@@ -109,6 +118,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Settlement",
     title: "Arrival & Settlement Support",
     description: "Support continues after arrival with:",
     icon: "bi-geo-alt",
@@ -120,6 +130,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Career",
     title: "Academic & Language Support",
     description: "We support academic success through:",
     icon: "bi-mortarboard",
@@ -130,6 +141,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Career",
     title: "Career & Part-Time Work Guidance",
     description:
       "We assist in building practical experience and career readiness:",
@@ -142,6 +154,7 @@ const serviceCards: ServiceCard[] = [
     ],
   },
   {
+    group: "Career",
     title: "Post-Study Support",
     description: "Our support extends beyond education:",
     icon: "bi-arrow-up-right-circle",
@@ -169,6 +182,44 @@ const whyChoosePoints: string[] = [
   "Strong network of global institutions",
   "Experienced and knowledgeable advisors",
   "Transparent and ethical services",
+];
+
+const scholarshipSupportPoints: string[] = [
+  "Identification of scholarships, bursaries, and grant opportunities relevant to your destination and level of study.",
+  "Guidance on scholarship eligibility, timelines, and supporting document preparation.",
+  "Help with presenting stronger scholarship applications alongside your university application.",
+  "Practical planning support for tuition, living costs, and education finance preparation.",
+];
+
+const serviceGroups: Array<{
+  id: ServiceCard["group"];
+  title: string;
+  intro: string;
+}> = [
+  {
+    id: "Planning",
+    title: "Planning and decision-making",
+    intro:
+      "Start with the right course, destination, and academic direction before applications begin.",
+  },
+  {
+    id: "Admissions",
+    title: "Admissions, scholarships, and visa support",
+    intro:
+      "Move through applications with structured support for documents, funding, and compliance.",
+  },
+  {
+    id: "Settlement",
+    title: "Departure and settlement support",
+    intro:
+      "Prepare practically for travel, accommodation, and a smoother transition into student life abroad.",
+  },
+  {
+    id: "Career",
+    title: "Academic progression and career pathways",
+    intro:
+      "Plan for student success beyond admission, including employability and post-study progression.",
+  },
 ];
 
 const StudentServicesPage = (): JSX.Element => {
@@ -243,44 +294,86 @@ const StudentServicesPage = (): JSX.Element => {
                 </div>
               </div>
 
-              <div className="row g-4">
-                {serviceCards.map((card) => (
-                  <div key={card.title} className="col-md-6">
-                    <article
-                      id={
-                        card.title === "Scholarship & Financial Guidance"
-                          ? "scholarship-guidance"
-                          : undefined
-                      }
-                      className="card h-100 border-0 shadow-sm service-card"
-                    >
-                      <div className="card-body d-flex flex-column">
-                        <div className="service-card-icon icon-pill text-primary mb-3">
-                          <i className={"bi " + card.icon} aria-hidden="true"></i>
+              <section
+                id="scholarship-guidance"
+                className="service-scholarship-section scroll-target"
+              >
+                <div className="card border-0 shadow-sm service-scholarship-card">
+                  <div className="card-body p-4 p-lg-5">
+                    <span className="service-section-kicker">
+                      Funding and scholarships
+                    </span>
+                    <h3 className="fw-semibold text-dark mb-3">
+                      Scholarship and Financial Guidance
+                    </h3>
+                    <p className="text-secondary mb-4">
+                      We help students understand scholarship opportunities,
+                      prepare stronger applications, and plan funding with
+                      clearer financial guidance for study abroad.
+                    </p>
+                    <div className="row g-3">
+                      {scholarshipSupportPoints.map((point) => (
+                        <div key={point} className="col-md-6">
+                          <div className="service-scholarship-point">
+                            <i
+                              className="bi bi-stars text-primary"
+                              aria-hidden="true"
+                            ></i>
+                            <span>{point}</span>
+                          </div>
                         </div>
-                        <h3 className="h5 fw-semibold text-dark mb-2">
-                          {card.title}
-                        </h3>
-                        <p className="text-secondary mb-3">{card.description}</p>
-                        <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
-                          {card.points.map((point) => (
-                            <li
-                              key={point}
-                              className="d-flex align-items-start gap-2 text-secondary"
-                            >
-                              <i
-                                className="bi bi-check-circle-fill text-primary"
-                                aria-hidden="true"
-                              ></i>
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </article>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              </section>
+
+              {serviceGroups.map((group) => {
+                const cards = serviceCards.filter((card) => card.group === group.id);
+
+                return (
+                  <section
+                    key={group.id}
+                    className="service-cluster-section"
+                  >
+                    <div className="service-cluster-section__head">
+                      <span className="service-section-kicker">{group.title}</span>
+                      <p className="text-secondary mb-0">{group.intro}</p>
+                    </div>
+                    <div className="row g-4 mt-1">
+                      {cards.map((card) => (
+                        <div key={card.title} className="col-md-6">
+                          <article className="card h-100 border-0 shadow-sm service-card">
+                            <div className="card-body d-flex flex-column">
+                              <div className="service-card-icon icon-pill text-primary mb-3">
+                                <i className={"bi " + card.icon} aria-hidden="true"></i>
+                              </div>
+                              <h3 className="h5 fw-semibold text-dark mb-2">
+                                {card.title}
+                              </h3>
+                              <p className="text-secondary mb-3">{card.description}</p>
+                              <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
+                                {card.points.map((point) => (
+                                  <li
+                                    key={point}
+                                    className="d-flex align-items-start gap-2 text-secondary"
+                                  >
+                                    <i
+                                      className="bi bi-check-circle-fill text-primary"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span>{point}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </article>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
 
               <div className="card border-0 shadow-sm service-extra-card mt-5">
                 <div className="card-body p-4 p-lg-5">

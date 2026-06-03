@@ -352,7 +352,6 @@ const HeroGlobeSection = (): JSX.Element => {
               <canvas
                 ref={canvasRef}
                 className="hero-globe-canvas"
-                style={{ width: 560, height: 560, maxWidth: "100%", aspectRatio: "1 / 1" }}
                 aria-hidden="true"
               />
               <div className="hero-globe-label-layer">

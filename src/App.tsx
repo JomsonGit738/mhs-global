@@ -25,6 +25,10 @@ const StudentServicesPage = lazy(() =>
 );
 const AboutPage = lazy(() => lazyWithRetry(() => import('./pages/AboutPage')));
 const ContactPage = lazy(() => lazyWithRetry(() => import('./pages/ContactPage')));
+const BlogPage = lazy(() => lazyWithRetry(() => import('./pages/BlogPage')));
+const CareerOpportunitiesPage = lazy(() =>
+  lazyWithRetry(() => import('./pages/CareerOpportunitiesPage'))
+);
 const StudyDestinationPage = lazy(() =>
   lazyWithRetry(() => import('./pages/StudyDestinationPage'))
 );
@@ -111,6 +115,22 @@ const App = (): JSX.Element => {
             element={
               <Suspense fallback={routeFallback}>
                 <StudentServicesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="blog"
+            element={
+              <Suspense fallback={routeFallback}>
+                <BlogPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="career-opportunities"
+            element={
+              <Suspense fallback={routeFallback}>
+                <CareerOpportunitiesPage />
               </Suspense>
             }
           />
