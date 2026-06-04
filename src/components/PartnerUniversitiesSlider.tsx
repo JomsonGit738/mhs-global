@@ -1,10 +1,4 @@
-import { Suspense, lazy } from "react";
-import DeferredRender from "./DeferredRender";
-import { lazyWithRetry } from "../utils/lazyWithRetry";
-
-const PartnerUniversitiesSliderBody = lazy(
-  () => lazyWithRetry(() => import("./PartnerUniversitiesSliderBody"))
-);
+import PartnerUniversitiesSliderBody from "./PartnerUniversitiesSliderBody";
 
 const PartnerUniversitiesSlider = (): JSX.Element => {
   return (
@@ -14,11 +8,7 @@ const PartnerUniversitiesSlider = (): JSX.Element => {
       aria-label="Partner universities"
     >
       <div className="container">
-        <DeferredRender minHeight="10rem">
-          <Suspense fallback={null}>
-            <PartnerUniversitiesSliderBody />
-          </Suspense>
-        </DeferredRender>
+        <PartnerUniversitiesSliderBody />
       </div>
     </section>
   );

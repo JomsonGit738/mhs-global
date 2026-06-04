@@ -373,7 +373,7 @@ const HomePage = (): JSX.Element => {
                     alt=""
                     aria-hidden="true"
                     className="course-card-image"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                     width={course.imageWidth}
                     height={course.imageHeight}
@@ -485,7 +485,7 @@ const HomePage = (): JSX.Element => {
                           src={testimonial.image}
                           alt={testimonial.name}
                           className="rounded-circle me-2"
-                          loading="lazy"
+                          loading="eager"
                           decoding="async"
                           width={25}
                           height={25}
@@ -549,7 +549,7 @@ const HomePage = (): JSX.Element => {
                                     src={testimonial.image}
                                     alt={testimonial.name}
                                     className="rounded-circle border border-2 border-white shadow-sm"
-                                    loading="lazy"
+                                    loading="eager"
                                     decoding="async"
                                     width={33}
                                     height={33}

@@ -74,7 +74,7 @@ const StudyDestinationsCarouselBody = (): JSX.Element => {
                         src={destination.image}
                         alt={destination.imageAlt}
                         className="destination-card__image"
-                        loading="lazy"
+                        loading="eager"
                         decoding="async"
                         width={1600}
                         height={900}

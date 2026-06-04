@@ -1,10 +1,4 @@
-import { Suspense, lazy } from "react";
-import DeferredRender from "./DeferredRender";
-import { lazyWithRetry } from "../utils/lazyWithRetry";
-
-const StudyDestinationsCarouselBody = lazy(
-  () => lazyWithRetry(() => import("./StudyDestinationsCarouselBody"))
-);
+import StudyDestinationsCarouselBody from "./StudyDestinationsCarouselBody";
 
 const StudyDestinationsCarousel = (): JSX.Element => {
   return (
@@ -24,11 +18,7 @@ const StudyDestinationsCarousel = (): JSX.Element => {
             </h2>
           </div>
         </div>
-        <DeferredRender minHeight="34rem">
-          <Suspense fallback={null}>
-            <StudyDestinationsCarouselBody />
-          </Suspense>
-        </DeferredRender>
+        <StudyDestinationsCarouselBody />
       </div>
     </section>
   );

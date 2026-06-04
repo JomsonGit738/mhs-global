@@ -84,7 +84,7 @@ const PartnerUniversitiesSliderBody = (): JSX.Element => {
               src={partner.logo}
               alt={partner.name}
               className="partner-logo-img"
-              loading="lazy"
+              loading="eager"
               decoding="async"
               width={320}
               height={160}
